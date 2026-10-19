@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Masuk — Stockify Warehouse Management System</title>
-    
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
-        body { 
-            font-family: 'IBM Plex Sans', sans-serif; 
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
             background-color: #101214;
             color: #F5F5F5;
         }
-        h1, h2, h3, h4, h5, h6, .font-heading, .font-brand, .font-editorial {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-heading,
+        .font-brand,
+        .font-editorial {
             font-family: 'Space Grotesk', sans-serif;
         }
-        .tabular-nums, .font-mono {
+
+        .tabular-nums,
+        .font-mono {
             font-variant-numeric: tabular-nums;
             font-feature-settings: "tnum" 1;
         }
     </style>
 </head>
+
 <body class="bg-[#101214] text-[#F5F5F5] min-h-screen antialiased selection:bg-[#F5C842] selection:text-[#101214]">
 
     <div class="min-h-screen grid grid-cols-1 lg:grid-cols-12">
-        
+
         <!-- ========================================== -->
         <!-- SISI KIRI: SHOWCASE CARD ALA ZOHO/SHOPIFY  -->
         <!-- ========================================== -->
         <div class="hidden lg:flex lg:col-span-5 xl:col-span-6 p-6 sm:p-8 lg:p-10 flex-col justify-between">
             <div class="h-full w-full rounded-3xl bg-gradient-to-b from-[#181C20] via-[#202429] to-[#181C20] border border-[#343A40] p-8 xl:p-12 flex flex-col justify-between relative overflow-hidden shadow-xs">
-                
+
                 <!-- Pola Grid Halus di Latar Belakang -->
                 <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(#F5F5F5 1px, transparent 1px); background-size: 20px 20px;"></div>
 
@@ -48,41 +61,47 @@
                             Dengan Stockify, Anda dapat benar-benar mengorganisir seluruh inventaris bisnis tanpa celah.
                         </h2>
 
+                        <!-- Profil Pelanggan / Manajer Gudang -->
+                        <div class="flex items-center gap-3.5 mt-8">
+                            <div class="w-12 h-12 rounded-full bg-[#F5C842] text-[#101214] font-heading font-semibold text-base flex items-center justify-center shadow-xs flex-shrink-0">
+                                RS
+                            </div>
+                        </div>
 
                         <!-- Sketsa Isometrik Rak Penyimpanan Gudang -->
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
                             <svg class="w-full max-w-sm h-48 mx-auto text-[#F5C842]" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Tiang Utama Rak Gudang -->
-                                <line x1="60" y1="20" x2="60" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
-                                <line x1="340" y1="20" x2="340" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round"/>
-                                <line x1="200" y1="20" x2="200" y2="220" stroke="#F5C842" stroke-width="1.5" stroke-dasharray="3 3"/>
-                                
+                                <line x1="60" y1="20" x2="60" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round" />
+                                <line x1="340" y1="20" x2="340" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round" />
+                                <line x1="200" y1="20" x2="200" y2="220" stroke="#F5C842" stroke-width="1.5" stroke-dasharray="3 3" />
+
                                 <!-- Hambatan Rak Baris 1 (Atas) -->
-                                <rect x="55" y="60" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="55" y="60" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
                                 <!-- Kotak/Karton Baris 1 -->
-                                <rect x="80" y="25" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="80" y1="42" x2="125" y2="42" stroke="#F5C842" stroke-width="1"/>
-                                <rect x="135" y="15" width="55" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="162" y1="15" x2="162" y2="60" stroke="#F5C842" stroke-width="1"/>
-                                <rect x="220" y="30" width="40" height="30" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <rect x="270" y="20" width="55" height="40" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="80" y="25" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="80" y1="42" x2="125" y2="42" stroke="#F5C842" stroke-width="1" />
+                                <rect x="135" y="15" width="55" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="162" y1="15" x2="162" y2="60" stroke="#F5C842" stroke-width="1" />
+                                <rect x="220" y="30" width="40" height="30" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <rect x="270" y="20" width="55" height="40" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
 
                                 <!-- Hambatan Rak Baris 2 (Tengah) -->
-                                <rect x="55" y="130" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="55" y="130" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
                                 <!-- Kotak/Karton Baris 2 -->
-                                <rect x="75" y="85" width="60" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5"/>
-                                <rect x="145" y="95" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <rect x="200" y="80" width="65" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="200" y1="105" x2="265" y2="105" stroke="#F5C842" stroke-width="1"/>
-                                <rect x="275" y="90" width="50" height="40" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="75" y="85" width="60" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
+                                <rect x="145" y="95" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <rect x="200" y="80" width="65" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="200" y1="105" x2="265" y2="105" stroke="#F5C842" stroke-width="1" />
+                                <rect x="275" y="90" width="50" height="40" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
 
                                 <!-- Hambatan Rak Baris 3 (Bawah) -->
-                                <rect x="55" y="200" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="55" y="200" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
                                 <!-- Palet Kayu & Kotak Besar Baris 3 -->
-                                <rect x="75" y="150" width="80" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="75" y1="175" x2="155" y2="175" stroke="#F5C842" stroke-width="1"/>
-                                <rect x="165" y="145" width="75" height="55" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5"/>
-                                <rect x="250" y="155" width="80" height="45" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
+                                <rect x="75" y="150" width="80" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="75" y1="175" x2="155" y2="175" stroke="#F5C842" stroke-width="1" />
+                                <rect x="165" y="145" width="75" height="55" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
+                                <rect x="250" y="155" width="80" height="45" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                             </svg>
                         </div>
                     </div>
@@ -98,7 +117,9 @@
                         <div class="space-y-3.5 mt-7">
                             <div class="flex items-center gap-3.5 p-3 rounded-xl bg-[#202429] border border-[#343A40] shadow-xs">
                                 <div class="w-9 h-9 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <div class="font-heading font-semibold text-sm text-[#F5F5F5]">Hemat 1.3 Jam per Hari</div>
@@ -108,7 +129,9 @@
 
                             <div class="flex items-center gap-3.5 p-3 rounded-xl bg-[#202429] border border-[#343A40] shadow-xs">
                                 <div class="w-9 h-9 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <div class="font-heading font-semibold text-sm text-[#F5F5F5]">Efisiensi dan Efektif</div>
@@ -118,7 +141,9 @@
 
                             <div class="flex items-center gap-3.5 p-3 rounded-xl bg-[#202429] border border-[#343A40] shadow-xs">
                                 <div class="w-9 h-9 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center flex-shrink-0 font-bold text-sm">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <div class="font-heading font-semibold text-sm text-[#F5F5F5]">35–50% Otomatisasi Tugas</div>
@@ -166,24 +191,24 @@
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
                             <svg class="w-full max-w-sm h-40 mx-auto text-[#F5C842]" viewBox="0 0 360 160" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <!-- Ban Berjalan (Conveyor Belt) -->
-                                <path d="M30 110 L330 110 Q340 110 340 120 Q340 130 330 130 L30 130 Q20 130 20 120 Q20 110 30 110 Z" fill="#181C20" stroke="#F5C842" stroke-width="2"/>
+                                <path d="M30 110 L330 110 Q340 110 340 120 Q340 130 330 130 L30 130 Q20 130 20 120 Q20 110 30 110 Z" fill="#181C20" stroke="#F5C842" stroke-width="2" />
                                 <!-- Roda Pemutar -->
-                                <circle cx="40" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429"/>
-                                <circle cx="100" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429"/>
-                                <circle cx="180" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429"/>
-                                <circle cx="260" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429"/>
-                                <circle cx="320" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429"/>
-                                
-                                <!-- Paket / Karton di atas Ban -->
-                                <rect x="50" y="65" width="50" height="45" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="75" y1="65" x2="75" y2="110" stroke="#F5C842" stroke-width="1"/>
-                                
-                                <rect x="130" y="55" width="60" height="55" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="160" y1="55" x2="160" y2="110" stroke="#F5C842" stroke-width="1"/>
-                                <line x1="130" y1="82" x2="190" y2="82" stroke="#F5C842" stroke-width="1"/>
+                                <circle cx="40" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
+                                <circle cx="100" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
+                                <circle cx="180" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
+                                <circle cx="260" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
+                                <circle cx="320" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
 
-                                <rect x="220" y="60" width="55" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5"/>
-                                <line x1="247" y1="60" x2="247" y2="110" stroke="#F5C842" stroke-width="1"/>
+                                <!-- Paket / Karton di atas Ban -->
+                                <rect x="50" y="65" width="50" height="45" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="75" y1="65" x2="75" y2="110" stroke="#F5C842" stroke-width="1" />
+
+                                <rect x="130" y="55" width="60" height="55" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="160" y1="55" x2="160" y2="110" stroke="#F5C842" stroke-width="1" />
+                                <line x1="130" y1="82" x2="190" y2="82" stroke="#F5C842" stroke-width="1" />
+
+                                <rect x="220" y="60" width="55" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
+                                <line x1="247" y1="60" x2="247" y2="110" stroke="#F5C842" stroke-width="1" />
                             </svg>
                         </div>
                     </div>
@@ -217,10 +242,12 @@
                             <span class="text-[9px] uppercase tracking-[0.2em] text-[#A1A1AA] font-semibold block">Warehouse System</span>
                         </div>
                     </a>
-                    
+
                     <a href="{{ route('landing') }}" class="text-xs font-semibold text-[#A1A1AA] hover:text-[#F5C842] transition flex items-center gap-1">
                         <span>Showroom</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
                     </a>
                 </div>
 
@@ -236,17 +263,21 @@
 
                 <!-- Notifikasi Error / Info -->
                 @if ($errors->any())
-                    <div class="p-3.5 mb-5 rounded-xl bg-[#F87171]/15 border border-[#F87171]/30 text-[#F87171] text-xs flex items-center gap-2.5">
-                        <svg class="w-4 h-4 text-[#F87171] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-                        <span>{{ $errors->first() }}</span>
-                    </div>
+                <div class="p-3.5 mb-5 rounded-xl bg-[#F87171]/15 border border-[#F87171]/30 text-[#F87171] text-xs flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-[#F87171] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{{ $errors->first() }}</span>
+                </div>
                 @endif
 
                 @if (session('info'))
-                    <div class="p-3.5 mb-5 rounded-xl bg-[#F5C842]/15 border border-[#F5C842]/30 text-[#F5F5F5] text-xs flex items-center gap-2.5">
-                        <svg class="w-4 h-4 text-[#F5C842] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
-                        <span>{{ session('info') }}</span>
-                    </div>
+                <div class="p-3.5 mb-5 rounded-xl bg-[#F5C842]/15 border border-[#F5C842]/30 text-[#F5F5F5] text-xs flex items-center gap-2.5">
+                    <svg class="w-4 h-4 text-[#F5C842] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                    <span>{{ session('info') }}</span>
+                </div>
                 @endif
 
                 <!-- Formulir Autentikasi -->
@@ -260,7 +291,9 @@
                         </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#A1A1AA]">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"/></svg>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
+                                </svg>
                             </div>
                             <input type="email" name="email" id="email" value="{{ old('email', 'admin@stockify.test') }}" required
                                 class="w-full pl-10 pr-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-2 focus:ring-[#F5C842]/20 transition"
@@ -278,13 +311,18 @@
                         </div>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#A1A1AA]">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
                             </div>
                             <input type="password" name="password" id="password" value="password" required
                                 class="w-full pl-10 pr-10 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-2 focus:ring-[#F5C842]/20 transition"
                                 placeholder="••••••••">
                             <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer" title="Tampilkan/Sembunyikan sandi">
-                                <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -302,7 +340,9 @@
                     <button type="submit"
                         class="w-full py-3 px-4 rounded-xl text-xs font-heading font-semibold tracking-wide text-[#101214] bg-[#F5C842] hover:bg-[#E8B92E] transition shadow-xs mt-3 cursor-pointer flex items-center justify-center gap-2">
                         <span>Masuk ke Dashboard</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
                     </button>
                 </form>
 
@@ -319,7 +359,7 @@
                             <span class="block text-xs font-heading font-semibold text-[#F5F5F5] group-hover:text-[#F5C842]">Admin</span>
                             <span class="block text-[10px] text-[#A1A1AA] mt-0.5">Akses Penuh</span>
                         </button>
-                        
+
                         <button type="button" onclick="fillDemo('manager@stockify.test')"
                             class="p-2.5 rounded-xl bg-[#202429] hover:bg-[#2A3036] border border-[#343A40] hover:border-[#F5C842]/50 text-center transition group cursor-pointer">
                             <span class="block text-xs font-heading font-semibold text-[#F5F5F5] group-hover:text-[#F5C842]">Manajer</span>
@@ -337,7 +377,9 @@
                 <!-- Footer Kembali -->
                 <div class="text-center mt-8 pt-4">
                     <a href="{{ route('landing') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] transition inline-flex items-center gap-1.5 font-medium">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
                         <span>Kembali ke Halaman Depan & Showroom</span>
                     </a>
                 </div>
@@ -399,4 +441,5 @@
         });
     </script>
 </body>
+
 </html>
