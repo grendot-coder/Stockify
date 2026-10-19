@@ -49,7 +49,7 @@
             font-size: 9px;
         }
         .badge-in { background: #ECFDF5; color: #047857; }
-        .badge-out { background: #F5E6DE; color: #BD6745; }
+        .badge-out { background: #FEF3C7; color: #B45309; }
         .no-print {
             margin-bottom: 20px;
             padding: 12px;
@@ -61,8 +61,8 @@
             align-items: center;
         }
         .btn-print {
-            background: #BD6745;
-            color: #ffffff;
+            background: #F5C842;
+            color: #101214;
             border: none;
             padding: 8px 16px;
             border-radius: 6px;
@@ -88,7 +88,7 @@
     <!-- Kop Dokumen Resmi -->
     <div style="border-bottom: 2px solid #292524; padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
-            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #BD6745; letter-spacing: -0.02em;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F5C842; letter-spacing: -0.02em;">
                 STOCKIFY <span style="font-size: 11px; color: #78716C; font-weight: 500; font-family: 'IBM Plex Sans';">Warehouse Management System</span>
             </div>
             <h1 style="font-size: 16px; font-weight: 700; margin: 4px 0 0 0;">LAPORAN RIWAYAT MUTASI TRANSAKSI GUDANG</h1>
@@ -118,7 +118,7 @@
         </div>
         <div style="flex: 1; border: 1px solid #E7E0DA; padding: 10px; border-radius: 6px; background: #FAF7F4;">
             <div style="font-size: 9px; text-transform: uppercase; color: #78716C; font-weight: 600;">Barang Keluar (Confirmed)</div>
-            <div style="font-size: 16px; font-weight: 700; color: #BD6745; margin-top: 2px;" class="font-mono">
+            <div style="font-size: 16px; font-weight: 700; color: #F5C842; margin-top: 2px;" class="font-mono">
                 -{{ number_format($outboundQty) }} Unit
             </div>
         </div>

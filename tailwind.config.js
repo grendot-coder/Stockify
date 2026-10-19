@@ -9,40 +9,57 @@ module.exports = {
     theme: {
       extend: {
         colors: {
-          // Bright Soft Terracotta Warehouse 60-30-10 Rule
+          // Industrial Theme: Yellow, Graphite, and White
+          industrial: {
+            bg: '#101214',          // Main background
+            surface: '#181C20',     // Sidebar and major surfaces
+            card: '#202429',        // Cards and input surfaces
+            hover: '#2A3036',       // Hover surfaces
+            border: '#343A40',      // Borders and dividers
+            text: '#F5F5F5',        // Primary text
+            muted: '#A1A1AA',       // Secondary text
+            yellow: '#F5C842',      // Primary brand accent
+            'yellow-hover': '#E8B92E', // Accent hover
+            'yellow-dark': '#101214',  // Text on yellow buttons
+            success: '#22C55E',
+            warning: '#FB923C',
+            error: '#F87171',
+            info: '#38BDF8',
+          },
+          // Map legacy aliases so any remaining references seamlessly resolve to the industrial palette
           ivory: {
-            DEFAULT: '#FAF7F4', // 60% Main background
-            50: '#FFFFFF',
-            100: '#FAF7F4',
-            200: '#F5EFEB',
+            DEFAULT: '#101214',
+            50: '#202429',
+            100: '#101214',
+            200: '#181C20',
           },
           terracotta: {
-            DEFAULT: '#BD6745', // 10% Soft Terracotta (buttons, links, active states)
-            deep: '#A34E30',    // Deep Terracotta for Primary buttons and active navigation
-            darker: '#8C3D22',  // Hover state for Deep Terracotta
-            hover: '#A55636',
-            active: '#8E482D',
-            pale: '#F5E6DE',    // Subtle highlights, active nav backgrounds, light badges
-            dark: '#1C1917',    // Dark brown text for contrast on terracotta buttons
-            text: '#1C1917',
+            DEFAULT: '#F5C842',
+            deep: '#F5C842',
+            darker: '#E8B92E',
+            hover: '#E8B92E',
+            active: '#D4A017',
+            pale: 'rgba(245, 200, 66, 0.15)',
+            dark: '#101214',
+            text: '#101214',
           },
           stone: {
-            text: '#292524',    // Dark Text
-            muted: '#78716C',   // Muted Text
-            border: '#E7E0DA',  // Light Borders
-            dark: '#1C1917',    // Dark Brown
+            text: '#F5F5F5',
+            muted: '#A1A1AA',
+            border: '#343A40',
+            dark: '#101214',
           },
           primary: {
-            50: '#FDF8F6',
-            100: '#F5E6DE',
-            200: '#EBCDC0',
-            300: '#DEA592',
-            400: '#CE7E63',
-            500: '#BD6745',     // Main Soft Terracotta
-            600: '#A55636',
-            700: '#8E482D',
-            800: '#723B25',
-            900: '#5A2F1E',
+            50: '#FFFBEB',
+            100: '#FEF3C7',
+            200: '#FDE68A',
+            300: '#FCD34D',
+            400: '#FBBF24',
+            500: '#F5C842',
+            600: '#E8B92E',
+            700: '#D4A017',
+            800: '#92400E',
+            900: '#78350F',
           }
         },
         fontFamily: {

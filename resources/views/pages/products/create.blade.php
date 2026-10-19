@@ -5,7 +5,7 @@
 
     <!-- Breadcrumb & Navigasi Kembali -->
     <div class="flex items-center justify-between">
-        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-medium text-[#78716C] hover:text-[#292524] transition">
+        <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-medium text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
@@ -14,15 +14,15 @@
     </div>
 
     <!-- Header Judul -->
-    <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-[#BD6745] font-semibold">Registrasi Inventaris</span>
-        <h1 class="text-xl sm:text-2xl font-editorial font-medium text-[#292524] mt-0.5">Tambah Produk Baru</h1>
-        <p class="text-xs text-[#78716C] mt-1">Lengkapi informasi inventaris, modal, penetapan harga jual, persediaan fisik, dan atribut spesifikasi</p>
+    <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#F5C842] font-semibold">Registrasi Inventaris</span>
+        <h1 class="text-xl sm:text-2xl font-editorial font-medium text-[#F5F5F5] mt-0.5">Tambah Produk Baru</h1>
+        <p class="text-xs text-[#A1A1AA] mt-1">Lengkapi informasi inventaris, modal, penetapan harga jual, persediaan fisik, dan atribut spesifikasi</p>
     </div>
 
     <!-- Alert Kesalahan Validasi -->
     @if($errors->any())
-        <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs space-y-1.5 shadow-xs">
+        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs space-y-1.5 shadow-xs">
             <div class="flex items-center gap-2 font-semibold">
                 <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -42,17 +42,17 @@
         @csrf
 
         <!-- 1. Informasi Utama -->
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs space-y-4">
-            <h2 class="text-sm font-editorial font-medium text-[#292524] border-b border-[#E7E0DA] pb-2.5">1. Informasi Utama Barang</h2>
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
+            <h2 class="text-sm font-editorial font-medium text-[#F5F5F5] border-b border-[#343A40] pb-2.5">1. Informasi Utama Barang</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Kategori -->
                 <div>
-                    <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                        Kategori Produk <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Kategori Produk <span class="text-[#F5C842]">*</span>
                     </label>
                     <select name="category_id" id="category_id" required
-                        class="w-full px-3 py-2 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                         <option value="">-- Pilih Kategori --</option>
                         @foreach($categories as $cat)
                             <option value="{{ $cat->id }}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>
@@ -65,34 +65,34 @@
                 <!-- SKU -->
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
-                        <label class="block text-xs font-medium text-[#292524]">
-                            SKU / Kode Barang <span class="text-[#BD6745]">*</span>
+                        <label class="block text-xs font-medium text-[#F5F5F5]">
+                            SKU / Kode Barang <span class="text-[#F5C842]">*</span>
                         </label>
-                        <button type="button" id="btn-generate-sku" class="text-[11px] text-[#BD6745] hover:text-[#A55636] font-medium transition cursor-pointer">
+                        <button type="button" id="btn-generate-sku" class="text-[11px] text-[#F5C842] hover:text-[#E8B92E] font-medium transition cursor-pointer">
                             Generate Otomatis
                         </button>
                     </div>
                     <input type="text" name="sku" id="sku" required value="{{ old('sku', $suggestedSku) }}"
-                        class="w-full px-3 py-2 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                        class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
             </div>
 
             <!-- Nama Produk -->
             <div>
-                <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                    Nama Produk <span class="text-[#BD6745]">*</span>
+                <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                    Nama Produk <span class="text-[#F5C842]">*</span>
                 </label>
                 <input type="text" name="name" required value="{{ old('name') }}" placeholder="Contoh: Lampu LED Philips 12W Putih"
-                    class="w-full px-3 py-2 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] placeholder-[#78716C]/60 focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                    class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
             </div>
 
             <!-- Rekanan Supplier -->
             <div>
-                <label class="block text-xs font-medium text-[#292524] mb-1.5">
+                <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
                     Rekanan Supplier (Pemasok)
                 </label>
                 <select name="supplier_id"
-                    class="w-full px-3 py-2 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                    class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     <option value="">-- Tanpa Supplier Terikat --</option>
                     @foreach($suppliers as $sup)
                         <option value="{{ $sup->id }}" {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
@@ -104,90 +104,90 @@
 
             <!-- Deskripsi -->
             <div>
-                <label class="block text-xs font-medium text-[#292524] mb-1.5">
+                <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
                     Deskripsi / Catatan Produk
                 </label>
                 <textarea name="description" rows="3" placeholder="Tuliskan spesifikasi umum, lokasi rak, atau catatan lainnya..."
-                    class="w-full px-3 py-2 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] placeholder-[#78716C]/60 focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">{{ old('description') }}</textarea>
+                    class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">{{ old('description') }}</textarea>
             </div>
         </div>
 
         <!-- 2. Harga & Manajemen Stok -->
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs space-y-4">
-            <h2 class="text-sm font-editorial font-medium text-[#292524] border-b border-[#E7E0DA] pb-2.5">2. Penetapan Harga & Manajemen Persediaan</h2>
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
+            <h2 class="text-sm font-editorial font-medium text-[#F5F5F5] border-b border-[#343A40] pb-2.5">2. Penetapan Harga & Manajemen Persediaan</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Harga Beli -->
                 <div>
-                    <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                        Harga Beli (Modal Rp) <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Harga Beli (Modal Rp) <span class="text-[#F5C842]">*</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs text-[#78716C] font-mono">Rp</span>
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs text-[#A1A1AA] font-mono">Rp</span>
                         <input type="number" step="0.01" min="0" name="purchase_price" required value="{{ old('purchase_price', 0) }}"
-                            class="w-full pl-9 pr-3 py-2 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                            class="w-full pl-9 pr-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     </div>
                 </div>
 
                 <!-- Harga Jual -->
                 <div>
-                    <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                        Harga Jual (Rp) <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Harga Jual (Rp) <span class="text-[#F5C842]">*</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs text-[#78716C] font-mono">Rp</span>
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs text-[#A1A1AA] font-mono">Rp</span>
                         <input type="number" step="0.01" min="0" name="selling_price" required value="{{ old('selling_price', 0) }}"
-                            class="w-full pl-9 pr-3 py-2 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                            class="w-full pl-9 pr-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     </div>
                 </div>
 
                 <!-- Stok Awal -->
                 <div>
-                    <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                        Jumlah Stok Awal (Unit / Pcs) <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Jumlah Stok Awal (Unit / Pcs) <span class="text-[#F5C842]">*</span>
                     </label>
                     <input type="number" min="0" name="stock" required value="{{ old('stock', 0) }}"
-                        class="w-full px-3 py-2 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                        class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
 
                 <!-- Batas Minimum Stok -->
                 <div>
-                    <label class="block text-xs font-medium text-[#292524] mb-1.5">
-                        Batas Minimum Stok (Peringatan Tipis) <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Batas Minimum Stok (Peringatan Tipis) <span class="text-[#F5C842]">*</span>
                     </label>
                     <input type="number" min="0" name="min_stock" required value="{{ old('min_stock', 5) }}"
-                        class="w-full px-3 py-2 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
-                    <p class="text-[10px] text-[#78716C] mt-1">Sistem otomatis menandai status peringatan jika stok menyentuh batas ini.</p>
+                        class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                    <p class="text-[10px] text-[#A1A1AA] mt-1">Sistem otomatis menandai status peringatan jika stok menyentuh batas ini.</p>
                 </div>
             </div>
         </div>
 
         <!-- 3. Foto Produk -->
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs space-y-4">
-            <h2 class="text-sm font-editorial font-medium text-[#292524] border-b border-[#E7E0DA] pb-2.5">3. Visual / Foto Produk</h2>
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
+            <h2 class="text-sm font-editorial font-medium text-[#F5F5F5] border-b border-[#343A40] pb-2.5">3. Visual / Foto Produk</h2>
 
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <div id="image-preview-container" class="w-24 h-24 rounded-xl border-2 border-dashed border-[#E7E0DA] bg-[#FAF7F4] flex items-center justify-center overflow-hidden flex-shrink-0">
+                <div id="image-preview-container" class="w-24 h-24 rounded-xl border-2 border-dashed border-[#343A40] bg-[#181C20] flex items-center justify-center overflow-hidden flex-shrink-0">
                     <img id="image-preview" src="#" alt="Preview" class="hidden w-full h-full object-cover">
-                    <span id="image-placeholder" class="text-[#78716C] text-[10px] text-center px-2">Belum ada foto</span>
+                    <span id="image-placeholder" class="text-[#A1A1AA] text-[10px] text-center px-2">Belum ada foto</span>
                 </div>
                 <div class="flex-1 space-y-1.5">
                     <input type="file" name="image" id="product-image" accept="image/png, image/jpeg, image/jpg, image/webp"
-                        class="block w-full text-xs text-[#78716C] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#F5E6DE] file:text-[#BD6745] hover:file:bg-[#BD6745] hover:file:text-[#FFFFFF] transition">
-                    <p class="text-[10px] text-[#78716C]">Format didukung: JPG, PNG, WEBP. Maksimal ukuran file 2 MB.</p>
+                        class="block w-full text-xs text-[#A1A1AA] file:mr-3 file:py-2 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-[#F5C842]/15 file:text-[#F5C842] hover:file:bg-[#F5C842] hover:file:text-[#101214] transition">
+                    <p class="text-[10px] text-[#A1A1AA]">Format didukung: JPG, PNG, WEBP. Maksimal ukuran file 2 MB.</p>
                 </div>
             </div>
         </div>
 
         <!-- 4. Atribut Tambahan (Varian/Spesifikasi) -->
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs space-y-4">
-            <div class="flex items-center justify-between border-b border-[#E7E0DA] pb-2.5">
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
+            <div class="flex items-center justify-between border-b border-[#343A40] pb-2.5">
                 <div>
-                    <h2 class="text-sm font-editorial font-medium text-[#292524]">4. Atribut Spesifikasi Tambahan (Opsional)</h2>
-                    <p class="text-[11px] text-[#78716C]">Tambahkan detail spesifik seperti Warna, Ukuran, Berat, atau Masa Garansi</p>
+                    <h2 class="text-sm font-editorial font-medium text-[#F5F5F5]">4. Atribut Spesifikasi Tambahan (Opsional)</h2>
+                    <p class="text-[11px] text-[#A1A1AA]">Tambahkan detail spesifik seperti Warna, Ukuran, Berat, atau Masa Garansi</p>
                 </div>
                 <button type="button" id="btn-add-attribute"
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#FAF7F4] hover:bg-[#F5E6DE] text-[#BD6745] border border-[#E7E0DA] text-xs font-semibold rounded-lg transition cursor-pointer">
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#181C20] hover:bg-[#F5C842]/15 text-[#F5C842] border border-[#343A40] text-xs font-semibold rounded-lg transition cursor-pointer">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
@@ -200,14 +200,14 @@
                 <div class="attribute-row flex items-center gap-3">
                     <div class="w-1/3">
                         <input type="text" name="attributes[0][name]" placeholder="Nama (cth: Warna)"
-                            class="w-full px-3 py-1.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-lg text-[#292524] placeholder-[#78716C]/60 focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745] focus:outline-none">
+                            class="w-full px-3 py-1.5 text-xs bg-[#202429] border border-[#343A40] rounded-lg text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
                     </div>
                     <div class="flex-1">
                         <input type="text" name="attributes[0][value]" placeholder="Nilai (cth: Hitam Matte)"
-                            class="w-full px-3 py-1.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-lg text-[#292524] placeholder-[#78716C]/60 focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745] focus:outline-none">
+                            class="w-full px-3 py-1.5 text-xs bg-[#202429] border border-[#343A40] rounded-lg text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
                     </div>
                     <button type="button" onclick="removeAttributeRow(this)"
-                        class="p-1.5 text-[#78716C] hover:text-rose-600 rounded-lg hover:bg-rose-50 transition cursor-pointer">
+                        class="p-1.5 text-[#A1A1AA] hover:text-rose-600 rounded-lg hover:bg-rose-500/10 transition cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -219,11 +219,11 @@
         <!-- Tombol Aksi Simpan -->
         <div class="flex items-center justify-end gap-3 pt-3">
             <a href="{{ route('products.index') }}"
-                class="px-4 py-2.5 text-xs font-semibold text-[#78716C] hover:text-[#292524] hover:bg-[#FAF7F4] rounded-xl transition">
+                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#181C20] rounded-xl transition">
                 Batal
             </a>
             <button type="submit"
-                class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#BD6745] hover:bg-[#A55636] text-[#1C1917] text-xs font-semibold rounded-xl shadow-xs transition cursor-pointer">
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-semibold rounded-xl shadow-xs transition cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
@@ -267,14 +267,14 @@
         row.innerHTML = `
             <div class="w-1/3">
                 <input type="text" name="attributes[${attributeIndex}][name]" placeholder="Nama (cth: Garansi)"
-                    class="w-full px-3 py-1.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-lg text-[#292524] placeholder-[#78716C]/60 focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745] focus:outline-none">
+                    class="w-full px-3 py-1.5 text-xs bg-[#202429] border border-[#343A40] rounded-lg text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
             </div>
             <div class="flex-1">
                 <input type="text" name="attributes[${attributeIndex}][value]" placeholder="Nilai (cth: 1 Tahun Resmi)"
-                    class="w-full px-3 py-1.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-lg text-[#292524] placeholder-[#78716C]/60 focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745] focus:outline-none">
+                    class="w-full px-3 py-1.5 text-xs bg-[#202429] border border-[#343A40] rounded-lg text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
             </div>
             <button type="button" onclick="removeAttributeRow(this)"
-                class="p-1.5 text-[#78716C] hover:text-rose-600 rounded-lg hover:bg-rose-50 transition cursor-pointer">
+                class="p-1.5 text-[#A1A1AA] hover:text-rose-600 rounded-lg hover:bg-rose-500/10 transition cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>

@@ -1,11 +1,11 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
 
     <!-- Breadcrumb & Navigasi Kembali -->
     <div class="flex items-center justify-between">
-        <a href="{{ route('transactions.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#78716C] hover:text-[#292524] transition">
+        <a href="{{ route('transactions.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
@@ -14,19 +14,19 @@
     </div>
 
     <!-- Header Judul -->
-    <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs">
+    <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
         <div class="flex items-center gap-2 mb-1">
-            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-semibold bg-[#F5E6DE] text-[#BD6745] border border-[#BD6745]/30 uppercase tracking-wider">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30 uppercase tracking-wider">
                 Outbound Transaction
             </span>
         </div>
-        <h1 class="font-editorial text-2xl sm:text-3xl font-medium text-[#292524]">Pengeluaran Barang Keluar</h1>
-        <p class="text-xs text-[#78716C] mt-1">Pencatatan barang keluar untuk penjualan, retur barang cacat, atau alokasi operasional</p>
+        <h1 class="font-editorial text-2xl sm:text-3xl font-medium text-[#F5F5F5]">Pengeluaran Barang Keluar</h1>
+        <p class="text-xs text-[#A1A1AA] mt-1">Pencatatan barang keluar untuk penjualan, retur barang cacat, atau alokasi operasional</p>
     </div>
 
     <!-- Alert Kesalahan Validasi -->
     @if($errors->any())
-    <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs shadow-xs">
+    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
         <div class="flex items-center gap-2 font-semibold mb-1">
             <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -45,24 +45,24 @@
     <form action="{{ route('transactions.outbound.store') }}" method="POST" class="space-y-6">
         @csrf
 
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs space-y-5">
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-5">
             
             <!-- No. Invoice / Referensi -->
             <div>
-                <label class="block text-xs font-semibold text-[#292524] mb-1.5 uppercase tracking-wider">
-                    No. Transaksi / Surat Pengeluaran <span class="text-[#BD6745]">*</span>
+                <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
+                    No. Transaksi / Surat Pengeluaran <span class="text-[#F5C842]">*</span>
                 </label>
                 <input type="text" name="invoice_number" required value="{{ old('invoice_number', $suggestedInvoice) }}"
-                    class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] placeholder-[#78716C]/60 focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                    class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
             </div>
 
             <!-- Pilih Produk & Real-time Stock Helper -->
             <div>
-                <label class="block text-xs font-semibold text-[#292524] mb-1.5 uppercase tracking-wider">
-                    Pilih Produk / Barang yang Dikeluarkan <span class="text-[#BD6745]">*</span>
+                <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
+                    Pilih Produk / Barang yang Dikeluarkan <span class="text-[#F5C842]">*</span>
                 </label>
                 <select name="product_id" id="product_id" required
-                    class="w-full px-3.5 py-2.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                    class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     <option value="">-- Pilih Barang dari Gudang --</option>
                     @foreach($products as $p)
                     <option value="{{ $p->id }}" data-stock="{{ $p->stock }}" {{ old('product_id') == $p->id ? 'selected' : '' }}>
@@ -72,20 +72,20 @@
                 </select>
 
                 <!-- Box Info Stok Terpilih -->
-                <div id="stock-info-box" class="hidden mt-2.5 p-3.5 bg-[#FAF7F4] rounded-xl border border-[#E7E0DA] text-xs flex items-center justify-between">
-                    <span class="text-[#78716C]">Sisa stok fisik di gudang:</span>
-                    <strong id="current-stock-label" class="text-sm font-bold text-[#BD6745] font-mono">0 Unit</strong>
+                <div id="stock-info-box" class="hidden mt-2.5 p-3.5 bg-[#181C20] rounded-xl border border-[#343A40] text-xs flex items-center justify-between">
+                    <span class="text-[#A1A1AA]">Sisa stok fisik di gudang:</span>
+                    <strong id="current-stock-label" class="text-sm font-bold text-[#F5C842] font-mono">0 Unit</strong>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Kuantitas Keluar -->
                 <div>
-                    <label class="block text-xs font-semibold text-[#292524] mb-1.5 uppercase tracking-wider">
-                        Jumlah Kuantitas Keluar <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
+                        Jumlah Kuantitas Keluar <span class="text-[#F5C842]">*</span>
                     </label>
                     <input type="number" min="1" name="quantity" id="quantity_input" required value="{{ old('quantity', 1) }}"
-                        class="w-full px-3.5 py-2.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                        class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     <p id="stock-warning" class="hidden text-[11px] text-rose-600 font-medium mt-1.5">
                         Jumlah pengeluaran melebihi sisa stok di gudang!
                     </p>
@@ -93,11 +93,11 @@
 
                 <!-- Status Alur Transaksi -->
                 <div>
-                    <label class="block text-xs font-semibold text-[#292524] mb-1.5 uppercase tracking-wider">
-                        Status Verifikasi Transaksi <span class="text-[#BD6745]">*</span>
+                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
+                        Status Verifikasi Transaksi <span class="text-[#F5C842]">*</span>
                     </label>
                     <select name="status" required
-                        class="w-full px-3.5 py-2.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">
+                        class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                         <option value="confirmed" {{ old('status', 'confirmed') === 'confirmed' ? 'selected' : '' }}>
                             Langsung Dikonfirmasi (Stok Berkurang)
                         </option>
@@ -110,21 +110,21 @@
 
             <!-- Catatan / Alasan Pengeluaran -->
             <div>
-                <label class="block text-xs font-semibold text-[#292524] mb-1.5 uppercase tracking-wider">
-                    Alasan / Keterangan Pengeluaran Barang <span class="text-[#BD6745]">*</span>
+                <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
+                    Alasan / Keterangan Pengeluaran Barang <span class="text-[#F5C842]">*</span>
                 </label>
                 <textarea name="notes" id="notes_input" rows="3" required placeholder="Contoh: Penjualan pesanan customer #INV-881, atau Rusak saat pemindahan rak gudang..."
-                    class="w-full px-3.5 py-2.5 text-xs bg-[#FFFFFF] border border-[#E7E0DA] rounded-xl text-[#292524] placeholder-[#78716C]/60 focus:outline-none focus:border-[#BD6745] focus:ring-1 focus:ring-[#BD6745]">{{ old('notes') }}</textarea>
+                    class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">{{ old('notes') }}</textarea>
                 
                 <!-- Quick Suggestion Chips -->
                 <div class="flex flex-wrap items-center gap-1.5 mt-2.5">
-                    <span class="text-[10px] text-[#78716C]">Pilihan cepat:</span>
+                    <span class="text-[10px] text-[#A1A1AA]">Pilihan cepat:</span>
                     <button type="button" onclick="setQuickNote('Penjualan langsung ke pelanggan')"
-                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#FAF7F4] hover:bg-[#F5E6DE] border border-[#E7E0DA] hover:border-[#BD6745] text-[#78716C] hover:text-[#BD6745] transition cursor-pointer">Penjualan Pelanggan</button>
+                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#181C20] hover:bg-[#F5C842]/15 border border-[#343A40] hover:border-[#F5C842] text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer">Penjualan Pelanggan</button>
                     <button type="button" onclick="setQuickNote('Barang rusak / cacat fisik pabrik (Retur)')"
-                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#FAF7F4] hover:bg-[#F5E6DE] border border-[#E7E0DA] hover:border-[#BD6745] text-[#78716C] hover:text-[#BD6745] transition cursor-pointer">Barang Rusak / Retur</button>
+                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#181C20] hover:bg-[#F5C842]/15 border border-[#343A40] hover:border-[#F5C842] text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer">Barang Rusak / Retur</button>
                     <button type="button" onclick="setQuickNote('Pemakaian operasional inventaris internal')"
-                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#FAF7F4] hover:bg-[#F5E6DE] border border-[#E7E0DA] hover:border-[#BD6745] text-[#78716C] hover:text-[#BD6745] transition cursor-pointer">Operasional Internal</button>
+                        class="px-2.5 py-1 text-[10px] rounded-lg bg-[#181C20] hover:bg-[#F5C842]/15 border border-[#343A40] hover:border-[#F5C842] text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer">Operasional Internal</button>
                 </div>
             </div>
 
@@ -133,11 +133,11 @@
         <!-- Tombol Aksi Simpan Soft Terracotta -->
         <div class="flex items-center justify-end gap-3 pt-2">
             <a href="{{ route('transactions.index') }}"
-                class="px-4 py-2.5 text-xs font-semibold text-[#78716C] hover:text-[#292524] hover:bg-[#FAF7F4] rounded-xl transition">
+                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#181C20] rounded-xl transition">
                 Batal
             </a>
             <button type="submit"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-[#BD6745] hover:bg-[#A55636] text-[#1C1917] text-xs font-bold uppercase tracking-wider rounded-xl shadow-xs transition cursor-pointer">
+                class="inline-flex items-center gap-2 px-6 py-3 bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-bold uppercase tracking-wider rounded-xl shadow-xs transition cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>

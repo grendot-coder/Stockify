@@ -13,8 +13,8 @@
     <style>
         body { 
             font-family: 'IBM Plex Sans', sans-serif; 
-            background-color: #FAF7F4;
-            color: #292524;
+            background-color: #101214;
+            color: #F5F5F5;
         }
         h1, h2, h3, h4, h5, h6, .font-heading, .font-brand, .font-editorial {
             font-family: 'Space Grotesk', sans-serif;
@@ -25,13 +25,13 @@
         }
     </style>
 </head>
-<body class="bg-[#FAF7F4] text-[#292524] antialiased selection:bg-[#F5E6DE] selection:text-[#1C1917]">
+<body class="bg-[#101214] text-[#F5F5F5] antialiased selection:bg-[#F5C842] selection:text-[#101214]">
     <x-navbar-dashboard/>
     
-    <div class="flex pt-16 overflow-hidden bg-[#FAF7F4] min-h-screen">
+    <div class="flex pt-16 overflow-hidden bg-[#101214] min-h-screen">
         <x-sidebar.admin-sidebar/>
         
-        <div id="main-content" class="relative w-full h-full overflow-y-auto bg-[#FAF7F4] lg:ml-64 flex flex-col justify-between min-h-[calc(100vh-4rem)]">
+        <div id="main-content" class="relative w-full h-full overflow-y-auto bg-[#101214] lg:ml-64 flex flex-col justify-between min-h-[calc(100vh-4rem)]">
             <main class="flex-grow p-4 lg:p-7 max-w-7xl mx-auto w-full">
                 @yield('content')
             </main>
