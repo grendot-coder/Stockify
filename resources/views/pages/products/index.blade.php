@@ -13,15 +13,27 @@
             <h1 class="font-heading text-2xl sm:text-3xl font-semibold text-[#292524] tracking-tight">Master Data Produk</h1>
             <p class="text-xs text-[#78716C] mt-1">Daftar inventaris barang gudang, level stok fisik, dan rincian penetapan harga</p>
         </div>
-        @if(in_array(Auth::user()->role, ['admin', 'manager']))
-            <a href="{{ route('products.create') }}"
-                class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#BD6745] hover:bg-[#A55636] text-[#1C1917] text-xs font-bold uppercase tracking-wider rounded-xl shadow-xs transition cursor-pointer">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                <span>Tambah Produk Baru</span>
-            </a>
-        @endif
+        <div class="flex flex-wrap items-center gap-2">
+            @if(in_array(Auth::user()->role, ['admin', 'manager']))
+                <a href="{{ route('products.export') }}"
+                    class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#BD6745] bg-[#F5E6DE] hover:bg-[#BD6745] hover:text-white rounded-xl transition border border-[#BD6745]/30">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>Ekspor CSV</span>
+                </a>
+                <button type="button" data-modal-target="modal-import-products" data-modal-toggle="modal-import-products"
+                    class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#292524] bg-[#FAF7F4] hover:bg-stone-200 rounded-xl transition border border-[#E7E0DA]">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
+                    <span>Impor CSV</span>
+                </button>
+                <a href="{{ route('products.create') }}"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#A34E30] hover:bg-[#8A3F25] text-white text-xs font-semibold rounded-xl shadow-xs transition duration-150 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <span>Tambah Produk</span>
+                </a>
+            @endif
+        </div>
     </div>
 
     <!-- Alert Notifikasi -->
@@ -215,6 +227,57 @@
                 {{ $products->links() }}
             </div>
         @endif
+    </div>
+
+    <!-- Modal Impor CSV Produk -->
+    <div id="modal-import-products" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-stone-900/40 backdrop-blur-xs flex items-center justify-center">
+        <div class="relative w-full max-w-lg max-h-full">
+            <div class="relative bg-white rounded-2xl shadow-xl border border-[#E7E0DA] overflow-hidden">
+                <div class="flex items-center justify-between p-4 border-b border-[#E7E0DA] bg-[#FAF7F4]">
+                    <div>
+                        <h3 class="text-sm font-semibold text-[#292524] font-heading">Impor Massal Katalog Produk</h3>
+                        <p class="text-[11px] text-[#78716C]">Unggah berkas spreadsheet CSV untuk memperbarui atau menambah produk</p>
+                    </div>
+                    <button type="button" data-modal-hide="modal-import-products"
+                        class="text-[#78716C] bg-transparent hover:bg-stone-200 hover:text-[#292524] rounded-lg text-xs w-7 h-7 ml-auto inline-flex justify-center items-center">
+                        ✕
+                    </button>
+                </div>
+
+                <form action="{{ route('products.import') }}" method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
+                    @csrf
+
+                    <div class="p-4 rounded-xl bg-[#FAF7F4] border border-[#BD6745]/30 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold text-[#292524]">Panduan Format File:</span>
+                            <a href="{{ route('products.template') }}" class="text-xs text-[#A34E30] hover:underline font-semibold flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                Unduh Template CSV
+                            </a>
+                        </div>
+                        <p class="text-[11px] text-[#78716C]">Pastikan kolom CSV mencakup: <code class="bg-white px-1.5 py-0.5 rounded border border-[#E7E0DA] text-[#292524] font-mono text-[10px]">sku, name, category, supplier, purchase_price, selling_price, stock, min_stock, description</code></p>
+                    </div>
+
+                    <div>
+                        <label for="file" class="block text-xs font-semibold text-[#292524] mb-2">Pilih Berkas CSV (.csv)</label>
+                        <input type="file" name="file" id="file" accept=".csv,text/csv" required
+                            class="w-full text-xs text-[#78716C] file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-[#F5E6DE] file:text-[#A34E30] hover:file:bg-[#BD6745] hover:file:text-white file:transition cursor-pointer border border-[#E7E0DA] rounded-xl p-1 bg-[#FAF7F4]">
+                    </div>
+
+                    <div class="flex items-center justify-end gap-2 pt-3 border-t border-[#E7E0DA]">
+                        <button type="button" data-modal-hide="modal-import-products"
+                            class="px-4 py-2 text-xs font-medium text-[#78716C] hover:text-[#292524] hover:bg-[#FAF7F4] rounded-xl transition">
+                            Batal
+                        </button>
+                        <button type="submit"
+                            class="px-5 py-2 text-xs font-semibold bg-[#A34E30] hover:bg-[#8A3F25] text-white rounded-xl shadow-xs transition">
+                            Mulai Impor Produk
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 </div>

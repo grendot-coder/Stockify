@@ -4,8 +4,9 @@
             
             <!-- Sisi Kiri: Menu Hamburger (Mobile) & Logo -->
             <div class="flex items-center gap-3">
-                <button id="toggleSidebarMobile" aria-expanded="true" aria-controls="sidebar" 
-                    class="p-2 text-[#78716C] rounded-lg lg:hidden hover:text-[#292524] hover:bg-[#FAF7F4] focus:outline-none focus:ring-1 focus:ring-[#BD6745]">
+                <button id="toggleSidebarMobile" type="button" aria-expanded="false" aria-controls="sidebar" 
+                    class="p-2 text-[#78716C] rounded-lg lg:hidden hover:text-[#292524] hover:bg-[#FAF7F4] focus:outline-none focus:ring-1 focus:ring-[#BD6745]"
+                    title="Buka Menu Navigasi">
                     <svg id="toggleSidebarMobileHamburger" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                     </svg>
@@ -13,6 +14,7 @@
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
                 </button>
+
 
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
                     <div class="w-8 h-8 rounded-lg bg-[#F5E6DE] border border-[#BD6745]/30 text-[#BD6745] flex items-center justify-center font-heading font-bold text-base shadow-sm group-hover:bg-[#BD6745] group-hover:text-[#FFFFFF] transition">

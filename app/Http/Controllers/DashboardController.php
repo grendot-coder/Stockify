@@ -48,6 +48,19 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
+        // Antrean Tugas Khusus Staff: Barang Masuk & Barang Keluar Pending
+        $pendingInbounds = StockTransaction::where('type', 'in')
+            ->where('status', 'pending')
+            ->with(['product.category', 'supplier', 'user'])
+            ->latest()
+            ->get();
+
+        $pendingOutbounds = StockTransaction::where('type', 'out')
+            ->where('status', 'pending')
+            ->with(['product.category', 'user'])
+            ->latest()
+            ->get();
+
         // Log Aktivitas terbaru
         $recentActivities = ActivityLog::with('user')->latest()->take(6)->get();
 
@@ -111,6 +124,8 @@ class DashboardController extends Controller
             'inboundTodayCount',
             'outboundTodayCount',
             'pendingTransactions',
+            'pendingInbounds',
+            'pendingOutbounds',
             'recentActivities',
             'recentTransactions',
             'chartDates',

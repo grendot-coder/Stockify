@@ -7,9 +7,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StockOpnameController;
 use App\Http\Controllers\StockTransactionController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Landing Page Editorial & Portofolio Perusahaan
@@ -44,9 +46,10 @@ Route::middleware('auth')->group(function () {
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
-        // Transaksi Persetujuan (Khusus Admin & Manager)
-        Route::post('/transactions/{id}/confirm', [StockTransactionController::class, 'confirm'])->name('transactions.confirm');
-        Route::post('/transactions/{id}/reject', [StockTransactionController::class, 'reject'])->name('transactions.reject');
+        // Ekspor & Impor Data Produk (Fase 8)
+        Route::get('/products/export', [ProductController::class, 'export'])->name('products.export');
+        Route::get('/products/import/template', [ProductController::class, 'sampleTemplate'])->name('products.template');
+        Route::post('/products/import', [ProductController::class, 'import'])->name('products.import');
 
         // Modul Laporan & Ekspor (Fase 7)
         Route::get('/reports/stock', [ReportController::class, 'stock'])->name('reports.stock');
@@ -67,6 +70,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/transactions/outbound', [StockTransactionController::class, 'storeOutbound'])->name('transactions.outbound.store');
         Route::get('/transactions/{id}', [StockTransactionController::class, 'show'])->name('transactions.show');
 
+        // Konfirmasi & Penolakan Transaksi Fisik (Admin, Manager, & Staff Gudang)
+        Route::post('/transactions/{id}/confirm', [StockTransactionController::class, 'confirm'])->name('transactions.confirm');
+        Route::post('/transactions/{id}/reject', [StockTransactionController::class, 'reject'])->name('transactions.reject');
+
         // Modul Stock Opname (Fase 6)
         Route::get('/opnames', [StockOpnameController::class, 'index'])->name('opnames.index');
         Route::get('/opnames/create', [StockOpnameController::class, 'create'])->name('opnames.create');
@@ -76,15 +83,19 @@ Route::middleware('auth')->group(function () {
 
     // === Rute Hak Akses: Khusus Admin ===
     Route::middleware('role:admin')->group(function () {
-        Route::get('/users', function () {
-            return redirect()->route('dashboard')->with('info', 'Manajemen Pengguna akan diimplementasikan pada tahap penyempurnaan.');
-        })->name('users.index');
+        // Manajemen Data Pengguna (CRUD User)
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/users', [UserController::class, 'store'])->name('users.store');
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
         // Audit Log Aktivitas (Fase 6)
         Route::get('/logs', [ActivityLogController::class, 'index'])->name('logs.index');
 
-        Route::get('/settings', function () {
-            return redirect()->route('dashboard')->with('info', 'Pengaturan Aplikasi akan diimplementasikan pada tahap penyempurnaan.');
-        })->name('settings.index');
+        // Pengaturan Aplikasi (Settings)
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
     });
 });

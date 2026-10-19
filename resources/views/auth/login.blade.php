@@ -54,7 +54,7 @@
                                 RS
                             </div>
                             <div>
-                                <div class="font-heading font-semibold text-sm text-[#292524]">Raghav Sukhadia</div>
+                                <div class="font-heading font-semibold text-sm text-[#292524]">Arjuna</div>
                                 <div class="text-xs text-[#78716C]">Direktur Operasional, Sunkool Logistics</div>
                             </div>
                         </div>
@@ -121,8 +121,8 @@
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
                                 </div>
                                 <div>
-                                    <div class="font-heading font-semibold text-sm text-[#292524]">20–30% Pengurangan Biaya</div>
-                                    <div class="text-xs text-[#78716C]">Mencegah dead-stock & kelebihan stok menumpuk</div>
+                                    <div class="font-heading font-semibold text-sm text-[#292524]">Efisiensi dan Efektif</div>
+                                    <div class="text-xs text-[#78716C]">Membantu Business Owner Mengelola Stoknya dengan Efektif</div>
                                 </div>
                             </div>
 
@@ -357,7 +357,6 @@
 
     </div>
 
-    <!-- Script Interaktif Carousel & Demo Filler -->
     <script>
         let currentSlide = 1;
         let slideTimer;

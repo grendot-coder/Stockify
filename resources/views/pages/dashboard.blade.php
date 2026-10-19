@@ -225,38 +225,211 @@
             @endif
         </div>
     @elseif($user->isStaff())
-        <!-- Bagian Khusus Staff: Shortcut Cepat Operasional -->
-        <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-5 shadow-xs">
-            <h2 class="font-heading text-lg font-semibold text-[#292524] mb-3">Tindakan Cepat Operasional Gudang</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <a href="{{ route('transactions.inbound') }}" class="p-4 rounded-xl border border-[#E7E0DA] bg-[#FAF7F4] hover:bg-white hover:border-[#BD6745] transition flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-lg group-hover:scale-105 transition">
-                        +
-                    </div>
+        <!-- Bagian Khusus Staff: Daftar Tugas Operasional Gudang -->
+        <div class="space-y-6">
+
+            <!-- Card Utama: Daftar Tugas Operasional -->
+            <div class="bg-[#FFFFFF] rounded-2xl border border-[#E7E0DA] p-6 shadow-xs">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E7E0DA] gap-3">
                     <div>
-                        <div class="font-semibold text-xs text-[#292524] group-hover:text-[#BD6745]">Catat Barang Masuk</div>
-                        <div class="text-[11px] text-[#78716C]">Input pengiriman dari supplier</div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#BD6745] animate-pulse"></span>
+                            <span class="text-[11px] uppercase tracking-wider text-[#BD6745] font-bold">Stasiun Pemenuhan Tugas Fisik</span>
+                        </div>
+                        <h2 class="font-heading text-xl font-semibold text-[#292524]">Daftar Tugas Operasional Staff Gudang</h2>
+                        <p class="text-xs text-[#78716C] mt-0.5">Periksa fisik penerimaan barang dari supplier dan siapkan packing pengeluaran pesanan</p>
                     </div>
-                </a>
-                <a href="{{ route('transactions.outbound') }}" class="p-4 rounded-xl border border-[#E7E0DA] bg-[#FAF7F4] hover:bg-white hover:border-[#BD6745] transition flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-[#F5E6DE] text-[#BD6745] flex items-center justify-center font-bold text-lg group-hover:scale-105 transition">
-                        -
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                            {{ $pendingInbounds->count() }} Masuk Perlu Diperiksa
+                        </span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#F5E6DE] text-[#A34E30] border border-[#BD6745]/30">
+                            {{ $pendingOutbounds->count() }} Keluar Perlu Disiapkan
+                        </span>
                     </div>
-                    <div>
-                        <div class="font-semibold text-xs text-[#292524] group-hover:text-[#BD6745]">Siapkan Barang Keluar</div>
-                        <div class="text-[11px] text-[#78716C]">Pengeluaran pesanan / distribusi</div>
+                </div>
+
+                <div class="mt-6 space-y-6">
+
+                    <!-- Tugas 1: Barang Masuk yang Perlu Diperiksa -->
+                    <div class="rounded-xl border border-emerald-200/80 bg-emerald-50/20 p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">
+                                    {{ $pendingInbounds->count() }}
+                                </span>
+                                <h3 class="font-heading text-base font-semibold text-[#292524]">1. Barang Masuk yang Perlu Diperiksa Fisik</h3>
+                            </div>
+                            <span class="text-[11px] text-[#78716C]">Hitung fisik barang tiba dari supplier lalu konfirmasi penerimaan</span>
+                        </div>
+
+                        @if($pendingInbounds->isEmpty())
+                            <div class="py-5 text-center text-xs text-[#78716C] bg-white rounded-lg border border-[#E7E0DA]">
+                                <svg class="w-6 h-6 text-emerald-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Seluruh kiriman barang masuk telah selesai diperiksa. Tidak ada tugas penerimaan pending.
+                            </div>
+                        @else
+                            <div class="overflow-x-auto bg-white rounded-xl border border-[#E7E0DA]">
+                                <table class="w-full text-xs text-left text-[#78716C] tabular-nums">
+                                    <thead class="text-[11px] text-[#292524] uppercase tracking-wider bg-[#FAF7F4] border-b border-[#E7E0DA]">
+                                        <tr>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">No. Invoice</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Supplier & Pengaju</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Barang & Kategori</th>
+                                            <th class="px-4 py-2.5 text-right font-heading font-semibold">Jumlah Tiba</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Catatan Pengiriman</th>
+                                            <th class="px-4 py-2.5 text-center font-heading font-semibold">Aksi Tugas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-[#E7E0DA]">
+                                        @foreach($pendingInbounds as $inTask)
+                                        <tr class="hover:bg-[#FAF7F4] transition">
+                                            <td class="px-4 py-3 font-mono font-medium text-[#292524]">
+                                                <a href="{{ route('transactions.show', $inTask->id) }}" class="hover:text-[#BD6745] font-semibold">
+                                                    {{ $inTask->invoice_number }}
+                                                </a>
+                                                <div class="text-[10px] text-[#78716C] font-sans">{{ $inTask->created_at->diffForHumans() }}</div>
+                                            </td>
+                                            <td class="px-4 py-3 text-[#292524]">
+                                                <div class="font-medium text-[#292524]">{{ $inTask->supplier?->name ?? 'Supplier Umum' }}</div>
+                                                <div class="text-[10px] text-[#78716C]">Input: {{ $inTask->user?->name ?? 'Staff' }}</div>
+                                            </td>
+                                            <td class="px-4 py-3">
+                                                <div class="font-medium text-[#292524]">{{ $inTask->product?->name }}</div>
+                                                <div class="text-[10px] font-mono text-[#78716C]">SKU: {{ $inTask->product?->sku }} | Stok Saat Ini: {{ $inTask->product?->stock }}</div>
+                                            </td>
+                                            <td class="px-4 py-3 text-right">
+                                                <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                                                    +{{ number_format($inTask->quantity) }} Unit
+                                                </span>
+                                            </td>
+                                            <td class="px-4 py-3 text-[#78716C] max-w-[200px] truncate">
+                                                {{ $inTask->notes ?: '-' }}
+                                            </td>
+                                            <td class="px-4 py-3 text-center">
+                                                <div class="flex items-center justify-center gap-1.5">
+                                                    <form action="{{ route('transactions.confirm', $inTask->id) }}" method="POST" onsubmit="return confirm('Konfirmasi penerimaan fisik {{ $inTask->quantity }} unit barang ini ke gudang?')">
+                                                        @csrf
+                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition shadow-xs flex items-center gap-1">
+                                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                                            Konfirmasi Diterima
+                                                        </button>
+                                                    </form>
+                                                    <form action="{{ route('transactions.reject', $inTask->id) }}" method="POST" onsubmit="return confirm('Tolak barang masuk ini karena ada kerusakan / ketidaksesuaian?')">
+                                                        @csrf
+                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition">
+                                                            Tolak
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
-                </a>
-                <a href="{{ route('opnames.create') }}" class="p-4 rounded-xl border border-[#E7E0DA] bg-[#FAF7F4] hover:bg-white hover:border-[#BD6745] transition flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm group-hover:scale-105 transition">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+
+                    <!-- Tugas 2: Barang Keluar yang Perlu Disiapkan -->
+                    <div class="rounded-xl border border-[#BD6745]/30 bg-[#F5E6DE]/20 p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-[#F5E6DE] text-[#A34E30] flex items-center justify-center font-bold text-xs border border-[#BD6745]/30">
+                                    {{ $pendingOutbounds->count() }}
+                                </span>
+                                <h3 class="font-heading text-base font-semibold text-[#292524]">2. Barang Keluar yang Perlu Disiapkan & Packing</h3>
+                            </div>
+                            <span class="text-[11px] text-[#78716C]">Ambil barang dari rak gudang, packing, lalu konfirmasi pengeluaran</span>
+                        </div>
+
+                        @if($pendingOutbounds->isEmpty())
+                            <div class="py-5 text-center text-xs text-[#78716C] bg-white rounded-lg border border-[#E7E0DA]">
+                                <svg class="w-6 h-6 text-emerald-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Seluruh barang keluar telah selesai disiapkan. Tidak ada antrean packing pending.
+                            </div>
+                        @else
+                            <div class="overflow-x-auto bg-white rounded-xl border border-[#E7E0DA]">
+                                <table class="w-full text-xs text-left text-[#78716C] tabular-nums">
+                                    <thead class="text-[11px] text-[#292524] uppercase tracking-wider bg-[#FAF7F4] border-b border-[#E7E0DA]">
+                                        <tr>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">No. Invoice</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Pemohon / Pelanggan</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Barang & Rak</th>
+                                            <th class="px-4 py-2.5 text-right font-heading font-semibold">Jumlah Keluar</th>
+                                            <th class="px-4 py-2.5 font-heading font-semibold">Tujuan / Alasan</th>
+                                            <th class="px-4 py-2.5 text-center font-heading font-semibold">Aksi Tugas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-[#E7E0DA]">
+                                        @foreach($pendingOutbounds as $outTask)
+                                        <tr class="hover:bg-[#FAF7F4] transition">
+                                            <td class="px-4 py-3 font-mono font-medium text-[#292524]">
+                                                <a href="{{ route('transactions.show', $outTask->id) }}" class="hover:text-[#BD6745] font-semibold">
+                                                    {{ $outTask->invoice_number }}
+                                                </a>
+                                                <div class="text-[10px] text-[#78716C] font-sans">{{ $outTask->created_at->diffForHumans() }}</div>
+                                            </td>
+                                            <td class="px-4 py-3 text-[#292524]">
+                                                <div class="font-medium text-[#292524]">{{ $outTask->user?->name ?? 'Staff Gudang' }}</div>
+                                                <div class="text-[10px] text-[#78716C]">Status: Siap Diambil</div>
+                                            </td>
+                                            <td class="px-4 py-3">
+                                                <div class="font-medium text-[#292524]">{{ $outTask->product?->name }}</div>
+                                                <div class="text-[10px] font-mono text-[#78716C]">SKU: {{ $outTask->product?->sku }} | Tersedia: <strong class="text-[#292524]">{{ $outTask->product?->stock }} Unit</strong></div>
+                                            </td>
+                                            <td class="px-4 py-3 text-right">
+                                                <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-[#F5E6DE] text-[#A34E30] border border-[#BD6745]/30">
+                                                    -{{ number_format($outTask->quantity) }} Unit
+                                                </span>
+                                            </td>
+                                            <td class="px-4 py-3 text-[#78716C] max-w-[200px] truncate">
+                                                {{ $outTask->notes ?: 'Distribusi / Penjualan' }}
+                                            </td>
+                                            <td class="px-4 py-3 text-center">
+                                                <div class="flex items-center justify-center gap-1.5">
+                                                    <form action="{{ route('transactions.confirm', $outTask->id) }}" method="POST" onsubmit="return confirm('Konfirmasi bahwa barang sebanyak {{ $outTask->quantity }} unit telah diambil dan selesai disiapkan?')">
+                                                        @csrf
+                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-[#A34E30] hover:bg-[#8A3F25] text-white rounded-lg transition shadow-xs flex items-center gap-1">
+                                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                                            Konfirmasi Pengeluaran
+                                                        </button>
+                                                    </form>
+                                                    <form action="{{ route('transactions.reject', $outTask->id) }}" method="POST" onsubmit="return confirm('Tolak atau batalkan pengeluaran barang ini?')">
+                                                        @csrf
+                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition">
+                                                            Batalkan
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
-                    <div>
-                        <div class="font-semibold text-xs text-[#292524] group-hover:text-[#BD6745]">Input Stock Opname</div>
-                        <div class="text-[11px] text-[#78716C]">Penghitungan fisik berkala</div>
+
+                </div>
+
+                <!-- Shortcut Bar Operasional Cepat di Bawah -->
+                <div class="mt-6 pt-4 border-t border-[#E7E0DA] flex flex-wrap items-center justify-between gap-3">
+                    <span class="text-xs text-[#78716C]">Tindakan Tambahan:</span>
+                    <div class="flex items-center gap-2">
+                        <a href="{{ route('transactions.inbound') }}" class="px-3 py-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-xl transition border border-emerald-200">
+                            + Catat Barang Masuk Baru
+                        </a>
+                        <a href="{{ route('transactions.outbound') }}" class="px-3 py-1.5 text-xs font-semibold text-[#A34E30] bg-[#F5E6DE] hover:bg-[#F5E6DE]/80 rounded-xl transition border border-[#BD6745]/30">
+                            - Catat Permintaan Barang Keluar
+                        </a>
+                        <a href="{{ route('opnames.create') }}" class="px-3 py-1.5 text-xs font-semibold text-blue-800 bg-blue-50 hover:bg-blue-100 rounded-xl transition border border-blue-200">
+                            📋 Input Stock Opname
+                        </a>
                     </div>
-                </a>
+                </div>
             </div>
+
         </div>
     @endif
 
