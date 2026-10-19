@@ -2,16 +2,16 @@
 
 namespace App\Repositories\StockTransaction;
 
-use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\StockTransaction;
 use Carbon\Carbon;
+use LaravelEasyRepository\Implementations\Eloquent;
 
 class StockTransactionRepositoryImplement extends Eloquent implements StockTransactionRepository
 {
-
     /**
      * Model class to be used in this repository for the common methods inside Eloquent
      * Don't remove or change $this->model variable name
+     *
      * @property Model|mixed $model;
      */
     protected $model;
@@ -83,6 +83,7 @@ class StockTransactionRepositoryImplement extends Eloquent implements StockTrans
         }
 
         $transaction->update($updateData);
+
         return $transaction;
     }
 }

@@ -2,16 +2,17 @@
 
 namespace App\Repositories\Supplier;
 
-use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\Supplier;
+use LaravelEasyRepository\Implementations\Eloquent;
 
-class SupplierRepositoryImplement extends Eloquent implements SupplierRepository{
-
+class SupplierRepositoryImplement extends Eloquent implements SupplierRepository
+{
     /**
-    * Model class to be used in this repository for the common methods inside Eloquent
-    * Don't remove or change $this->model variable name
-    * @property Model|mixed $model;
-    */
+     * Model class to be used in this repository for the common methods inside Eloquent
+     * Don't remove or change $this->model variable name
+     *
+     * @property Model|mixed $model;
+     */
     protected $model;
 
     public function __construct(Supplier $model)
@@ -25,9 +26,9 @@ class SupplierRepositoryImplement extends Eloquent implements SupplierRepository
             ->withCount('products')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%")
-                      ->orWhere('phone', 'like', "%{$search}%")
-                      ->orWhere('email', 'like', "%{$search}%")
-                      ->orWhere('address', 'like', "%{$search}%");
+                    ->orWhere('phone', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('address', 'like', "%{$search}%");
             })
             ->latest()
             ->paginate($perPage)
@@ -43,12 +44,14 @@ class SupplierRepositoryImplement extends Eloquent implements SupplierRepository
     {
         $supplier = $this->model->findOrFail($id);
         $supplier->update($data);
+
         return $supplier;
     }
 
     public function deleteSupplier($id)
     {
         $supplier = $this->model->findOrFail($id);
+
         return $supplier->delete();
     }
 }

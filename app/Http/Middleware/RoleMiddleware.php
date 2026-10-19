@@ -17,14 +17,14 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             return redirect()->route('login');
         }
 
         $user = Auth::user();
 
         // Cek jika akun dinonaktifkan
-        if (!$user->is_active) {
+        if (! $user->is_active) {
             Auth::logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
@@ -35,7 +35,7 @@ class RoleMiddleware
         }
 
         // Cek apakah role user ada dalam daftar role yang diizinkan
-        if (!in_array($user->role, $roles)) {
+        if (! in_array($user->role, $roles)) {
             abort(403, 'Akses Ditolak: Anda tidak memiliki hak akses untuk membuka halaman ini.');
         }
 

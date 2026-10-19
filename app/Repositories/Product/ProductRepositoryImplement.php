@@ -2,19 +2,19 @@
 
 namespace App\Repositories\Product;
 
-use LaravelEasyRepository\Implementations\Eloquent;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use LaravelEasyRepository\Implementations\Eloquent;
 
-class ProductRepositoryImplement extends Eloquent implements ProductRepository{
-
+class ProductRepositoryImplement extends Eloquent implements ProductRepository
+{
     /**
-    * Model class to be used in this repository for the common methods inside Eloquent
-    * Don't remove or change $this->model variable name
-    * @property Model|mixed $model;
-    */
+     * Model class to be used in this repository for the common methods inside Eloquent
+     * Don't remove or change $this->model variable name
+     *
+     * @property Model|mixed $model;
+     */
     protected $model;
 
     public function __construct(Product $model)
@@ -29,8 +29,8 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository{
             ->when($search, function ($query, $search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")
-                      ->orWhere('sku', 'like', "%{$search}%")
-                      ->orWhere('description', 'like', "%{$search}%");
+                        ->orWhere('sku', 'like', "%{$search}%")
+                        ->orWhere('description', 'like', "%{$search}%");
                 });
             })
             ->when($categoryId, function ($query, $categoryId) {
@@ -53,7 +53,7 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository{
         if ($categoryId) {
             $category = Category::find($categoryId);
             if ($category) {
-                $prefix .= '-' . strtoupper(substr(preg_replace('/[^A-Za-z0-9]/', '', $category->name), 0, 3));
+                $prefix .= '-'.strtoupper(substr(preg_replace('/[^A-Za-z0-9]/', '', $category->name), 0, 3));
             }
         }
 
@@ -71,9 +71,9 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository{
         return DB::transaction(function () use ($data, $attributes) {
             $product = $this->model->create($data);
 
-            if (!empty($attributes)) {
+            if (! empty($attributes)) {
                 foreach ($attributes as $attr) {
-                    if (!empty($attr['name']) && !empty($attr['value'])) {
+                    if (! empty($attr['name']) && ! empty($attr['value'])) {
                         $product->attributes()->create([
                             'attribute_name' => trim($attr['name']),
                             'attribute_value' => trim($attr['value']),
@@ -94,9 +94,9 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository{
 
             // Sync attributes: delete old ones and recreate
             $product->attributes()->delete();
-            if (!empty($attributes)) {
+            if (! empty($attributes)) {
                 foreach ($attributes as $attr) {
-                    if (!empty($attr['name']) && !empty($attr['value'])) {
+                    if (! empty($attr['name']) && ! empty($attr['value'])) {
                         $product->attributes()->create([
                             'attribute_name' => trim($attr['name']),
                             'attribute_value' => trim($attr['value']),
@@ -112,6 +112,7 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository{
     public function deleteProduct($id)
     {
         $product = $this->model->findOrFail($id);
+
         return $product->delete();
     }
 }

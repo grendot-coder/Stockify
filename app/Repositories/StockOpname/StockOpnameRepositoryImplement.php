@@ -2,14 +2,15 @@
 
 namespace App\Repositories\StockOpname;
 
-use LaravelEasyRepository\Implementations\Eloquent;
 use App\Models\StockOpname;
+use LaravelEasyRepository\Implementations\Eloquent;
 
 class StockOpnameRepositoryImplement extends Eloquent implements StockOpnameRepository
 {
     /**
      * Model class to be used in this repository for the common methods inside Eloquent
      * Don't remove or change $this->model variable name
+     *
      * @property StockOpname|mixed $model;
      */
     protected $model;

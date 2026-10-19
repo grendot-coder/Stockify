@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +12,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            SupplierSeeder::class,
+            ProductSeeder::class,
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Default System Settings
+        Setting::updateOrCreate(['key' => 'app_name'], ['value' => 'Stockify']);
+        Setting::updateOrCreate(['key' => 'company_name'], ['value' => 'PT Stockify Logistik Mandiri']);
+        Setting::updateOrCreate(['key' => 'app_logo'], ['value' => null]);
+        Setting::updateOrCreate(['key' => 'min_stock_alert'], ['value' => '5']);
     }
 }

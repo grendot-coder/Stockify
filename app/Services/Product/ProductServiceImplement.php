@@ -2,14 +2,14 @@
 
 namespace App\Services\Product;
 
-use LaravelEasyRepository\Service;
-use App\Repositories\Product\ProductRepository;
 use App\Models\ActivityLog;
+use App\Repositories\Product\ProductRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use LaravelEasyRepository\Service;
 
-class ProductServiceImplement extends Service implements ProductService{
-
+class ProductServiceImplement extends Service implements ProductService
+{
     /**
      * don't change $this->mainRepository variable name
      * because used in extends service class
@@ -18,7 +18,7 @@ class ProductServiceImplement extends Service implements ProductService{
 
     public function __construct(ProductRepository $mainRepository)
     {
-      $this->mainRepository = $mainRepository;
+        $this->mainRepository = $mainRepository;
     }
 
     public function getPaginated(?string $search = null, ?int $categoryId = null, ?int $supplierId = null, bool $lowStockOnly = false, int $perPage = 10)
