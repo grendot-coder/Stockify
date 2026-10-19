@@ -181,6 +181,6 @@ class ReportTest extends TestCase
         $resStaff = $this->actingAs($this->staffUser)->get('/dashboard');
         $resStaff->assertStatus(200);
         $resStaff->assertSee('Staff Operasional');
-        $resStaff->assertSee('Tindakan Cepat Operasional Gudang');
+        $resStaff->assertSee('Daftar Tugas Operasional Staff Gudang');
     }
 }

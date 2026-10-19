@@ -190,12 +190,14 @@ class StockTransactionTest extends TestCase
     }
 
     /**
-     * Test staff dilarang menyetujui transaksi (403).
+     * Test staff gudang berhak mengonfirmasi transaksi penerimaan fisik barang.
      */
-    public function test_staff_cannot_confirm_or_reject_transaction(): void
+    public function test_staff_can_confirm_transaction_and_adjust_stock(): void
     {
+        $initialStock = $this->testProduct->stock;
+
         $trx = StockTransaction::create([
-            'invoice_number' => 'TRX-TEST-FORBIDDEN-'.uniqid().'-'.mt_rand(100, 999),
+            'invoice_number' => 'TRX-TEST-STAFF-'.uniqid().'-'.mt_rand(100, 999),
             'product_id' => $this->testProduct->id,
             'user_id' => $this->staffUser->id,
             'type' => 'in',
@@ -204,6 +206,13 @@ class StockTransactionTest extends TestCase
         ]);
 
         $response = $this->actingAs($this->staffUser)->post("/transactions/{$trx->id}/confirm");
-        $response->assertStatus(403);
+        $response->assertSessionHas('success');
+
+        $trx->refresh();
+        $this->assertEquals('confirmed', $trx->status);
+        $this->assertEquals($this->staffUser->id, $trx->confirmed_by);
+
+        $this->testProduct->refresh();
+        $this->assertEquals($initialStock + 5, $this->testProduct->stock);
     }
 }

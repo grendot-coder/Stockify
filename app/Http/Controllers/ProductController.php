@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use App\Services\Product\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -160,5 +161,221 @@ class ProductController extends Controller
         $sku = $this->productService->generateSku($categoryId ? intval($categoryId) : null);
 
         return response()->json(['sku' => $sku]);
+    }
+
+    /**
+     * Ekspor seluruh katalog produk ke berkas CSV.
+     */
+    public function export()
+    {
+        $products = Product::with(['category', 'supplier'])->orderBy('name')->get();
+        $filename = 'katalog-produk-stockify-'.date('Ymd-His').'.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$filename}\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () use ($products) {
+            $handle = fopen('php://output', 'w');
+            fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
+
+            fputcsv($handle, [
+                'SKU',
+                'Nama Produk',
+                'Kategori',
+                'Supplier Rekanan',
+                'Harga Beli',
+                'Harga Jual',
+                'Stok Fisik',
+                'Batas Min Stok',
+                'Deskripsi',
+                'Tanggal Ditambahkan',
+            ]);
+
+            foreach ($products as $p) {
+                fputcsv($handle, [
+                    $p->sku,
+                    $p->name,
+                    $p->category?->name ?? 'Umum',
+                    $p->supplier?->name ?? '-',
+                    $p->purchase_price,
+                    $p->selling_price,
+                    $p->stock,
+                    $p->min_stock,
+                    $p->description ?? '',
+                    $p->created_at->format('Y-m-d H:i'),
+                ]);
+            }
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
+    /**
+     * Unduh template CSV untuk import produk.
+     */
+    public function sampleTemplate()
+    {
+        $filename = 'template-import-produk-stockify.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$filename}\"",
+        ];
+
+        $callback = function () {
+            $handle = fopen('php://output', 'w');
+            fprintf($handle, chr(0xEF).chr(0xBB).chr(0xBF));
+
+            fputcsv($handle, [
+                'sku',
+                'name',
+                'category',
+                'supplier',
+                'purchase_price',
+                'selling_price',
+                'stock',
+                'min_stock',
+                'description',
+            ]);
+
+            fputcsv($handle, [
+                'CONTOH-SKU-001',
+                'Mouse Wireless Ergonomic',
+                'Elektronik',
+                'PT Sumber Makmur',
+                '75000',
+                '120000',
+                '50',
+                '10',
+                'Mouse nirkabel 2.4Ghz dengan sensor presisi tinggi',
+            ]);
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
+    /**
+     * Impor katalog produk dari berkas CSV.
+     */
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => ['required', 'file', 'mimes:csv,txt', 'max:5120'],
+        ], [
+            'file.required' => 'Pilih berkas CSV produk untuk diimpor.',
+            'file.mimes' => 'Format berkas harus berupa CSV (.csv).',
+            'file.max' => 'Ukuran berkas maksimal 5 MB.',
+        ]);
+
+        $file = $request->file('file');
+        $handle = fopen($file->getRealPath(), 'r');
+
+        $bom = fread($handle, 3);
+        if ($bom !== "\xEF\xBB\xBF") {
+            rewind($handle);
+        }
+
+        $header = fgetcsv($handle, 1000, ',');
+        if (! $header) {
+            fclose($handle);
+
+            return redirect()->back()->with('error', 'Berkas CSV kosong atau tidak memiliki baris header.');
+        }
+
+        $header = array_map(function ($col) {
+            return strtolower(trim($col));
+        }, $header);
+
+        $imported = 0;
+        $updated = 0;
+
+        while (($row = fgetcsv($handle, 2000, ',')) !== false) {
+            if (count($row) < 2 || empty($row[0])) {
+                continue;
+            }
+
+            $data = array_combine(array_slice($header, 0, count($row)), $row);
+
+            $sku = trim($data['sku'] ?? '');
+            $name = trim($data['name'] ?? '');
+            if (empty($sku) || empty($name)) {
+                continue;
+            }
+
+            $categoryName = trim($data['category'] ?? 'Umum');
+            $category = Category::where('name', $categoryName)->first();
+            if (! $category) {
+                $slug = Str::slug($categoryName) ?: 'kategori-'.uniqid();
+                $count = Category::where('slug', 'like', "{$slug}%")->count();
+                if ($count > 0) {
+                    $slug .= '-'.($count + 1);
+                }
+                $category = Category::create([
+                    'name' => $categoryName,
+                    'slug' => $slug,
+                ]);
+            }
+
+            $supplierId = null;
+            if (! empty($data['supplier'])) {
+                $supplierName = trim($data['supplier']);
+                $supplier = Supplier::where('name', $supplierName)->first();
+                if (! $supplier) {
+                    $supplier = Supplier::create([
+                        'name' => $supplierName,
+                        'phone' => '-',
+                    ]);
+                }
+                $supplierId = $supplier->id;
+            }
+
+            $purchasePrice = isset($data['purchase_price']) ? floatval(str_replace(',', '', $data['purchase_price'])) : 0;
+            $sellingPrice = isset($data['selling_price']) ? floatval(str_replace(',', '', $data['selling_price'])) : 0;
+            $stock = isset($data['stock']) ? intval($data['stock']) : 0;
+            $minStock = isset($data['min_stock']) ? intval($data['min_stock']) : 5;
+            $description = trim($data['description'] ?? '');
+
+            $existing = Product::where('sku', $sku)->first();
+
+            if ($existing) {
+                $existing->update([
+                    'category_id' => $category->id,
+                    'supplier_id' => $supplierId ?? $existing->supplier_id,
+                    'name' => $name,
+                    'purchase_price' => $purchasePrice,
+                    'selling_price' => $sellingPrice,
+                    'stock' => $stock,
+                    'min_stock' => $minStock,
+                    'description' => $description,
+                ]);
+                $updated++;
+            } else {
+                Product::create([
+                    'category_id' => $category->id,
+                    'supplier_id' => $supplierId,
+                    'sku' => $sku,
+                    'name' => $name,
+                    'purchase_price' => $purchasePrice,
+                    'selling_price' => $sellingPrice,
+                    'stock' => $stock,
+                    'min_stock' => $minStock,
+                    'description' => $description,
+                ]);
+                $imported++;
+            }
+        }
+
+        fclose($handle);
+
+        return redirect()->route('products.index')->with('success', "Proses impor selesai! {$imported} produk baru ditambahkan dan {$updated} produk diperbarui.");
     }
 }
