@@ -1,0 +1,4937 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 872 792" width="100%" height="auto">
+<defs>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&amp;display=swap");
+    .ascii-glow { filter: drop-shadow(0 0 5px rgba(232, 72, 95, 0.4)); }
+    .ascii-text { font-family: "JetBrains Mono", Consolas, monospace; font-size: 9px; font-weight: 700; text-anchor: middle; }
+  </style>
+</defs>
+<g class="ascii-glow">
+<g fill="#eadcd1">
+<text x="739.0" y="25.0" class="ascii-text">X</text>
+</g>
+<g fill="#eed8d5">
+<text x="745.0" y="25.0" class="ascii-text">X</text>
+</g>
+<g fill="#e9d6d4">
+<text x="751.0" y="25.0" class="ascii-text">z</text>
+</g>
+<g fill="#ead9d3">
+<text x="757.0" y="25.0" class="ascii-text">X</text>
+</g>
+<g fill="#e2d2d5">
+<text x="763.0" y="25.0" class="ascii-text">c</text>
+<text x="187.0" y="595.0" class="ascii-text">c</text>
+</g>
+<g fill="#828e88">
+<text x="787.0" y="25.0" class="ascii-text">?</text>
+</g>
+<g fill="#f4eeeb">
+<text x="733.0" y="35.0" class="ascii-text">L</text>
+</g>
+<g fill="#eee4d9">
+<text x="739.0" y="35.0" class="ascii-text">U</text>
+</g>
+<g fill="#eeddd7">
+<text x="745.0" y="35.0" class="ascii-text">Y</text>
+</g>
+<g fill="#efded9">
+<text x="751.0" y="35.0" class="ascii-text">Y</text>
+</g>
+<g fill="#f4e1dd">
+<text x="757.0" y="35.0" class="ascii-text">U</text>
+</g>
+<g fill="#e9dad5">
+<text x="763.0" y="35.0" class="ascii-text">X</text>
+</g>
+<g fill="#78876f">
+<text x="775.0" y="35.0" class="ascii-text">_</text>
+</g>
+<g fill="#6c795e">
+<text x="781.0" y="35.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#34583a">
+<text x="787.0" y="35.0" class="ascii-text">^</text>
+</g>
+<g fill="#7f877f">
+<text x="793.0" y="35.0" class="ascii-text">_</text>
+</g>
+<g fill="#928c8d">
+<text x="799.0" y="35.0" class="ascii-text">]</text>
+<text x="805.0" y="75.0" class="ascii-text">]</text>
+</g>
+<g fill="#342e3a">
+<text x="805.0" y="35.0" class="ascii-text">&apos;</text>
+<text x="823.0" y="45.0" class="ascii-text">&apos;</text>
+<text x="751.0" y="55.0" class="ascii-text">&apos;</text>
+<text x="787.0" y="65.0" class="ascii-text">&apos;</text>
+<text x="799.0" y="65.0" class="ascii-text">&apos;</text>
+<text x="805.0" y="65.0" class="ascii-text">&apos;</text>
+<text x="721.0" y="75.0" class="ascii-text">&apos;</text>
+<text x="811.0" y="75.0" class="ascii-text">&apos;</text>
+<text x="817.0" y="75.0" class="ascii-text">&apos;</text>
+<text x="691.0" y="95.0" class="ascii-text">&apos;</text>
+<text x="703.0" y="95.0" class="ascii-text">&apos;</text>
+<text x="229.0" y="405.0" class="ascii-text">&apos;</text>
+<text x="277.0" y="405.0" class="ascii-text">&apos;</text>
+<text x="217.0" y="415.0" class="ascii-text">&apos;</text>
+<text x="265.0" y="415.0" class="ascii-text">&apos;</text>
+<text x="205.0" y="425.0" class="ascii-text">&apos;</text>
+<text x="79.0" y="515.0" class="ascii-text">&apos;</text>
+<text x="319.0" y="515.0" class="ascii-text">&apos;</text>
+<text x="337.0" y="515.0" class="ascii-text">&apos;</text>
+<text x="73.0" y="525.0" class="ascii-text">&apos;</text>
+<text x="337.0" y="525.0" class="ascii-text">&apos;</text>
+<text x="385.0" y="545.0" class="ascii-text">&apos;</text>
+<text x="355.0" y="565.0" class="ascii-text">&apos;</text>
+<text x="379.0" y="565.0" class="ascii-text">&apos;</text>
+<text x="367.0" y="575.0" class="ascii-text">&apos;</text>
+<text x="373.0" y="575.0" class="ascii-text">&apos;</text>
+<text x="361.0" y="585.0" class="ascii-text">&apos;</text>
+<text x="355.0" y="595.0" class="ascii-text">&apos;</text>
+<text x="289.0" y="605.0" class="ascii-text">&apos;</text>
+<text x="343.0" y="605.0" class="ascii-text">&apos;</text>
+<text x="229.0" y="615.0" class="ascii-text">&apos;</text>
+<text x="85.0" y="645.0" class="ascii-text">&apos;</text>
+<text x="265.0" y="665.0" class="ascii-text">&apos;</text>
+<text x="109.0" y="675.0" class="ascii-text">&apos;</text>
+<text x="151.0" y="675.0" class="ascii-text">&apos;</text>
+<text x="115.0" y="685.0" class="ascii-text">&apos;</text>
+<text x="187.0" y="725.0" class="ascii-text">&apos;</text>
+</g>
+<g fill="#948e78">
+<text x="811.0" y="35.0" class="ascii-text">?</text>
+</g>
+<g fill="#e9dedd">
+<text x="733.0" y="45.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e6dad6">
+<text x="739.0" y="45.0" class="ascii-text">X</text>
+</g>
+<g fill="#e1d4ca">
+<text x="745.0" y="45.0" class="ascii-text">c</text>
+</g>
+<g fill="#f3e6e6">
+<text x="751.0" y="45.0" class="ascii-text">J</text>
+<text x="709.0" y="75.0" class="ascii-text">J</text>
+</g>
+<g fill="#f8f0f2">
+<text x="757.0" y="45.0" class="ascii-text">L</text>
+</g>
+<g fill="#bbb2aa">
+<text x="763.0" y="45.0" class="ascii-text">/</text>
+</g>
+<g fill="#929198">
+<text x="769.0" y="45.0" class="ascii-text">[</text>
+</g>
+<g fill="#526866">
+<text x="775.0" y="45.0" class="ascii-text">l</text>
+</g>
+<g fill="#3c5e56">
+<text x="781.0" y="45.0" class="ascii-text">:</text>
+</g>
+<g fill="#cdcace">
+<text x="787.0" y="45.0" class="ascii-text">n</text>
+</g>
+<g fill="#e4e0e3">
+<text x="793.0" y="45.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e0dadd">
+<text x="799.0" y="45.0" class="ascii-text">X</text>
+</g>
+<g fill="#bab4b9">
+<text x="805.0" y="45.0" class="ascii-text">t</text>
+</g>
+<g fill="#6e726a">
+<text x="811.0" y="45.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#6a6455">
+<text x="817.0" y="45.0" class="ascii-text">!</text>
+</g>
+<g fill="#dacac9">
+<text x="703.0" y="55.0" class="ascii-text">u</text>
+</g>
+<g fill="#dfd0d0">
+<text x="709.0" y="55.0" class="ascii-text">c</text>
+<text x="691.0" y="125.0" class="ascii-text">c</text>
+</g>
+<g fill="#9690c3">
+<text x="745.0" y="55.0" class="ascii-text">}</text>
+</g>
+<g fill="#aba1ad">
+<text x="757.0" y="55.0" class="ascii-text">(</text>
+<text x="799.0" y="95.0" class="ascii-text">(</text>
+<text x="355.0" y="585.0" class="ascii-text">(</text>
+</g>
+<g fill="#ebe1de">
+<text x="763.0" y="55.0" class="ascii-text">U</text>
+</g>
+<g fill="#f2dfdc">
+<text x="769.0" y="55.0" class="ascii-text">U</text>
+</g>
+<g fill="#f0e6e6">
+<text x="775.0" y="55.0" class="ascii-text">J</text>
+</g>
+<g fill="#969092">
+<text x="781.0" y="55.0" class="ascii-text">[</text>
+<text x="355.0" y="495.0" class="ascii-text">[</text>
+</g>
+<g fill="#b2a9b1">
+<text x="787.0" y="55.0" class="ascii-text">|</text>
+<text x="199.0" y="715.0" class="ascii-text">|</text>
+</g>
+<g fill="#9c9a98">
+<text x="793.0" y="55.0" class="ascii-text">{</text>
+</g>
+<g fill="#bcb6b5">
+<text x="799.0" y="55.0" class="ascii-text">t</text>
+</g>
+<g fill="#c9c3c9">
+<text x="805.0" y="55.0" class="ascii-text">x</text>
+</g>
+<g fill="#ccc6ca">
+<text x="811.0" y="55.0" class="ascii-text">n</text>
+<text x="817.0" y="55.0" class="ascii-text">n</text>
+</g>
+<g fill="#9f9d9c">
+<text x="823.0" y="55.0" class="ascii-text">{</text>
+</g>
+<g fill="#817b87">
+<text x="829.0" y="55.0" class="ascii-text">+</text>
+<text x="733.0" y="65.0" class="ascii-text">+</text>
+<text x="361.0" y="535.0" class="ascii-text">+</text>
+<text x="403.0" y="545.0" class="ascii-text">+</text>
+<text x="43.0" y="555.0" class="ascii-text">+</text>
+<text x="55.0" y="685.0" class="ascii-text">+</text>
+<text x="91.0" y="725.0" class="ascii-text">+</text>
+<text x="103.0" y="735.0" class="ascii-text">+</text>
+<text x="127.0" y="755.0" class="ascii-text">+</text>
+<text x="139.0" y="765.0" class="ascii-text">+</text>
+</g>
+<g fill="#e1cfcf">
+<text x="685.0" y="65.0" class="ascii-text">c</text>
+</g>
+<g fill="#ddd0d0">
+<text x="691.0" y="65.0" class="ascii-text">v</text>
+</g>
+<g fill="#dbd0cd">
+<text x="697.0" y="65.0" class="ascii-text">v</text>
+</g>
+<g fill="#d7c9c8">
+<text x="703.0" y="65.0" class="ascii-text">u</text>
+</g>
+<g fill="#decfce">
+<text x="709.0" y="65.0" class="ascii-text">v</text>
+</g>
+<g fill="#e2d5db">
+<text x="715.0" y="65.0" class="ascii-text">z</text>
+</g>
+<g fill="#866f7b">
+<text x="739.0" y="65.0" class="ascii-text">~</text>
+<text x="271.0" y="645.0" class="ascii-text">~</text>
+</g>
+<g fill="#8a7590">
+<text x="745.0" y="65.0" class="ascii-text">+</text>
+</g>
+<g fill="#6b3871">
+<text x="751.0" y="65.0" class="ascii-text">:</text>
+<text x="307.0" y="595.0" class="ascii-text">:</text>
+</g>
+<g fill="#bbaebd">
+<text x="757.0" y="65.0" class="ascii-text">/</text>
+<text x="271.0" y="665.0" class="ascii-text">/</text>
+</g>
+<g fill="#faf0ee">
+<text x="763.0" y="65.0" class="ascii-text">L</text>
+</g>
+<g fill="#fffbfc">
+<text x="769.0" y="65.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fffcfe">
+<text x="775.0" y="65.0" class="ascii-text">Z</text>
+</g>
+<g fill="#767072">
+<text x="781.0" y="65.0" class="ascii-text">&gt;</text>
+<text x="61.0" y="535.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#727578">
+<text x="793.0" y="65.0" class="ascii-text">&lt;</text>
+<text x="175.0" y="515.0" class="ascii-text">&lt;</text>
+<text x="349.0" y="575.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#9e9896">
+<text x="811.0" y="65.0" class="ascii-text">{</text>
+</g>
+<g fill="#c1bbbe">
+<text x="817.0" y="65.0" class="ascii-text">j</text>
+</g>
+<g fill="#7c767a">
+<text x="823.0" y="65.0" class="ascii-text">~</text>
+<text x="31.0" y="625.0" class="ascii-text">~</text>
+</g>
+<g fill="#6f7361">
+<text x="829.0" y="65.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#87928d">
+<text x="835.0" y="65.0" class="ascii-text">]</text>
+</g>
+<g fill="#dcd1cc">
+<text x="685.0" y="75.0" class="ascii-text">v</text>
+</g>
+<g fill="#e6d9d5">
+<text x="691.0" y="75.0" class="ascii-text">X</text>
+</g>
+<g fill="#dfd2d0">
+<text x="697.0" y="75.0" class="ascii-text">c</text>
+</g>
+<g fill="#f0e2e1">
+<text x="703.0" y="75.0" class="ascii-text">U</text>
+</g>
+<g fill="#c5bfc2">
+<text x="715.0" y="75.0" class="ascii-text">r</text>
+</g>
+<g fill="#88657b">
+<text x="727.0" y="75.0" class="ascii-text">&gt;</text>
+<text x="775.0" y="105.0" class="ascii-text">&gt;</text>
+<text x="289.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="211.0" y="645.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="199.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="169.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="187.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="193.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="685.0" class="ascii-text">&gt;</text>
+<text x="169.0" y="685.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="685.0" class="ascii-text">&gt;</text>
+<text x="187.0" y="685.0" class="ascii-text">&gt;</text>
+<text x="205.0" y="685.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="695.0" class="ascii-text">&gt;</text>
+<text x="169.0" y="695.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="695.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#8e7184">
+<text x="733.0" y="75.0" class="ascii-text">~</text>
+<text x="229.0" y="645.0" class="ascii-text">~</text>
+<text x="169.0" y="655.0" class="ascii-text">~</text>
+<text x="223.0" y="655.0" class="ascii-text">~</text>
+<text x="157.0" y="685.0" class="ascii-text">~</text>
+<text x="151.0" y="695.0" class="ascii-text">~</text>
+<text x="157.0" y="695.0" class="ascii-text">~</text>
+<text x="157.0" y="765.0" class="ascii-text">~</text>
+</g>
+<g fill="#7e6279">
+<text x="739.0" y="75.0" class="ascii-text">&gt;</text>
+<text x="697.0" y="105.0" class="ascii-text">&gt;</text>
+<text x="211.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="169.0" y="705.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#81677d">
+<text x="745.0" y="75.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="635.0" class="ascii-text">&gt;</text>
+<text x="187.0" y="645.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#a59198">
+<text x="751.0" y="75.0" class="ascii-text">}</text>
+</g>
+<g fill="#beadac">
+<text x="757.0" y="75.0" class="ascii-text">/</text>
+</g>
+<g fill="#ac9e9e">
+<text x="763.0" y="75.0" class="ascii-text">)</text>
+</g>
+<g fill="#898989">
+<text x="769.0" y="75.0" class="ascii-text">-</text>
+<text x="349.0" y="525.0" class="ascii-text">-</text>
+</g>
+<g fill="#696e6f">
+<text x="775.0" y="75.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#aca2a6">
+<text x="781.0" y="75.0" class="ascii-text">(</text>
+<text x="763.0" y="125.0" class="ascii-text">(</text>
+</g>
+<g fill="#eee2df">
+<text x="787.0" y="75.0" class="ascii-text">U</text>
+</g>
+<g fill="#ecdfda">
+<text x="793.0" y="75.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e7dddb">
+<text x="799.0" y="75.0" class="ascii-text">Y</text>
+</g>
+<g fill="#827c79">
+<text x="823.0" y="75.0" class="ascii-text">+</text>
+<text x="241.0" y="555.0" class="ascii-text">+</text>
+</g>
+<g fill="#969592">
+<text x="829.0" y="75.0" class="ascii-text">[</text>
+</g>
+<g fill="#a29c9f">
+<text x="835.0" y="75.0" class="ascii-text">1</text>
+</g>
+<g fill="#dbcec6">
+<text x="685.0" y="85.0" class="ascii-text">v</text>
+</g>
+<g fill="#e3d8d2">
+<text x="691.0" y="85.0" class="ascii-text">z</text>
+</g>
+<g fill="#dbcdcd">
+<text x="697.0" y="85.0" class="ascii-text">v</text>
+</g>
+<g fill="#d9ced1">
+<text x="703.0" y="85.0" class="ascii-text">v</text>
+</g>
+<g fill="#d1c8c7">
+<text x="709.0" y="85.0" class="ascii-text">n</text>
+</g>
+<g fill="#c9bdb7">
+<text x="715.0" y="85.0" class="ascii-text">j</text>
+</g>
+<g fill="#c5b9b6">
+<text x="721.0" y="85.0" class="ascii-text">f</text>
+</g>
+<g fill="#9d918e">
+<text x="727.0" y="85.0" class="ascii-text">[</text>
+</g>
+<g fill="#846c78">
+<text x="733.0" y="85.0" class="ascii-text">&lt;</text>
+<text x="199.0" y="635.0" class="ascii-text">&lt;</text>
+<text x="151.0" y="685.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#b19fa3">
+<text x="739.0" y="85.0" class="ascii-text">(</text>
+</g>
+<g fill="#cdbebf">
+<text x="745.0" y="85.0" class="ascii-text">r</text>
+</g>
+<g fill="#f7ede7">
+<text x="751.0" y="85.0" class="ascii-text">L</text>
+</g>
+<g fill="#f6eae8">
+<text x="757.0" y="85.0" class="ascii-text">C</text>
+</g>
+<g fill="#f4e8e6">
+<text x="763.0" y="85.0" class="ascii-text">J</text>
+<text x="175.0" y="585.0" class="ascii-text">J</text>
+</g>
+<g fill="#beb8b4">
+<text x="769.0" y="85.0" class="ascii-text">f</text>
+</g>
+<g fill="#ad9e9a">
+<text x="775.0" y="85.0" class="ascii-text">)</text>
+</g>
+<g fill="#cabfc2">
+<text x="781.0" y="85.0" class="ascii-text">r</text>
+</g>
+<g fill="#f4eaea">
+<text x="787.0" y="85.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffffff">
+<text x="793.0" y="85.0" class="ascii-text">w</text>
+<text x="799.0" y="85.0" class="ascii-text">p</text>
+<text x="751.0" y="95.0" class="ascii-text">w</text>
+<text x="751.0" y="125.0" class="ascii-text">w</text>
+<text x="847.0" y="125.0" class="ascii-text">w</text>
+<text x="667.0" y="135.0" class="ascii-text">k</text>
+<text x="679.0" y="145.0" class="ascii-text">b</text>
+<text x="685.0" y="155.0" class="ascii-text">k</text>
+<text x="691.0" y="155.0" class="ascii-text">b</text>
+<text x="583.0" y="205.0" class="ascii-text">d</text>
+<text x="571.0" y="215.0" class="ascii-text">k</text>
+<text x="595.0" y="215.0" class="ascii-text">*</text>
+<text x="601.0" y="215.0" class="ascii-text">%</text>
+<text x="607.0" y="215.0" class="ascii-text">#</text>
+<text x="559.0" y="225.0" class="ascii-text">o</text>
+<text x="547.0" y="235.0" class="ascii-text">W</text>
+<text x="547.0" y="255.0" class="ascii-text">h</text>
+<text x="547.0" y="265.0" class="ascii-text">W</text>
+<text x="553.0" y="265.0" class="ascii-text">M</text>
+<text x="559.0" y="265.0" class="ascii-text">d</text>
+<text x="481.0" y="295.0" class="ascii-text">d</text>
+<text x="469.0" y="305.0" class="ascii-text">b</text>
+<text x="499.0" y="305.0" class="ascii-text">W</text>
+<text x="505.0" y="305.0" class="ascii-text">M</text>
+<text x="457.0" y="315.0" class="ascii-text">a</text>
+<text x="445.0" y="325.0" class="ascii-text">h</text>
+<text x="433.0" y="335.0" class="ascii-text">#</text>
+<text x="457.0" y="335.0" class="ascii-text">o</text>
+<text x="457.0" y="345.0" class="ascii-text">a</text>
+<text x="463.0" y="345.0" class="ascii-text">M</text>
+<text x="469.0" y="345.0" class="ascii-text">a</text>
+<text x="403.0" y="385.0" class="ascii-text">#</text>
+<text x="367.0" y="395.0" class="ascii-text">d</text>
+<text x="409.0" y="395.0" class="ascii-text">#</text>
+<text x="415.0" y="395.0" class="ascii-text">a</text>
+<text x="355.0" y="405.0" class="ascii-text">p</text>
+<text x="331.0" y="425.0" class="ascii-text">b</text>
+<text x="367.0" y="435.0" class="ascii-text">d</text>
+<text x="307.0" y="445.0" class="ascii-text">p</text>
+<text x="223.0" y="675.0" class="ascii-text">m</text>
+<text x="193.0" y="705.0" class="ascii-text">p</text>
+<text x="61.0" y="715.0" class="ascii-text">d</text>
+<text x="151.0" y="725.0" class="ascii-text">m</text>
+<text x="157.0" y="725.0" class="ascii-text">w</text>
+</g>
+<g fill="#a89d9d">
+<text x="805.0" y="85.0" class="ascii-text">1</text>
+</g>
+<g fill="#9a949b">
+<text x="811.0" y="85.0" class="ascii-text">}</text>
+</g>
+<g fill="#afa9ae">
+<text x="817.0" y="85.0" class="ascii-text">|</text>
+</g>
+<g fill="#9f999c">
+<text x="823.0" y="85.0" class="ascii-text">{</text>
+<text x="181.0" y="555.0" class="ascii-text">{</text>
+<text x="31.0" y="655.0" class="ascii-text">{</text>
+</g>
+<g fill="#a6a0ac">
+<text x="829.0" y="85.0" class="ascii-text">)</text>
+</g>
+<g fill="#89737f">
+<text x="697.0" y="95.0" class="ascii-text">~</text>
+<text x="691.0" y="105.0" class="ascii-text">~</text>
+<text x="145.0" y="695.0" class="ascii-text">~</text>
+</g>
+<g fill="#d4c9d0">
+<text x="709.0" y="95.0" class="ascii-text">u</text>
+</g>
+<g fill="#fff6f2">
+<text x="715.0" y="95.0" class="ascii-text">0</text>
+</g>
+<g fill="#fffff5">
+<text x="721.0" y="95.0" class="ascii-text">m</text>
+<text x="601.0" y="225.0" class="ascii-text">p</text>
+<text x="403.0" y="365.0" class="ascii-text">w</text>
+</g>
+<g fill="#fff8f2">
+<text x="727.0" y="95.0" class="ascii-text">0</text>
+<text x="115.0" y="645.0" class="ascii-text">O</text>
+</g>
+<g fill="#bcb0ab">
+<text x="733.0" y="95.0" class="ascii-text">/</text>
+</g>
+<g fill="#9d979a">
+<text x="739.0" y="95.0" class="ascii-text">{</text>
+<text x="193.0" y="585.0" class="ascii-text">{</text>
+<text x="133.0" y="695.0" class="ascii-text">{</text>
+</g>
+<g fill="#c1b8b4">
+<text x="745.0" y="95.0" class="ascii-text">f</text>
+</g>
+<g fill="#fcf2f1">
+<text x="757.0" y="95.0" class="ascii-text">Q</text>
+</g>
+<g fill="#c6baba">
+<text x="763.0" y="95.0" class="ascii-text">j</text>
+</g>
+<g fill="#a09092">
+<text x="769.0" y="95.0" class="ascii-text">[</text>
+</g>
+<g fill="#8c6d82">
+<text x="775.0" y="95.0" class="ascii-text">~</text>
+</g>
+<g fill="#6f3945">
+<text x="781.0" y="95.0" class="ascii-text">:</text>
+</g>
+<g fill="#795864">
+<text x="787.0" y="95.0" class="ascii-text">!</text>
+</g>
+<g fill="#b09eaa">
+<text x="793.0" y="95.0" class="ascii-text">(</text>
+<text x="211.0" y="775.0" class="ascii-text">(</text>
+</g>
+<g fill="#988c98">
+<text x="805.0" y="95.0" class="ascii-text">[</text>
+</g>
+<g fill="#e1dde3">
+<text x="811.0" y="95.0" class="ascii-text">X</text>
+</g>
+<g fill="#fffcff">
+<text x="817.0" y="95.0" class="ascii-text">Z</text>
+<text x="799.0" y="165.0" class="ascii-text">Z</text>
+</g>
+<g fill="#e9e3e7">
+<text x="823.0" y="95.0" class="ascii-text">U</text>
+</g>
+<g fill="#faf4ed">
+<text x="841.0" y="95.0" class="ascii-text">Q</text>
+</g>
+<g fill="#928c98">
+<text x="685.0" y="105.0" class="ascii-text">]</text>
+<text x="349.0" y="495.0" class="ascii-text">]</text>
+<text x="61.0" y="525.0" class="ascii-text">]</text>
+<text x="31.0" y="585.0" class="ascii-text">]</text>
+<text x="49.0" y="685.0" class="ascii-text">]</text>
+<text x="91.0" y="735.0" class="ascii-text">]</text>
+</g>
+<g fill="#7b5d75">
+<text x="703.0" y="105.0" class="ascii-text">i</text>
+</g>
+<g fill="#cdbbbf">
+<text x="709.0" y="105.0" class="ascii-text">r</text>
+</g>
+<g fill="#fff4ef">
+<text x="715.0" y="105.0" class="ascii-text">0</text>
+<text x="181.0" y="605.0" class="ascii-text">0</text>
+</g>
+<g fill="#feedea">
+<text x="721.0" y="105.0" class="ascii-text">L</text>
+</g>
+<g fill="#c7b4b4">
+<text x="727.0" y="105.0" class="ascii-text">f</text>
+</g>
+<g fill="#715c4b">
+<text x="733.0" y="105.0" class="ascii-text">l</text>
+</g>
+<g fill="#9f8f8b">
+<text x="739.0" y="105.0" class="ascii-text">[</text>
+</g>
+<g fill="#cfc1bf">
+<text x="745.0" y="105.0" class="ascii-text">x</text>
+</g>
+<g fill="#a99f9a">
+<text x="751.0" y="105.0" class="ascii-text">)</text>
+</g>
+<g fill="#34443a">
+<text x="757.0" y="105.0" class="ascii-text">^</text>
+</g>
+<g fill="#756254">
+<text x="763.0" y="105.0" class="ascii-text">!</text>
+</g>
+<g fill="#82686a">
+<text x="769.0" y="105.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#92778a">
+<text x="781.0" y="105.0" class="ascii-text">_</text>
+<text x="217.0" y="635.0" class="ascii-text">_</text>
+</g>
+<g fill="#9e8899">
+<text x="787.0" y="105.0" class="ascii-text">[</text>
+<text x="775.0" y="115.0" class="ascii-text">[</text>
+</g>
+<g fill="#9e889e">
+<text x="793.0" y="105.0" class="ascii-text">[</text>
+</g>
+<g fill="#948e9a">
+<text x="799.0" y="105.0" class="ascii-text">[</text>
+<text x="361.0" y="475.0" class="ascii-text">[</text>
+<text x="19.0" y="595.0" class="ascii-text">[</text>
+<text x="199.0" y="695.0" class="ascii-text">[</text>
+</g>
+<g fill="#ece2dd">
+<text x="823.0" y="105.0" class="ascii-text">U</text>
+</g>
+<g fill="#fffef7">
+<text x="829.0" y="105.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fff3ea">
+<text x="835.0" y="105.0" class="ascii-text">Q</text>
+<text x="391.0" y="375.0" class="ascii-text">O</text>
+</g>
+<g fill="#fff5e9">
+<text x="841.0" y="105.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fffaee">
+<text x="847.0" y="105.0" class="ascii-text">0</text>
+</g>
+<g fill="#fffaf2">
+<text x="853.0" y="105.0" class="ascii-text">0</text>
+</g>
+<g fill="#734f79">
+<text x="685.0" y="115.0" class="ascii-text">l</text>
+<text x="199.0" y="435.0" class="ascii-text">l</text>
+<text x="241.0" y="655.0" class="ascii-text">l</text>
+<text x="247.0" y="715.0" class="ascii-text">l</text>
+</g>
+<g fill="#97868c">
+<text x="691.0" y="115.0" class="ascii-text">?</text>
+</g>
+<g fill="#c4b1b0">
+<text x="697.0" y="115.0" class="ascii-text">t</text>
+</g>
+<g fill="#e3d4d2">
+<text x="703.0" y="115.0" class="ascii-text">z</text>
+</g>
+<g fill="#ded0cb">
+<text x="709.0" y="115.0" class="ascii-text">v</text>
+</g>
+<g fill="#ae9b9f">
+<text x="715.0" y="115.0" class="ascii-text">)</text>
+</g>
+<g fill="#a48f91">
+<text x="721.0" y="115.0" class="ascii-text">}</text>
+</g>
+<g fill="#e5d6d7">
+<text x="727.0" y="115.0" class="ascii-text">z</text>
+</g>
+<g fill="#dccdcf">
+<text x="733.0" y="115.0" class="ascii-text">v</text>
+<text x="265.0" y="475.0" class="ascii-text">v</text>
+</g>
+<g fill="#feeceb">
+<text x="739.0" y="115.0" class="ascii-text">L</text>
+</g>
+<g fill="#f1dedb">
+<text x="745.0" y="115.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fdf0f0">
+<text x="751.0" y="115.0" class="ascii-text">Q</text>
+</g>
+<g fill="#aaa8a5">
+<text x="757.0" y="115.0" class="ascii-text">(</text>
+</g>
+<g fill="#674c3a">
+<text x="763.0" y="115.0" class="ascii-text">:</text>
+</g>
+<g fill="#81655a">
+<text x="769.0" y="115.0" class="ascii-text">i</text>
+</g>
+<g fill="#ac99a5">
+<text x="781.0" y="115.0" class="ascii-text">1</text>
+</g>
+<g fill="#b8a3af">
+<text x="787.0" y="115.0" class="ascii-text">|</text>
+</g>
+<g fill="#fef2eb">
+<text x="823.0" y="115.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fffcf7">
+<text x="829.0" y="115.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fffbf5">
+<text x="835.0" y="115.0" class="ascii-text">O</text>
+<text x="841.0" y="115.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffff9">
+<text x="847.0" y="115.0" class="ascii-text">Z</text>
+<text x="337.0" y="455.0" class="ascii-text">p</text>
+</g>
+<g fill="#fffeff">
+<text x="853.0" y="115.0" class="ascii-text">Z</text>
+</g>
+<g fill="#d1c0c1">
+<text x="679.0" y="125.0" class="ascii-text">x</text>
+</g>
+<g fill="#cdbcbc">
+<text x="685.0" y="125.0" class="ascii-text">r</text>
+</g>
+<g fill="#daccc9">
+<text x="697.0" y="125.0" class="ascii-text">v</text>
+</g>
+<g fill="#b2a4a5">
+<text x="703.0" y="125.0" class="ascii-text">(</text>
+<text x="211.0" y="595.0" class="ascii-text">(</text>
+</g>
+<g fill="#917d74">
+<text x="709.0" y="125.0" class="ascii-text">_</text>
+</g>
+<g fill="#bfaeb0">
+<text x="715.0" y="125.0" class="ascii-text">/</text>
+</g>
+<g fill="#d7cace">
+<text x="721.0" y="125.0" class="ascii-text">u</text>
+</g>
+<g fill="#d1c6ca">
+<text x="727.0" y="125.0" class="ascii-text">n</text>
+</g>
+<g fill="#b8abb0">
+<text x="733.0" y="125.0" class="ascii-text">\</text>
+</g>
+<g fill="#dbd0d5">
+<text x="739.0" y="125.0" class="ascii-text">v</text>
+<text x="253.0" y="675.0" class="ascii-text">v</text>
+</g>
+<g fill="#fef0f3">
+<text x="745.0" y="125.0" class="ascii-text">Q</text>
+</g>
+<g fill="#a49ea1">
+<text x="757.0" y="125.0" class="ascii-text">1</text>
+<text x="229.0" y="575.0" class="ascii-text">1</text>
+</g>
+<g fill="#ccbec7">
+<text x="769.0" y="125.0" class="ascii-text">r</text>
+</g>
+<g fill="#b49aba">
+<text x="775.0" y="125.0" class="ascii-text">(</text>
+</g>
+<g fill="#f6ecea">
+<text x="823.0" y="125.0" class="ascii-text">L</text>
+</g>
+<g fill="#fffcfc">
+<text x="829.0" y="125.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fffafa">
+<text x="835.0" y="125.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffaf8">
+<text x="841.0" y="125.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffffe">
+<text x="673.0" y="135.0" class="ascii-text">Z</text>
+<text x="361.0" y="425.0" class="ascii-text">d</text>
+<text x="319.0" y="435.0" class="ascii-text">p</text>
+<text x="235.0" y="505.0" class="ascii-text">m</text>
+</g>
+<g fill="#d6cbc5">
+<text x="679.0" y="135.0" class="ascii-text">u</text>
+</g>
+<g fill="#d1bfb8">
+<text x="685.0" y="135.0" class="ascii-text">r</text>
+</g>
+<g fill="#c0a8a6">
+<text x="691.0" y="135.0" class="ascii-text">\</text>
+</g>
+<g fill="#a49492">
+<text x="697.0" y="135.0" class="ascii-text">}</text>
+</g>
+<g fill="#c0b0a8">
+<text x="703.0" y="135.0" class="ascii-text">/</text>
+</g>
+<g fill="#e8d7d7">
+<text x="709.0" y="135.0" class="ascii-text">X</text>
+</g>
+<g fill="#dccfd3">
+<text x="715.0" y="135.0" class="ascii-text">v</text>
+</g>
+<g fill="#a19b99">
+<text x="721.0" y="135.0" class="ascii-text">{</text>
+<text x="25.0" y="635.0" class="ascii-text">{</text>
+</g>
+<g fill="#5c5662">
+<text x="727.0" y="135.0" class="ascii-text">I</text>
+<text x="325.0" y="535.0" class="ascii-text">I</text>
+<text x="175.0" y="555.0" class="ascii-text">I</text>
+<text x="199.0" y="745.0" class="ascii-text">I</text>
+</g>
+<g fill="#3f505c">
+<text x="733.0" y="135.0" class="ascii-text">:</text>
+</g>
+<g fill="#443e4a">
+<text x="739.0" y="135.0" class="ascii-text">^</text>
+<text x="349.0" y="565.0" class="ascii-text">^</text>
+</g>
+<g fill="#847e8a">
+<text x="745.0" y="135.0" class="ascii-text">_</text>
+<text x="175.0" y="475.0" class="ascii-text">_</text>
+<text x="43.0" y="545.0" class="ascii-text">_</text>
+<text x="49.0" y="675.0" class="ascii-text">_</text>
+<text x="109.0" y="745.0" class="ascii-text">_</text>
+<text x="121.0" y="755.0" class="ascii-text">_</text>
+</g>
+<g fill="#978591">
+<text x="751.0" y="135.0" class="ascii-text">?</text>
+<text x="193.0" y="695.0" class="ascii-text">?</text>
+</g>
+<g fill="#9e9395">
+<text x="757.0" y="135.0" class="ascii-text">}</text>
+</g>
+<g fill="#d5c8ce">
+<text x="763.0" y="135.0" class="ascii-text">u</text>
+</g>
+<g fill="#fff7ff">
+<text x="769.0" y="135.0" class="ascii-text">0</text>
+</g>
+<g fill="#ded3d6">
+<text x="775.0" y="135.0" class="ascii-text">c</text>
+</g>
+<g fill="#f1e0e8">
+<text x="781.0" y="135.0" class="ascii-text">U</text>
+</g>
+<g fill="#e3ddd5">
+<text x="787.0" y="135.0" class="ascii-text">X</text>
+</g>
+<g fill="#e4d7d1">
+<text x="793.0" y="135.0" class="ascii-text">z</text>
+</g>
+<g fill="#e9d8d8">
+<text x="799.0" y="135.0" class="ascii-text">X</text>
+</g>
+<g fill="#e9d8d6">
+<text x="805.0" y="135.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffeede">
+<text x="655.0" y="145.0" class="ascii-text">Q</text>
+<text x="373.0" y="395.0" class="ascii-text">0</text>
+</g>
+<g fill="#fecfbb">
+<text x="661.0" y="145.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffdac9">
+<text x="667.0" y="145.0" class="ascii-text">U</text>
+</g>
+<g fill="#fffff6">
+<text x="673.0" y="145.0" class="ascii-text">q</text>
+<text x="607.0" y="185.0" class="ascii-text">w</text>
+<text x="157.0" y="585.0" class="ascii-text">m</text>
+</g>
+<g fill="#fdf5f4">
+<text x="685.0" y="145.0" class="ascii-text">0</text>
+</g>
+<g fill="#bcacad">
+<text x="691.0" y="145.0" class="ascii-text">/</text>
+</g>
+<g fill="#cebdbd">
+<text x="697.0" y="145.0" class="ascii-text">r</text>
+</g>
+<g fill="#dfd4d7">
+<text x="703.0" y="145.0" class="ascii-text">c</text>
+</g>
+<g fill="#b1abb0">
+<text x="709.0" y="145.0" class="ascii-text">\</text>
+<text x="157.0" y="625.0" class="ascii-text">\</text>
+</g>
+<g fill="#756f7b">
+<text x="715.0" y="145.0" class="ascii-text">&gt;</text>
+<text x="169.0" y="515.0" class="ascii-text">&gt;</text>
+<text x="49.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="43.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="139.0" y="715.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#797b7f">
+<text x="721.0" y="145.0" class="ascii-text">~</text>
+<text x="49.0" y="585.0" class="ascii-text">~</text>
+<text x="157.0" y="615.0" class="ascii-text">~</text>
+</g>
+<g fill="#89838f">
+<text x="727.0" y="145.0" class="ascii-text">-</text>
+<text x="205.0" y="435.0" class="ascii-text">-</text>
+<text x="343.0" y="515.0" class="ascii-text">-</text>
+<text x="151.0" y="735.0" class="ascii-text">-</text>
+<text x="133.0" y="765.0" class="ascii-text">-</text>
+</g>
+<g fill="#8e828e">
+<text x="733.0" y="145.0" class="ascii-text">-</text>
+</g>
+<g fill="#928c92">
+<text x="739.0" y="145.0" class="ascii-text">]</text>
+<text x="43.0" y="675.0" class="ascii-text">]</text>
+</g>
+<g fill="#9e98a4">
+<text x="745.0" y="145.0" class="ascii-text">{</text>
+<text x="307.0" y="395.0" class="ascii-text">{</text>
+<text x="349.0" y="545.0" class="ascii-text">{</text>
+<text x="31.0" y="555.0" class="ascii-text">{</text>
+<text x="247.0" y="755.0" class="ascii-text">{</text>
+</g>
+<g fill="#aba5b1">
+<text x="751.0" y="145.0" class="ascii-text">(</text>
+</g>
+<g fill="#e3d6d2">
+<text x="775.0" y="145.0" class="ascii-text">z</text>
+</g>
+<g fill="#fcf0ed">
+<text x="781.0" y="145.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ebdfdc">
+<text x="787.0" y="145.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e8ded8">
+<text x="793.0" y="145.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ede3dc">
+<text x="799.0" y="145.0" class="ascii-text">U</text>
+</g>
+<g fill="#f2e3e5">
+<text x="805.0" y="145.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffeae0">
+<text x="643.0" y="155.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffd0c1">
+<text x="649.0" y="155.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc7b2">
+<text x="655.0" y="155.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc9b0">
+<text x="661.0" y="155.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffcba8">
+<text x="667.0" y="155.0" class="ascii-text">X</text>
+<text x="565.0" y="245.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc09d">
+<text x="673.0" y="155.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffdbc1">
+<text x="679.0" y="155.0" class="ascii-text">C</text>
+</g>
+<g fill="#c9c0c4">
+<text x="697.0" y="155.0" class="ascii-text">r</text>
+</g>
+<g fill="#85908b">
+<text x="703.0" y="155.0" class="ascii-text">?</text>
+</g>
+<g fill="#7a8880">
+<text x="709.0" y="155.0" class="ascii-text">_</text>
+</g>
+<g fill="#b0aab6">
+<text x="715.0" y="155.0" class="ascii-text">\</text>
+</g>
+<g fill="#b9b3bf">
+<text x="721.0" y="155.0" class="ascii-text">t</text>
+</g>
+<g fill="#e1d9d3">
+<text x="775.0" y="155.0" class="ascii-text">z</text>
+</g>
+<g fill="#edded7">
+<text x="781.0" y="155.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ebdddc">
+<text x="787.0" y="155.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e9dad9">
+<text x="793.0" y="155.0" class="ascii-text">X</text>
+</g>
+<g fill="#f1e5e4">
+<text x="799.0" y="155.0" class="ascii-text">J</text>
+</g>
+<g fill="#fff9ff">
+<text x="805.0" y="155.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffcf5">
+<text x="631.0" y="165.0" class="ascii-text">m</text>
+</g>
+<g fill="#ffe3d5">
+<text x="637.0" y="165.0" class="ascii-text">C</text>
+</g>
+<g fill="#f8c2ae">
+<text x="643.0" y="165.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffc0ac">
+<text x="649.0" y="165.0" class="ascii-text">v</text>
+<text x="415.0" y="365.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffcfad">
+<text x="655.0" y="165.0" class="ascii-text">Y</text>
+<text x="415.0" y="415.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffcca9">
+<text x="661.0" y="165.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc9aa">
+<text x="667.0" y="165.0" class="ascii-text">X</text>
+<text x="679.0" y="175.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcdb2">
+<text x="673.0" y="165.0" class="ascii-text">Y</text>
+<text x="661.0" y="185.0" class="ascii-text">Y</text>
+<text x="409.0" y="375.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffceaa">
+<text x="679.0" y="165.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffc09a">
+<text x="685.0" y="165.0" class="ascii-text">z</text>
+</g>
+<g fill="#fffdef">
+<text x="691.0" y="165.0" class="ascii-text">q</text>
+</g>
+<g fill="#dad4c8">
+<text x="775.0" y="165.0" class="ascii-text">c</text>
+</g>
+<g fill="#f0e5e1">
+<text x="781.0" y="165.0" class="ascii-text">J</text>
+</g>
+<g fill="#fff1f0">
+<text x="787.0" y="165.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ebe5e1">
+<text x="793.0" y="165.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffffec">
+<text x="619.0" y="175.0" class="ascii-text">m</text>
+<text x="595.0" y="205.0" class="ascii-text">w</text>
+</g>
+<g fill="#ffdacd">
+<text x="625.0" y="175.0" class="ascii-text">U</text>
+</g>
+<g fill="#f9c4b7">
+<text x="631.0" y="175.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffceb9">
+<text x="637.0" y="175.0" class="ascii-text">X</text>
+<text x="559.0" y="235.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffdec1">
+<text x="643.0" y="175.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffdabc">
+<text x="649.0" y="175.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffc6a4">
+<text x="655.0" y="175.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc7a9">
+<text x="661.0" y="175.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd1b2">
+<text x="667.0" y="175.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd0b2">
+<text x="673.0" y="175.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd7ca">
+<text x="613.0" y="185.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fbc8b4">
+<text x="619.0" y="185.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc6ac">
+<text x="625.0" y="185.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffccb0">
+<text x="631.0" y="185.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc9a8">
+<text x="637.0" y="185.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc5a8">
+<text x="643.0" y="185.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffd6be">
+<text x="649.0" y="185.0" class="ascii-text">U</text>
+<text x="349.0" y="425.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffe5cd">
+<text x="655.0" y="185.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffc8a5">
+<text x="667.0" y="185.0" class="ascii-text">X</text>
+</g>
+<g fill="#fff9f0">
+<text x="595.0" y="195.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffdfcf">
+<text x="601.0" y="195.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffe0cd">
+<text x="607.0" y="195.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd1bb">
+<text x="613.0" y="195.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc7ac">
+<text x="619.0" y="195.0" class="ascii-text">z</text>
+<text x="289.0" y="475.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc7a8">
+<text x="625.0" y="195.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc9ab">
+<text x="631.0" y="195.0" class="ascii-text">z</text>
+<text x="361.0" y="415.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc5a6">
+<text x="637.0" y="195.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffceae">
+<text x="643.0" y="195.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffccaf">
+<text x="649.0" y="195.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffccad">
+<text x="655.0" y="195.0" class="ascii-text">Y</text>
+<text x="373.0" y="415.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc0ab">
+<text x="661.0" y="195.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffe6d3">
+<text x="589.0" y="205.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffffed">
+<text x="601.0" y="205.0" class="ascii-text">w</text>
+<text x="613.0" y="215.0" class="ascii-text">w</text>
+</g>
+<g fill="#ffd7bd">
+<text x="607.0" y="205.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd8b7">
+<text x="613.0" y="205.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffdfc8">
+<text x="619.0" y="205.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffd2b5">
+<text x="625.0" y="205.0" class="ascii-text">Y</text>
+<text x="511.0" y="295.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcaa8">
+<text x="631.0" y="205.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffd3b0">
+<text x="637.0" y="205.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd3af">
+<text x="643.0" y="205.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffbd96">
+<text x="649.0" y="205.0" class="ascii-text">v</text>
+</g>
+<g fill="#fff8ea">
+<text x="577.0" y="215.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffccbd">
+<text x="583.0" y="215.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffdac2">
+<text x="589.0" y="215.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd5b5">
+<text x="619.0" y="215.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffe5c9">
+<text x="625.0" y="215.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffdcbc">
+<text x="631.0" y="215.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffba99">
+<text x="637.0" y="215.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffedda">
+<text x="565.0" y="225.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffcdbb">
+<text x="571.0" y="225.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffcfb9">
+<text x="577.0" y="225.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffdcc6">
+<text x="583.0" y="225.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffdabb">
+<text x="589.0" y="225.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffdfc9">
+<text x="595.0" y="225.0" class="ascii-text">C</text>
+</g>
+<g fill="#fffff3">
+<text x="607.0" y="225.0" class="ascii-text">p</text>
+<text x="439.0" y="335.0" class="ascii-text">w</text>
+</g>
+<g fill="#fff7dc">
+<text x="613.0" y="225.0" class="ascii-text">m</text>
+</g>
+<g fill="#ffd5b6">
+<text x="619.0" y="225.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffbca3">
+<text x="625.0" y="225.0" class="ascii-text">c</text>
+</g>
+<g fill="#fff8e5">
+<text x="553.0" y="235.0" class="ascii-text">Z</text>
+<text x="331.0" y="455.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffc8ac">
+<text x="565.0" y="235.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffcaab">
+<text x="571.0" y="235.0" class="ascii-text">z</text>
+<text x="493.0" y="325.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc7a6">
+<text x="577.0" y="235.0" class="ascii-text">X</text>
+<text x="343.0" y="445.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc5a7">
+<text x="583.0" y="235.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd2b9">
+<text x="589.0" y="235.0" class="ascii-text">Y</text>
+<text x="331.0" y="485.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffd7bb">
+<text x="595.0" y="235.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd1b4">
+<text x="601.0" y="235.0" class="ascii-text">Y</text>
+<text x="385.0" y="405.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffc5a4">
+<text x="607.0" y="235.0" class="ascii-text">z</text>
+<text x="523.0" y="285.0" class="ascii-text">c</text>
+<text x="319.0" y="465.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffbf94">
+<text x="613.0" y="235.0" class="ascii-text">z</text>
+</g>
+<g fill="#fff4e2">
+<text x="541.0" y="245.0" class="ascii-text">O</text>
+<text x="307.0" y="475.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffdeca">
+<text x="547.0" y="245.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd8be">
+<text x="553.0" y="245.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd5bb">
+<text x="559.0" y="245.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffc4a3">
+<text x="571.0" y="245.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc8aa">
+<text x="577.0" y="245.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc8a8">
+<text x="583.0" y="245.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc7a5">
+<text x="589.0" y="245.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffd3b3">
+<text x="595.0" y="245.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffe4c5">
+<text x="601.0" y="245.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffc4a7">
+<text x="607.0" y="245.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fff5ea">
+<text x="529.0" y="255.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffd9cb">
+<text x="535.0" y="255.0" class="ascii-text">U</text>
+</g>
+<g fill="#fff8df">
+<text x="541.0" y="255.0" class="ascii-text">m</text>
+</g>
+<g fill="#fff6e1">
+<text x="553.0" y="255.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffd3b6">
+<text x="559.0" y="255.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffd9c4">
+<text x="565.0" y="255.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffcfb3">
+<text x="571.0" y="255.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcbac">
+<text x="577.0" y="255.0" class="ascii-text">Y</text>
+<text x="439.0" y="355.0" class="ascii-text">X</text>
+<text x="403.0" y="405.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd5b0">
+<text x="583.0" y="255.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffcfb0">
+<text x="589.0" y="255.0" class="ascii-text">U</text>
+<text x="319.0" y="495.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffbe93">
+<text x="595.0" y="255.0" class="ascii-text">z</text>
+</g>
+<g fill="#fff9ee">
+<text x="517.0" y="265.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffe4d5">
+<text x="523.0" y="265.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffdfcb">
+<text x="529.0" y="265.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd0bb">
+<text x="535.0" y="265.0" class="ascii-text">X</text>
+</g>
+<g fill="#fffffb">
+<text x="541.0" y="265.0" class="ascii-text">d</text>
+</g>
+<g fill="#ffd3b8">
+<text x="565.0" y="265.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffdfc2">
+<text x="571.0" y="265.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffddc2">
+<text x="577.0" y="265.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffc19d">
+<text x="583.0" y="265.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffffef">
+<text x="505.0" y="275.0" class="ascii-text">w</text>
+<text x="511.0" y="305.0" class="ascii-text">p</text>
+<text x="331.0" y="445.0" class="ascii-text">m</text>
+</g>
+<g fill="#ffdbcf">
+<text x="511.0" y="275.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffcdb4">
+<text x="517.0" y="275.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc8ab">
+<text x="523.0" y="275.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffcdb1">
+<text x="529.0" y="275.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffd9bf">
+<text x="535.0" y="275.0" class="ascii-text">U</text>
+<text x="355.0" y="435.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd6bc">
+<text x="541.0" y="275.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffe7cf">
+<text x="547.0" y="275.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffedd5">
+<text x="553.0" y="275.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffe3c3">
+<text x="559.0" y="275.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffd3b2">
+<text x="565.0" y="275.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffba92">
+<text x="571.0" y="275.0" class="ascii-text">c</text>
+</g>
+<g fill="#fffff0">
+<text x="493.0" y="285.0" class="ascii-text">w</text>
+<text x="511.0" y="315.0" class="ascii-text">p</text>
+</g>
+<g fill="#ffead4">
+<text x="499.0" y="285.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffdbc6">
+<text x="505.0" y="285.0" class="ascii-text">J</text>
+<text x="301.0" y="465.0" class="ascii-text">J</text>
+<text x="301.0" y="475.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffcbb0">
+<text x="511.0" y="285.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc6a9">
+<text x="517.0" y="285.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc3a2">
+<text x="529.0" y="285.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc6a7">
+<text x="535.0" y="285.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd6b6">
+<text x="541.0" y="285.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffdfc4">
+<text x="547.0" y="285.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffcead">
+<text x="553.0" y="285.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffc29b">
+<text x="559.0" y="285.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffe1ce">
+<text x="487.0" y="295.0" class="ascii-text">L</text>
+</g>
+<g fill="#fff4d8">
+<text x="493.0" y="295.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffffea">
+<text x="499.0" y="295.0" class="ascii-text">p</text>
+</g>
+<g fill="#ffe4cc">
+<text x="505.0" y="295.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffd2b7">
+<text x="517.0" y="295.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffc9a9">
+<text x="523.0" y="295.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc7a0">
+<text x="529.0" y="295.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd4ad">
+<text x="535.0" y="295.0" class="ascii-text">J</text>
+<text x="553.0" y="295.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd5ac">
+<text x="541.0" y="295.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffcca6">
+<text x="547.0" y="295.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffecde">
+<text x="475.0" y="305.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffe5ce">
+<text x="481.0" y="305.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffd2b4">
+<text x="487.0" y="305.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fff4d6">
+<text x="493.0" y="305.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffe0c4">
+<text x="517.0" y="305.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffdec0">
+<text x="523.0" y="305.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffdab6">
+<text x="529.0" y="305.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd0a5">
+<text x="535.0" y="305.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffbc8d">
+<text x="541.0" y="305.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffeedd">
+<text x="463.0" y="315.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffcdb7">
+<text x="469.0" y="315.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc7ab">
+<text x="475.0" y="315.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd1b1">
+<text x="481.0" y="315.0" class="ascii-text">Y</text>
+<text x="415.0" y="385.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffdbbd">
+<text x="487.0" y="315.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd4bc">
+<text x="493.0" y="315.0" class="ascii-text">Y</text>
+<text x="373.0" y="405.0" class="ascii-text">Y</text>
+<text x="391.0" y="415.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffe1c4">
+<text x="499.0" y="315.0" class="ascii-text">L</text>
+</g>
+<g fill="#fffff1">
+<text x="505.0" y="315.0" class="ascii-text">d</text>
+</g>
+<g fill="#ffdeb7">
+<text x="517.0" y="315.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffd1a3">
+<text x="523.0" y="315.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd9ac">
+<text x="529.0" y="315.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffefdd">
+<text x="451.0" y="325.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffe1cb">
+<text x="457.0" y="325.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd1b8">
+<text x="463.0" y="325.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffd2ba">
+<text x="469.0" y="325.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcbaa">
+<text x="475.0" y="325.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc2a2">
+<text x="481.0" y="325.0" class="ascii-text">v</text>
+<text x="403.0" y="415.0" class="ascii-text">v</text>
+<text x="361.0" y="455.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffc1a8">
+<text x="487.0" y="325.0" class="ascii-text">v</text>
+<text x="307.0" y="485.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffd9ba">
+<text x="499.0" y="325.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd9b9">
+<text x="505.0" y="325.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc491">
+<text x="511.0" y="325.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc58b">
+<text x="517.0" y="325.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcbb9">
+<text x="445.0" y="335.0" class="ascii-text">z</text>
+</g>
+<g fill="#fff0dc">
+<text x="451.0" y="335.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffffe8">
+<text x="463.0" y="335.0" class="ascii-text">w</text>
+</g>
+<g fill="#ffd5b8">
+<text x="469.0" y="335.0" class="ascii-text">Y</text>
+<text x="367.0" y="425.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffd3bc">
+<text x="475.0" y="335.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffc6ad">
+<text x="481.0" y="335.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffbe9e">
+<text x="487.0" y="335.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffcaa5">
+<text x="493.0" y="335.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffcea9">
+<text x="499.0" y="335.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd6b2">
+<text x="505.0" y="335.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffeee6">
+<text x="427.0" y="345.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffcebf">
+<text x="433.0" y="345.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffd1bc">
+<text x="439.0" y="345.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffddc4">
+<text x="445.0" y="345.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffedd6">
+<text x="451.0" y="345.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffe5d1">
+<text x="475.0" y="345.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffddbd">
+<text x="481.0" y="345.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd8b9">
+<text x="487.0" y="345.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc097">
+<text x="493.0" y="345.0" class="ascii-text">z</text>
+</g>
+<g fill="#ff925b">
+<text x="499.0" y="345.0" class="ascii-text">\</text>
+</g>
+<g fill="#fffae9">
+<text x="415.0" y="355.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffe7d5">
+<text x="421.0" y="355.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffcab5">
+<text x="427.0" y="355.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffc3a8">
+<text x="433.0" y="355.0" class="ascii-text">v</text>
+<text x="385.0" y="395.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffc3a9">
+<text x="445.0" y="355.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffd0b6">
+<text x="451.0" y="355.0" class="ascii-text">X</text>
+<text x="367.0" y="415.0" class="ascii-text">X</text>
+<text x="379.0" y="435.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffd7c1">
+<text x="457.0" y="355.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffefdf">
+<text x="463.0" y="355.0" class="ascii-text">0</text>
+<text x="325.0" y="485.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffeed4">
+<text x="469.0" y="355.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffdeb2">
+<text x="475.0" y="355.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffc89c">
+<text x="481.0" y="355.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcb9e">
+<text x="487.0" y="355.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd9cc">
+<text x="409.0" y="365.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffccb1">
+<text x="421.0" y="365.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffdfc7">
+<text x="427.0" y="365.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd8ba">
+<text x="433.0" y="365.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffc0a5">
+<text x="439.0" y="365.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffbfa5">
+<text x="445.0" y="365.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffb69b">
+<text x="451.0" y="365.0" class="ascii-text">u</text>
+</g>
+<g fill="#ffcaad">
+<text x="457.0" y="365.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffdeb9">
+<text x="463.0" y="365.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffcea0">
+<text x="469.0" y="365.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffb070">
+<text x="475.0" y="365.0" class="ascii-text">u</text>
+</g>
+<g fill="#ffebdf">
+<text x="397.0" y="375.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffe0cb">
+<text x="403.0" y="375.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd5bc">
+<text x="415.0" y="375.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffbfa1">
+<text x="421.0" y="375.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffb89a">
+<text x="427.0" y="375.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffcbb5">
+<text x="433.0" y="375.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffd7be">
+<text x="439.0" y="375.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffcbae">
+<text x="445.0" y="375.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffceab">
+<text x="451.0" y="375.0" class="ascii-text">U</text>
+<text x="403.0" y="425.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffcc9c">
+<text x="457.0" y="375.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffc38e">
+<text x="463.0" y="375.0" class="ascii-text">z</text>
+</g>
+<g fill="#ddd7e3">
+<text x="283.0" y="385.0" class="ascii-text">z</text>
+</g>
+<g fill="#c6c0cc">
+<text x="289.0" y="385.0" class="ascii-text">r</text>
+</g>
+<g fill="#b7b1bd">
+<text x="295.0" y="385.0" class="ascii-text">/</text>
+</g>
+<g fill="#fffbef">
+<text x="379.0" y="385.0" class="ascii-text">m</text>
+</g>
+<g fill="#fff1e2">
+<text x="385.0" y="385.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffd4bd">
+<text x="391.0" y="385.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fff2de">
+<text x="397.0" y="385.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffff7">
+<text x="409.0" y="385.0" class="ascii-text">p</text>
+</g>
+<g fill="#ffd1b5">
+<text x="421.0" y="385.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffbca2">
+<text x="427.0" y="385.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffb292">
+<text x="433.0" y="385.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffcca7">
+<text x="439.0" y="385.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffdbb6">
+<text x="445.0" y="385.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffcfa4">
+<text x="451.0" y="385.0" class="ascii-text">U</text>
+</g>
+<g fill="#a9a3af">
+<text x="247.0" y="395.0" class="ascii-text">(</text>
+</g>
+<g fill="#d0cfd6">
+<text x="253.0" y="395.0" class="ascii-text">v</text>
+</g>
+<g fill="#d6d5e1">
+<text x="259.0" y="395.0" class="ascii-text">c</text>
+</g>
+<g fill="#d2d3da">
+<text x="265.0" y="395.0" class="ascii-text">v</text>
+</g>
+<g fill="#c4c6cf">
+<text x="271.0" y="395.0" class="ascii-text">x</text>
+</g>
+<g fill="#adb5be">
+<text x="277.0" y="395.0" class="ascii-text">/</text>
+</g>
+<g fill="#a0a2aa">
+<text x="283.0" y="395.0" class="ascii-text">)</text>
+</g>
+<g fill="#a59bab">
+<text x="289.0" y="395.0" class="ascii-text">1</text>
+</g>
+<g fill="#99939f">
+<text x="295.0" y="395.0" class="ascii-text">}</text>
+<text x="295.0" y="405.0" class="ascii-text">}</text>
+<text x="301.0" y="405.0" class="ascii-text">}</text>
+<text x="361.0" y="485.0" class="ascii-text">}</text>
+<text x="409.0" y="535.0" class="ascii-text">}</text>
+<text x="313.0" y="635.0" class="ascii-text">}</text>
+<text x="277.0" y="705.0" class="ascii-text">}</text>
+</g>
+<g fill="#97919d">
+<text x="301.0" y="395.0" class="ascii-text">[</text>
+<text x="307.0" y="405.0" class="ascii-text">[</text>
+<text x="289.0" y="415.0" class="ascii-text">[</text>
+<text x="19.0" y="605.0" class="ascii-text">[</text>
+</g>
+<g fill="#9b95a1">
+<text x="313.0" y="395.0" class="ascii-text">}</text>
+<text x="349.0" y="505.0" class="ascii-text">}</text>
+<text x="19.0" y="585.0" class="ascii-text">}</text>
+</g>
+<g fill="#ffc7b0">
+<text x="379.0" y="395.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffe0c3">
+<text x="391.0" y="395.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffe2c5">
+<text x="397.0" y="395.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffffee">
+<text x="403.0" y="395.0" class="ascii-text">w</text>
+</g>
+<g fill="#ffe0bf">
+<text x="421.0" y="395.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffdbbf">
+<text x="427.0" y="395.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd7af">
+<text x="433.0" y="395.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc192">
+<text x="439.0" y="395.0" class="ascii-text">X</text>
+</g>
+<g fill="#ff7a44">
+<text x="445.0" y="395.0" class="ascii-text">|</text>
+</g>
+<g fill="#a29ca8">
+<text x="235.0" y="405.0" class="ascii-text">1</text>
+<text x="217.0" y="775.0" class="ascii-text">1</text>
+</g>
+<g fill="#bcbcc8">
+<text x="241.0" y="405.0" class="ascii-text">f</text>
+</g>
+<g fill="#c9cad1">
+<text x="247.0" y="405.0" class="ascii-text">n</text>
+</g>
+<g fill="#bfc2cb">
+<text x="253.0" y="405.0" class="ascii-text">r</text>
+</g>
+<g fill="#a8adb5">
+<text x="259.0" y="405.0" class="ascii-text">|</text>
+<text x="217.0" y="425.0" class="ascii-text">|</text>
+</g>
+<g fill="#848f96">
+<text x="265.0" y="405.0" class="ascii-text">?</text>
+</g>
+<g fill="#49645f">
+<text x="271.0" y="405.0" class="ascii-text">I</text>
+</g>
+<g fill="#717480">
+<text x="283.0" y="405.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#958f9b">
+<text x="289.0" y="405.0" class="ascii-text">[</text>
+<text x="187.0" y="465.0" class="ascii-text">[</text>
+<text x="25.0" y="595.0" class="ascii-text">[</text>
+<text x="145.0" y="775.0" class="ascii-text">[</text>
+</g>
+<g fill="#ffe8dc">
+<text x="361.0" y="405.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffccb7">
+<text x="367.0" y="405.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffe1c5">
+<text x="379.0" y="405.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffb89b">
+<text x="391.0" y="405.0" class="ascii-text">u</text>
+</g>
+<g fill="#ffc7af">
+<text x="397.0" y="405.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffdcc3">
+<text x="409.0" y="405.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffead2">
+<text x="415.0" y="405.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffd4af">
+<text x="421.0" y="405.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc59a">
+<text x="427.0" y="405.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffc5a0">
+<text x="433.0" y="405.0" class="ascii-text">X</text>
+</g>
+<g fill="#97969d">
+<text x="223.0" y="415.0" class="ascii-text">}</text>
+</g>
+<g fill="#b7b7c3">
+<text x="229.0" y="415.0" class="ascii-text">t</text>
+</g>
+<g fill="#b9b9c8">
+<text x="235.0" y="415.0" class="ascii-text">f</text>
+</g>
+<g fill="#9aa1ad">
+<text x="241.0" y="415.0" class="ascii-text">1</text>
+</g>
+<g fill="#747e91">
+<text x="247.0" y="415.0" class="ascii-text">+</text>
+<text x="253.0" y="425.0" class="ascii-text">+</text>
+<text x="205.0" y="475.0" class="ascii-text">+</text>
+<text x="199.0" y="485.0" class="ascii-text">+</text>
+<text x="193.0" y="495.0" class="ascii-text">+</text>
+<text x="187.0" y="505.0" class="ascii-text">+</text>
+</g>
+<g fill="#4e6e7a">
+<text x="253.0" y="415.0" class="ascii-text">!</text>
+</g>
+<g fill="#34416c">
+<text x="259.0" y="415.0" class="ascii-text">^</text>
+</g>
+<g fill="#5d6571">
+<text x="271.0" y="415.0" class="ascii-text">!</text>
+</g>
+<g fill="#a8a2ae">
+<text x="277.0" y="415.0" class="ascii-text">(</text>
+<text x="25.0" y="565.0" class="ascii-text">(</text>
+<text x="79.0" y="625.0" class="ascii-text">(</text>
+</g>
+<g fill="#a096a2">
+<text x="283.0" y="415.0" class="ascii-text">{</text>
+<text x="277.0" y="645.0" class="ascii-text">{</text>
+</g>
+<g fill="#fffffc">
+<text x="343.0" y="415.0" class="ascii-text">p</text>
+<text x="313.0" y="475.0" class="ascii-text">p</text>
+<text x="319.0" y="485.0" class="ascii-text">p</text>
+</g>
+<g fill="#fff0e3">
+<text x="349.0" y="415.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffe7d2">
+<text x="355.0" y="415.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffc3ab">
+<text x="379.0" y="415.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffd6c4">
+<text x="385.0" y="415.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffb497">
+<text x="397.0" y="415.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffd6b8">
+<text x="409.0" y="415.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffa372">
+<text x="421.0" y="415.0" class="ascii-text">x</text>
+</g>
+<g fill="#746e84">
+<text x="211.0" y="425.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#b2bbc4">
+<text x="223.0" y="425.0" class="ascii-text">f</text>
+</g>
+<g fill="#8d9ba2">
+<text x="229.0" y="425.0" class="ascii-text">}</text>
+</g>
+<g fill="#5b748a">
+<text x="235.0" y="425.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#63719a">
+<text x="241.0" y="425.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#71819c">
+<text x="247.0" y="425.0" class="ascii-text">+</text>
+</g>
+<g fill="#47617d">
+<text x="259.0" y="425.0" class="ascii-text">l</text>
+</g>
+<g fill="#34518c">
+<text x="265.0" y="425.0" class="ascii-text">:</text>
+</g>
+<g fill="#888d9f">
+<text x="271.0" y="425.0" class="ascii-text">]</text>
+</g>
+<g fill="#9f9db2">
+<text x="277.0" y="425.0" class="ascii-text">1</text>
+</g>
+<g fill="#926e98">
+<text x="283.0" y="425.0" class="ascii-text">+</text>
+</g>
+<g fill="#ffece1">
+<text x="337.0" y="425.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffd8c4">
+<text x="343.0" y="425.0" class="ascii-text">U</text>
+</g>
+<g fill="#fffff2">
+<text x="355.0" y="425.0" class="ascii-text">q</text>
+</g>
+<g fill="#ffc8ae">
+<text x="373.0" y="425.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffc2b1">
+<text x="379.0" y="425.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffb095">
+<text x="385.0" y="425.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffcdb0">
+<text x="391.0" y="425.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffe2c4">
+<text x="397.0" y="425.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffaa84">
+<text x="409.0" y="425.0" class="ascii-text">n</text>
+</g>
+<g fill="#b6b7c6">
+<text x="211.0" y="435.0" class="ascii-text">f</text>
+</g>
+<g fill="#a3a5b4">
+<text x="217.0" y="435.0" class="ascii-text">(</text>
+</g>
+<g fill="#697682">
+<text x="223.0" y="435.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#707389">
+<text x="229.0" y="435.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#7d7e99">
+<text x="235.0" y="435.0" class="ascii-text">_</text>
+</g>
+<g fill="#7a7c97">
+<text x="241.0" y="435.0" class="ascii-text">+</text>
+</g>
+<g fill="#777995">
+<text x="247.0" y="435.0" class="ascii-text">~</text>
+<text x="211.0" y="465.0" class="ascii-text">~</text>
+</g>
+<g fill="#74778b">
+<text x="253.0" y="435.0" class="ascii-text">~</text>
+</g>
+<g fill="#5b6295">
+<text x="259.0" y="435.0" class="ascii-text">!</text>
+</g>
+<g fill="#5c6389">
+<text x="265.0" y="435.0" class="ascii-text">!</text>
+</g>
+<g fill="#788094">
+<text x="271.0" y="435.0" class="ascii-text">_</text>
+<text x="193.0" y="475.0" class="ascii-text">_</text>
+</g>
+<g fill="#a2a0a4">
+<text x="277.0" y="435.0" class="ascii-text">1</text>
+</g>
+<g fill="#fff6e8">
+<text x="325.0" y="435.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffd9ca">
+<text x="331.0" y="435.0" class="ascii-text">U</text>
+</g>
+<g fill="#f2b4a1">
+<text x="337.0" y="435.0" class="ascii-text">x</text>
+</g>
+<g fill="#fec5ac">
+<text x="343.0" y="435.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffd4b9">
+<text x="349.0" y="435.0" class="ascii-text">Y</text>
+</g>
+<g fill="#fffeef">
+<text x="361.0" y="435.0" class="ascii-text">m</text>
+</g>
+<g fill="#fff1df">
+<text x="373.0" y="435.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffd7b8">
+<text x="385.0" y="435.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc5a1">
+<text x="391.0" y="435.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffbd9a">
+<text x="397.0" y="435.0" class="ascii-text">z</text>
+</g>
+<g fill="#6d6773">
+<text x="193.0" y="445.0" class="ascii-text">i</text>
+<text x="163.0" y="495.0" class="ascii-text">i</text>
+<text x="67.0" y="525.0" class="ascii-text">i</text>
+<text x="169.0" y="625.0" class="ascii-text">i</text>
+<text x="139.0" y="705.0" class="ascii-text">i</text>
+</g>
+<g fill="#9796a2">
+<text x="199.0" y="445.0" class="ascii-text">}</text>
+</g>
+<g fill="#b7bac6">
+<text x="205.0" y="445.0" class="ascii-text">f</text>
+</g>
+<g fill="#93889f">
+<text x="211.0" y="445.0" class="ascii-text">]</text>
+</g>
+<g fill="#815992">
+<text x="217.0" y="445.0" class="ascii-text">i</text>
+</g>
+<g fill="#8e729c">
+<text x="223.0" y="445.0" class="ascii-text">+</text>
+</g>
+<g fill="#8c6f9a">
+<text x="229.0" y="445.0" class="ascii-text">~</text>
+<text x="223.0" y="455.0" class="ascii-text">~</text>
+<text x="223.0" y="465.0" class="ascii-text">~</text>
+</g>
+<g fill="#8b6c91">
+<text x="235.0" y="445.0" class="ascii-text">~</text>
+<text x="241.0" y="445.0" class="ascii-text">~</text>
+<text x="253.0" y="445.0" class="ascii-text">~</text>
+<text x="235.0" y="455.0" class="ascii-text">~</text>
+<text x="241.0" y="455.0" class="ascii-text">~</text>
+<text x="247.0" y="455.0" class="ascii-text">~</text>
+<text x="235.0" y="465.0" class="ascii-text">~</text>
+<text x="223.0" y="475.0" class="ascii-text">~</text>
+<text x="229.0" y="475.0" class="ascii-text">~</text>
+<text x="223.0" y="485.0" class="ascii-text">~</text>
+<text x="133.0" y="545.0" class="ascii-text">~</text>
+<text x="139.0" y="545.0" class="ascii-text">~</text>
+<text x="103.0" y="555.0" class="ascii-text">~</text>
+<text x="109.0" y="555.0" class="ascii-text">~</text>
+<text x="139.0" y="575.0" class="ascii-text">~</text>
+<text x="127.0" y="585.0" class="ascii-text">~</text>
+<text x="103.0" y="595.0" class="ascii-text">~</text>
+<text x="109.0" y="595.0" class="ascii-text">~</text>
+<text x="85.0" y="685.0" class="ascii-text">~</text>
+<text x="85.0" y="695.0" class="ascii-text">~</text>
+<text x="85.0" y="705.0" class="ascii-text">~</text>
+<text x="163.0" y="765.0" class="ascii-text">~</text>
+</g>
+<g fill="#846d93">
+<text x="247.0" y="445.0" class="ascii-text">~</text>
+<text x="259.0" y="445.0" class="ascii-text">~</text>
+<text x="91.0" y="585.0" class="ascii-text">~</text>
+<text x="85.0" y="675.0" class="ascii-text">~</text>
+</g>
+<g fill="#866395">
+<text x="265.0" y="445.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#827388">
+<text x="271.0" y="445.0" class="ascii-text">~</text>
+<text x="91.0" y="695.0" class="ascii-text">~</text>
+<text x="91.0" y="705.0" class="ascii-text">~</text>
+</g>
+<g fill="#bdc0c6">
+<text x="277.0" y="445.0" class="ascii-text">j</text>
+</g>
+<g fill="#dcdae2">
+<text x="283.0" y="445.0" class="ascii-text">z</text>
+</g>
+<g fill="#fff3e2">
+<text x="313.0" y="445.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffd7c3">
+<text x="319.0" y="445.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffe7d3">
+<text x="325.0" y="445.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffe9d3">
+<text x="337.0" y="445.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f9b49c">
+<text x="349.0" y="445.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffc2ae">
+<text x="355.0" y="445.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffc1a3">
+<text x="361.0" y="445.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffe2ce">
+<text x="367.0" y="445.0" class="ascii-text">C</text>
+</g>
+<g fill="#fff4df">
+<text x="373.0" y="445.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffcfab">
+<text x="379.0" y="445.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffcaaf">
+<text x="385.0" y="445.0" class="ascii-text">Y</text>
+<text x="331.0" y="465.0" class="ascii-text">c</text>
+</g>
+<g fill="#ff9059">
+<text x="391.0" y="445.0" class="ascii-text">/</text>
+</g>
+<g fill="#716b77">
+<text x="187.0" y="455.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="525.0" class="ascii-text">&gt;</text>
+<text x="55.0" y="535.0" class="ascii-text">&gt;</text>
+<text x="49.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="103.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="121.0" y="695.0" class="ascii-text">&gt;</text>
+<text x="127.0" y="695.0" class="ascii-text">&gt;</text>
+<text x="223.0" y="725.0" class="ascii-text">&gt;</text>
+<text x="229.0" y="725.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#979aaa">
+<text x="193.0" y="455.0" class="ascii-text">{</text>
+</g>
+<g fill="#b4bacc">
+<text x="199.0" y="455.0" class="ascii-text">f</text>
+</g>
+<g fill="#72828e">
+<text x="205.0" y="455.0" class="ascii-text">+</text>
+</g>
+<g fill="#6c6f8f">
+<text x="211.0" y="455.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#837598">
+<text x="217.0" y="455.0" class="ascii-text">+</text>
+</g>
+<g fill="#8a6c98">
+<text x="229.0" y="455.0" class="ascii-text">~</text>
+<text x="229.0" y="465.0" class="ascii-text">~</text>
+</g>
+<g fill="#8d7093">
+<text x="253.0" y="455.0" class="ascii-text">~</text>
+<text x="265.0" y="455.0" class="ascii-text">~</text>
+<text x="97.0" y="555.0" class="ascii-text">~</text>
+<text x="85.0" y="655.0" class="ascii-text">~</text>
+<text x="223.0" y="755.0" class="ascii-text">~</text>
+</g>
+<g fill="#8f7395">
+<text x="259.0" y="455.0" class="ascii-text">+</text>
+<text x="247.0" y="465.0" class="ascii-text">+</text>
+<text x="235.0" y="475.0" class="ascii-text">+</text>
+<text x="97.0" y="605.0" class="ascii-text">+</text>
+</g>
+<g fill="#897497">
+<text x="271.0" y="455.0" class="ascii-text">+</text>
+</g>
+<g fill="#a4a2b6">
+<text x="277.0" y="455.0" class="ascii-text">(</text>
+</g>
+<g fill="#b2afbb">
+<text x="283.0" y="455.0" class="ascii-text">/</text>
+</g>
+<g fill="#86919d">
+<text x="289.0" y="455.0" class="ascii-text">]</text>
+</g>
+<g fill="#adaea8">
+<text x="295.0" y="455.0" class="ascii-text">\</text>
+</g>
+<g fill="#ffe2d4">
+<text x="301.0" y="455.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffd9c8">
+<text x="307.0" y="455.0" class="ascii-text">U</text>
+</g>
+<g fill="#f9ae9a">
+<text x="313.0" y="455.0" class="ascii-text">r</text>
+</g>
+<g fill="#fbc7b1">
+<text x="319.0" y="455.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffe2c6">
+<text x="325.0" y="455.0" class="ascii-text">C</text>
+</g>
+<g fill="#fff5dd">
+<text x="343.0" y="455.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffdac0">
+<text x="349.0" y="455.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffb89c">
+<text x="355.0" y="455.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffd0ad">
+<text x="367.0" y="455.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffb69a">
+<text x="373.0" y="455.0" class="ascii-text">n</text>
+<text x="331.0" y="495.0" class="ascii-text">n</text>
+</g>
+<g fill="#da8d80">
+<text x="379.0" y="455.0" class="ascii-text">)</text>
+</g>
+<g fill="#7a6975">
+<text x="181.0" y="465.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#b4b7ca">
+<text x="193.0" y="465.0" class="ascii-text">t</text>
+</g>
+<g fill="#717b8f">
+<text x="199.0" y="465.0" class="ascii-text">~</text>
+<text x="205.0" y="485.0" class="ascii-text">~</text>
+<text x="199.0" y="495.0" class="ascii-text">~</text>
+<text x="205.0" y="495.0" class="ascii-text">~</text>
+<text x="193.0" y="505.0" class="ascii-text">~</text>
+<text x="199.0" y="505.0" class="ascii-text">~</text>
+<text x="205.0" y="505.0" class="ascii-text">~</text>
+</g>
+<g fill="#6d788d">
+<text x="205.0" y="465.0" class="ascii-text">~</text>
+<text x="163.0" y="625.0" class="ascii-text">~</text>
+</g>
+<g fill="#807297">
+<text x="217.0" y="465.0" class="ascii-text">~</text>
+</g>
+<g fill="#87718d">
+<text x="241.0" y="465.0" class="ascii-text">~</text>
+<text x="91.0" y="665.0" class="ascii-text">~</text>
+</g>
+<g fill="#89588f">
+<text x="253.0" y="465.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#693785">
+<text x="259.0" y="465.0" class="ascii-text">:</text>
+<text x="247.0" y="655.0" class="ascii-text">:</text>
+<text x="241.0" y="695.0" class="ascii-text">:</text>
+</g>
+<g fill="#7e5391">
+<text x="265.0" y="465.0" class="ascii-text">!</text>
+<text x="271.0" y="465.0" class="ascii-text">!</text>
+<text x="271.0" y="595.0" class="ascii-text">!</text>
+<text x="211.0" y="755.0" class="ascii-text">!</text>
+</g>
+<g fill="#342e58">
+<text x="277.0" y="465.0" class="ascii-text">&apos;</text>
+<text x="343.0" y="575.0" class="ascii-text">&apos;</text>
+<text x="277.0" y="615.0" class="ascii-text">&apos;</text>
+<text x="247.0" y="685.0" class="ascii-text">&apos;</text>
+</g>
+<g fill="#808194">
+<text x="283.0" y="465.0" class="ascii-text">_</text>
+<text x="235.0" y="565.0" class="ascii-text">_</text>
+</g>
+<g fill="#e3c2b7">
+<text x="289.0" y="465.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffd9c3">
+<text x="295.0" y="465.0" class="ascii-text">U</text>
+</g>
+<g fill="#fff8ed">
+<text x="307.0" y="465.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffe7d4">
+<text x="313.0" y="465.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffb390">
+<text x="325.0" y="465.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffdcc4">
+<text x="337.0" y="465.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffffe7">
+<text x="343.0" y="465.0" class="ascii-text">w</text>
+</g>
+<g fill="#ffe3c7">
+<text x="349.0" y="465.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffd8bd">
+<text x="355.0" y="465.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc3a4">
+<text x="361.0" y="465.0" class="ascii-text">c</text>
+</g>
+<g fill="#cf897a">
+<text x="367.0" y="465.0" class="ascii-text">{</text>
+</g>
+<g fill="#93929e">
+<text x="373.0" y="465.0" class="ascii-text">[</text>
+</g>
+<g fill="#8ab5c1">
+<text x="379.0" y="465.0" class="ascii-text">|</text>
+</g>
+<g fill="#888295">
+<text x="181.0" y="475.0" class="ascii-text">-</text>
+</g>
+<g fill="#b0b0c3">
+<text x="187.0" y="475.0" class="ascii-text">/</text>
+<text x="241.0" y="685.0" class="ascii-text">/</text>
+</g>
+<g fill="#707391">
+<text x="199.0" y="475.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#7a7491">
+<text x="211.0" y="475.0" class="ascii-text">~</text>
+<text x="211.0" y="485.0" class="ascii-text">~</text>
+<text x="211.0" y="495.0" class="ascii-text">~</text>
+<text x="211.0" y="505.0" class="ascii-text">~</text>
+<text x="187.0" y="515.0" class="ascii-text">~</text>
+<text x="193.0" y="515.0" class="ascii-text">~</text>
+<text x="199.0" y="515.0" class="ascii-text">~</text>
+<text x="187.0" y="525.0" class="ascii-text">~</text>
+<text x="199.0" y="525.0" class="ascii-text">~</text>
+<text x="187.0" y="535.0" class="ascii-text">~</text>
+<text x="79.0" y="555.0" class="ascii-text">~</text>
+<text x="73.0" y="565.0" class="ascii-text">~</text>
+<text x="79.0" y="565.0" class="ascii-text">~</text>
+<text x="85.0" y="565.0" class="ascii-text">~</text>
+<text x="67.0" y="575.0" class="ascii-text">~</text>
+<text x="73.0" y="575.0" class="ascii-text">~</text>
+<text x="79.0" y="575.0" class="ascii-text">~</text>
+<text x="85.0" y="575.0" class="ascii-text">~</text>
+<text x="67.0" y="585.0" class="ascii-text">~</text>
+<text x="73.0" y="585.0" class="ascii-text">~</text>
+<text x="79.0" y="585.0" class="ascii-text">~</text>
+<text x="85.0" y="585.0" class="ascii-text">~</text>
+<text x="67.0" y="595.0" class="ascii-text">~</text>
+<text x="79.0" y="595.0" class="ascii-text">~</text>
+<text x="85.0" y="595.0" class="ascii-text">~</text>
+<text x="67.0" y="605.0" class="ascii-text">~</text>
+<text x="73.0" y="605.0" class="ascii-text">~</text>
+<text x="79.0" y="605.0" class="ascii-text">~</text>
+<text x="67.0" y="615.0" class="ascii-text">~</text>
+<text x="73.0" y="615.0" class="ascii-text">~</text>
+<text x="67.0" y="635.0" class="ascii-text">~</text>
+<text x="67.0" y="645.0" class="ascii-text">~</text>
+<text x="73.0" y="645.0" class="ascii-text">~</text>
+<text x="67.0" y="655.0" class="ascii-text">~</text>
+<text x="73.0" y="655.0" class="ascii-text">~</text>
+<text x="79.0" y="655.0" class="ascii-text">~</text>
+<text x="67.0" y="665.0" class="ascii-text">~</text>
+<text x="79.0" y="665.0" class="ascii-text">~</text>
+<text x="67.0" y="675.0" class="ascii-text">~</text>
+<text x="73.0" y="675.0" class="ascii-text">~</text>
+<text x="79.0" y="675.0" class="ascii-text">~</text>
+<text x="73.0" y="685.0" class="ascii-text">~</text>
+<text x="79.0" y="685.0" class="ascii-text">~</text>
+<text x="79.0" y="695.0" class="ascii-text">~</text>
+<text x="79.0" y="705.0" class="ascii-text">~</text>
+</g>
+<g fill="#81738f">
+<text x="217.0" y="475.0" class="ascii-text">~</text>
+<text x="217.0" y="485.0" class="ascii-text">~</text>
+<text x="217.0" y="495.0" class="ascii-text">~</text>
+<text x="247.0" y="725.0" class="ascii-text">~</text>
+</g>
+<g fill="#87648d">
+<text x="241.0" y="475.0" class="ascii-text">&gt;</text>
+<text x="109.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="145.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="151.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="145.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="301.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="337.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="331.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="271.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="301.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="307.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="313.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="241.0" y="705.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="765.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#6f4575">
+<text x="247.0" y="475.0" class="ascii-text">I</text>
+<text x="223.0" y="505.0" class="ascii-text">I</text>
+<text x="223.0" y="595.0" class="ascii-text">I</text>
+</g>
+<g fill="#a1919d">
+<text x="253.0" y="475.0" class="ascii-text">}</text>
+<text x="259.0" y="555.0" class="ascii-text">}</text>
+<text x="319.0" y="615.0" class="ascii-text">}</text>
+<text x="265.0" y="675.0" class="ascii-text">}</text>
+</g>
+<g fill="#e9dfe0">
+<text x="259.0" y="475.0" class="ascii-text">Y</text>
+</g>
+<g fill="#a09097">
+<text x="271.0" y="475.0" class="ascii-text">[</text>
+<text x="217.0" y="555.0" class="ascii-text">[</text>
+</g>
+<g fill="#ddbab0">
+<text x="277.0" y="475.0" class="ascii-text">r</text>
+</g>
+<g fill="#ffdec8">
+<text x="283.0" y="475.0" class="ascii-text">J</text>
+</g>
+<g fill="#f8b2a5">
+<text x="295.0" y="475.0" class="ascii-text">x</text>
+</g>
+<g fill="#fffae7">
+<text x="319.0" y="475.0" class="ascii-text">Z</text>
+</g>
+<g fill="#ffdbc8">
+<text x="325.0" y="475.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffb7a0">
+<text x="331.0" y="475.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffb8a2">
+<text x="337.0" y="475.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffd4ba">
+<text x="343.0" y="475.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffbea5">
+<text x="349.0" y="475.0" class="ascii-text">v</text>
+</g>
+<g fill="#d08d7f">
+<text x="355.0" y="475.0" class="ascii-text">1</text>
+</g>
+<g fill="#88939f">
+<text x="367.0" y="475.0" class="ascii-text">[</text>
+</g>
+<g fill="#a091a6">
+<text x="373.0" y="475.0" class="ascii-text">}</text>
+</g>
+<g fill="#7f7985">
+<text x="169.0" y="485.0" class="ascii-text">~</text>
+<text x="175.0" y="485.0" class="ascii-text">~</text>
+<text x="55.0" y="575.0" class="ascii-text">~</text>
+<text x="115.0" y="695.0" class="ascii-text">~</text>
+<text x="85.0" y="715.0" class="ascii-text">~</text>
+<text x="115.0" y="745.0" class="ascii-text">~</text>
+<text x="133.0" y="755.0" class="ascii-text">~</text>
+</g>
+<g fill="#a7a9b8">
+<text x="181.0" y="485.0" class="ascii-text">|</text>
+</g>
+<g fill="#858ba3">
+<text x="187.0" y="485.0" class="ascii-text">?</text>
+</g>
+<g fill="#6c7086">
+<text x="193.0" y="485.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="505.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#8d6293">
+<text x="229.0" y="485.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="545.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#752e94">
+<text x="235.0" y="485.0" class="ascii-text">^</text>
+<text x="127.0" y="595.0" class="ascii-text">^</text>
+</g>
+<g fill="#9b8495">
+<text x="241.0" y="485.0" class="ascii-text">?</text>
+<text x="217.0" y="625.0" class="ascii-text">?</text>
+<text x="223.0" y="625.0" class="ascii-text">?</text>
+<text x="277.0" y="665.0" class="ascii-text">?</text>
+</g>
+<g fill="#d4c9ce">
+<text x="247.0" y="485.0" class="ascii-text">u</text>
+</g>
+<g fill="#f2e8e2">
+<text x="253.0" y="485.0" class="ascii-text">J</text>
+</g>
+<g fill="#fffaf1">
+<text x="259.0" y="485.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffffa">
+<text x="265.0" y="485.0" class="ascii-text">m</text>
+</g>
+<g fill="#fff4ee">
+<text x="271.0" y="485.0" class="ascii-text">0</text>
+<text x="163.0" y="595.0" class="ascii-text">0</text>
+</g>
+<g fill="#fac5b4">
+<text x="277.0" y="485.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffb290">
+<text x="283.0" y="485.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffd7c2">
+<text x="289.0" y="485.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffdfc3">
+<text x="295.0" y="485.0" class="ascii-text">C</text>
+<text x="301.0" y="495.0" class="ascii-text">C</text>
+</g>
+<g fill="#ffc2a0">
+<text x="301.0" y="485.0" class="ascii-text">c</text>
+</g>
+<g fill="#ffddc8">
+<text x="313.0" y="485.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffc2a3">
+<text x="337.0" y="485.0" class="ascii-text">c</text>
+</g>
+<g fill="#dc9582">
+<text x="343.0" y="485.0" class="ascii-text">(</text>
+</g>
+<g fill="#94889a">
+<text x="349.0" y="485.0" class="ascii-text">?</text>
+</g>
+<g fill="#838ea0">
+<text x="355.0" y="485.0" class="ascii-text">?</text>
+</g>
+<g fill="#a8a283">
+<text x="367.0" y="485.0" class="ascii-text">1</text>
+</g>
+<g fill="#7c7682">
+<text x="157.0" y="495.0" class="ascii-text">~</text>
+<text x="169.0" y="525.0" class="ascii-text">~</text>
+<text x="175.0" y="525.0" class="ascii-text">~</text>
+<text x="163.0" y="535.0" class="ascii-text">~</text>
+<text x="175.0" y="535.0" class="ascii-text">~</text>
+<text x="55.0" y="585.0" class="ascii-text">~</text>
+<text x="37.0" y="595.0" class="ascii-text">~</text>
+<text x="43.0" y="595.0" class="ascii-text">~</text>
+<text x="49.0" y="595.0" class="ascii-text">~</text>
+<text x="55.0" y="595.0" class="ascii-text">~</text>
+<text x="31.0" y="605.0" class="ascii-text">~</text>
+<text x="37.0" y="605.0" class="ascii-text">~</text>
+<text x="43.0" y="605.0" class="ascii-text">~</text>
+<text x="49.0" y="605.0" class="ascii-text">~</text>
+<text x="55.0" y="605.0" class="ascii-text">~</text>
+<text x="37.0" y="615.0" class="ascii-text">~</text>
+<text x="43.0" y="615.0" class="ascii-text">~</text>
+<text x="49.0" y="615.0" class="ascii-text">~</text>
+<text x="55.0" y="615.0" class="ascii-text">~</text>
+<text x="37.0" y="625.0" class="ascii-text">~</text>
+<text x="43.0" y="625.0" class="ascii-text">~</text>
+<text x="49.0" y="625.0" class="ascii-text">~</text>
+<text x="55.0" y="625.0" class="ascii-text">~</text>
+<text x="43.0" y="635.0" class="ascii-text">~</text>
+<text x="49.0" y="635.0" class="ascii-text">~</text>
+<text x="55.0" y="635.0" class="ascii-text">~</text>
+<text x="43.0" y="645.0" class="ascii-text">~</text>
+<text x="49.0" y="645.0" class="ascii-text">~</text>
+<text x="55.0" y="645.0" class="ascii-text">~</text>
+<text x="49.0" y="655.0" class="ascii-text">~</text>
+<text x="55.0" y="655.0" class="ascii-text">~</text>
+<text x="55.0" y="665.0" class="ascii-text">~</text>
+<text x="97.0" y="685.0" class="ascii-text">~</text>
+<text x="97.0" y="695.0" class="ascii-text">~</text>
+<text x="103.0" y="695.0" class="ascii-text">~</text>
+<text x="97.0" y="705.0" class="ascii-text">~</text>
+<text x="103.0" y="705.0" class="ascii-text">~</text>
+<text x="109.0" y="705.0" class="ascii-text">~</text>
+<text x="91.0" y="715.0" class="ascii-text">~</text>
+<text x="97.0" y="715.0" class="ascii-text">~</text>
+<text x="103.0" y="715.0" class="ascii-text">~</text>
+<text x="109.0" y="715.0" class="ascii-text">~</text>
+<text x="115.0" y="715.0" class="ascii-text">~</text>
+<text x="133.0" y="715.0" class="ascii-text">~</text>
+<text x="97.0" y="725.0" class="ascii-text">~</text>
+<text x="103.0" y="725.0" class="ascii-text">~</text>
+<text x="109.0" y="725.0" class="ascii-text">~</text>
+<text x="115.0" y="725.0" class="ascii-text">~</text>
+<text x="121.0" y="725.0" class="ascii-text">~</text>
+<text x="127.0" y="725.0" class="ascii-text">~</text>
+<text x="133.0" y="725.0" class="ascii-text">~</text>
+<text x="109.0" y="735.0" class="ascii-text">~</text>
+<text x="115.0" y="735.0" class="ascii-text">~</text>
+<text x="121.0" y="735.0" class="ascii-text">~</text>
+<text x="127.0" y="735.0" class="ascii-text">~</text>
+<text x="139.0" y="735.0" class="ascii-text">~</text>
+<text x="193.0" y="735.0" class="ascii-text">~</text>
+<text x="121.0" y="745.0" class="ascii-text">~</text>
+<text x="127.0" y="745.0" class="ascii-text">~</text>
+<text x="133.0" y="745.0" class="ascii-text">~</text>
+<text x="139.0" y="745.0" class="ascii-text">~</text>
+<text x="139.0" y="755.0" class="ascii-text">~</text>
+</g>
+<g fill="#868692">
+<text x="169.0" y="495.0" class="ascii-text">-</text>
+</g>
+<g fill="#a9aab6">
+<text x="175.0" y="495.0" class="ascii-text">|</text>
+</g>
+<g fill="#8a8fa1">
+<text x="181.0" y="495.0" class="ascii-text">[</text>
+</g>
+<g fill="#637191">
+<text x="187.0" y="495.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#8c6d89">
+<text x="223.0" y="495.0" class="ascii-text">~</text>
+</g>
+<g fill="#94829a">
+<text x="229.0" y="495.0" class="ascii-text">?</text>
+<text x="283.0" y="615.0" class="ascii-text">?</text>
+</g>
+<g fill="#ccc0ca">
+<text x="235.0" y="495.0" class="ascii-text">x</text>
+</g>
+<g fill="#f2e6e3">
+<text x="241.0" y="495.0" class="ascii-text">J</text>
+<text x="247.0" y="525.0" class="ascii-text">J</text>
+</g>
+<g fill="#fff1e9">
+<text x="247.0" y="495.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff9f1">
+<text x="253.0" y="495.0" class="ascii-text">O</text>
+<text x="277.0" y="515.0" class="ascii-text">O</text>
+</g>
+<g fill="#fffdf6">
+<text x="259.0" y="495.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fff7ef">
+<text x="265.0" y="495.0" class="ascii-text">0</text>
+<text x="169.0" y="595.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff8f0">
+<text x="271.0" y="495.0" class="ascii-text">0</text>
+<text x="241.0" y="505.0" class="ascii-text">0</text>
+<text x="247.0" y="515.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff4ea">
+<text x="277.0" y="495.0" class="ascii-text">0</text>
+</g>
+<g fill="#f1d7cf">
+<text x="283.0" y="495.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffb39a">
+<text x="289.0" y="495.0" class="ascii-text">x</text>
+</g>
+<g fill="#ffc9ad">
+<text x="295.0" y="495.0" class="ascii-text">X</text>
+</g>
+<g fill="#ffcaac">
+<text x="307.0" y="495.0" class="ascii-text">z</text>
+</g>
+<g fill="#ffb495">
+<text x="313.0" y="495.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffc49f">
+<text x="325.0" y="495.0" class="ascii-text">z</text>
+</g>
+<g fill="#a79391">
+<text x="337.0" y="495.0" class="ascii-text">{</text>
+</g>
+<g fill="#81929e">
+<text x="343.0" y="495.0" class="ascii-text">]</text>
+</g>
+<g fill="#b2acb8">
+<text x="139.0" y="505.0" class="ascii-text">\</text>
+</g>
+<g fill="#acb3bf">
+<text x="145.0" y="505.0" class="ascii-text">/</text>
+</g>
+<g fill="#636975">
+<text x="151.0" y="505.0" class="ascii-text">i</text>
+<text x="379.0" y="545.0" class="ascii-text">i</text>
+</g>
+<g fill="#7e7f8b">
+<text x="157.0" y="505.0" class="ascii-text">_</text>
+</g>
+<g fill="#a3a1b1">
+<text x="163.0" y="505.0" class="ascii-text">)</text>
+</g>
+<g fill="#a6afb7">
+<text x="169.0" y="505.0" class="ascii-text">\</text>
+</g>
+<g fill="#7f8b91">
+<text x="175.0" y="505.0" class="ascii-text">-</text>
+</g>
+<g fill="#867993">
+<text x="217.0" y="505.0" class="ascii-text">_</text>
+</g>
+<g fill="#cabec5">
+<text x="229.0" y="505.0" class="ascii-text">r</text>
+</g>
+<g fill="#fffaf6">
+<text x="247.0" y="505.0" class="ascii-text">O</text>
+<text x="265.0" y="505.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fffcf4">
+<text x="253.0" y="505.0" class="ascii-text">Z</text>
+</g>
+<g fill="#fff9f2">
+<text x="259.0" y="505.0" class="ascii-text">O</text>
+</g>
+<g fill="#fff6f0">
+<text x="271.0" y="505.0" class="ascii-text">0</text>
+<text x="97.0" y="645.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff1e6">
+<text x="277.0" y="505.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff5ec">
+<text x="283.0" y="505.0" class="ascii-text">0</text>
+<text x="271.0" y="515.0" class="ascii-text">0</text>
+</g>
+<g fill="#fbe9de">
+<text x="289.0" y="505.0" class="ascii-text">C</text>
+</g>
+<g fill="#f6c3ac">
+<text x="295.0" y="505.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffaf8b">
+<text x="301.0" y="505.0" class="ascii-text">n</text>
+</g>
+<g fill="#ffd4b0">
+<text x="307.0" y="505.0" class="ascii-text">U</text>
+</g>
+<g fill="#ffd8b3">
+<text x="313.0" y="505.0" class="ascii-text">J</text>
+</g>
+<g fill="#ffaa83">
+<text x="319.0" y="505.0" class="ascii-text">r</text>
+</g>
+<g fill="#cfa18c">
+<text x="325.0" y="505.0" class="ascii-text">|</text>
+</g>
+<g fill="#dee1e7">
+<text x="331.0" y="505.0" class="ascii-text">Y</text>
+</g>
+<g fill="#837d91">
+<text x="337.0" y="505.0" class="ascii-text">_</text>
+<text x="199.0" y="725.0" class="ascii-text">_</text>
+</g>
+<g fill="#9b959c">
+<text x="343.0" y="505.0" class="ascii-text">}</text>
+</g>
+<g fill="#78727e">
+<text x="355.0" y="505.0" class="ascii-text">&lt;</text>
+<text x="169.0" y="535.0" class="ascii-text">&lt;</text>
+<text x="175.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="163.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="379.0" y="595.0" class="ascii-text">&lt;</text>
+<text x="31.0" y="615.0" class="ascii-text">&lt;</text>
+<text x="37.0" y="635.0" class="ascii-text">&lt;</text>
+<text x="37.0" y="645.0" class="ascii-text">&lt;</text>
+<text x="43.0" y="655.0" class="ascii-text">&lt;</text>
+<text x="49.0" y="665.0" class="ascii-text">&lt;</text>
+<text x="55.0" y="675.0" class="ascii-text">&lt;</text>
+<text x="103.0" y="685.0" class="ascii-text">&lt;</text>
+<text x="61.0" y="695.0" class="ascii-text">&lt;</text>
+<text x="109.0" y="695.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="705.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="705.0" class="ascii-text">&lt;</text>
+<text x="127.0" y="705.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="715.0" class="ascii-text">&lt;</text>
+<text x="127.0" y="715.0" class="ascii-text">&lt;</text>
+<text x="133.0" y="735.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#8f8995">
+<text x="85.0" y="515.0" class="ascii-text">?</text>
+<text x="49.0" y="535.0" class="ascii-text">?</text>
+<text x="355.0" y="545.0" class="ascii-text">?</text>
+<text x="25.0" y="605.0" class="ascii-text">?</text>
+<text x="181.0" y="735.0" class="ascii-text">?</text>
+</g>
+<g fill="#b6b6cc">
+<text x="91.0" y="515.0" class="ascii-text">f</text>
+</g>
+<g fill="#c8cfdb">
+<text x="97.0" y="515.0" class="ascii-text">u</text>
+</g>
+<g fill="#dce1eb">
+<text x="103.0" y="515.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ececf8">
+<text x="109.0" y="515.0" class="ascii-text">C</text>
+</g>
+<g fill="#efeffb">
+<text x="115.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#f3f1fd">
+<text x="121.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#efeffd">
+<text x="127.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#e3e3f9">
+<text x="133.0" y="515.0" class="ascii-text">U</text>
+</g>
+<g fill="#dee5f5">
+<text x="139.0" y="515.0" class="ascii-text">U</text>
+</g>
+<g fill="#dbe6f6">
+<text x="145.0" y="515.0" class="ascii-text">U</text>
+</g>
+<g fill="#b6bfd1">
+<text x="151.0" y="515.0" class="ascii-text">j</text>
+</g>
+<g fill="#a8aabd">
+<text x="157.0" y="515.0" class="ascii-text">|</text>
+</g>
+<g fill="#979aa6">
+<text x="163.0" y="515.0" class="ascii-text">{</text>
+</g>
+<g fill="#77798d">
+<text x="181.0" y="515.0" class="ascii-text">~</text>
+</g>
+<g fill="#7d7793">
+<text x="205.0" y="515.0" class="ascii-text">~</text>
+<text x="193.0" y="525.0" class="ascii-text">~</text>
+<text x="85.0" y="555.0" class="ascii-text">~</text>
+<text x="67.0" y="565.0" class="ascii-text">~</text>
+<text x="67.0" y="625.0" class="ascii-text">~</text>
+<text x="67.0" y="685.0" class="ascii-text">~</text>
+<text x="73.0" y="695.0" class="ascii-text">~</text>
+</g>
+<g fill="#77718f">
+<text x="211.0" y="515.0" class="ascii-text">&lt;</text>
+<text x="73.0" y="595.0" class="ascii-text">&lt;</text>
+<text x="73.0" y="665.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#5e469b">
+<text x="217.0" y="515.0" class="ascii-text">I</text>
+</g>
+<g fill="#8e638a">
+<text x="223.0" y="515.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="247.0" y="705.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#bcafae">
+<text x="229.0" y="515.0" class="ascii-text">/</text>
+</g>
+<g fill="#e8dcd6">
+<text x="235.0" y="515.0" class="ascii-text">X</text>
+</g>
+<g fill="#fdefe8">
+<text x="241.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#fff7f1">
+<text x="253.0" y="515.0" class="ascii-text">0</text>
+<text x="259.0" y="515.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff3ec">
+<text x="265.0" y="515.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff3e6">
+<text x="283.0" y="515.0" class="ascii-text">Q</text>
+</g>
+<g fill="#ffeedc">
+<text x="289.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#fbefe8">
+<text x="295.0" y="515.0" class="ascii-text">L</text>
+</g>
+<g fill="#f3dcd2">
+<text x="301.0" y="515.0" class="ascii-text">Y</text>
+</g>
+<g fill="#ffaf94">
+<text x="307.0" y="515.0" class="ascii-text">x</text>
+</g>
+<g fill="#c47359">
+<text x="313.0" y="515.0" class="ascii-text">-</text>
+</g>
+<g fill="#bebbbb">
+<text x="325.0" y="515.0" class="ascii-text">f</text>
+</g>
+<g fill="#dcd8db">
+<text x="331.0" y="515.0" class="ascii-text">z</text>
+</g>
+<g fill="#b6b3b6">
+<text x="349.0" y="515.0" class="ascii-text">/</text>
+</g>
+<g fill="#c7c1c2">
+<text x="355.0" y="515.0" class="ascii-text">r</text>
+</g>
+<g fill="#c1aec7">
+<text x="397.0" y="515.0" class="ascii-text">t</text>
+</g>
+<g fill="#a894a0">
+<text x="403.0" y="515.0" class="ascii-text">{</text>
+</g>
+<g fill="#939bab">
+<text x="79.0" y="525.0" class="ascii-text">{</text>
+</g>
+<g fill="#d5dff4">
+<text x="85.0" y="525.0" class="ascii-text">X</text>
+</g>
+<g fill="#e1eafe">
+<text x="91.0" y="525.0" class="ascii-text">J</text>
+</g>
+<g fill="#e8f1ff">
+<text x="97.0" y="525.0" class="ascii-text">L</text>
+</g>
+<g fill="#edf4ff">
+<text x="103.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f3f4ff">
+<text x="109.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#efefff">
+<text x="115.0" y="525.0" class="ascii-text">L</text>
+</g>
+<g fill="#ededfa">
+<text x="121.0" y="525.0" class="ascii-text">C</text>
+</g>
+<g fill="#e1e3f1">
+<text x="127.0" y="525.0" class="ascii-text">U</text>
+</g>
+<g fill="#ced2e3">
+<text x="133.0" y="525.0" class="ascii-text">v</text>
+</g>
+<g fill="#b9bfd1">
+<text x="139.0" y="525.0" class="ascii-text">j</text>
+</g>
+<g fill="#a19fb3">
+<text x="145.0" y="525.0" class="ascii-text">)</text>
+</g>
+<g fill="#96849c">
+<text x="151.0" y="525.0" class="ascii-text">?</text>
+</g>
+<g fill="#836a89">
+<text x="157.0" y="525.0" class="ascii-text">&lt;</text>
+<text x="157.0" y="535.0" class="ascii-text">&lt;</text>
+<text x="157.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="91.0" y="675.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#7b7589">
+<text x="181.0" y="525.0" class="ascii-text">~</text>
+<text x="121.0" y="535.0" class="ascii-text">~</text>
+<text x="181.0" y="535.0" class="ascii-text">~</text>
+<text x="61.0" y="575.0" class="ascii-text">~</text>
+<text x="61.0" y="585.0" class="ascii-text">~</text>
+<text x="61.0" y="595.0" class="ascii-text">~</text>
+<text x="61.0" y="605.0" class="ascii-text">~</text>
+<text x="61.0" y="615.0" class="ascii-text">~</text>
+<text x="61.0" y="625.0" class="ascii-text">~</text>
+<text x="61.0" y="635.0" class="ascii-text">~</text>
+<text x="61.0" y="645.0" class="ascii-text">~</text>
+<text x="61.0" y="655.0" class="ascii-text">~</text>
+<text x="61.0" y="665.0" class="ascii-text">~</text>
+<text x="61.0" y="675.0" class="ascii-text">~</text>
+<text x="61.0" y="685.0" class="ascii-text">~</text>
+</g>
+<g fill="#5a5481">
+<text x="205.0" y="525.0" class="ascii-text">I</text>
+<text x="139.0" y="535.0" class="ascii-text">I</text>
+<text x="181.0" y="545.0" class="ascii-text">I</text>
+</g>
+<g fill="#706a81">
+<text x="211.0" y="525.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#b1a8a9">
+<text x="217.0" y="525.0" class="ascii-text">|</text>
+</g>
+<g fill="#c5bcb9">
+<text x="223.0" y="525.0" class="ascii-text">j</text>
+</g>
+<g fill="#aca2a2">
+<text x="229.0" y="525.0" class="ascii-text">(</text>
+</g>
+<g fill="#898389">
+<text x="235.0" y="525.0" class="ascii-text">-</text>
+<text x="37.0" y="655.0" class="ascii-text">-</text>
+<text x="85.0" y="725.0" class="ascii-text">-</text>
+</g>
+<g fill="#cac4c3">
+<text x="241.0" y="525.0" class="ascii-text">x</text>
+</g>
+<g fill="#fff0eb">
+<text x="253.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff2e9">
+<text x="259.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff3e9">
+<text x="265.0" y="525.0" class="ascii-text">0</text>
+</g>
+<g fill="#fff8ec">
+<text x="271.0" y="525.0" class="ascii-text">0</text>
+</g>
+<g fill="#faf1ef">
+<text x="277.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fdf3e9">
+<text x="283.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff5eb">
+<text x="289.0" y="525.0" class="ascii-text">0</text>
+</g>
+<g fill="#f9e7e1">
+<text x="295.0" y="525.0" class="ascii-text">C</text>
+</g>
+<g fill="#f2e6de">
+<text x="301.0" y="525.0" class="ascii-text">J</text>
+</g>
+<g fill="#fef3f1">
+<text x="307.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#c9c6d5">
+<text x="313.0" y="525.0" class="ascii-text">n</text>
+</g>
+<g fill="#5c3c48">
+<text x="319.0" y="525.0" class="ascii-text">^</text>
+</g>
+<g fill="#969597">
+<text x="325.0" y="525.0" class="ascii-text">[</text>
+</g>
+<g fill="#dad7e0">
+<text x="331.0" y="525.0" class="ascii-text">z</text>
+</g>
+<g fill="#726c6d">
+<text x="343.0" y="525.0" class="ascii-text">&gt;</text>
+<text x="55.0" y="565.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#b2afb5">
+<text x="355.0" y="525.0" class="ascii-text">\</text>
+</g>
+<g fill="#c4bec5">
+<text x="361.0" y="525.0" class="ascii-text">r</text>
+</g>
+<g fill="#f3edf9">
+<text x="379.0" y="525.0" class="ascii-text">L</text>
+</g>
+<g fill="#f6f0fc">
+<text x="385.0" y="525.0" class="ascii-text">Q</text>
+</g>
+<g fill="#c0c0cf">
+<text x="391.0" y="525.0" class="ascii-text">r</text>
+</g>
+<g fill="#b4abba">
+<text x="397.0" y="525.0" class="ascii-text">\</text>
+</g>
+<g fill="#aa97a8">
+<text x="403.0" y="525.0" class="ascii-text">1</text>
+</g>
+<g fill="#9c8c98">
+<text x="409.0" y="525.0" class="ascii-text">[</text>
+<text x="367.0" y="605.0" class="ascii-text">[</text>
+</g>
+<g fill="#91909c">
+<text x="67.0" y="535.0" class="ascii-text">[</text>
+</g>
+<g fill="#aeacbf">
+<text x="73.0" y="535.0" class="ascii-text">\</text>
+</g>
+<g fill="#c1c6da">
+<text x="79.0" y="535.0" class="ascii-text">x</text>
+</g>
+<g fill="#bbc1d5">
+<text x="85.0" y="535.0" class="ascii-text">r</text>
+</g>
+<g fill="#abadc0">
+<text x="91.0" y="535.0" class="ascii-text">\</text>
+</g>
+<g fill="#9ea0ac">
+<text x="97.0" y="535.0" class="ascii-text">1</text>
+</g>
+<g fill="#9a8faf">
+<text x="103.0" y="535.0" class="ascii-text">}</text>
+</g>
+<g fill="#9880a4">
+<text x="109.0" y="535.0" class="ascii-text">?</text>
+<text x="271.0" y="695.0" class="ascii-text">?</text>
+</g>
+<g fill="#837d97">
+<text x="115.0" y="535.0" class="ascii-text">_</text>
+</g>
+<g fill="#786888">
+<text x="127.0" y="535.0" class="ascii-text">&gt;</text>
+<text x="307.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="325.0" y="555.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#6c5880">
+<text x="133.0" y="535.0" class="ascii-text">!</text>
+</g>
+<g fill="#7d4c83">
+<text x="145.0" y="535.0" class="ascii-text">l</text>
+<text x="325.0" y="585.0" class="ascii-text">l</text>
+<text x="271.0" y="605.0" class="ascii-text">l</text>
+</g>
+<g fill="#8a5885">
+<text x="151.0" y="535.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#595390">
+<text x="193.0" y="535.0" class="ascii-text">I</text>
+<text x="301.0" y="555.0" class="ascii-text">I</text>
+</g>
+<g fill="#6c667e">
+<text x="199.0" y="535.0" class="ascii-text">i</text>
+<text x="319.0" y="535.0" class="ascii-text">i</text>
+<text x="199.0" y="735.0" class="ascii-text">i</text>
+</g>
+<g fill="#afa5a5">
+<text x="205.0" y="535.0" class="ascii-text">(</text>
+</g>
+<g fill="#c9bdba">
+<text x="211.0" y="535.0" class="ascii-text">j</text>
+</g>
+<g fill="#aba59d">
+<text x="217.0" y="535.0" class="ascii-text">(</text>
+</g>
+<g fill="#8e8888">
+<text x="223.0" y="535.0" class="ascii-text">?</text>
+</g>
+<g fill="#b2a9ad">
+<text x="229.0" y="535.0" class="ascii-text">|</text>
+<text x="151.0" y="605.0" class="ascii-text">|</text>
+</g>
+<g fill="#bfb3b5">
+<text x="235.0" y="535.0" class="ascii-text">t</text>
+</g>
+<g fill="#8f8382">
+<text x="241.0" y="535.0" class="ascii-text">-</text>
+</g>
+<g fill="#948e8f">
+<text x="247.0" y="535.0" class="ascii-text">[</text>
+</g>
+<g fill="#e3d3d4">
+<text x="253.0" y="535.0" class="ascii-text">z</text>
+</g>
+<g fill="#fbebe5">
+<text x="259.0" y="535.0" class="ascii-text">L</text>
+</g>
+<g fill="#ffeedf">
+<text x="265.0" y="535.0" class="ascii-text">L</text>
+</g>
+<g fill="#fbe9e0">
+<text x="271.0" y="535.0" class="ascii-text">C</text>
+</g>
+<g fill="#feeee5">
+<text x="277.0" y="535.0" class="ascii-text">L</text>
+</g>
+<g fill="#fff1e7">
+<text x="283.0" y="535.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f5e3d8">
+<text x="289.0" y="535.0" class="ascii-text">U</text>
+</g>
+<g fill="#e4cfc8">
+<text x="295.0" y="535.0" class="ascii-text">c</text>
+</g>
+<g fill="#e6d4d2">
+<text x="301.0" y="535.0" class="ascii-text">z</text>
+</g>
+<g fill="#e8dee3">
+<text x="307.0" y="535.0" class="ascii-text">Y</text>
+</g>
+<g fill="#aca6b2">
+<text x="313.0" y="535.0" class="ascii-text">|</text>
+<text x="355.0" y="615.0" class="ascii-text">|</text>
+</g>
+<g fill="#c8c2ce">
+<text x="331.0" y="535.0" class="ascii-text">x</text>
+</g>
+<g fill="#b3adb9">
+<text x="337.0" y="535.0" class="ascii-text">\</text>
+</g>
+<g fill="#433d65">
+<text x="343.0" y="535.0" class="ascii-text">^</text>
+</g>
+<g fill="#534d59">
+<text x="349.0" y="535.0" class="ascii-text">:</text>
+<text x="97.0" y="665.0" class="ascii-text">:</text>
+</g>
+<g fill="#635d69">
+<text x="355.0" y="535.0" class="ascii-text">l</text>
+<text x="205.0" y="725.0" class="ascii-text">l</text>
+</g>
+<g fill="#a8a9b2">
+<text x="367.0" y="535.0" class="ascii-text">|</text>
+</g>
+<g fill="#c9d0d4">
+<text x="373.0" y="535.0" class="ascii-text">u</text>
+</g>
+<g fill="#d4d3dc">
+<text x="379.0" y="535.0" class="ascii-text">v</text>
+</g>
+<g fill="#c1c0c9">
+<text x="385.0" y="535.0" class="ascii-text">r</text>
+</g>
+<g fill="#6d7985">
+<text x="391.0" y="535.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#c0bdc9">
+<text x="397.0" y="535.0" class="ascii-text">j</text>
+<text x="241.0" y="675.0" class="ascii-text">j</text>
+</g>
+<g fill="#998e9f">
+<text x="403.0" y="535.0" class="ascii-text">[</text>
+</g>
+<g fill="#898e94">
+<text x="55.0" y="545.0" class="ascii-text">?</text>
+</g>
+<g fill="#a1abb3">
+<text x="61.0" y="545.0" class="ascii-text">|</text>
+</g>
+<g fill="#a5abbe">
+<text x="67.0" y="545.0" class="ascii-text">|</text>
+</g>
+<g fill="#9897ac">
+<text x="73.0" y="545.0" class="ascii-text">{</text>
+</g>
+<g fill="#7e708d">
+<text x="79.0" y="545.0" class="ascii-text">~</text>
+<text x="91.0" y="605.0" class="ascii-text">~</text>
+</g>
+<g fill="#615b83">
+<text x="85.0" y="545.0" class="ascii-text">l</text>
+<text x="187.0" y="545.0" class="ascii-text">l</text>
+<text x="73.0" y="625.0" class="ascii-text">l</text>
+</g>
+<g fill="#77567d">
+<text x="91.0" y="545.0" class="ascii-text">!</text>
+</g>
+<g fill="#835b7e">
+<text x="97.0" y="545.0" class="ascii-text">i</text>
+<text x="199.0" y="755.0" class="ascii-text">i</text>
+</g>
+<g fill="#845f8a">
+<text x="103.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="151.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="295.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="307.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="313.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="319.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="325.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="331.0" y="565.0" class="ascii-text">&gt;</text>
+<text x="259.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="295.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="301.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="307.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="313.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="319.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="325.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="277.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="283.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="289.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="295.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="319.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="217.0" y="755.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#89688f">
+<text x="127.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="145.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="151.0" y="545.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="127.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="133.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="139.0" y="555.0" class="ascii-text">&lt;</text>
+<text x="97.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="103.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="109.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="127.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="133.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="139.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="103.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="109.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="127.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="133.0" y="575.0" class="ascii-text">&lt;</text>
+<text x="97.0" y="585.0" class="ascii-text">&lt;</text>
+<text x="103.0" y="585.0" class="ascii-text">&lt;</text>
+<text x="109.0" y="585.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="585.0" class="ascii-text">&lt;</text>
+<text x="121.0" y="585.0" class="ascii-text">&lt;</text>
+<text x="97.0" y="595.0" class="ascii-text">&lt;</text>
+<text x="115.0" y="595.0" class="ascii-text">&lt;</text>
+<text x="85.0" y="665.0" class="ascii-text">&lt;</text>
+<text x="163.0" y="755.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#7c6d82">
+<text x="169.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="645.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#aba0a0">
+<text x="193.0" y="545.0" class="ascii-text">)</text>
+</g>
+<g fill="#cabeb9">
+<text x="199.0" y="545.0" class="ascii-text">r</text>
+</g>
+<g fill="#b3a6a6">
+<text x="205.0" y="545.0" class="ascii-text">|</text>
+</g>
+<g fill="#927e84">
+<text x="211.0" y="545.0" class="ascii-text">_</text>
+<text x="217.0" y="615.0" class="ascii-text">_</text>
+</g>
+<g fill="#b7a1a2">
+<text x="217.0" y="545.0" class="ascii-text">(</text>
+</g>
+<g fill="#c0b3af">
+<text x="223.0" y="545.0" class="ascii-text">t</text>
+</g>
+<g fill="#998e89">
+<text x="229.0" y="545.0" class="ascii-text">[</text>
+</g>
+<g fill="#9e7f7f">
+<text x="235.0" y="545.0" class="ascii-text">-</text>
+</g>
+<g fill="#b6acaa">
+<text x="241.0" y="545.0" class="ascii-text">\</text>
+</g>
+<g fill="#aaa4a4">
+<text x="247.0" y="545.0" class="ascii-text">(</text>
+<text x="97.0" y="655.0" class="ascii-text">(</text>
+</g>
+<g fill="#645e5b">
+<text x="253.0" y="545.0" class="ascii-text">l</text>
+</g>
+<g fill="#b2a4a1">
+<text x="259.0" y="545.0" class="ascii-text">(</text>
+</g>
+<g fill="#eae0df">
+<text x="265.0" y="545.0" class="ascii-text">Y</text>
+</g>
+<g fill="#faeaea">
+<text x="271.0" y="545.0" class="ascii-text">L</text>
+</g>
+<g fill="#feece7">
+<text x="277.0" y="545.0" class="ascii-text">L</text>
+</g>
+<g fill="#f7e4dc">
+<text x="283.0" y="545.0" class="ascii-text">J</text>
+</g>
+<g fill="#dccac4">
+<text x="289.0" y="545.0" class="ascii-text">u</text>
+</g>
+<g fill="#c3b7b9">
+<text x="295.0" y="545.0" class="ascii-text">f</text>
+</g>
+<g fill="#9c9bab">
+<text x="301.0" y="545.0" class="ascii-text">{</text>
+</g>
+<g fill="#386390">
+<text x="307.0" y="545.0" class="ascii-text">I</text>
+</g>
+<g fill="#343f87">
+<text x="313.0" y="545.0" class="ascii-text">^</text>
+</g>
+<g fill="#746e8d">
+<text x="319.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="295.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="313.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="205.0" y="735.0" class="ascii-text">&gt;</text>
+<text x="229.0" y="735.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#706a8a">
+<text x="325.0" y="545.0" class="ascii-text">&gt;</text>
+<text x="73.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="319.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="331.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="73.0" y="635.0" class="ascii-text">&gt;</text>
+<text x="79.0" y="645.0" class="ascii-text">&gt;</text>
+<text x="211.0" y="735.0" class="ascii-text">&gt;</text>
+<text x="217.0" y="735.0" class="ascii-text">&gt;</text>
+<text x="223.0" y="735.0" class="ascii-text">&gt;</text>
+<text x="211.0" y="745.0" class="ascii-text">&gt;</text>
+<text x="217.0" y="745.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#67617a">
+<text x="331.0" y="545.0" class="ascii-text">!</text>
+</g>
+<g fill="#b5afbf">
+<text x="337.0" y="545.0" class="ascii-text">/</text>
+</g>
+<g fill="#b6b0bc">
+<text x="343.0" y="545.0" class="ascii-text">/</text>
+</g>
+<g fill="#7e788c">
+<text x="361.0" y="545.0" class="ascii-text">~</text>
+<text x="241.0" y="735.0" class="ascii-text">~</text>
+</g>
+<g fill="#686d79">
+<text x="367.0" y="545.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7f868b">
+<text x="373.0" y="545.0" class="ascii-text">_</text>
+</g>
+<g fill="#99989f">
+<text x="391.0" y="545.0" class="ascii-text">{</text>
+</g>
+<g fill="#cac4d0">
+<text x="397.0" y="545.0" class="ascii-text">x</text>
+<text x="349.0" y="585.0" class="ascii-text">x</text>
+</g>
+<g fill="#87798d">
+<text x="37.0" y="555.0" class="ascii-text">+</text>
+</g>
+<g fill="#99a0a8">
+<text x="49.0" y="555.0" class="ascii-text">1</text>
+</g>
+<g fill="#99a4a8">
+<text x="55.0" y="555.0" class="ascii-text">)</text>
+</g>
+<g fill="#838496">
+<text x="61.0" y="555.0" class="ascii-text">-</text>
+</g>
+<g fill="#715e83">
+<text x="67.0" y="555.0" class="ascii-text">i</text>
+</g>
+<g fill="#847691">
+<text x="91.0" y="555.0" class="ascii-text">+</text>
+<text x="91.0" y="615.0" class="ascii-text">+</text>
+</g>
+<g fill="#806686">
+<text x="157.0" y="555.0" class="ascii-text">&gt;</text>
+<text x="241.0" y="715.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#68626e">
+<text x="169.0" y="555.0" class="ascii-text">!</text>
+<text x="133.0" y="705.0" class="ascii-text">!</text>
+<text x="139.0" y="725.0" class="ascii-text">!</text>
+<text x="211.0" y="725.0" class="ascii-text">!</text>
+<text x="241.0" y="725.0" class="ascii-text">!</text>
+</g>
+<g fill="#c6babd">
+<text x="187.0" y="555.0" class="ascii-text">j</text>
+</g>
+<g fill="#b5aba5">
+<text x="193.0" y="555.0" class="ascii-text">\</text>
+</g>
+<g fill="#907c81">
+<text x="199.0" y="555.0" class="ascii-text">_</text>
+</g>
+<g fill="#ac9ea2">
+<text x="205.0" y="555.0" class="ascii-text">)</text>
+</g>
+<g fill="#c2b3b2">
+<text x="211.0" y="555.0" class="ascii-text">t</text>
+</g>
+<g fill="#8f7b87">
+<text x="223.0" y="555.0" class="ascii-text">_</text>
+<text x="289.0" y="635.0" class="ascii-text">_</text>
+<text x="157.0" y="775.0" class="ascii-text">_</text>
+</g>
+<g fill="#b4a7ab">
+<text x="229.0" y="555.0" class="ascii-text">|</text>
+</g>
+<g fill="#b0a6a7">
+<text x="235.0" y="555.0" class="ascii-text">|</text>
+</g>
+<g fill="#8f8982">
+<text x="247.0" y="555.0" class="ascii-text">?</text>
+</g>
+<g fill="#aea5a9">
+<text x="253.0" y="555.0" class="ascii-text">(</text>
+</g>
+<g fill="#9f949c">
+<text x="265.0" y="555.0" class="ascii-text">}</text>
+<text x="289.0" y="555.0" class="ascii-text">}</text>
+<text x="145.0" y="725.0" class="ascii-text">}</text>
+</g>
+<g fill="#d5c7c8">
+<text x="271.0" y="555.0" class="ascii-text">n</text>
+</g>
+<g fill="#fbebe7">
+<text x="277.0" y="555.0" class="ascii-text">L</text>
+</g>
+<g fill="#e0d3d3">
+<text x="283.0" y="555.0" class="ascii-text">c</text>
+</g>
+<g fill="#583a77">
+<text x="337.0" y="555.0" class="ascii-text">:</text>
+</g>
+<g fill="#868093">
+<text x="343.0" y="555.0" class="ascii-text">_</text>
+</g>
+<g fill="#a09aa6">
+<text x="349.0" y="555.0" class="ascii-text">{</text>
+<text x="235.0" y="765.0" class="ascii-text">{</text>
+</g>
+<g fill="#a39da9">
+<text x="355.0" y="555.0" class="ascii-text">1</text>
+<text x="247.0" y="735.0" class="ascii-text">1</text>
+</g>
+<g fill="#beb1b7">
+<text x="361.0" y="555.0" class="ascii-text">t</text>
+<text x="127.0" y="605.0" class="ascii-text">t</text>
+</g>
+<g fill="#ddcfd9">
+<text x="367.0" y="555.0" class="ascii-text">c</text>
+</g>
+<g fill="#ddd3df">
+<text x="373.0" y="555.0" class="ascii-text">c</text>
+</g>
+<g fill="#6e5a66">
+<text x="379.0" y="555.0" class="ascii-text">l</text>
+<text x="229.0" y="625.0" class="ascii-text">l</text>
+</g>
+<g fill="#6a535f">
+<text x="385.0" y="555.0" class="ascii-text">I</text>
+</g>
+<g fill="#d9cfdd">
+<text x="391.0" y="555.0" class="ascii-text">v</text>
+</g>
+<g fill="#aa9bac">
+<text x="397.0" y="555.0" class="ascii-text">)</text>
+</g>
+<g fill="#987f8b">
+<text x="403.0" y="555.0" class="ascii-text">-</text>
+<text x="151.0" y="775.0" class="ascii-text">-</text>
+</g>
+<g fill="#86808c">
+<text x="31.0" y="565.0" class="ascii-text">_</text>
+<text x="37.0" y="565.0" class="ascii-text">_</text>
+<text x="31.0" y="575.0" class="ascii-text">_</text>
+<text x="31.0" y="595.0" class="ascii-text">_</text>
+<text x="97.0" y="735.0" class="ascii-text">_</text>
+</g>
+<g fill="#a59fab">
+<text x="43.0" y="565.0" class="ascii-text">)</text>
+</g>
+<g fill="#8d8d99">
+<text x="49.0" y="565.0" class="ascii-text">]</text>
+</g>
+<g fill="#787287">
+<text x="61.0" y="565.0" class="ascii-text">&lt;</text>
+<text x="85.0" y="605.0" class="ascii-text">&lt;</text>
+<text x="205.0" y="745.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#856e8b">
+<text x="91.0" y="565.0" class="ascii-text">~</text>
+<text x="91.0" y="575.0" class="ascii-text">~</text>
+<text x="91.0" y="595.0" class="ascii-text">~</text>
+<text x="271.0" y="625.0" class="ascii-text">~</text>
+<text x="91.0" y="685.0" class="ascii-text">~</text>
+</g>
+<g fill="#7b6b93">
+<text x="157.0" y="565.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#777197">
+<text x="163.0" y="565.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#908a90">
+<text x="169.0" y="565.0" class="ascii-text">?</text>
+<text x="79.0" y="635.0" class="ascii-text">?</text>
+</g>
+<g fill="#c4b8b8">
+<text x="175.0" y="565.0" class="ascii-text">f</text>
+</g>
+<g fill="#baada8">
+<text x="181.0" y="565.0" class="ascii-text">\</text>
+<text x="163.0" y="615.0" class="ascii-text">\</text>
+</g>
+<g fill="#8d807f">
+<text x="187.0" y="565.0" class="ascii-text">_</text>
+</g>
+<g fill="#aa969e">
+<text x="193.0" y="565.0" class="ascii-text">{</text>
+</g>
+<g fill="#c1b1b0">
+<text x="199.0" y="565.0" class="ascii-text">t</text>
+</g>
+<g fill="#9a989b">
+<text x="205.0" y="565.0" class="ascii-text">}</text>
+</g>
+<g fill="#757f83">
+<text x="211.0" y="565.0" class="ascii-text">~</text>
+</g>
+<g fill="#a9a3a3">
+<text x="217.0" y="565.0" class="ascii-text">(</text>
+</g>
+<g fill="#aeaca9">
+<text x="223.0" y="565.0" class="ascii-text">|</text>
+</g>
+<g fill="#81828e">
+<text x="229.0" y="565.0" class="ascii-text">_</text>
+</g>
+<g fill="#a89ea6">
+<text x="241.0" y="565.0" class="ascii-text">)</text>
+</g>
+<g fill="#a99aa2">
+<text x="247.0" y="565.0" class="ascii-text">1</text>
+</g>
+<g fill="#9a8f96">
+<text x="253.0" y="565.0" class="ascii-text">[</text>
+</g>
+<g fill="#a18c9d">
+<text x="259.0" y="565.0" class="ascii-text">[</text>
+<text x="271.0" y="685.0" class="ascii-text">[</text>
+</g>
+<g fill="#9f94a0">
+<text x="265.0" y="565.0" class="ascii-text">}</text>
+</g>
+<g fill="#a79892">
+<text x="271.0" y="565.0" class="ascii-text">{</text>
+</g>
+<g fill="#836960">
+<text x="277.0" y="565.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#806465">
+<text x="283.0" y="565.0" class="ascii-text">i</text>
+<text x="337.0" y="605.0" class="ascii-text">i</text>
+</g>
+<g fill="#804e69">
+<text x="289.0" y="565.0" class="ascii-text">l</text>
+<text x="211.0" y="635.0" class="ascii-text">l</text>
+<text x="211.0" y="685.0" class="ascii-text">l</text>
+</g>
+<g fill="#7a5c80">
+<text x="343.0" y="565.0" class="ascii-text">i</text>
+<text x="241.0" y="615.0" class="ascii-text">i</text>
+<text x="241.0" y="625.0" class="ascii-text">i</text>
+<text x="241.0" y="635.0" class="ascii-text">i</text>
+<text x="157.0" y="745.0" class="ascii-text">i</text>
+</g>
+<g fill="#b6b0b8">
+<text x="361.0" y="565.0" class="ascii-text">/</text>
+</g>
+<g fill="#e4d9e3">
+<text x="367.0" y="565.0" class="ascii-text">X</text>
+</g>
+<g fill="#877a86">
+<text x="373.0" y="565.0" class="ascii-text">+</text>
+</g>
+<g fill="#cec2d1">
+<text x="385.0" y="565.0" class="ascii-text">x</text>
+</g>
+<g fill="#c7b8c7">
+<text x="391.0" y="565.0" class="ascii-text">j</text>
+</g>
+<g fill="#8f717d">
+<text x="397.0" y="565.0" class="ascii-text">~</text>
+<text x="151.0" y="765.0" class="ascii-text">~</text>
+</g>
+<g fill="#8d8793">
+<text x="25.0" y="575.0" class="ascii-text">?</text>
+<text x="25.0" y="585.0" class="ascii-text">?</text>
+<text x="103.0" y="745.0" class="ascii-text">?</text>
+<text x="127.0" y="765.0" class="ascii-text">?</text>
+</g>
+<g fill="#979fa6">
+<text x="37.0" y="575.0" class="ascii-text">{</text>
+</g>
+<g fill="#7c8489">
+<text x="43.0" y="575.0" class="ascii-text">_</text>
+<text x="103.0" y="665.0" class="ascii-text">_</text>
+</g>
+<g fill="#8f6695">
+<text x="97.0" y="575.0" class="ascii-text">~</text>
+</g>
+<g fill="#7e6598">
+<text x="145.0" y="575.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#9e98a9">
+<text x="151.0" y="575.0" class="ascii-text">{</text>
+</g>
+<g fill="#e2d8db">
+<text x="157.0" y="575.0" class="ascii-text">z</text>
+</g>
+<g fill="#fff3f1">
+<text x="163.0" y="575.0" class="ascii-text">Q</text>
+</g>
+<g fill="#e7d8d4">
+<text x="169.0" y="575.0" class="ascii-text">z</text>
+</g>
+<g fill="#9b8382">
+<text x="175.0" y="575.0" class="ascii-text">?</text>
+</g>
+<g fill="#9f8e90">
+<text x="181.0" y="575.0" class="ascii-text">[</text>
+</g>
+<g fill="#c3b7b6">
+<text x="187.0" y="575.0" class="ascii-text">f</text>
+</g>
+<g fill="#a6a09f">
+<text x="193.0" y="575.0" class="ascii-text">)</text>
+</g>
+<g fill="#797b77">
+<text x="199.0" y="575.0" class="ascii-text">~</text>
+</g>
+<g fill="#a99fa2">
+<text x="205.0" y="575.0" class="ascii-text">)</text>
+<text x="235.0" y="575.0" class="ascii-text">)</text>
+</g>
+<g fill="#b5acad">
+<text x="211.0" y="575.0" class="ascii-text">\</text>
+</g>
+<g fill="#878881">
+<text x="217.0" y="575.0" class="ascii-text">-</text>
+</g>
+<g fill="#72766f">
+<text x="223.0" y="575.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#9392a3">
+<text x="241.0" y="575.0" class="ascii-text">[</text>
+</g>
+<g fill="#9094aa">
+<text x="247.0" y="575.0" class="ascii-text">}</text>
+</g>
+<g fill="#91859d">
+<text x="253.0" y="575.0" class="ascii-text">?</text>
+</g>
+<g fill="#85418b">
+<text x="265.0" y="575.0" class="ascii-text">l</text>
+</g>
+<g fill="#7f4d76">
+<text x="271.0" y="575.0" class="ascii-text">l</text>
+</g>
+<g fill="#866177">
+<text x="277.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="283.0" y="575.0" class="ascii-text">&gt;</text>
+<text x="235.0" y="635.0" class="ascii-text">&gt;</text>
+<text x="205.0" y="645.0" class="ascii-text">&gt;</text>
+<text x="193.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="205.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="211.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="217.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="187.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="193.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="199.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="205.0" y="665.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="199.0" y="675.0" class="ascii-text">&gt;</text>
+<text x="145.0" y="705.0" class="ascii-text">&gt;</text>
+<text x="151.0" y="745.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#795c8b">
+<text x="337.0" y="575.0" class="ascii-text">i</text>
+<text x="247.0" y="585.0" class="ascii-text">i</text>
+<text x="247.0" y="595.0" class="ascii-text">i</text>
+<text x="253.0" y="595.0" class="ascii-text">i</text>
+<text x="277.0" y="595.0" class="ascii-text">i</text>
+<text x="253.0" y="605.0" class="ascii-text">i</text>
+<text x="259.0" y="605.0" class="ascii-text">i</text>
+<text x="247.0" y="615.0" class="ascii-text">i</text>
+<text x="253.0" y="615.0" class="ascii-text">i</text>
+<text x="259.0" y="615.0" class="ascii-text">i</text>
+<text x="247.0" y="625.0" class="ascii-text">i</text>
+<text x="253.0" y="625.0" class="ascii-text">i</text>
+<text x="247.0" y="635.0" class="ascii-text">i</text>
+<text x="253.0" y="695.0" class="ascii-text">i</text>
+</g>
+<g fill="#c4beca">
+<text x="355.0" y="575.0" class="ascii-text">r</text>
+</g>
+<g fill="#c8c2d1">
+<text x="361.0" y="575.0" class="ascii-text">x</text>
+</g>
+<g fill="#c6bac9">
+<text x="379.0" y="575.0" class="ascii-text">j</text>
+</g>
+<g fill="#cbbccb">
+<text x="385.0" y="575.0" class="ascii-text">r</text>
+</g>
+<g fill="#917480">
+<text x="391.0" y="575.0" class="ascii-text">+</text>
+</g>
+<g fill="#8b7f91">
+<text x="37.0" y="585.0" class="ascii-text">_</text>
+</g>
+<g fill="#825a88">
+<text x="133.0" y="585.0" class="ascii-text">i</text>
+<text x="259.0" y="585.0" class="ascii-text">i</text>
+<text x="103.0" y="605.0" class="ascii-text">i</text>
+<text x="205.0" y="755.0" class="ascii-text">i</text>
+</g>
+<g fill="#652e6b">
+<text x="139.0" y="585.0" class="ascii-text">^</text>
+<text x="331.0" y="585.0" class="ascii-text">^</text>
+</g>
+<g fill="#b7aeb6">
+<text x="145.0" y="585.0" class="ascii-text">/</text>
+</g>
+<g fill="#fffef8">
+<text x="151.0" y="585.0" class="ascii-text">Z</text>
+</g>
+<g fill="#faede1">
+<text x="163.0" y="585.0" class="ascii-text">L</text>
+</g>
+<g fill="#f5e9e3">
+<text x="169.0" y="585.0" class="ascii-text">C</text>
+</g>
+<g fill="#c8bcb9">
+<text x="181.0" y="585.0" class="ascii-text">j</text>
+</g>
+<g fill="#656b5f">
+<text x="187.0" y="585.0" class="ascii-text">!</text>
+</g>
+<g fill="#bdb0b2">
+<text x="199.0" y="585.0" class="ascii-text">/</text>
+</g>
+<g fill="#a38793">
+<text x="205.0" y="585.0" class="ascii-text">[</text>
+</g>
+<g fill="#9d9ba3">
+<text x="217.0" y="585.0" class="ascii-text">{</text>
+</g>
+<g fill="#afa1a9">
+<text x="223.0" y="585.0" class="ascii-text">(</text>
+</g>
+<g fill="#8c7892">
+<text x="229.0" y="585.0" class="ascii-text">_</text>
+</g>
+<g fill="#9589a6">
+<text x="235.0" y="585.0" class="ascii-text">[</text>
+</g>
+<g fill="#9786a3">
+<text x="241.0" y="585.0" class="ascii-text">]</text>
+</g>
+<g fill="#6e4586">
+<text x="253.0" y="585.0" class="ascii-text">I</text>
+<text x="253.0" y="655.0" class="ascii-text">I</text>
+<text x="181.0" y="765.0" class="ascii-text">I</text>
+</g>
+<g fill="#7f668f">
+<text x="265.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="289.0" y="595.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="635.0" class="ascii-text">&gt;</text>
+<text x="247.0" y="645.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7d6283">
+<text x="337.0" y="585.0" class="ascii-text">&gt;</text>
+<text x="241.0" y="645.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#b0a3b6">
+<text x="343.0" y="585.0" class="ascii-text">|</text>
+</g>
+<g fill="#8a7d89">
+<text x="367.0" y="585.0" class="ascii-text">_</text>
+<text x="145.0" y="605.0" class="ascii-text">_</text>
+</g>
+<g fill="#c8bdcc">
+<text x="373.0" y="585.0" class="ascii-text">r</text>
+</g>
+<g fill="#c0b0bf">
+<text x="379.0" y="585.0" class="ascii-text">t</text>
+</g>
+<g fill="#8b7682">
+<text x="385.0" y="585.0" class="ascii-text">+</text>
+<text x="169.0" y="665.0" class="ascii-text">+</text>
+</g>
+<g fill="#8b5d91">
+<text x="121.0" y="595.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#938092">
+<text x="133.0" y="595.0" class="ascii-text">-</text>
+<text x="283.0" y="655.0" class="ascii-text">-</text>
+<text x="229.0" y="665.0" class="ascii-text">-</text>
+</g>
+<g fill="#beb2b4">
+<text x="139.0" y="595.0" class="ascii-text">t</text>
+</g>
+<g fill="#c1bbb4">
+<text x="145.0" y="595.0" class="ascii-text">f</text>
+</g>
+<g fill="#d8cac7">
+<text x="151.0" y="595.0" class="ascii-text">u</text>
+</g>
+<g fill="#f8eae2">
+<text x="157.0" y="595.0" class="ascii-text">C</text>
+</g>
+<g fill="#f7e9e5">
+<text x="175.0" y="595.0" class="ascii-text">C</text>
+<text x="175.0" y="615.0" class="ascii-text">C</text>
+</g>
+<g fill="#f0e3df">
+<text x="181.0" y="595.0" class="ascii-text">U</text>
+</g>
+<g fill="#a59698">
+<text x="193.0" y="595.0" class="ascii-text">{</text>
+</g>
+<g fill="#624968">
+<text x="199.0" y="595.0" class="ascii-text">:</text>
+</g>
+<g fill="#9d8d9e">
+<text x="205.0" y="595.0" class="ascii-text">[</text>
+<text x="271.0" y="655.0" class="ascii-text">[</text>
+<text x="211.0" y="765.0" class="ascii-text">[</text>
+</g>
+<g fill="#9a8889">
+<text x="217.0" y="595.0" class="ascii-text">?</text>
+</g>
+<g fill="#bbabb7">
+<text x="229.0" y="595.0" class="ascii-text">/</text>
+</g>
+<g fill="#a5909c">
+<text x="235.0" y="595.0" class="ascii-text">}</text>
+</g>
+<g fill="#632e86">
+<text x="241.0" y="595.0" class="ascii-text">^</text>
+<text x="301.0" y="595.0" class="ascii-text">^</text>
+<text x="265.0" y="625.0" class="ascii-text">^</text>
+<text x="187.0" y="765.0" class="ascii-text">^</text>
+</g>
+<g fill="#7c4c90">
+<text x="259.0" y="595.0" class="ascii-text">l</text>
+<text x="295.0" y="595.0" class="ascii-text">l</text>
+<text x="265.0" y="605.0" class="ascii-text">l</text>
+</g>
+<g fill="#724e87">
+<text x="265.0" y="595.0" class="ascii-text">l</text>
+<text x="271.0" y="615.0" class="ascii-text">l</text>
+</g>
+<g fill="#7c618d">
+<text x="283.0" y="595.0" class="ascii-text">&gt;</text>
+<text x="319.0" y="595.0" class="ascii-text">&gt;</text>
+<text x="121.0" y="605.0" class="ascii-text">&gt;</text>
+<text x="265.0" y="615.0" class="ascii-text">&gt;</text>
+<text x="253.0" y="635.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="745.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#79367f">
+<text x="313.0" y="595.0" class="ascii-text">:</text>
+<text x="253.0" y="705.0" class="ascii-text">:</text>
+</g>
+<g fill="#9c85a2">
+<text x="325.0" y="595.0" class="ascii-text">]</text>
+</g>
+<g fill="#b3aab6">
+<text x="331.0" y="595.0" class="ascii-text">\</text>
+</g>
+<g fill="#c3bac3">
+<text x="337.0" y="595.0" class="ascii-text">j</text>
+</g>
+<g fill="#b4aab2">
+<text x="343.0" y="595.0" class="ascii-text">\</text>
+</g>
+<g fill="#73606c">
+<text x="349.0" y="595.0" class="ascii-text">!</text>
+<text x="205.0" y="625.0" class="ascii-text">!</text>
+<text x="169.0" y="645.0" class="ascii-text">!</text>
+</g>
+<g fill="#a293a4">
+<text x="361.0" y="595.0" class="ascii-text">{</text>
+</g>
+<g fill="#c8b9c8">
+<text x="367.0" y="595.0" class="ascii-text">j</text>
+</g>
+<g fill="#ab9dad">
+<text x="373.0" y="595.0" class="ascii-text">)</text>
+</g>
+<g fill="#805486">
+<text x="109.0" y="605.0" class="ascii-text">!</text>
+<text x="277.0" y="605.0" class="ascii-text">!</text>
+<text x="169.0" y="745.0" class="ascii-text">!</text>
+</g>
+<g fill="#7b4381">
+<text x="115.0" y="605.0" class="ascii-text">I</text>
+</g>
+<g fill="#c4bbb5">
+<text x="133.0" y="605.0" class="ascii-text">j</text>
+</g>
+<g fill="#929193">
+<text x="139.0" y="605.0" class="ascii-text">[</text>
+</g>
+<g fill="#cfc3c2">
+<text x="157.0" y="605.0" class="ascii-text">x</text>
+</g>
+<g fill="#f1e2db">
+<text x="163.0" y="605.0" class="ascii-text">U</text>
+</g>
+<g fill="#fceae2">
+<text x="169.0" y="605.0" class="ascii-text">L</text>
+</g>
+<g fill="#fff3ee">
+<text x="175.0" y="605.0" class="ascii-text">0</text>
+</g>
+<g fill="#efe1e0">
+<text x="187.0" y="605.0" class="ascii-text">U</text>
+</g>
+<g fill="#e2d5d1">
+<text x="193.0" y="605.0" class="ascii-text">z</text>
+</g>
+<g fill="#c5bcbf">
+<text x="199.0" y="605.0" class="ascii-text">j</text>
+<text x="199.0" y="705.0" class="ascii-text">j</text>
+</g>
+<g fill="#9e8e95">
+<text x="205.0" y="605.0" class="ascii-text">[</text>
+</g>
+<g fill="#7e6053">
+<text x="211.0" y="605.0" class="ascii-text">!</text>
+</g>
+<g fill="#78524e">
+<text x="217.0" y="605.0" class="ascii-text">I</text>
+</g>
+<g fill="#a191a2">
+<text x="223.0" y="605.0" class="ascii-text">}</text>
+<text x="223.0" y="635.0" class="ascii-text">}</text>
+<text x="259.0" y="645.0" class="ascii-text">}</text>
+</g>
+<g fill="#ab9d9c">
+<text x="229.0" y="605.0" class="ascii-text">1</text>
+</g>
+<g fill="#948181">
+<text x="235.0" y="605.0" class="ascii-text">-</text>
+</g>
+<g fill="#725f78">
+<text x="241.0" y="605.0" class="ascii-text">!</text>
+<text x="217.0" y="715.0" class="ascii-text">!</text>
+</g>
+<g fill="#746385">
+<text x="247.0" y="605.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#773591">
+<text x="283.0" y="605.0" class="ascii-text">:</text>
+</g>
+<g fill="#9f8f9b">
+<text x="295.0" y="605.0" class="ascii-text">}</text>
+<text x="307.0" y="625.0" class="ascii-text">}</text>
+</g>
+<g fill="#beaeb7">
+<text x="301.0" y="605.0" class="ascii-text">/</text>
+</g>
+<g fill="#a698ac">
+<text x="307.0" y="605.0" class="ascii-text">1</text>
+</g>
+<g fill="#b6a9b8">
+<text x="313.0" y="605.0" class="ascii-text">\</text>
+<text x="265.0" y="685.0" class="ascii-text">\</text>
+</g>
+<g fill="#bdb0b9">
+<text x="319.0" y="605.0" class="ascii-text">/</text>
+</g>
+<g fill="#b9acb8">
+<text x="325.0" y="605.0" class="ascii-text">/</text>
+<text x="331.0" y="625.0" class="ascii-text">/</text>
+</g>
+<g fill="#a495a1">
+<text x="331.0" y="605.0" class="ascii-text">{</text>
+</g>
+<g fill="#826874">
+<text x="349.0" y="605.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#998193">
+<text x="355.0" y="605.0" class="ascii-text">?</text>
+<text x="205.0" y="765.0" class="ascii-text">?</text>
+</g>
+<g fill="#a798a8">
+<text x="361.0" y="605.0" class="ascii-text">1</text>
+</g>
+<g fill="#9fa1a5">
+<text x="19.0" y="615.0" class="ascii-text">1</text>
+</g>
+<g fill="#8f8f95">
+<text x="25.0" y="615.0" class="ascii-text">[</text>
+</g>
+<g fill="#6b6588">
+<text x="79.0" y="615.0" class="ascii-text">i</text>
+<text x="73.0" y="705.0" class="ascii-text">i</text>
+<text x="223.0" y="745.0" class="ascii-text">i</text>
+</g>
+<g fill="#857f9f">
+<text x="85.0" y="615.0" class="ascii-text">_</text>
+</g>
+<g fill="#782e7e">
+<text x="97.0" y="615.0" class="ascii-text">^</text>
+</g>
+<g fill="#9b8ba1">
+<text x="103.0" y="615.0" class="ascii-text">[</text>
+</g>
+<g fill="#dcd1d8">
+<text x="109.0" y="615.0" class="ascii-text">c</text>
+</g>
+<g fill="#f1e1de">
+<text x="115.0" y="615.0" class="ascii-text">U</text>
+</g>
+<g fill="#efdedb">
+<text x="121.0" y="615.0" class="ascii-text">Y</text>
+</g>
+<g fill="#9f9e98">
+<text x="127.0" y="615.0" class="ascii-text">{</text>
+</g>
+<g fill="#666c53">
+<text x="133.0" y="615.0" class="ascii-text">!</text>
+</g>
+<g fill="#ada3a7">
+<text x="139.0" y="615.0" class="ascii-text">(</text>
+</g>
+<g fill="#b7adaf">
+<text x="145.0" y="615.0" class="ascii-text">\</text>
+</g>
+<g fill="#86878c">
+<text x="151.0" y="615.0" class="ascii-text">-</text>
+</g>
+<g fill="#e5d9d9">
+<text x="169.0" y="615.0" class="ascii-text">X</text>
+</g>
+<g fill="#f0e1dc">
+<text x="181.0" y="615.0" class="ascii-text">U</text>
+</g>
+<g fill="#fff2ec">
+<text x="187.0" y="615.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f6e6e2">
+<text x="193.0" y="615.0" class="ascii-text">J</text>
+</g>
+<g fill="#cfc3c4">
+<text x="199.0" y="615.0" class="ascii-text">x</text>
+</g>
+<g fill="#7d6e70">
+<text x="205.0" y="615.0" class="ascii-text">&gt;</text>
+<text x="181.0" y="715.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7e6f67">
+<text x="211.0" y="615.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#9e94a4">
+<text x="223.0" y="615.0" class="ascii-text">}</text>
+<text x="265.0" y="635.0" class="ascii-text">}</text>
+</g>
+<g fill="#75506b">
+<text x="235.0" y="615.0" class="ascii-text">l</text>
+</g>
+<g fill="#b6adb5">
+<text x="289.0" y="615.0" class="ascii-text">\</text>
+</g>
+<g fill="#c5b8c1">
+<text x="295.0" y="615.0" class="ascii-text">f</text>
+</g>
+<g fill="#bcb0bc">
+<text x="301.0" y="615.0" class="ascii-text">t</text>
+</g>
+<g fill="#aa9ca8">
+<text x="307.0" y="615.0" class="ascii-text">)</text>
+<text x="163.0" y="635.0" class="ascii-text">)</text>
+</g>
+<g fill="#a798a4">
+<text x="313.0" y="615.0" class="ascii-text">1</text>
+<text x="313.0" y="625.0" class="ascii-text">1</text>
+</g>
+<g fill="#a08a9b">
+<text x="325.0" y="615.0" class="ascii-text">[</text>
+<text x="331.0" y="615.0" class="ascii-text">[</text>
+</g>
+<g fill="#9f8fa0">
+<text x="337.0" y="615.0" class="ascii-text">}</text>
+<text x="343.0" y="615.0" class="ascii-text">}</text>
+</g>
+<g fill="#a991a6">
+<text x="349.0" y="615.0" class="ascii-text">{</text>
+</g>
+<g fill="#ada7a4">
+<text x="19.0" y="625.0" class="ascii-text">|</text>
+</g>
+<g fill="#989790">
+<text x="25.0" y="625.0" class="ascii-text">}</text>
+</g>
+<g fill="#fdf7fa">
+<text x="85.0" y="625.0" class="ascii-text">0</text>
+</g>
+<g fill="#dad6e0">
+<text x="91.0" y="625.0" class="ascii-text">z</text>
+</g>
+<g fill="#d5cfd8">
+<text x="97.0" y="625.0" class="ascii-text">v</text>
+</g>
+<g fill="#fff3f4">
+<text x="103.0" y="625.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffefe6">
+<text x="109.0" y="625.0" class="ascii-text">Q</text>
+<text x="127.0" y="635.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f9e5dc">
+<text x="115.0" y="625.0" class="ascii-text">J</text>
+<text x="121.0" y="635.0" class="ascii-text">J</text>
+</g>
+<g fill="#fbede9">
+<text x="121.0" y="625.0" class="ascii-text">L</text>
+</g>
+<g fill="#e4d8d8">
+<text x="127.0" y="625.0" class="ascii-text">z</text>
+</g>
+<g fill="#eee4df">
+<text x="133.0" y="625.0" class="ascii-text">U</text>
+</g>
+<g fill="#dad7d7">
+<text x="139.0" y="625.0" class="ascii-text">c</text>
+</g>
+<g fill="#a2a4ac">
+<text x="145.0" y="625.0" class="ascii-text">)</text>
+</g>
+<g fill="#afa9a6">
+<text x="151.0" y="625.0" class="ascii-text">|</text>
+</g>
+<g fill="#c9c0c1">
+<text x="175.0" y="625.0" class="ascii-text">r</text>
+</g>
+<g fill="#f5e9e5">
+<text x="181.0" y="625.0" class="ascii-text">C</text>
+<text x="145.0" y="645.0" class="ascii-text">C</text>
+</g>
+<g fill="#d2c0bc">
+<text x="187.0" y="625.0" class="ascii-text">x</text>
+</g>
+<g fill="#a5908d">
+<text x="193.0" y="625.0" class="ascii-text">}</text>
+</g>
+<g fill="#b19f9f">
+<text x="199.0" y="625.0" class="ascii-text">(</text>
+</g>
+<g fill="#80717d">
+<text x="211.0" y="625.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#7f636f">
+<text x="235.0" y="625.0" class="ascii-text">&gt;</text>
+<text x="193.0" y="635.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#835f94">
+<text x="259.0" y="625.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#c3bac6">
+<text x="277.0" y="625.0" class="ascii-text">j</text>
+</g>
+<g fill="#c0b7bd">
+<text x="283.0" y="625.0" class="ascii-text">f</text>
+</g>
+<g fill="#9c9198">
+<text x="289.0" y="625.0" class="ascii-text">[</text>
+<text x="145.0" y="675.0" class="ascii-text">[</text>
+</g>
+<g fill="#714665">
+<text x="295.0" y="625.0" class="ascii-text">I</text>
+<text x="229.0" y="635.0" class="ascii-text">I</text>
+</g>
+<g fill="#845b73">
+<text x="301.0" y="625.0" class="ascii-text">i</text>
+<text x="205.0" y="635.0" class="ascii-text">i</text>
+<text x="199.0" y="645.0" class="ascii-text">i</text>
+<text x="217.0" y="645.0" class="ascii-text">i</text>
+<text x="181.0" y="695.0" class="ascii-text">i</text>
+<text x="217.0" y="705.0" class="ascii-text">i</text>
+</g>
+<g fill="#ac9ea5">
+<text x="319.0" y="625.0" class="ascii-text">)</text>
+</g>
+<g fill="#b9a4b8">
+<text x="325.0" y="625.0" class="ascii-text">|</text>
+</g>
+<g fill="#b4aeba">
+<text x="337.0" y="625.0" class="ascii-text">/</text>
+</g>
+<g fill="#878180">
+<text x="31.0" y="635.0" class="ascii-text">_</text>
+</g>
+<g fill="#d7cece">
+<text x="85.0" y="635.0" class="ascii-text">v</text>
+</g>
+<g fill="#fffbf7">
+<text x="91.0" y="635.0" class="ascii-text">O</text>
+</g>
+<g fill="#fff7f9">
+<text x="97.0" y="635.0" class="ascii-text">O</text>
+</g>
+<g fill="#ffefec">
+<text x="103.0" y="635.0" class="ascii-text">Q</text>
+</g>
+<g fill="#f1e5df">
+<text x="109.0" y="635.0" class="ascii-text">J</text>
+</g>
+<g fill="#f8ede7">
+<text x="115.0" y="635.0" class="ascii-text">L</text>
+</g>
+<g fill="#f7ede9">
+<text x="133.0" y="635.0" class="ascii-text">L</text>
+</g>
+<g fill="#f1e9e5">
+<text x="139.0" y="635.0" class="ascii-text">J</text>
+</g>
+<g fill="#fbeff0">
+<text x="145.0" y="635.0" class="ascii-text">L</text>
+</g>
+<g fill="#a7a5a5">
+<text x="151.0" y="635.0" class="ascii-text">(</text>
+</g>
+<g fill="#607071">
+<text x="157.0" y="635.0" class="ascii-text">i</text>
+</g>
+<g fill="#aaa0a8">
+<text x="169.0" y="635.0" class="ascii-text">)</text>
+</g>
+<g fill="#866f83">
+<text x="187.0" y="635.0" class="ascii-text">~</text>
+</g>
+<g fill="#4b2e74">
+<text x="259.0" y="635.0" class="ascii-text">^</text>
+</g>
+<g fill="#d9ced7">
+<text x="271.0" y="635.0" class="ascii-text">v</text>
+</g>
+<g fill="#a499a1">
+<text x="277.0" y="635.0" class="ascii-text">{</text>
+</g>
+<g fill="#8f8288">
+<text x="283.0" y="635.0" class="ascii-text">-</text>
+</g>
+<g fill="#988799">
+<text x="295.0" y="635.0" class="ascii-text">]</text>
+</g>
+<g fill="#a99aa6">
+<text x="301.0" y="635.0" class="ascii-text">1</text>
+</g>
+<g fill="#aea0ac">
+<text x="307.0" y="635.0" class="ascii-text">(</text>
+</g>
+<g fill="#a3afa9">
+<text x="25.0" y="645.0" class="ascii-text">|</text>
+</g>
+<g fill="#948e94">
+<text x="31.0" y="645.0" class="ascii-text">[</text>
+<text x="37.0" y="665.0" class="ascii-text">[</text>
+</g>
+<g fill="#d0bfb4">
+<text x="91.0" y="645.0" class="ascii-text">r</text>
+</g>
+<g fill="#f0dfdc">
+<text x="103.0" y="645.0" class="ascii-text">U</text>
+</g>
+<g fill="#f9edea">
+<text x="109.0" y="645.0" class="ascii-text">L</text>
+</g>
+<g fill="#f7e7e5">
+<text x="121.0" y="645.0" class="ascii-text">J</text>
+</g>
+<g fill="#ede1de">
+<text x="127.0" y="645.0" class="ascii-text">U</text>
+</g>
+<g fill="#f0d8cc">
+<text x="133.0" y="645.0" class="ascii-text">X</text>
+</g>
+<g fill="#f7e7e1">
+<text x="139.0" y="645.0" class="ascii-text">J</text>
+</g>
+<g fill="#b5a7a4">
+<text x="151.0" y="645.0" class="ascii-text">|</text>
+</g>
+<g fill="#a99f9e">
+<text x="157.0" y="645.0" class="ascii-text">)</text>
+</g>
+<g fill="#918b85">
+<text x="163.0" y="645.0" class="ascii-text">?</text>
+</g>
+<g fill="#79697f">
+<text x="181.0" y="645.0" class="ascii-text">&gt;</text>
+<text x="175.0" y="715.0" class="ascii-text">&gt;</text>
+<text x="223.0" y="715.0" class="ascii-text">&gt;</text>
+<text x="229.0" y="715.0" class="ascii-text">&gt;</text>
+<text x="235.0" y="715.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#8a697e">
+<text x="193.0" y="645.0" class="ascii-text">&lt;</text>
+<text x="235.0" y="655.0" class="ascii-text">&lt;</text>
+<text x="205.0" y="675.0" class="ascii-text">&lt;</text>
+<text x="181.0" y="685.0" class="ascii-text">&lt;</text>
+<text x="151.0" y="755.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#a89aaa">
+<text x="223.0" y="645.0" class="ascii-text">1</text>
+</g>
+<g fill="#785771">
+<text x="235.0" y="645.0" class="ascii-text">!</text>
+</g>
+<g fill="#61487a">
+<text x="253.0" y="645.0" class="ascii-text">I</text>
+</g>
+<g fill="#e1d6e2">
+<text x="265.0" y="645.0" class="ascii-text">z</text>
+</g>
+<g fill="#b8a7b6">
+<text x="283.0" y="645.0" class="ascii-text">\</text>
+</g>
+<g fill="#a692a3">
+<text x="289.0" y="645.0" class="ascii-text">{</text>
+</g>
+<g fill="#a996a2">
+<text x="295.0" y="645.0" class="ascii-text">{</text>
+</g>
+<g fill="#504a7f">
+<text x="91.0" y="655.0" class="ascii-text">:</text>
+</g>
+<g fill="#fff6ec">
+<text x="103.0" y="655.0" class="ascii-text">0</text>
+</g>
+<g fill="#ffefeb">
+<text x="109.0" y="655.0" class="ascii-text">Q</text>
+</g>
+<g fill="#e3d1cf">
+<text x="115.0" y="655.0" class="ascii-text">c</text>
+</g>
+<g fill="#fae3dd">
+<text x="121.0" y="655.0" class="ascii-text">J</text>
+</g>
+<g fill="#feeae7">
+<text x="127.0" y="655.0" class="ascii-text">L</text>
+</g>
+<g fill="#ebdedb">
+<text x="133.0" y="655.0" class="ascii-text">Y</text>
+</g>
+<g fill="#efe7e0">
+<text x="139.0" y="655.0" class="ascii-text">J</text>
+</g>
+<g fill="#fcede7">
+<text x="145.0" y="655.0" class="ascii-text">L</text>
+</g>
+<g fill="#f8eae4">
+<text x="151.0" y="655.0" class="ascii-text">C</text>
+</g>
+<g fill="#7a6a6c">
+<text x="157.0" y="655.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7d5f5e">
+<text x="163.0" y="655.0" class="ascii-text">!</text>
+<text x="163.0" y="665.0" class="ascii-text">!</text>
+</g>
+<g fill="#896672">
+<text x="187.0" y="655.0" class="ascii-text">&gt;</text>
+<text x="163.0" y="675.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#ac99a9">
+<text x="229.0" y="655.0" class="ascii-text">1</text>
+</g>
+<g fill="#e9dcea">
+<text x="259.0" y="655.0" class="ascii-text">Y</text>
+</g>
+<g fill="#8c8085">
+<text x="265.0" y="655.0" class="ascii-text">_</text>
+</g>
+<g fill="#b5a7b7">
+<text x="277.0" y="655.0" class="ascii-text">\</text>
+</g>
+<g fill="#9f8894">
+<text x="289.0" y="655.0" class="ascii-text">[</text>
+</g>
+<g fill="#847e83">
+<text x="43.0" y="665.0" class="ascii-text">_</text>
+</g>
+<g fill="#e1cfcd">
+<text x="109.0" y="665.0" class="ascii-text">c</text>
+</g>
+<g fill="#fff7ed">
+<text x="115.0" y="665.0" class="ascii-text">O</text>
+</g>
+<g fill="#eeddda">
+<text x="121.0" y="665.0" class="ascii-text">Y</text>
+</g>
+<g fill="#e9d6d2">
+<text x="127.0" y="665.0" class="ascii-text">z</text>
+</g>
+<g fill="#f4e2d9">
+<text x="133.0" y="665.0" class="ascii-text">U</text>
+</g>
+<g fill="#fff5f2">
+<text x="139.0" y="665.0" class="ascii-text">0</text>
+</g>
+<g fill="#f3e2e4">
+<text x="145.0" y="665.0" class="ascii-text">U</text>
+</g>
+<g fill="#c9bebe">
+<text x="151.0" y="665.0" class="ascii-text">r</text>
+</g>
+<g fill="#797376">
+<text x="157.0" y="665.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#8e5f75">
+<text x="211.0" y="665.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7e2e4a">
+<text x="217.0" y="665.0" class="ascii-text">^</text>
+</g>
+<g fill="#734753">
+<text x="223.0" y="665.0" class="ascii-text">I</text>
+</g>
+<g fill="#b2a8b8">
+<text x="235.0" y="665.0" class="ascii-text">|</text>
+</g>
+<g fill="#987f91">
+<text x="241.0" y="665.0" class="ascii-text">-</text>
+<text x="169.0" y="775.0" class="ascii-text">-</text>
+</g>
+<g fill="#a8949c">
+<text x="247.0" y="665.0" class="ascii-text">{</text>
+</g>
+<g fill="#ddd3dc">
+<text x="253.0" y="665.0" class="ascii-text">c</text>
+</g>
+<g fill="#cbbfcb">
+<text x="259.0" y="665.0" class="ascii-text">x</text>
+</g>
+<g fill="#9a89a0">
+<text x="283.0" y="665.0" class="ascii-text">[</text>
+</g>
+<g fill="#7f797d">
+<text x="97.0" y="675.0" class="ascii-text">~</text>
+<text x="109.0" y="685.0" class="ascii-text">~</text>
+</g>
+<g fill="#c3bdc6">
+<text x="115.0" y="675.0" class="ascii-text">j</text>
+</g>
+<g fill="#f8e8dc">
+<text x="121.0" y="675.0" class="ascii-text">J</text>
+</g>
+<g fill="#faf1ed">
+<text x="127.0" y="675.0" class="ascii-text">Q</text>
+</g>
+<g fill="#fff0f3">
+<text x="133.0" y="675.0" class="ascii-text">Q</text>
+</g>
+<g fill="#e0d3d8">
+<text x="139.0" y="675.0" class="ascii-text">c</text>
+</g>
+<g fill="#746160">
+<text x="157.0" y="675.0" class="ascii-text">!</text>
+<text x="259.0" y="675.0" class="ascii-text">!</text>
+</g>
+<g fill="#644a56">
+<text x="211.0" y="675.0" class="ascii-text">:</text>
+<text x="253.0" y="685.0" class="ascii-text">:</text>
+</g>
+<g fill="#cabbca">
+<text x="217.0" y="675.0" class="ascii-text">r</text>
+</g>
+<g fill="#f4e8ea">
+<text x="229.0" y="675.0" class="ascii-text">J</text>
+</g>
+<g fill="#a6a4ac">
+<text x="235.0" y="675.0" class="ascii-text">(</text>
+</g>
+<g fill="#b1a4ac">
+<text x="247.0" y="675.0" class="ascii-text">(</text>
+<text x="217.0" y="685.0" class="ascii-text">(</text>
+</g>
+<g fill="#ab9da9">
+<text x="271.0" y="675.0" class="ascii-text">)</text>
+</g>
+<g fill="#93808c">
+<text x="277.0" y="675.0" class="ascii-text">-</text>
+</g>
+<g fill="#a687ac">
+<text x="283.0" y="675.0" class="ascii-text">[</text>
+</g>
+<g fill="#7f8085">
+<text x="121.0" y="685.0" class="ascii-text">_</text>
+</g>
+<g fill="#b5b2b4">
+<text x="127.0" y="685.0" class="ascii-text">/</text>
+</g>
+<g fill="#fcf6f7">
+<text x="133.0" y="685.0" class="ascii-text">0</text>
+</g>
+<g fill="#ece4ea">
+<text x="139.0" y="685.0" class="ascii-text">U</text>
+</g>
+<g fill="#b6acbc">
+<text x="145.0" y="685.0" class="ascii-text">\</text>
+</g>
+<g fill="#82556e">
+<text x="193.0" y="685.0" class="ascii-text">!</text>
+<text x="199.0" y="685.0" class="ascii-text">!</text>
+<text x="187.0" y="695.0" class="ascii-text">!</text>
+<text x="145.0" y="735.0" class="ascii-text">!</text>
+</g>
+<g fill="#faf6fc">
+<text x="223.0" y="685.0" class="ascii-text">0</text>
+</g>
+<g fill="#e1d9e0">
+<text x="229.0" y="685.0" class="ascii-text">X</text>
+</g>
+<g fill="#aca6b6">
+<text x="235.0" y="685.0" class="ascii-text">|</text>
+</g>
+<g fill="#7b366c">
+<text x="259.0" y="685.0" class="ascii-text">:</text>
+</g>
+<g fill="#908490">
+<text x="277.0" y="685.0" class="ascii-text">-</text>
+</g>
+<g fill="#908a8b">
+<text x="55.0" y="695.0" class="ascii-text">?</text>
+</g>
+<g fill="#676186">
+<text x="67.0" y="695.0" class="ascii-text">!</text>
+<text x="175.0" y="735.0" class="ascii-text">!</text>
+<text x="229.0" y="745.0" class="ascii-text">!</text>
+</g>
+<g fill="#9f99a0">
+<text x="139.0" y="695.0" class="ascii-text">{</text>
+</g>
+<g fill="#7d6d79">
+<text x="205.0" y="695.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#7c5e6a">
+<text x="211.0" y="695.0" class="ascii-text">i</text>
+</g>
+<g fill="#7e4462">
+<text x="217.0" y="695.0" class="ascii-text">I</text>
+</g>
+<g fill="#682e4e">
+<text x="223.0" y="695.0" class="ascii-text">^</text>
+</g>
+<g fill="#7f7085">
+<text x="229.0" y="695.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#8e7a9a">
+<text x="235.0" y="695.0" class="ascii-text">_</text>
+</g>
+<g fill="#7b6c8b">
+<text x="247.0" y="695.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#917697">
+<text x="259.0" y="695.0" class="ascii-text">_</text>
+</g>
+<g fill="#b7a6bd">
+<text x="265.0" y="695.0" class="ascii-text">\</text>
+</g>
+<g fill="#9988aa">
+<text x="277.0" y="695.0" class="ascii-text">[</text>
+<text x="271.0" y="715.0" class="ascii-text">[</text>
+</g>
+<g fill="#c5c4c2">
+<text x="61.0" y="705.0" class="ascii-text">x</text>
+</g>
+<g fill="#aba5aa">
+<text x="67.0" y="705.0" class="ascii-text">(</text>
+</g>
+<g fill="#4f2e3a">
+<text x="151.0" y="705.0" class="ascii-text">&apos;</text>
+<text x="157.0" y="705.0" class="ascii-text">&apos;</text>
+</g>
+<g fill="#8a6987">
+<text x="163.0" y="705.0" class="ascii-text">&lt;</text>
+<text x="175.0" y="755.0" class="ascii-text">&lt;</text>
+<text x="169.0" y="765.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#81557a">
+<text x="175.0" y="705.0" class="ascii-text">!</text>
+</g>
+<g fill="#8d788b">
+<text x="181.0" y="705.0" class="ascii-text">_</text>
+</g>
+<g fill="#fcf5f5">
+<text x="187.0" y="705.0" class="ascii-text">0</text>
+</g>
+<g fill="#bcb6c5">
+<text x="205.0" y="705.0" class="ascii-text">f</text>
+</g>
+<g fill="#978c9d">
+<text x="211.0" y="705.0" class="ascii-text">[</text>
+</g>
+<g fill="#8f6382">
+<text x="223.0" y="705.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#8b597b">
+<text x="229.0" y="705.0" class="ascii-text">i</text>
+</g>
+<g fill="#88528e">
+<text x="235.0" y="705.0" class="ascii-text">i</text>
+</g>
+<g fill="#ae9cb4">
+<text x="259.0" y="705.0" class="ascii-text">)</text>
+</g>
+<g fill="#a48faa">
+<text x="265.0" y="705.0" class="ascii-text">}</text>
+<text x="235.0" y="755.0" class="ascii-text">}</text>
+<text x="241.0" y="755.0" class="ascii-text">}</text>
+<text x="217.0" y="765.0" class="ascii-text">}</text>
+</g>
+<g fill="#9584a1">
+<text x="271.0" y="705.0" class="ascii-text">?</text>
+</g>
+<g fill="#fffdf9">
+<text x="67.0" y="715.0" class="ascii-text">Z</text>
+</g>
+<g fill="#b4a7a8">
+<text x="73.0" y="715.0" class="ascii-text">|</text>
+</g>
+<g fill="#75787b">
+<text x="79.0" y="715.0" class="ascii-text">~</text>
+</g>
+<g fill="#917e8a">
+<text x="145.0" y="715.0" class="ascii-text">-</text>
+<text x="163.0" y="775.0" class="ascii-text">-</text>
+</g>
+<g fill="#dbced5">
+<text x="151.0" y="715.0" class="ascii-text">v</text>
+</g>
+<g fill="#e5d8db">
+<text x="157.0" y="715.0" class="ascii-text">X</text>
+</g>
+<g fill="#a8a2aa">
+<text x="163.0" y="715.0" class="ascii-text">(</text>
+</g>
+<g fill="#9b95a5">
+<text x="169.0" y="715.0" class="ascii-text">}</text>
+<text x="247.0" y="745.0" class="ascii-text">}</text>
+</g>
+<g fill="#cfcbc8">
+<text x="187.0" y="715.0" class="ascii-text">n</text>
+</g>
+<g fill="#eeeaec">
+<text x="193.0" y="715.0" class="ascii-text">J</text>
+</g>
+<g fill="#bab4c4">
+<text x="205.0" y="715.0" class="ascii-text">t</text>
+</g>
+<g fill="#8e8194">
+<text x="211.0" y="715.0" class="ascii-text">-</text>
+</g>
+<g fill="#9482a0">
+<text x="253.0" y="715.0" class="ascii-text">?</text>
+</g>
+<g fill="#af9db5">
+<text x="259.0" y="715.0" class="ascii-text">(</text>
+</g>
+<g fill="#9b7da1">
+<text x="265.0" y="715.0" class="ascii-text">?</text>
+</g>
+<g fill="#938d88">
+<text x="79.0" y="725.0" class="ascii-text">]</text>
+</g>
+<g fill="#a8a2a6">
+<text x="163.0" y="725.0" class="ascii-text">(</text>
+</g>
+<g fill="#cac7d8">
+<text x="169.0" y="725.0" class="ascii-text">n</text>
+</g>
+<g fill="#857f99">
+<text x="175.0" y="725.0" class="ascii-text">_</text>
+</g>
+<g fill="#625c76">
+<text x="181.0" y="725.0" class="ascii-text">l</text>
+</g>
+<g fill="#514b6c">
+<text x="193.0" y="725.0" class="ascii-text">:</text>
+</g>
+<g fill="#6d717d">
+<text x="217.0" y="725.0" class="ascii-text">&gt;</text>
+<text x="235.0" y="725.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#ae9bb8">
+<text x="253.0" y="725.0" class="ascii-text">)</text>
+</g>
+<g fill="#9b8aa6">
+<text x="259.0" y="725.0" class="ascii-text">[</text>
+</g>
+<g fill="#9f89a5">
+<text x="265.0" y="725.0" class="ascii-text">[</text>
+</g>
+<g fill="#9b9ea5">
+<text x="157.0" y="735.0" class="ascii-text">{</text>
+</g>
+<g fill="#9a94ae">
+<text x="163.0" y="735.0" class="ascii-text">}</text>
+</g>
+<g fill="#83839c">
+<text x="169.0" y="735.0" class="ascii-text">-</text>
+</g>
+<g fill="#a6979e">
+<text x="187.0" y="735.0" class="ascii-text">{</text>
+</g>
+<g fill="#62688b">
+<text x="235.0" y="735.0" class="ascii-text">i</text>
+</g>
+<g fill="#9f8fa5">
+<text x="253.0" y="735.0" class="ascii-text">}</text>
+</g>
+<g fill="#9f89aa">
+<text x="259.0" y="735.0" class="ascii-text">[</text>
+</g>
+<g fill="#887286">
+<text x="145.0" y="745.0" class="ascii-text">~</text>
+</g>
+<g fill="#948187">
+<text x="175.0" y="745.0" class="ascii-text">-</text>
+</g>
+<g fill="#e5cec2">
+<text x="181.0" y="745.0" class="ascii-text">v</text>
+</g>
+<g fill="#ffe7dd">
+<text x="187.0" y="745.0" class="ascii-text">C</text>
+</g>
+<g fill="#cbb5b2">
+<text x="193.0" y="745.0" class="ascii-text">f</text>
+</g>
+<g fill="#776791">
+<text x="235.0" y="745.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#9892a8">
+<text x="241.0" y="745.0" class="ascii-text">}</text>
+</g>
+<g fill="#9a94aa">
+<text x="253.0" y="745.0" class="ascii-text">}</text>
+</g>
+<g fill="#8b8591">
+<text x="115.0" y="755.0" class="ascii-text">-</text>
+</g>
+<g fill="#827480">
+<text x="145.0" y="755.0" class="ascii-text">~</text>
+</g>
+<g fill="#8f678d">
+<text x="157.0" y="755.0" class="ascii-text">~</text>
+</g>
+<g fill="#886897">
+<text x="169.0" y="755.0" class="ascii-text">&lt;</text>
+</g>
+<g fill="#b69c9c">
+<text x="181.0" y="755.0" class="ascii-text">)</text>
+</g>
+<g fill="#beaaa5">
+<text x="187.0" y="755.0" class="ascii-text">\</text>
+</g>
+<g fill="#967386">
+<text x="193.0" y="755.0" class="ascii-text">+</text>
+</g>
+<g fill="#9a83a0">
+<text x="229.0" y="755.0" class="ascii-text">?</text>
+</g>
+<g fill="#857783">
+<text x="145.0" y="765.0" class="ascii-text">~</text>
+</g>
+<g fill="#856081">
+<text x="193.0" y="765.0" class="ascii-text">&gt;</text>
+</g>
+<g fill="#907487">
+<text x="199.0" y="765.0" class="ascii-text">+</text>
+</g>
+<g fill="#a895ae">
+<text x="223.0" y="765.0" class="ascii-text">{</text>
+</g>
+<g fill="#a799b6">
+<text x="229.0" y="765.0" class="ascii-text">1</text>
+</g>
+<g fill="#9a8995">
+<text x="175.0" y="775.0" class="ascii-text">[</text>
+</g>
+<g fill="#a5959d">
+<text x="181.0" y="775.0" class="ascii-text">{</text>
+</g>
+<g fill="#ad9fa7">
+<text x="187.0" y="775.0" class="ascii-text">)</text>
+</g>
+<g fill="#b3a9a7">
+<text x="193.0" y="775.0" class="ascii-text">|</text>
+</g>
+<g fill="#baaeb3">
+<text x="199.0" y="775.0" class="ascii-text">/</text>
+</g>
+<g fill="#b9acae">
+<text x="205.0" y="775.0" class="ascii-text">\</text>
+</g>
+</g>
+</svg>

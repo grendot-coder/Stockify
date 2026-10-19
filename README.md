@@ -1,66 +1,86 @@
-<p align="center">
-  <img src="public/img/rupa_bass_ascii.svg" width="650" alt="Stockify - Rupa Bass ASCII Logo" />
-</p>
+<div align="center">
+  <img src="docs/rupa_bass_ascii.svg" width="650" alt="Stockify Banner" />
 
-<h1 align="center">Stockify</h1>
+  <h1>Stockify</h1>
 
-<p align="center">
-  <strong>A Modern Inventory &amp; Stock Management System Built with Laravel</strong>
-</p>
+  <p>
+    <strong>Enterprise Inventory and Stock Management System</strong>
+  </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel" />
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/Status-Active_Development-success?style=for-the-badge" alt="Status" />
-</p>
+  <p>
+    <a href="https://laravel.com"><img src="https://img.shields.io/badge/Framework-Laravel-red?style=flat-square&logo=laravel" alt="Laravel" /></a>
+    <a href="https://php.net"><img src="https://img.shields.io/badge/Language-PHP_8.2+-blue?style=flat-square&logo=php" alt="PHP" /></a>
+    <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css" alt="Tailwind CSS" /></a>
+    <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
+  </p>
+</div>
 
-**Stockify** adalah aplikasi manajemen stok dan inventaris berbasis web yang dikembangkan menggunakan framework **Laravel**. Dirancang untuk membantu pencatatan barang, pelacakan stok masuk/keluar, serta pengelolaan data inventaris dengan alur kerja yang rapi dan terstruktur.
+---
 
-### ✨ Fitur Utama
-- 📦 **Manajemen Produk & Kategori:** Input, edit, hapus, dan kategorisasi stok barang.
-- 📊 **Pelacakan Stok:** Monitor jumlah stok secara real-time.
-- 🔐 **Autentikasi & Otorisasi:** Sistem login aman dan manajemen akses pengguna.
-- 🎨 **Antarmuka Bersih & Responsif:** Pengalaman pengguna yang nyaman di berbagai resolusi layar.
+## Overview
 
-Pastikan environment lokal Anda telah terinstal:
-- **PHP** >= 8.2
-- **Composer**
-- **Node.js & NPM**
-- **MySQL** / MariaDB / SQLite
+Stockify is a web-based inventory and supply management platform engineered with the Laravel framework. The system provides structured workflows for tracking product flow, monitoring stock levels in real time, and maintaining catalog integrity with role-based access control.
 
-1. **Clone repository:**
+## Key Capabilities
+
+- **Catalog and Category Management:** Full CRUD operations for products, SKU assignment, categorized listing, and metadata handling.
+- **Real-Time Stock Auditing:** Inbound and outbound stock logging with threshold alerts for low inventory.
+- **Authentication and Security:** Protected authentication layers, session handling, and granular user authorization.
+- **Modern Architecture:** Clean MVC design pattern, Eloquent ORM relationships, and responsive user interfaces powered by Tailwind CSS.
+
+## System Prerequisites
+
+Before deployment or local setup, verify that your environment meets the following specifications:
+
+- PHP 8.2 or higher
+- Composer (Dependency Manager for PHP)
+- Node.js (v18+) and NPM
+- Relational Database (MySQL, MariaDB, or PostgreSQL)
+
+## Installation and Local Setup
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/grendot-coder/stockify.git
    cd stockify
    ```
 
-2. **Install dependency PHP & JavaScript:**
+2. **Install application dependencies:**
    ```bash
    composer install
    npm install && npm run build
    ```
 
-3. **Konfigurasi Environment:**
+3. **Configure environment settings:**
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
 
-4. **Konfigurasi Database & Migrasi:**
-   Sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` di file `.env`, lalu jalankan:
+4. **Database migration:**
+   Configure your database credentials in the `.env` file (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`), then execute:
    ```bash
    php artisan migrate
    ```
 
-5. **Jalankan Development Server:**
+5. **Start local development server:**
    ```bash
    php artisan serve
    ```
-   Akses aplikasi di: `http://localhost:8000`
-   
-Dikembangkan dengan dedikasi oleh **Grendy Agusti**  
-- GitHub: [@grendot-coder](https://github.com/grendot-coder)
-- Portfolio: [Grendy Agusti Retro Desktop](https://github.com/grendot-coder)
+   The application will be accessible at `http://localhost:8000`.
 
-Proyek ini berlisensi [MIT License](LICENSE).
+## Architecture and Tech Stack
+
+- **Backend:** PHP, Laravel 11.x, Eloquent ORM
+- **Frontend:** Blade Templating, Tailwind CSS, Vanilla JavaScript
+- **Database:** MySQL / SQLite
+- **Asset Bundler:** Vite
+
+## Maintainer
+
+Authored and maintained by **Grendy Agusti**  
+- GitHub: [grendot-coder](https://github.com/grendot-coder)
+
+## License
+
+This project is licensed under the terms of the [MIT License](LICENSE).
