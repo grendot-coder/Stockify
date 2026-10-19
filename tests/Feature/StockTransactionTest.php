@@ -12,8 +12,11 @@ use Tests\TestCase;
 class StockTransactionTest extends TestCase
 {
     protected $adminUser;
+
     protected $staffUser;
+
     protected $testProduct;
+
     protected $testSupplier;
 
     protected function setUp(): void
@@ -26,14 +29,14 @@ class StockTransactionTest extends TestCase
         $this->staffUser = User::where('role', 'staff')->first()
             ?? User::factory()->create(['role' => 'staff', 'is_active' => true]);
 
-        $category = Category::first() ?? Category::create(['name' => 'Kategori Demo ' . uniqid()]);
-        $this->testSupplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Demo ' . uniqid(), 'phone' => '0812345678']);
+        $category = Category::first() ?? Category::create(['name' => 'Kategori Demo '.uniqid()]);
+        $this->testSupplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Demo '.uniqid(), 'phone' => '0812345678']);
 
         $this->testProduct = Product::create([
             'category_id' => $category->id,
             'supplier_id' => $this->testSupplier->id,
-            'sku' => 'TEST-TRX-' . rand(1000, 9999),
-            'name' => 'Produk Uji Transaksi ' . rand(100, 999),
+            'sku' => 'TEST-TRX-'.uniqid().'-'.mt_rand(100, 999),
+            'name' => 'Produk Uji Transaksi '.rand(100, 999),
             'purchase_price' => 10000,
             'selling_price' => 15000,
             'stock' => 20,
@@ -166,7 +169,7 @@ class StockTransactionTest extends TestCase
     public function test_admin_can_reject_pending_transaction(): void
     {
         $trx = StockTransaction::create([
-            'invoice_number' => 'TRX-TEST-REJECT-' . rand(1000, 9999),
+            'invoice_number' => 'TRX-TEST-REJECT-'.uniqid().'-'.mt_rand(100, 999),
             'product_id' => $this->testProduct->id,
             'user_id' => $this->staffUser->id,
             'type' => 'in',
@@ -192,7 +195,7 @@ class StockTransactionTest extends TestCase
     public function test_staff_cannot_confirm_or_reject_transaction(): void
     {
         $trx = StockTransaction::create([
-            'invoice_number' => 'TRX-TEST-FORBIDDEN-' . rand(1000, 9999),
+            'invoice_number' => 'TRX-TEST-FORBIDDEN-'.uniqid().'-'.mt_rand(100, 999),
             'product_id' => $this->testProduct->id,
             'user_id' => $this->staffUser->id,
             'type' => 'in',

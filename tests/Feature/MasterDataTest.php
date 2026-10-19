@@ -6,12 +6,12 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class MasterDataTest extends TestCase
 {
     protected $adminUser;
+
     protected $staffUser;
 
     protected function setUp(): void
@@ -19,12 +19,12 @@ class MasterDataTest extends TestCase
         parent::setUp();
 
         $this->adminUser = User::where('role', 'admin')->first();
-        if (!$this->adminUser) {
+        if (! $this->adminUser) {
             $this->adminUser = User::factory()->create(['role' => 'admin', 'is_active' => true]);
         }
 
         $this->staffUser = User::where('role', 'staff')->first();
-        if (!$this->staffUser) {
+        if (! $this->staffUser) {
             $this->staffUser = User::factory()->create(['role' => 'staff', 'is_active' => true]);
         }
     }
@@ -38,7 +38,7 @@ class MasterDataTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Kategori Produk');
 
-        $uniqueName = 'Kategori Uji ' . uniqid();
+        $uniqueName = 'Kategori Uji '.uniqid();
         $createResponse = $this->actingAs($this->adminUser)->post('/categories', [
             'name' => $uniqueName,
             'description' => 'Deskripsi uji coba kategori',
@@ -57,7 +57,7 @@ class MasterDataTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Data Rekanan Supplier');
 
-        $uniqueName = 'PT Supplier Test ' . uniqid();
+        $uniqueName = 'PT Supplier Test '.uniqid();
         $createResponse = $this->actingAs($this->adminUser)->post('/suppliers', [
             'name' => $uniqueName,
             'phone' => '081298765432',
@@ -75,7 +75,7 @@ class MasterDataTest extends TestCase
     public function test_generate_sku_api(): void
     {
         $category = Category::first();
-        $response = $this->actingAs($this->adminUser)->getJson('/api/products/generate-sku?category_id=' . ($category ? $category->id : ''));
+        $response = $this->actingAs($this->adminUser)->getJson('/api/products/generate-sku?category_id='.($category ? $category->id : ''));
         $response->assertStatus(200);
         $response->assertJsonStructure(['sku']);
     }
@@ -88,7 +88,7 @@ class MasterDataTest extends TestCase
         $category = Category::first() ?? Category::create(['name' => 'Kategori Dummy']);
         $supplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Dummy', 'phone' => '0812345']);
 
-        $sku = 'TEST-' . rand(1000, 9999);
+        $sku = 'TEST-'.uniqid().'-'.mt_rand(100, 999);
         $createResponse = $this->actingAs($this->adminUser)->post('/products', [
             'category_id' => $category->id,
             'supplier_id' => $supplier->id,

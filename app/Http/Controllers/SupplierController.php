@@ -73,6 +73,7 @@ class SupplierController extends Controller
     {
         try {
             $this->supplierService->deleteSupplier($id);
+
             return redirect()->route('suppliers.index')->with('success', 'Supplier berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()->route('suppliers.index')->with('error', 'Gagal menghapus supplier: Masih terhubung dengan produk atau riwayat transaksi.');

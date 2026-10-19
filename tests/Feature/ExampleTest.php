@@ -51,4 +51,3 @@ class ExampleTest extends TestCase
         $this->assertGuest();
     }
 }
-

@@ -12,10 +12,15 @@ use Tests\TestCase;
 class ReportTest extends TestCase
 {
     protected $adminUser;
+
     protected $managerUser;
+
     protected $staffUser;
+
     protected $category;
+
     protected $supplier;
+
     protected $product;
 
     protected function setUp(): void
@@ -31,14 +36,14 @@ class ReportTest extends TestCase
         $this->staffUser = User::where('role', 'staff')->first()
             ?? User::factory()->create(['role' => 'staff']);
 
-        $this->category = Category::first() ?? Category::create(['name' => 'Kategori Laporan ' . uniqid()]);
-        $this->supplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Laporan ' . uniqid()]);
+        $this->category = Category::first() ?? Category::create(['name' => 'Kategori Laporan '.uniqid()]);
+        $this->supplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Laporan '.uniqid()]);
 
         $this->product = Product::create([
             'category_id' => $this->category->id,
             'supplier_id' => $this->supplier->id,
-            'sku' => 'REP-' . rand(1000, 9999),
-            'name' => 'Produk Laporan ' . rand(100, 999),
+            'sku' => 'REP-'.uniqid().'-'.mt_rand(100, 999),
+            'name' => 'Produk Laporan '.rand(100, 999),
             'purchase_price' => 20000,
             'selling_price' => 30000,
             'stock' => 75,
@@ -49,7 +54,7 @@ class ReportTest extends TestCase
             'user_id' => $this->staffUser->id,
             'product_id' => $this->product->id,
             'supplier_id' => $this->supplier->id,
-            'invoice_number' => 'INV-REP-' . rand(1000, 9999),
+            'invoice_number' => 'INV-REP-'.uniqid().'-'.mt_rand(100, 999),
             'type' => 'in',
             'quantity' => 25,
             'status' => 'confirmed',

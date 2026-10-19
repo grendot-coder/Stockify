@@ -2,13 +2,13 @@
 
 namespace App\Services\Category;
 
-use LaravelEasyRepository\Service;
-use App\Repositories\Category\CategoryRepository;
 use App\Models\ActivityLog;
+use App\Repositories\Category\CategoryRepository;
 use Illuminate\Support\Facades\Auth;
+use LaravelEasyRepository\Service;
 
-class CategoryServiceImplement extends Service implements CategoryService{
-
+class CategoryServiceImplement extends Service implements CategoryService
+{
     /**
      * don't change $this->mainRepository variable name
      * because used in extends service class
@@ -17,7 +17,7 @@ class CategoryServiceImplement extends Service implements CategoryService{
 
     public function __construct(CategoryRepository $mainRepository)
     {
-      $this->mainRepository = $mainRepository;
+        $this->mainRepository = $mainRepository;
     }
 
     public function getPaginated(?string $search = null, int $perPage = 10)

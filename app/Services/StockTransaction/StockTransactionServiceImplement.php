@@ -2,16 +2,16 @@
 
 namespace App\Services\StockTransaction;
 
-use LaravelEasyRepository\Service;
-use App\Repositories\StockTransaction\StockTransactionRepository;
-use App\Models\Product;
 use App\Models\ActivityLog;
+use App\Models\Product;
+use App\Repositories\StockTransaction\StockTransactionRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use LaravelEasyRepository\Service;
 
-class StockTransactionServiceImplement extends Service implements StockTransactionService{
-
+class StockTransactionServiceImplement extends Service implements StockTransactionService
+{
     /**
      * don't change $this->mainRepository variable name
      * because used in extends service class
@@ -40,7 +40,7 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
             $quantity = intval($data['quantity']);
             $status = $data['status'] ?? 'confirmed';
 
-            $invoiceNumber = !empty($data['invoice_number'])
+            $invoiceNumber = ! empty($data['invoice_number'])
                 ? $data['invoice_number']
                 : $this->mainRepository->generateInvoiceNumber('in');
 
@@ -93,7 +93,7 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
                 ]);
             }
 
-            $invoiceNumber = !empty($data['invoice_number'])
+            $invoiceNumber = ! empty($data['invoice_number'])
                 ? $data['invoice_number']
                 : $this->mainRepository->generateInvoiceNumber('out');
 
@@ -176,8 +176,8 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
                 return $transaction;
             }
 
-            if (!empty($reason)) {
-                $notes = trim(($transaction->notes ?? '') . " [Ditolak: {$reason}]");
+            if (! empty($reason)) {
+                $notes = trim(($transaction->notes ?? '')." [Ditolak: {$reason}]");
                 $transaction->notes = $notes;
                 $transaction->save();
             }
@@ -187,7 +187,7 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
             ActivityLog::create([
                 'user_id' => $confirmedBy,
                 'action' => 'REJECT_TRANSACTION',
-                'description' => "Menolak transaksi {$transaction->invoice_number} ({$transaction->type}) produk '{$transaction->product->name}'. Alasan: " . ($reason ?: 'Tanpa keterangan'),
+                'description' => "Menolak transaksi {$transaction->invoice_number} ({$transaction->type}) produk '{$transaction->product->name}'. Alasan: ".($reason ?: 'Tanpa keterangan'),
                 'ip_address' => request()->ip(),
             ]);
 

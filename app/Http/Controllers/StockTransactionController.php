@@ -151,12 +151,13 @@ class StockTransactionController extends Controller
     public function confirm($id)
     {
         // Hanya Admin dan Manager yang berhak menyetujui transaksi
-        if (!in_array(Auth::user()->role, ['admin', 'manager'])) {
+        if (! in_array(Auth::user()->role, ['admin', 'manager'])) {
             abort(403, 'Anda tidak memiliki hak akses untuk menyetujui transaksi.');
         }
 
         try {
             $this->transactionService->confirmTransaction($id, Auth::id());
+
             return redirect()->back()->with('success', 'Transaksi berhasil disetujui dan stok gudang telah diperbarui.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -169,7 +170,7 @@ class StockTransactionController extends Controller
     public function reject(Request $request, $id)
     {
         // Hanya Admin dan Manager yang berhak menolak transaksi
-        if (!in_array(Auth::user()->role, ['admin', 'manager'])) {
+        if (! in_array(Auth::user()->role, ['admin', 'manager'])) {
             abort(403, 'Anda tidak memiliki hak akses untuk menolak transaksi.');
         }
 

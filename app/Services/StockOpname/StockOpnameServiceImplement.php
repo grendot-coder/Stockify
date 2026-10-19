@@ -2,18 +2,19 @@
 
 namespace App\Services\StockOpname;
 
-use LaravelEasyRepository\ServiceApi;
-use App\Repositories\StockOpname\StockOpnameRepository;
-use App\Models\Product;
 use App\Models\ActivityLog;
+use App\Models\Product;
 use App\Models\StockTransaction;
-use Illuminate\Support\Facades\DB;
+use App\Repositories\StockOpname\StockOpnameRepository;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use LaravelEasyRepository\ServiceApi;
 
 class StockOpnameServiceImplement extends ServiceApi implements StockOpnameService
 {
     /**
      * Don't remove or change $this->mainRepository variable name
+     *
      * @property StockOpnameRepository $mainRepository
      */
     protected $mainRepository;
@@ -41,7 +42,7 @@ class StockOpnameServiceImplement extends ServiceApi implements StockOpnameServi
             $physicalStock = (int) $data['physical_stock'];
             $difference = $physicalStock - $systemStock;
 
-            $opnameDate = !empty($data['opname_date'])
+            $opnameDate = ! empty($data['opname_date'])
                 ? Carbon::parse($data['opname_date'])->toDateString()
                 : Carbon::now()->toDateString();
 
@@ -64,7 +65,7 @@ class StockOpnameServiceImplement extends ServiceApi implements StockOpnameServi
                 $type = $difference > 0 ? 'in' : 'out';
                 $qty = abs($difference);
                 $prefix = $type === 'in' ? 'OPN-IN' : 'OPN-OUT';
-                $invoiceNum = "TF-{$prefix}-" . Carbon::now()->format('YmdHis') . '-' . rand(100, 999);
+                $invoiceNum = "TF-{$prefix}-".Carbon::now()->format('YmdHis').'-'.rand(100, 999);
 
                 StockTransaction::create([
                     'invoice_number' => $invoiceNum,
@@ -81,8 +82,8 @@ class StockOpnameServiceImplement extends ServiceApi implements StockOpnameServi
             }
 
             // Catat ke Activity Log
-            $diffText = $difference === 0 ? "Sesuai (0 Unit)" : ($difference > 0 ? "+{$difference} Unit (Surplus)" : "{$difference} Unit (Defisit)");
-            $adjustmentText = $adjustStock && $difference !== 0 ? " [Stok sistem disesuaikan menjadi {$physicalStock} Unit]" : "";
+            $diffText = $difference === 0 ? 'Sesuai (0 Unit)' : ($difference > 0 ? "+{$difference} Unit (Surplus)" : "{$difference} Unit (Defisit)");
+            $adjustmentText = $adjustStock && $difference !== 0 ? " [Stok sistem disesuaikan menjadi {$physicalStock} Unit]" : '';
 
             ActivityLog::create([
                 'user_id' => $userId,

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\StockTransaction;
 use App\Models\Supplier;
-use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {

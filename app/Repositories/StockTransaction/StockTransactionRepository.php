@@ -4,8 +4,8 @@ namespace App\Repositories\StockTransaction;
 
 use LaravelEasyRepository\Repository;
 
-interface StockTransactionRepository extends Repository{
-
+interface StockTransactionRepository extends Repository
+{
     public function getPaginated(?string $search = null, ?string $type = null, ?string $status = null, ?int $productId = null, int $perPage = 10);
 
     public function generateInvoiceNumber(string $type = 'in'): string;

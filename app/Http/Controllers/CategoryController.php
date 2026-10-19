@@ -68,6 +68,7 @@ class CategoryController extends Controller
     {
         try {
             $this->categoryService->deleteCategory($id);
+
             return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()->route('categories.index')->with('error', 'Gagal menghapus kategori: Masih ada produk yang terhubung ke kategori ini.');

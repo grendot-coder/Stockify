@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\ActivityLog;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\StockOpname;
 use App\Models\StockTransaction;
 use App\Models\Supplier;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
-use App\Models\StockOpname;
-use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -85,9 +83,9 @@ class DashboardController extends Controller
         $categoryBreakdown = Category::withCount(['products as total_stock' => function ($q) {
             $q->select(DB::raw('COALESCE(SUM(stock), 0)'));
         }])
-        ->orderByDesc('total_stock')
-        ->take(6)
-        ->get();
+            ->orderByDesc('total_stock')
+            ->take(6)
+            ->get();
 
         $catLabels = [];
         $catSeries = [];

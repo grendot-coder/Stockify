@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Category;
-use App\Models\Supplier;
+use App\Models\Product;
 use App\Models\StockTransaction;
+use App\Models\Supplier;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -180,12 +180,12 @@ class ReportController extends Controller
      */
     protected function exportStockCsv($products): StreamedResponse
     {
-        $fileName = 'laporan-stok-stockify-' . date('Y-m-d') . '.csv';
+        $fileName = 'laporan-stok-stockify-'.date('Y-m-d').'.csv';
 
         return response()->streamDownload(function () use ($products) {
             $handle = fopen('php://output', 'w');
             // Menulis UTF-8 BOM agar rapi di Microsoft Excel
-            fputs($handle, "\xEF\xBB\xBF");
+            fwrite($handle, "\xEF\xBB\xBF");
 
             fputcsv($handle, [
                 'No',
@@ -198,7 +198,7 @@ class ReportController extends Controller
                 'Stok Fisik',
                 'Batas Minimum Stok',
                 'Total Nilai Persediaan (Rp)',
-                'Status Ketersediaan'
+                'Status Ketersediaan',
             ], ';');
 
             $i = 1;
@@ -217,7 +217,7 @@ class ReportController extends Controller
                     $p->stock,
                     $p->min_stock,
                     $val,
-                    $status
+                    $status,
                 ], ';');
             }
 
@@ -233,11 +233,11 @@ class ReportController extends Controller
      */
     protected function exportTransactionsCsv($transactions): StreamedResponse
     {
-        $fileName = 'laporan-mutasi-stockify-' . date('Y-m-d') . '.csv';
+        $fileName = 'laporan-mutasi-stockify-'.date('Y-m-d').'.csv';
 
         return response()->streamDownload(function () use ($transactions) {
             $handle = fopen('php://output', 'w');
-            fputs($handle, "\xEF\xBB\xBF");
+            fwrite($handle, "\xEF\xBB\xBF");
 
             fputcsv($handle, [
                 'No',
@@ -252,7 +252,7 @@ class ReportController extends Controller
                 'Supplier / Catatan',
                 'Operator Penginput',
                 'Status Otorisasi',
-                'Diverifikasi Oleh'
+                'Diverifikasi Oleh',
             ], ';');
 
             $i = 1;
@@ -273,7 +273,7 @@ class ReportController extends Controller
                     $t->supplier?->name ?? ($t->notes ?: '-'),
                     $t->user?->name ?? '-',
                     strtoupper($t->status),
-                    $t->confirmedByUser?->name ?? '-'
+                    $t->confirmedByUser?->name ?? '-',
                 ], ';');
             }
 

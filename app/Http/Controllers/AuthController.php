@@ -40,7 +40,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             // Cek apakah akun aktif
-            if (!$user->is_active) {
+            if (! $user->is_active) {
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();

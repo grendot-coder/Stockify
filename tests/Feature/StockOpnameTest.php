@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\StockOpname;
-use App\Models\ActivityLog;
 use App\Models\Supplier;
 use App\Models\User;
 use Tests\TestCase;
@@ -13,8 +12,11 @@ use Tests\TestCase;
 class StockOpnameTest extends TestCase
 {
     protected $adminUser;
+
     protected $managerUser;
+
     protected $staffUser;
+
     protected $testProduct;
 
     protected function setUp(): void
@@ -30,14 +32,14 @@ class StockOpnameTest extends TestCase
         $this->staffUser = User::where('role', 'staff')->first()
             ?? User::factory()->create(['role' => 'staff']);
 
-        $category = Category::first() ?? Category::create(['name' => 'Kategori Opname ' . uniqid()]);
-        $supplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Opname ' . uniqid()]);
+        $category = Category::first() ?? Category::create(['name' => 'Kategori Opname '.uniqid()]);
+        $supplier = Supplier::first() ?? Supplier::create(['name' => 'Supplier Opname '.uniqid()]);
 
         $this->testProduct = Product::create([
             'category_id' => $category->id,
             'supplier_id' => $supplier->id,
-            'sku' => 'OPN-SKU-' . rand(1000, 9999),
-            'name' => 'Produk Uji Opname ' . rand(100, 999),
+            'sku' => 'OPN-SKU-'.uniqid().'-'.mt_rand(100, 999),
+            'name' => 'Produk Uji Opname '.rand(100, 999),
             'purchase_price' => 25000,
             'selling_price' => 35000,
             'stock' => 50,
@@ -82,7 +84,7 @@ class StockOpnameTest extends TestCase
         ]);
 
         $response->assertRedirect();
-        
+
         $opname = StockOpname::where('product_id', $this->testProduct->id)->latest('id')->first();
         $this->assertNotNull($opname);
         $this->assertEquals($systemStock, $opname->system_stock);

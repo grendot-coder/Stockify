@@ -144,6 +144,7 @@ class ProductController extends Controller
     {
         try {
             $this->productService->deleteProduct($id);
+
             return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus.');
         } catch (\Exception $e) {
             return redirect()->route('products.index')->with('error', 'Gagal menghapus produk: Masih terdapat riwayat transaksi yang terkait.');

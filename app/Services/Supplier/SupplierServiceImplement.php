@@ -2,13 +2,13 @@
 
 namespace App\Services\Supplier;
 
-use LaravelEasyRepository\Service;
-use App\Repositories\Supplier\SupplierRepository;
 use App\Models\ActivityLog;
+use App\Repositories\Supplier\SupplierRepository;
 use Illuminate\Support\Facades\Auth;
+use LaravelEasyRepository\Service;
 
-class SupplierServiceImplement extends Service implements SupplierService{
-
+class SupplierServiceImplement extends Service implements SupplierService
+{
     /**
      * don't change $this->mainRepository variable name
      * because used in extends service class
@@ -17,7 +17,7 @@ class SupplierServiceImplement extends Service implements SupplierService{
 
     public function __construct(SupplierRepository $mainRepository)
     {
-      $this->mainRepository = $mainRepository;
+        $this->mainRepository = $mainRepository;
     }
 
     public function getPaginated(?string $search = null, int $perPage = 10)
