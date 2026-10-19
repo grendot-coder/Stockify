@@ -5,7 +5,7 @@
         <span>Warehouse Management System</span>
     </div>
     <div class="flex items-center gap-4 text-[11px]">
-        <a href="{{ route('landing') }}" class="hover:text-[#BD6745] transition">Showroom Video</a>
+        <a href="{{ route('landing') }}" class="hover:text-[#BD6745] transition">Halaman Depan</a>
         <span>•</span>
         <a href="{{ route('products.index') }}" class="hover:text-[#BD6745] transition">Katalog Produk</a>
         <span>•</span>
