@@ -48,16 +48,6 @@
                             Dengan Stockify, Anda dapat benar-benar mengorganisir seluruh inventaris bisnis tanpa celah.
                         </h2>
 
-                        <!-- Profil Pelanggan / Manajer Gudang -->
-                        <div class="flex items-center gap-3.5 mt-8">
-                            <div class="w-12 h-12 rounded-full bg-[#F5C842] text-[#101214] font-heading font-semibold text-base flex items-center justify-center shadow-xs flex-shrink-0">
-                                RS
-                            </div>
-                            <div>
-                                <div class="font-heading font-semibold text-sm text-[#F5F5F5]">Arjuna</div>
-                                <div class="text-xs text-[#A1A1AA]">Direktur Operasional, Sunkool Logistics</div>
-                            </div>
-                        </div>
 
                         <!-- Sketsa Isometrik Rak Penyimpanan Gudang -->
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
