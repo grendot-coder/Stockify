@@ -44,9 +44,6 @@ class StockTransactionTest extends TestCase
         ]);
     }
 
-    /**
-     * Test pengguna terautentikasi dapat melihat daftar transaksi.
-     */
     public function test_user_can_view_transactions_index(): void
     {
         $response = $this->actingAs($this->staffUser)->get('/transactions');
@@ -54,9 +51,6 @@ class StockTransactionTest extends TestCase
         $response->assertSee('Manajemen Transaksi Stok');
     }
 
-    /**
-     * Test barang masuk terkonfirmasi menambah stok produk secara otomatis.
-     */
     public function test_inbound_confirmed_increments_stock(): void
     {
         $initialStock = $this->testProduct->stock;
@@ -84,9 +78,6 @@ class StockTransactionTest extends TestCase
         ]);
     }
 
-    /**
-     * Test barang masuk status pending tidak mengubah stok produk.
-     */
     public function test_inbound_pending_does_not_change_stock_until_confirmed(): void
     {
         $initialStock = $this->testProduct->stock;
@@ -112,7 +103,6 @@ class StockTransactionTest extends TestCase
 
         $this->assertNotNull($trx);
 
-        // Sekarang Admin menyetujui transaksi pending tersebut
         $confirmResponse = $this->actingAs($this->adminUser)->post("/transactions/{$trx->id}/confirm");
         $confirmResponse->assertSessionHas('success');
 
@@ -120,9 +110,6 @@ class StockTransactionTest extends TestCase
         $this->assertEquals($initialStock + $inboundQty, $this->testProduct->stock);
     }
 
-    /**
-     * Test barang keluar mengurangi stok produk jika stok mencukupi.
-     */
     public function test_outbound_confirmed_decrements_stock(): void
     {
         $initialStock = $this->testProduct->stock;
@@ -142,9 +129,6 @@ class StockTransactionTest extends TestCase
         $this->assertEquals($initialStock - $outboundQty, $this->testProduct->stock);
     }
 
-    /**
-     * Test validasi menolak barang keluar jika kuantitas melebihi stok gudang.
-     */
     public function test_outbound_fails_when_quantity_exceeds_stock(): void
     {
         $initialStock = $this->testProduct->stock;
@@ -163,9 +147,6 @@ class StockTransactionTest extends TestCase
         $this->assertEquals($initialStock, $this->testProduct->stock);
     }
 
-    /**
-     * Test penolakan transaksi pending oleh Admin dengan alasan.
-     */
     public function test_admin_can_reject_pending_transaction(): void
     {
         $trx = StockTransaction::create([
@@ -189,9 +170,6 @@ class StockTransactionTest extends TestCase
         $this->assertStringContainsString('Barang pecah di perjalanan', $trx->notes);
     }
 
-    /**
-     * Test staff gudang berhak mengonfirmasi transaksi penerimaan fisik barang.
-     */
     public function test_staff_can_confirm_transaction_and_adjust_stock(): void
     {
         $initialStock = $this->testProduct->stock;

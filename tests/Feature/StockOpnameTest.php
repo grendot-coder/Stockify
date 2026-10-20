@@ -47,9 +47,6 @@ class StockOpnameTest extends TestCase
         ]);
     }
 
-    /**
-     * Test pengguna terautentikasi dapat melihat daftar riwayat stock opname.
-     */
     public function test_user_can_view_opnames_index(): void
     {
         $response = $this->actingAs($this->staffUser)->get('/opnames');
@@ -57,9 +54,6 @@ class StockOpnameTest extends TestCase
         $response->assertSee('Stock Opname Gudang');
     }
 
-    /**
-     * Test pengguna dapat mengakses formulir perhitungan fisik opname.
-     */
     public function test_user_can_access_create_opname_form(): void
     {
         $response = $this->actingAs($this->staffUser)->get('/opnames/create');
@@ -68,13 +62,10 @@ class StockOpnameTest extends TestCase
         $response->assertSee($this->testProduct->sku);
     }
 
-    /**
-     * Test input stock opname menghitung selisih dan mencatat activity log.
-     */
     public function test_store_opname_records_difference_and_activity_log(): void
     {
-        $systemStock = $this->testProduct->stock; // 50
-        $physicalStock = 45; // Defisit 5
+        $systemStock = $this->testProduct->stock;
+        $physicalStock = 45;
 
         $response = $this->actingAs($this->staffUser)->post('/opnames', [
             'product_id' => $this->testProduct->id,
@@ -91,19 +82,15 @@ class StockOpnameTest extends TestCase
         $this->assertEquals($physicalStock, $opname->physical_stock);
         $this->assertEquals(-5, $opname->difference);
 
-        // Verifikasi activity log tercatat
         $this->assertDatabaseHas('activity_logs', [
             'user_id' => $this->staffUser->id,
             'action' => 'STOCK_OPNAME',
         ]);
     }
 
-    /**
-     * Test admin atau manager dapat menyesuaikan stok sistem secara langsung dengan opname.
-     */
     public function test_admin_can_adjust_system_stock_with_opname(): void
     {
-        $newPhysicalStock = 60; // Surplus +10 dari 50
+        $newPhysicalStock = 60;
 
         $response = $this->actingAs($this->adminUser)->post('/opnames', [
             'product_id' => $this->testProduct->id,
@@ -115,14 +102,10 @@ class StockOpnameTest extends TestCase
 
         $response->assertRedirect();
 
-        // Stok produk harus tersinkronisasi menjadi 60
         $this->testProduct->refresh();
         $this->assertEquals($newPhysicalStock, $this->testProduct->stock);
     }
 
-    /**
-     * Test staff tidak dapat mengubah/menyesuaikan stok sistem secara langsung.
-     */
     public function test_staff_cannot_adjust_stock_silently(): void
     {
         $initialStock = $this->testProduct->stock;
@@ -138,14 +121,10 @@ class StockOpnameTest extends TestCase
 
         $response->assertRedirect();
 
-        // Stok produk di database tetap awal karena staff tidak memiliki hak adjust
         $this->testProduct->refresh();
         $this->assertEquals($initialStock, $this->testProduct->stock);
     }
 
-    /**
-     * Test pengguna dapat melihat lembar bukti detail opname.
-     */
     public function test_user_can_view_opname_detail(): void
     {
         $opname = StockOpname::create([
@@ -164,17 +143,12 @@ class StockOpnameTest extends TestCase
         $response->assertSee($this->testProduct->name);
     }
 
-    /**
-     * Test admin dapat melihat audit log aktivitas dan staff dilarang (403).
-     */
     public function test_admin_can_view_activity_logs_and_staff_is_forbidden(): void
     {
-        // Admin dapat melihat
         $adminResp = $this->actingAs($this->adminUser)->get('/logs');
         $adminResp->assertStatus(200);
         $adminResp->assertSee('Audit Log Aktivitas Sistem');
 
-        // Staff dilarang (403)
         $staffResp = $this->actingAs($this->staffUser)->get('/logs');
         $staffResp->assertStatus(403);
     }

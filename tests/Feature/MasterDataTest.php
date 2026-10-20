@@ -29,9 +29,6 @@ class MasterDataTest extends TestCase
         }
     }
 
-    /**
-     * Test admin dapat mengakses halaman kategori dan menambahkan kategori baru.
-     */
     public function test_admin_can_manage_categories(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/categories');
@@ -48,9 +45,6 @@ class MasterDataTest extends TestCase
         $this->assertDatabaseHas('categories', ['name' => $uniqueName]);
     }
 
-    /**
-     * Test admin dapat mengakses halaman supplier dan menambahkan supplier baru.
-     */
     public function test_admin_can_manage_suppliers(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/suppliers');
@@ -69,9 +63,6 @@ class MasterDataTest extends TestCase
         $this->assertDatabaseHas('suppliers', ['name' => $uniqueName]);
     }
 
-    /**
-     * Test endpoint generate SKU internal berfungsi.
-     */
     public function test_generate_sku_api(): void
     {
         $category = Category::first();
@@ -80,9 +71,6 @@ class MasterDataTest extends TestCase
         $response->assertJsonStructure(['sku']);
     }
 
-    /**
-     * Test admin dapat membuat produk baru lengkap dengan atribut.
-     */
     public function test_admin_can_create_and_view_product(): void
     {
         $category = Category::first() ?? Category::create(['name' => 'Kategori Dummy']);
@@ -116,20 +104,14 @@ class MasterDataTest extends TestCase
         $showResponse->assertSee('16 GB');
     }
 
-    /**
-     * Test staff hanya bisa melihat produk dan dilarang mengubah master data kategori.
-     */
     public function test_staff_role_permissions(): void
     {
-        // Staff bisa melihat daftar produk
         $productIndexResponse = $this->actingAs($this->staffUser)->get('/products');
         $productIndexResponse->assertStatus(200);
 
-        // Staff dilarang membuka form tambah produk
         $productCreateResponse = $this->actingAs($this->staffUser)->get('/products/create');
         $productCreateResponse->assertStatus(403);
 
-        // Staff dilarang membuka kelola kategori
         $categoryResponse = $this->actingAs($this->staffUser)->get('/categories');
         $categoryResponse->assertStatus(403);
     }

@@ -42,43 +42,24 @@
 
     <div class="min-h-screen grid grid-cols-1 lg:grid-cols-12">
 
-        <!-- ========================================== -->
-        <!-- SISI KIRI: SHOWCASE CARD ALA ZOHO/SHOPIFY  -->
-        <!-- ========================================== -->
         <div class="hidden lg:flex lg:col-span-5 xl:col-span-6 p-6 sm:p-8 lg:p-10 flex-col justify-between">
             <div class="h-full w-full rounded-3xl bg-gradient-to-b from-[#181C20] via-[#202429] to-[#181C20] border border-[#343A40] p-8 xl:p-12 flex flex-col justify-between relative overflow-hidden shadow-xs">
-
-                <!-- Pola Grid Halus di Latar Belakang -->
                 <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: radial-gradient(#F5F5F5 1px, transparent 1px); background-size: 20px 20px;"></div>
 
-                <!-- Bagian Konten Carousel 3 Slide -->
                 <div class="relative z-10">
-
-                    <!-- SLIDE 1: Testimonial & Rak Gudang (Default Aktif) -->
                     <div id="slide-1" class="carousel-slide transition-opacity duration-300">
                         <div class="text-[#F5C842] text-5xl font-editorial font-bold leading-none mb-4 select-none">&ldquo;</div>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
                             Dengan Stockify, Anda dapat benar-benar mengorganisir seluruh inventaris bisnis tanpa celah.
                         </h2>
 
-                        <!-- Profil Pelanggan / Manajer Gudang -->
-                        <div class="flex items-center gap-3.5 mt-8">
-                            <div class="w-12 h-12 rounded-full bg-[#F5C842] text-[#101214] font-heading font-semibold text-base flex items-center justify-center shadow-xs flex-shrink-0">
-                                RS
-                            </div>
-                        </div>
-
-                        <!-- Sketsa Isometrik Rak Penyimpanan Gudang -->
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
                             <svg class="w-full max-w-sm h-48 mx-auto text-[#F5C842]" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Tiang Utama Rak Gudang -->
                                 <line x1="60" y1="20" x2="60" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round" />
                                 <line x1="340" y1="20" x2="340" y2="220" stroke="#F5C842" stroke-width="2.5" stroke-linecap="round" />
                                 <line x1="200" y1="20" x2="200" y2="220" stroke="#F5C842" stroke-width="1.5" stroke-dasharray="3 3" />
 
-                                <!-- Hambatan Rak Baris 1 (Atas) -->
                                 <rect x="55" y="60" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
-                                <!-- Kotak/Karton Baris 1 -->
                                 <rect x="80" y="25" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                                 <line x1="80" y1="42" x2="125" y2="42" stroke="#F5C842" stroke-width="1" />
                                 <rect x="135" y="15" width="55" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
@@ -86,18 +67,14 @@
                                 <rect x="220" y="30" width="40" height="30" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                                 <rect x="270" y="20" width="55" height="40" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
 
-                                <!-- Hambatan Rak Baris 2 (Tengah) -->
                                 <rect x="55" y="130" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
-                                <!-- Kotak/Karton Baris 2 -->
                                 <rect x="75" y="85" width="60" height="45" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
                                 <rect x="145" y="95" width="45" height="35" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                                 <rect x="200" y="80" width="65" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                                 <line x1="200" y1="105" x2="265" y2="105" stroke="#F5C842" stroke-width="1" />
                                 <rect x="275" y="90" width="50" height="40" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
 
-                                <!-- Hambatan Rak Baris 3 (Bawah) -->
                                 <rect x="55" y="200" width="290" height="6" rx="2" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
-                                <!-- Palet Kayu & Kotak Besar Baris 3 -->
                                 <rect x="75" y="150" width="80" height="50" rx="3" fill="#181C20" stroke="#F5C842" stroke-width="1.5" />
                                 <line x1="75" y1="175" x2="155" y2="175" stroke="#F5C842" stroke-width="1" />
                                 <rect x="165" y="145" width="75" height="55" rx="3" fill="#2A3036" stroke="#F5C842" stroke-width="1.5" />
@@ -106,14 +83,12 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 2: Metrik Efisiensi Terukur -->
                     <div id="slide-2" class="carousel-slide hidden transition-opacity duration-300">
                         <span class="inline-block text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold mb-2">Dampak Nyata Sistem</span>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
                             Lebih dari 80% pelanggan pergudangan kami merasakan peningkatan efisiensi yang konsisten.*
                         </h2>
 
-                        <!-- 3 Kartu Metrik -->
                         <div class="space-y-3.5 mt-7">
                             <div class="flex items-center gap-3.5 p-3 rounded-xl bg-[#202429] border border-[#343A40] shadow-xs">
                                 <div class="w-9 h-9 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center flex-shrink-0 font-bold text-sm">
@@ -153,14 +128,12 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 3: 3 Pilar Utama Pergudangan -->
                     <div id="slide-3" class="carousel-slide hidden transition-opacity duration-300">
                         <span class="inline-block text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold mb-2">Arsitektur Logistik Modern</span>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
                             Tiga pilar kontrol terintegrasi untuk kelancaran operasional gudang Anda.
                         </h2>
 
-                        <!-- 3 Pilar -->
                         <div class="grid grid-cols-3 gap-2.5 mt-7 text-center">
                             <div class="p-3 rounded-xl bg-[#202429] border border-[#343A40]">
                                 <div class="w-8 h-8 mx-auto rounded-lg bg-[#181C20] text-[#F5C842] flex items-center justify-center mb-1.5 font-bold text-xs">
@@ -187,19 +160,15 @@
                             </div>
                         </div>
 
-                        <!-- Sketsa Ban Berjalan & Kotak Tersegel -->
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
                             <svg class="w-full max-w-sm h-40 mx-auto text-[#F5C842]" viewBox="0 0 360 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Ban Berjalan (Conveyor Belt) -->
                                 <path d="M30 110 L330 110 Q340 110 340 120 Q340 130 330 130 L30 130 Q20 130 20 120 Q20 110 30 110 Z" fill="#181C20" stroke="#F5C842" stroke-width="2" />
-                                <!-- Roda Pemutar -->
                                 <circle cx="40" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
                                 <circle cx="100" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
                                 <circle cx="180" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
                                 <circle cx="260" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
                                 <circle cx="320" cy="120" r="6" stroke="#F5C842" stroke-width="1.5" fill="#202429" />
 
-                                <!-- Paket / Karton di atas Ban -->
                                 <rect x="50" y="65" width="50" height="45" rx="3" fill="#202429" stroke="#F5C842" stroke-width="1.5" />
                                 <line x1="75" y1="65" x2="75" y2="110" stroke="#F5C842" stroke-width="1" />
 
@@ -215,7 +184,6 @@
 
                 </div>
 
-                <!-- Indikator Paginasi Dot 3 Slide (Interaktif) -->
                 <div class="flex items-center gap-2 mt-8 pt-4 border-t border-[#343A40] z-10">
                     <button type="button" onclick="setSlide(1)" id="dot-1" class="h-2 w-8 rounded-full bg-[#F5C842] transition-all duration-200 cursor-pointer" title="Slide 1"></button>
                     <button type="button" onclick="setSlide(2)" id="dot-2" class="h-2 w-2 rounded-full bg-[#343A40] hover:bg-[#F5C842]/60 transition-all duration-200 cursor-pointer" title="Slide 2"></button>
@@ -225,13 +193,8 @@
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- SISI KANAN: FORM LOGIN SHOPIFY-GRADE       -->
-        <!-- ========================================== -->
         <div class="lg:col-span-7 xl:col-span-6 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24 py-10 bg-[#181C20]">
             <div class="w-full max-w-md mx-auto">
-
-                <!-- Header Logo Brand -->
                 <div class="flex items-center justify-between mb-8">
                     <a href="{{ route('landing') }}" class="flex items-center gap-3 group">
                         <div class="w-10 h-10 rounded-xl bg-[#F5C842] border border-[#F5C842]/40 flex items-center justify-center text-[#101214] font-heading font-bold text-lg shadow-xs group-hover:bg-[#E8B92E] transition">
@@ -251,7 +214,6 @@
                     </a>
                 </div>
 
-                <!-- Judul Utama -->
                 <div class="mb-6">
                     <h1 class="font-heading text-3xl font-bold tracking-tight text-[#F5F5F5]">
                         Let's get started
@@ -261,7 +223,6 @@
                     </p>
                 </div>
 
-                <!-- Notifikasi Error / Info -->
                 @if ($errors->any())
                 <div class="p-3.5 mb-5 rounded-xl bg-[#F87171]/15 border border-[#F87171]/30 text-[#F87171] text-xs flex items-center gap-2.5">
                     <svg class="w-4 h-4 text-[#F87171] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -280,11 +241,9 @@
                 </div>
                 @endif
 
-                <!-- Formulir Autentikasi -->
                 <form action="{{ route('login.post') }}" method="POST" class="space-y-4">
                     @csrf
 
-                    <!-- Field Email -->
                     <div>
                         <label for="email" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
                             Alamat Email Pengguna
@@ -301,7 +260,6 @@
                         </div>
                     </div>
 
-                    <!-- Field Password dengan Toggle Eye -->
                     <div>
                         <div class="flex items-center justify-between mb-1.5">
                             <label for="password" class="block text-xs font-semibold text-[#F5F5F5]">
@@ -327,7 +285,6 @@
                         </div>
                     </div>
 
-                    <!-- Checkbox Ingat Sesi -->
                     <div class="flex items-center justify-between pt-1">
                         <label class="flex items-center cursor-pointer select-none">
                             <input type="checkbox" name="remember" id="remember" checked
@@ -336,7 +293,6 @@
                         </label>
                     </div>
 
-                    <!-- Tombol Masuk Primer INDUSTRIAL YELLOW (#F5C842) -->
                     <button type="submit"
                         class="w-full py-3 px-4 rounded-xl text-xs font-heading font-semibold tracking-wide text-[#101214] bg-[#F5C842] hover:bg-[#E8B92E] transition shadow-xs mt-3 cursor-pointer flex items-center justify-center gap-2">
                         <span>Masuk ke Dashboard</span>
@@ -346,7 +302,6 @@
                     </button>
                 </form>
 
-                <!-- Pilihan Akun Demo 1-Klik Fungsional -->
                 <div class="mt-8 pt-6 border-t border-[#343A40]">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[11px] font-semibold uppercase tracking-wider text-[#A1A1AA]">Akses Cepat Akun Demo:</span>
@@ -374,7 +329,6 @@
                     </div>
                 </div>
 
-                <!-- Footer Kembali -->
                 <div class="text-center mt-8 pt-4">
                     <a href="{{ route('landing') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] transition inline-flex items-center gap-1.5 font-medium">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

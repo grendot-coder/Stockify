@@ -150,12 +150,11 @@
                         class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
 
-                <!-- Batas Minimum Stok -->
                 <div>
                     <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
                         Batas Minimum Stok (Peringatan Tipis) <span class="text-[#F5C842]">*</span>
                     </label>
-                    <input type="number" min="0" name="min_stock" required value="{{ old('min_stock', 5) }}"
+                    <input type="number" min="0" name="min_stock" required value="{{ old('min_stock', (int) \App\Models\Setting::get('default_min_stock', 5)) }}"
                         class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     <p class="text-[10px] text-[#A1A1AA] mt-1">Sistem otomatis menandai status peringatan jika stok menyentuh batas ini.</p>
                 </div>

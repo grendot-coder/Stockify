@@ -23,9 +23,6 @@ class ProductImportExportTest extends TestCase
             ?? User::factory()->create(['role' => 'staff', 'is_active' => true]);
     }
 
-    /**
-     * Admin dapat mengekspor katalog produk ke berkas CSV.
-     */
     public function test_admin_can_export_products_csv(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/products/export');
@@ -33,9 +30,6 @@ class ProductImportExportTest extends TestCase
         $this->assertTrue(str_contains($response->headers->get('Content-Disposition') ?? '', 'katalog-produk-stockify-'));
     }
 
-    /**
-     * Admin dapat mengunduh template CSV untuk impor.
-     */
     public function test_admin_can_download_import_template(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/products/import/template');
@@ -43,9 +37,6 @@ class ProductImportExportTest extends TestCase
         $this->assertTrue(str_contains($response->headers->get('Content-Disposition') ?? '', 'template-import-produk-stockify.csv'));
     }
 
-    /**
-     * Admin dapat mengimpor produk baru melalui berkas CSV.
-     */
     public function test_admin_can_import_products_csv(): void
     {
         $sku = 'IMP-'.uniqid().'-'.mt_rand(100, 999);
@@ -72,9 +63,6 @@ class ProductImportExportTest extends TestCase
         ]);
     }
 
-    /**
-     * Staff dilarang mengimpor produk (403).
-     */
     public function test_staff_cannot_import_products(): void
     {
         $file = UploadedFile::fake()->createWithContent('import-test.csv', "sku,name\n");

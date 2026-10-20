@@ -27,9 +27,6 @@ class UserManagementTest extends TestCase
             ?? User::factory()->create(['role' => 'staff', 'is_active' => true]);
     }
 
-    /**
-     * Admin dapat melihat daftar pengguna.
-     */
     public function test_admin_can_view_users_list(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/users');
@@ -38,9 +35,6 @@ class UserManagementTest extends TestCase
         $response->assertSee($this->adminUser->name);
     }
 
-    /**
-     * Non-admin dilarang mengakses manajemen pengguna (403).
-     */
     public function test_non_admin_cannot_access_user_management(): void
     {
         $response = $this->actingAs($this->staffUser)->get('/users');
@@ -50,9 +44,6 @@ class UserManagementTest extends TestCase
         $responseManager->assertStatus(403);
     }
 
-    /**
-     * Admin dapat menambahkan akun pengguna baru.
-     */
     public function test_admin_can_create_user(): void
     {
         $uniqueEmail = 'staff-'.uniqid().'@stockify.id';
@@ -75,9 +66,6 @@ class UserManagementTest extends TestCase
         ]);
     }
 
-    /**
-     * Admin dapat mengubah data pengguna.
-     */
     public function test_admin_can_update_user(): void
     {
         $user = User::factory()->create([
@@ -99,9 +87,6 @@ class UserManagementTest extends TestCase
         $this->assertEquals('manager', $user->role);
     }
 
-    /**
-     * Admin dicegah menghapus akun dirinya sendiri.
-     */
     public function test_admin_cannot_delete_own_account(): void
     {
         $response = $this->actingAs($this->adminUser)->delete("/users/{$this->adminUser->id}");

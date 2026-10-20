@@ -23,9 +23,6 @@ class SettingTest extends TestCase
             ?? User::factory()->create(['role' => 'staff', 'is_active' => true]);
     }
 
-    /**
-     * Admin dapat melihat halaman pengaturan aplikasi.
-     */
     public function test_admin_can_access_settings_page(): void
     {
         $response = $this->actingAs($this->adminUser)->get('/settings');
@@ -33,18 +30,12 @@ class SettingTest extends TestCase
         $response->assertSee('Pengaturan Umum Aplikasi');
     }
 
-    /**
-     * Staff dilarang mengakses halaman pengaturan aplikasi (403).
-     */
     public function test_staff_cannot_access_settings_page(): void
     {
         $response = $this->actingAs($this->staffUser)->get('/settings');
         $response->assertStatus(403);
     }
 
-    /**
-     * Admin dapat memperbarui nama aplikasi dan kontak gudang.
-     */
     public function test_admin_can_update_settings(): void
     {
         $response = $this->actingAs($this->adminUser)->post('/settings', [

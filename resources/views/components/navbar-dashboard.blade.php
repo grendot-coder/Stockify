@@ -16,13 +16,22 @@
                 </button>
 
 
+                @php
+                    $navAppName = \App\Models\Setting::get('app_name', 'Stockify');
+                    $navAppTagline = \App\Models\Setting::get('app_tagline', 'Warehouse OS');
+                    $navAppLogo = \App\Models\Setting::get('app_logo');
+                @endphp
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
-                    <div class="w-8 h-8 rounded-lg bg-[#F5C842] border border-[#F5C842]/40 text-[#101214] flex items-center justify-center font-heading font-bold text-base shadow-sm group-hover:bg-[#E8B92E] transition">
-                        S
-                    </div>
+                    @if($navAppLogo)
+                        <img src="{{ asset('storage/' . $navAppLogo) }}" alt="{{ $navAppName }}" class="w-8 h-8 rounded-lg object-contain bg-[#202429] border border-[#343A40]">
+                    @else
+                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] border border-[#F5C842]/40 text-[#101214] flex items-center justify-center font-heading font-bold text-base shadow-sm group-hover:bg-[#E8B92E] transition">
+                            {{ strtoupper(substr($navAppName, 0, 1)) }}
+                        </div>
+                    @endif
                     <div class="flex flex-col">
-                        <span class="font-heading text-lg font-semibold tracking-tight text-[#F5F5F5]">Stockify</span>
-                        <span class="text-[9px] uppercase tracking-[0.18em] text-[#A1A1AA] -mt-0.5 font-medium">Warehouse OS</span>
+                        <span class="font-heading text-lg font-semibold tracking-tight text-[#F5F5F5]">{{ $navAppName }}</span>
+                        <span class="text-[9px] uppercase tracking-[0.18em] text-[#A1A1AA] -mt-0.5 font-medium">{{ $navAppTagline }}</span>
                     </div>
                 </a>
 

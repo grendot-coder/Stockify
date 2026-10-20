@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
@@ -71,14 +71,23 @@
     <!-- Lembar Bukti Transaksi (Printable Card) -->
     <div class="bg-[#28252B] rounded-2xl border border-[#3B3540] p-6 sm:p-8 shadow-sm space-y-6">
 
+        @php
+            $trxAppName = \App\Models\Setting::get('app_name', 'Stockify Warehouse');
+            $trxAppTagline = \App\Models\Setting::get('app_tagline', 'Sistem Manajemen Persediaan & Mutasi Barang Gudang');
+            $trxAppLogo = \App\Models\Setting::get('app_logo');
+        @endphp
         <!-- Header Bukti Transaksi -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-[#3B3540] gap-4">
             <div>
                 <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 bg-[#141318] border border-[#3B3540] text-[#E7A58B] rounded-lg flex items-center justify-center font-editorial font-bold text-base">S</div>
-                    <span class="font-editorial text-2xl font-medium text-[#F3EEE8] tracking-tight">Stockify Warehouse</span>
+                    @if($trxAppLogo)
+                        <img src="{{ asset('storage/' . $trxAppLogo) }}" alt="{{ $trxAppName }}" class="w-8 h-8 object-contain rounded-lg border border-[#3B3540]">
+                    @else
+                        <div class="w-8 h-8 bg-[#141318] border border-[#3B3540] text-[#F5C842] rounded-lg flex items-center justify-center font-editorial font-bold text-base">{{ strtoupper(substr($trxAppName, 0, 1)) }}</div>
+                    @endif
+                    <span class="font-editorial text-2xl font-medium text-[#F3EEE8] tracking-tight">{{ $trxAppName }}</span>
                 </div>
-                <p class="text-xs text-[#B6AEB6] mt-1 font-light">Sistem Manajemen Persediaan & Mutasi Barang Gudang</p>
+                <p class="text-xs text-[#B6AEB6] mt-1 font-light">{{ $trxAppTagline }}</p>
             </div>
 
             <div class="sm:text-right">

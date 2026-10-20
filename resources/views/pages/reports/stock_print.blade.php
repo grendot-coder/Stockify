@@ -86,16 +86,25 @@
         <button onclick="window.print()" class="btn-print">Cetak Sekarang (Print / PDF)</button>
     </div>
 
+    @php
+        $printAppName = \App\Models\Setting::get('app_name', 'Stockify');
+        $printAppTagline = \App\Models\Setting::get('app_tagline', 'Warehouse Management System');
+        $printWhAddress = \App\Models\Setting::get('warehouse_address');
+        $printWhPhone = \App\Models\Setting::get('warehouse_phone');
+        $printWhEmail = \App\Models\Setting::get('warehouse_email');
+    @endphp
     <!-- Kop Dokumen Resmi -->
     <div style="border-bottom: 2px solid #292524; padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F5C842; letter-spacing: -0.02em;">
-                STOCKIFY <span style="font-size: 11px; color: #78716C; font-weight: 500; font-family: 'IBM Plex Sans';">Warehouse Management System</span>
+                {{ strtoupper($printAppName) }} <span style="font-size: 11px; color: #78716C; font-weight: 500; font-family: 'IBM Plex Sans';">{{ $printAppTagline }}</span>
             </div>
             <h1 style="font-size: 16px; font-weight: 700; margin: 4px 0 0 0;">LAPORAN PERSEDIAAN & AUDIT NILAI STOK GUDANG</h1>
+            @if($printWhAddress)
             <div style="color: #78716C; font-size: 10px; margin-top: 2px;">
-                Dokumen resmi rekapitulasi inventaris fisik dan valuasi aset
+                {{ $printWhAddress }} @if($printWhPhone)| Telp: {{ $printWhPhone }}@endif @if($printWhEmail)| Email: {{ $printWhEmail }}@endif
             </div>
+            @endif
         </div>
         <div style="text-align: right; font-size: 10px; color: #78716C;">
             <div>Tanggal Cetak: <strong class="font-mono" style="color: #292524;">{{ now()->translatedFormat('d F Y, H:i') }} WIB</strong></div>

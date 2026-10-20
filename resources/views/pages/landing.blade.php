@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stockify — Warehouse Management System</title>
 
-    <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Google Fonts: Space Grotesk (Editorial Headings) + IBM Plex Sans (Body) + IBM Plex Mono (Tabular/Code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -34,11 +32,9 @@
 
 <body class="bg-[#101214] text-[#F5F5F5] antialiased selection:bg-[#F5C842] selection:text-[#101214]">
 
-    <!-- Navigasi Utama (Sticky Nav) -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#181C20]/90 border-b border-[#343A40]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-            <!-- Brand Logo -->
             <a href="/" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-[#F5C842] border border-[#F5C842]/40 flex items-center justify-center transition group-hover:bg-[#E8B92E]">
                     <span class="text-[#101214] font-heading font-bold text-base tracking-wider transition">S</span>
@@ -49,7 +45,6 @@
                 </div>
             </a>
 
-            <!-- Nav Links Fungsional -->
             <nav class="hidden md:flex items-center gap-7 text-xs font-semibold text-[#A1A1AA]">
                 <a href="#simulator" class="hover:text-[#F5C842] transition">Simulator Stok</a>
                 <a href="#fitur" class="hover:text-[#F5C842] transition">Fitur Inti</a>
@@ -57,7 +52,6 @@
                 <a href="#akses-demo" class="hover:text-[#F5C842] transition">Akses Demo</a>
             </nav>
 
-            <!-- CTA Masuk / Dashboard (INDUSTRIAL YELLOW #F5C842) -->
             <div class="flex items-center gap-3">
                 @auth
                 <a href="{{ route('dashboard') }}"
@@ -83,24 +77,16 @@
 
     <main class="space-y-24 sm:space-y-32 pb-24">
 
-        <!-- ============================================================ -->
-        <!-- 1. HERO SECTION                                              -->
-        <!-- ============================================================ -->
         <section class="relative pt-12 sm:pt-20 max-w-5xl mx-auto px-6 text-center">
-
-            <!-- Headline Tajam Space Grotesk -->
             <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#F5F5F5] leading-[1.1]">
                 Kelola Persediaan Gudang dengan Akurasi dan Presisi Tinggi.
             </h1>
 
-            <!-- Subheading Editorial -->
             <p class="mt-6 max-w-2xl mx-auto text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
                 Platform pergudangan terpadu yang dirancang untuk brand ritel, pusat distribusi, dan rantai pasok modern. Mengeliminasi selisih stok melalui pencatatan mutasi ganda dan audit log tanpa kompromi.
             </p>
 
-            <!-- Dua Tombol Aksi Fungsional -->
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <!-- Tombol Primer: Industrial Yellow (#F5C842) -->
                 <a href="#akses-demo"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#F5C842] text-[#101214] text-xs font-heading font-semibold hover:bg-[#E8B92E] transition shadow-xs">
                     <span>Mulai Akses Demo 1-Klik</span>
@@ -109,7 +95,6 @@
                     </svg>
                 </a>
                 
-                <!-- Tombol Sekunder: Simulator Mutasi Stok -->
                 <a href="#simulator"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#202429] border border-[#343A40] text-[#F5F5F5] text-xs font-heading font-semibold hover:border-[#F5C842] hover:text-[#F5C842] transition shadow-xs">
                     <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +104,6 @@
                 </a>
             </div>
 
-            <!-- Tiga Metrik Utama Real-Time dari Database -->
             <div class="mt-16 pt-12 border-t border-[#343A40] grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition">
                     <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842]">
@@ -149,9 +133,6 @@
         </section>
 
 
-        <!-- ============================================================ -->
-        <!-- 2. GIMMICK: INTERACTIVE LIVE STOCK SIMULATOR                -->
-        <!-- ============================================================ -->
         <section id="simulator" class="max-w-6xl mx-auto px-6">
 
             <div class="text-center max-w-2xl mx-auto mb-10">
@@ -164,10 +145,8 @@
                 </p>
             </div>
 
-            <!-- Simulator Container -->
             <div class="rounded-3xl bg-[#202429] border border-[#343A40] shadow-md overflow-hidden">
 
-                <!-- Header Simulator & Product Selector Tabs -->
                 <div class="p-6 bg-[#181C20] border-b border-[#343A40] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] font-semibold">Pilih SKU Produk untuk Diuji:</span>
@@ -193,13 +172,10 @@
                     </div>
                 </div>
 
-                <!-- Main Interactive Grid -->
                 <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-                    <!-- Kolom Kiri: Kartu Status Produk & Kontrol Mutasi (7 Cols) -->
                     <div class="lg:col-span-7 space-y-6">
 
-                        <!-- Detail Produk Aktif -->
                         <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40]">
                             <div class="flex items-center justify-between gap-2 mb-3">
                                 <div class="flex items-center gap-2">
@@ -220,7 +196,6 @@
                                 Dilengkapi switch hot-swappable dengan varian atribut warna Onyx Black dan Grey.
                             </p>
 
-                            <!-- Indikator Angka Stok Besar & Ambang Batas -->
                             <div class="mt-6 pt-6 border-t border-[#343A40] flex items-end justify-between">
                                 <div>
                                     <span class="text-[11px] text-[#A1A1AA] uppercase tracking-wider block font-medium">Sisa Stok Fisik Gudang</span>
@@ -241,7 +216,6 @@
                             </div>
                         </div>
 
-                        <!-- Tombol Aksi Mutasi Interaktif -->
                         <div>
                             <span class="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block mb-3">
                                 Eksekusi Mutasi Cepat:
@@ -278,7 +252,6 @@
 
                     </div>
 
-                    <!-- Kolom Kanan: Live Ledger Audit Terminal (5 Cols) -->
                     <div class="lg:col-span-5 flex flex-col h-full space-y-3">
                         <div class="flex items-center justify-between text-xs">
                             <span class="font-heading font-bold text-[#F5F5F5] flex items-center gap-2">
@@ -292,9 +265,7 @@
                             </button>
                         </div>
 
-                        <!-- Console Box -->
                         <div class="rounded-2xl bg-[#101214] border border-[#343A40] p-4 text-xs font-mono text-[#F5F5F5] flex-1 flex flex-col justify-between shadow-inner min-h-[320px]">
-                            <!-- Terminal Header -->
                             <div class="flex items-center justify-between pb-3 border-b border-[#343A40] text-[10px] text-[#A1A1AA]">
                                 <div class="flex items-center gap-1.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
@@ -304,12 +275,10 @@
                                 <span>STOCKIFY-AUDIT-STREAM</span>
                             </div>
 
-                            <!-- Log Entries Stream -->
                             <div id="sim-log-entries" class="py-3 space-y-2 overflow-y-auto max-h-[260px] text-[11px] flex-1">
                                 <div class="text-[#A1A1AA]">[INIT] Engine siap mencatat mutasi stok fisik...</div>
                             </div>
 
-                            <!-- Terminal Status Prompt -->
                             <div class="pt-3 border-t border-[#343A40] flex items-center justify-between text-[10px] text-[#A1A1AA]">
                                 <span>Status: <span class="text-emerald-400">Tersinkronisasi</span></span>
                                 <span>Double-Entry Ledger</span>
@@ -324,9 +293,6 @@
         </section>
 
 
-        <!-- ============================================================ -->
-        <!-- 3. EMPAT PILAR FITUR INTI GUDANG                             -->
-        <!-- ============================================================ -->
         <section id="fitur" class="max-w-6xl mx-auto px-6">
 
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -341,7 +307,6 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-                <!-- Pilar 1: Master Data -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
@@ -361,7 +326,6 @@
                     </div>
                 </div>
 
-                <!-- Pilar 2: Mutasi Arus Barang -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
@@ -381,7 +345,6 @@
                     </div>
                 </div>
 
-                <!-- Pilar 3: Stock Opname & Audit -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
@@ -401,7 +364,6 @@
                     </div>
                 </div>
 
-                <!-- Pilar 4: Analitik & Pelaporan -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
                     <div>
                         <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
@@ -425,10 +387,6 @@
 
         </section>
 
-
-        <!-- ============================================================ -->
-        <!-- 4. STANDAR OPERASIONAL LOGISTIK                              -->
-        <!-- ============================================================ -->
         <section id="arsitektur" class="max-w-6xl mx-auto px-6">
 
             <div class="p-8 sm:p-12 rounded-3xl bg-[#202429] border border-[#343A40] shadow-xs relative overflow-hidden">
@@ -443,7 +401,6 @@
                 </div>
 
                 <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-                    <!-- Step 1 -->
                     <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
                         <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">1</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Penerimaan Inbound</h4>
@@ -452,7 +409,6 @@
                         </p>
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
                         <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">2</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Validasi Stok Outbound</h4>
@@ -461,7 +417,6 @@
                         </p>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
                         <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">3</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Otorisasi & Audit Trail</h4>
@@ -474,10 +429,6 @@
 
         </section>
 
-
-        <!-- ============================================================ -->
-        <!-- 5. 1-CLICK DEMO SANDBOX BANNER                               -->
-        <!-- ============================================================ -->
         <section id="akses-demo" class="max-w-5xl mx-auto px-6">
 
             <div class="text-center mb-10">
@@ -492,7 +443,6 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-                <!-- 1. Admin Card (INDUSTRIAL YELLOW #F5C842) -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
                     <div>
                         <div class="flex items-center justify-between">
@@ -514,7 +464,6 @@
                     </form>
                 </div>
 
-                <!-- 2. Manager Card -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
                     <div>
                         <div class="flex items-center justify-between">
@@ -536,7 +485,6 @@
                     </form>
                 </div>
 
-                <!-- 3. Staff Card -->
                 <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
                     <div>
                         <div class="flex items-center justify-between">
@@ -564,13 +512,9 @@
 
     </main>
 
-    <!-- ============================================================ -->
-    <!-- FOOTER SIMPEL & ELEGAN (TANPA NODE STATUS)                    -->
-    <!-- ============================================================ -->
     <footer class="border-t border-[#343A40] bg-[#101214] py-8">
         <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#A1A1AA]">
 
-            <!-- Logo & Nama Sistem -->
             <div class="flex items-center gap-3">
                 <div class="w-7 h-7 rounded-lg bg-[#F5C842] border border-[#F5C842]/40 flex items-center justify-center text-[#101214] font-heading font-bold text-xs">
                     S
@@ -580,7 +524,6 @@
                 <span>Warehouse Management System</span>
             </div>
 
-            <!-- Copyright Sederhana -->
             <div class="text-[11px] text-[#A1A1AA]">
                 &copy; {{ date('Y') }} Stockify. Seluruh hak cipta dilindungi.
             </div>
@@ -588,9 +531,6 @@
         </div>
     </footer>
 
-    <!-- ============================================================ -->
-    <!-- SCRIPT GIMMICK: INTERACTIVE STOCK SIMULATOR                 -->
-    <!-- ============================================================ -->
     <script>
         const simProducts = [
             {
