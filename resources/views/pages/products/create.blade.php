@@ -86,20 +86,38 @@
                     class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
             </div>
 
-            <!-- Rekanan Supplier -->
-            <div>
-                <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
-                    Rekanan Supplier (Pemasok)
-                </label>
-                <select name="supplier_id"
-                    class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
-                    <option value="">-- Tanpa Supplier Terikat --</option>
-                    @foreach($suppliers as $sup)
-                        <option value="{{ $sup->id }}" {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
-                            {{ $sup->name }} ({{ $sup->phone }})
-                        </option>
-                    @endforeach
-                </select>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Rekanan Supplier -->
+                <div>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Rekanan Supplier (Pemasok)
+                    </label>
+                    <select name="supplier_id"
+                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                        <option value="">-- Tanpa Supplier Terikat --</option>
+                        @foreach($suppliers as $sup)
+                            <option value="{{ $sup->id }}" {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
+                                {{ $sup->name }} ({{ $sup->phone }})
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Lokasi Rak Gudang -->
+                <div>
+                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
+                        Lokasi Rak Penyimpanan
+                    </label>
+                    <select name="rack_location_id"
+                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                        <option value="">-- Belum Ditentukan (Unassigned) --</option>
+                        @foreach($rackLocations as $rack)
+                            <option value="{{ $rack->id }}" {{ old('rack_location_id') == $rack->id ? 'selected' : '' }}>
+                                {{ $rack->name }} ({{ $rack->zone ?: 'Zona Umum' }} - Terisi: {{ $rack->current_stock }}/{{ $rack->capacity }} Unit)
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
             <!-- Deskripsi -->

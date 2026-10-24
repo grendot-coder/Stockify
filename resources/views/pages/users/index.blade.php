@@ -24,28 +24,28 @@
 
     <!-- Alert Notifikasi -->
     @if(session('success'))
-        <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span>{{ session('success') }}</span>
-            </div>
+    <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
+        <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ session('success') }}</span>
         </div>
+    </div>
     @endif
 
     @if(session('error') || $errors->any())
-        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
-            <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-            </svg>
-            <span>{{ session('error') ?? $errors->first() }}</span>
-        </div>
+    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
+        <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        <span>{{ session('error') ?? $errors->first() }}</span>
+    </div>
     @endif
 
     <!-- Card Tabel & Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
-        
+
         <!-- Filter Bar -->
         <div class="p-4 border-b border-[#343A40] bg-[#181C20] flex flex-col md:flex-row items-center justify-between gap-3">
             <form action="{{ route('users.index') }}" method="GET" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-2 flex-1 max-w-xl">
@@ -68,9 +68,9 @@
                 </select>
 
                 @if($search || $role)
-                    <a href="{{ route('users.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] px-2 py-1 underline whitespace-nowrap">
-                        Reset Filter
-                    </a>
+                <a href="{{ route('users.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] px-2 py-1 underline whitespace-nowrap">
+                    Reset Filter
+                </a>
                 @endif
             </form>
             <span class="text-xs text-[#A1A1AA]">Total: <strong class="text-[#F5F5F5] font-mono">{{ $users->total() }}</strong> Akun</span>
@@ -91,96 +91,96 @@
                 </thead>
                 <tbody class="divide-y divide-[#343A40]">
                     @forelse($users as $u)
-                        <tr class="hover:bg-[#181C20] transition">
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xs">
-                                        {{ strtoupper(substr($u->name, 0, 2)) }}
-                                    </div>
-                                    <div>
-                                        <div class="font-medium text-[#F5F5F5] flex items-center gap-1.5">
-                                            {{ $u->name }}
-                                            @if($u->id === auth()->id())
-                                                <span class="px-1.5 py-0.2 text-[9px] font-semibold bg-stone-100 text-[#A1A1AA] rounded border border-stone-200">Anda</span>
-                                            @endif
-                                        </div>
-                                        <div class="text-[11px] font-mono text-[#A1A1AA]">{{ $u->email }}</div>
-                                    </div>
+                    <tr class="hover:bg-[#181C20] transition">
+                        <td class="px-5 py-3.5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xs">
+                                    {{ strtoupper(substr($u->name, 0, 2)) }}
                                 </div>
-                            </td>
-                            <td class="px-5 py-3.5">
-                                @if($u->role === 'admin')
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
-                                        Administrator
-                                    </span>
-                                @elseif($u->role === 'manager')
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-                                        Manajer Gudang
-                                    </span>
-                                @else
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                                        Staff Lapangan
-                                    </span>
-                                @endif
-                            </td>
-                            <td class="px-5 py-3.5 font-mono text-xs text-[#F5F5F5]">
-                                {{ $u->phone ?: '-' }}
-                            </td>
-                            <td class="px-5 py-3.5 text-center">
-                                @if($u->is_active)
-                                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Aktif
-                                    </span>
-                                @else
-                                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-50 text-red-700 border border-red-200">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Nonaktif
-                                    </span>
-                                @endif
-                            </td>
-                            <td class="px-5 py-3.5 text-xs text-[#A1A1AA] font-mono">
-                                {{ $u->created_at->translatedFormat('d M Y') }}
-                            </td>
-                            <td class="px-5 py-3.5 text-center">
-                                <div class="flex items-center justify-center gap-1.5">
-                                    <a href="{{ route('users.edit', $u->id) }}"
-                                        class="p-1.5 text-[#A1A1AA] hover:text-[#F5C842] hover:bg-[#181C20] rounded-lg transition" title="Edit Akun">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
-                                    </a>
+                                <div>
+                                    <div class="font-medium text-[#F5F5F5] flex items-center gap-1.5">
+                                        {{ $u->name }}
+                                        @if($u->id === auth()->id())
+                                        <span class="px-1.5 py-0.2 text-[9px] font-semibold bg-stone-100 text-[#A1A1AA] rounded border border-stone-200">Anda</span>
+                                        @endif
+                                    </div>
+                                    <div class="text-[11px] font-mono text-[#A1A1AA]">{{ $u->email }}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-5 py-3.5">
+                            @if($u->role === 'admin')
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
+                                Administrator
+                            </span>
+                            @elseif($u->role === 'manager')
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                                Manajer Gudang
+                            </span>
+                            @else
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                Staff
+                            </span>
+                            @endif
+                        </td>
+                        <td class="px-5 py-3.5 font-mono text-xs text-[#F5F5F5]">
+                            {{ $u->phone ?: '-' }}
+                        </td>
+                        <td class="px-5 py-3.5 text-center">
+                            @if($u->is_active)
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Aktif
+                            </span>
+                            @else
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-50 text-red-700 border border-red-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Nonaktif
+                            </span>
+                            @endif
+                        </td>
+                        <td class="px-5 py-3.5 text-xs text-[#A1A1AA] font-mono">
+                            {{ $u->created_at->translatedFormat('d M Y') }}
+                        </td>
+                        <td class="px-5 py-3.5 text-center">
+                            <div class="flex items-center justify-center gap-1.5">
+                                <a href="{{ route('users.edit', $u->id) }}"
+                                    class="p-1.5 text-[#A1A1AA] hover:text-[#F5C842] hover:bg-[#181C20] rounded-lg transition" title="Edit Akun">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </a>
 
-                                    @if($u->id !== auth()->id())
-                                        <form action="{{ route('users.destroy', $u->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus akun {{ $u->name }}? Tindakan ini tidak dapat dibatalkan.');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="p-1.5 text-[#A1A1AA] hover:text-red-600 hover:bg-red-50 rounded-lg transition" title="Hapus Akun">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </button>
-                                        </form>
-                                    @endif
-                                </div>
-                            </td>
-                        </tr>
+                                @if($u->id !== auth()->id())
+                                <form action="{{ route('users.destroy', $u->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus akun {{ $u->name }}? Tindakan ini tidak dapat dibatalkan.');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="p-1.5 text-[#A1A1AA] hover:text-red-600 hover:bg-red-50 rounded-lg transition" title="Hapus Akun">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </form>
+                                @endif
+                            </div>
+                        </td>
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="6" class="px-5 py-12 text-center text-[#A1A1AA]">
-                                <svg class="w-8 h-8 text-[#F5C842]/40 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                                Tidak ada data pengguna yang ditemukan.
-                            </td>
-                        </tr>
+                    <tr>
+                        <td colspan="6" class="px-5 py-12 text-center text-[#A1A1AA]">
+                            <svg class="w-8 h-8 text-[#F5C842]/40 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            Tidak ada data pengguna yang ditemukan.
+                        </td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
 
         @if($users->hasPages())
-            <div class="p-4 border-t border-[#343A40] bg-[#181C20]">
-                {{ $users->links() }}
-            </div>
+        <div class="p-4 border-t border-[#343A40] bg-[#181C20]">
+            {{ $users->links() }}
+        </div>
         @endif
 
     </div>

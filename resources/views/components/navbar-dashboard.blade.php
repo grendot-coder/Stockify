@@ -22,11 +22,11 @@
                     $navAppLogo = \App\Models\Setting::get('app_logo');
                 @endphp
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
-                    @if($navAppLogo)
+                    @if($navAppLogo && file_exists(public_path('storage/' . $navAppLogo)))
                         <img src="{{ asset('storage/' . $navAppLogo) }}" alt="{{ $navAppName }}" class="w-8 h-8 rounded-lg object-contain bg-[#202429] border border-[#343A40]">
                     @else
                         <div class="w-8 h-8 rounded-lg bg-[#F5C842] border border-[#F5C842]/40 text-[#101214] flex items-center justify-center font-heading font-bold text-base shadow-sm group-hover:bg-[#E8B92E] transition">
-                            {{ strtoupper(substr($navAppName, 0, 1)) }}
+                            S
                         </div>
                     @endif
                     <div class="flex flex-col">

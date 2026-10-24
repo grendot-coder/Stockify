@@ -3,7 +3,6 @@
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
 
-    <!-- Header & Breadcrumb -->
     <div class="flex items-center justify-between">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -20,14 +19,14 @@
 
     <!-- Error Alert -->
     @if($errors->any())
-        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
-            <div class="font-bold mb-1">Terdapat kesalahan pengisian formulir:</div>
-            <ul class="list-disc list-inside space-y-0.5">
-                @foreach($errors->all() as $err)
-                    <li>{{ $err }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
+        <div class="font-bold mb-1">Terdapat kesalahan pengisian formulir:</div>
+        <ul class="list-disc list-inside space-y-0.5">
+            @foreach($errors->all() as $err)
+            <li>{{ $err }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <!-- Form Container -->

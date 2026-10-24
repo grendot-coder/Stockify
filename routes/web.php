@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RackLocationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StockOpnameController;
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
         // Master Supplier (Modal CRUD)
         Route::resource('suppliers', SupplierController::class)->except(['create', 'show', 'edit']);
+
+        // Master Lokasi Rak (Modal CRUD)
+        Route::resource('locations', RackLocationController::class)->except(['create', 'show', 'edit']);
 
         // Kelola Produk (Tambah, Ubah, Hapus)
         Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');

@@ -25,7 +25,7 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository
     public function getPaginated(?string $search = null, ?int $categoryId = null, ?int $supplierId = null, bool $lowStockOnly = false, int $perPage = 10)
     {
         return $this->model->newQuery()
-            ->with(['category', 'supplier', 'attributes'])
+            ->with(['category', 'supplier', 'attributes', 'rackLocation'])
             ->when($search, function ($query, $search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")

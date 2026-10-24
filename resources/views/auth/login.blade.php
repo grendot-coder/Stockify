@@ -50,7 +50,7 @@
                     <div id="slide-1" class="carousel-slide transition-opacity duration-300">
                         <div class="text-[#F5C842] text-5xl font-editorial font-bold leading-none mb-4 select-none">&ldquo;</div>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
-                            Dengan Stockify, Anda dapat benar-benar mengorganisir seluruh inventaris bisnis tanpa celah.
+                            Dengan Stockify, arrange your shelf like a chad.
                         </h2>
 
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
@@ -86,7 +86,7 @@
                     <div id="slide-2" class="carousel-slide hidden transition-opacity duration-300">
                         <span class="inline-block text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold mb-2">Dampak Nyata Sistem</span>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
-                            Lebih dari 80% pelanggan pergudangan kami merasakan peningkatan efisiensi yang konsisten.*
+                            Mayoritas pengguna merasakan peningkatan efisiensi yang konsisten.*
                         </h2>
 
                         <div class="space-y-3.5 mt-7">
@@ -140,7 +140,7 @@
                                     01
                                 </div>
                                 <div class="font-heading font-semibold text-xs text-[#F5F5F5]">Katalog SKU</div>
-                                <div class="text-[10px] text-[#A1A1AA] mt-0.5">Multi-atribut & ambang batas</div>
+                                <div class="text-[10px] text-[#A1A1AA] mt-0.5">Multi-atribut</div>
                             </div>
 
                             <div class="p-3 rounded-xl bg-[#202429] border border-[#343A40]">
@@ -156,7 +156,7 @@
                                     03
                                 </div>
                                 <div class="font-heading font-semibold text-xs text-[#F5F5F5]">Opname Audit</div>
-                                <div class="text-[10px] text-[#A1A1AA] mt-0.5">Rekonsiliasi fisik & log</div>
+                                <div class="text-[10px] text-[#A1A1AA] mt-0.5">Penyesuaian stock fisik & Riwayat</div>
                             </div>
                         </div>
 
@@ -207,7 +207,7 @@
                     </a>
 
                     <a href="{{ route('landing') }}" class="text-xs font-semibold text-[#A1A1AA] hover:text-[#F5C842] transition flex items-center gap-1">
-                        <span>Showroom</span>
+                        <span>Beranda</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -328,16 +328,6 @@
                         </button>
                     </div>
                 </div>
-
-                <div class="text-center mt-8 pt-4">
-                    <a href="{{ route('landing') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] transition inline-flex items-center gap-1.5 font-medium">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        <span>Kembali ke Halaman Depan & Showroom</span>
-                    </a>
-                </div>
-
             </div>
         </div>
 

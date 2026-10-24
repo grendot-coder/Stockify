@@ -3,7 +3,6 @@
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
 
-    <!-- Header & Breadcrumb -->
     <div class="flex items-center justify-between">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -20,14 +19,14 @@
 
     <!-- Error Alert -->
     @if($errors->any())
-        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
-            <div class="font-bold mb-1">Terdapat kesalahan pengisian formulir:</div>
-            <ul class="list-disc list-inside space-y-0.5">
-                @foreach($errors->all() as $err)
-                    <li>{{ $err }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
+        <div class="font-bold mb-1">Terdapat kesalahan pengisian formulir:</div>
+        <ul class="list-disc list-inside space-y-0.5">
+            @foreach($errors->all() as $err)
+            <li>{{ $err }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <!-- Form Container -->
@@ -77,8 +76,8 @@
                         <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>Administrator (Akses Sistem Menyeluruh)</option>
                     </select>
                     @if($user->id === auth()->id())
-                        <input type="hidden" name="role" value="{{ $user->role }}">
-                        <span class="text-[10px] text-[#A1A1AA] mt-1 block">Anda tidak dapat mengubah peran akun Anda sendiri.</span>
+                    <input type="hidden" name="role" value="{{ $user->role }}">
+                    <span class="text-[10px] text-[#A1A1AA] mt-1 block">Anda tidak dapat mengubah peran akun Anda sendiri.</span>
                     @endif
                 </div>
                 <div>
@@ -94,7 +93,7 @@
                             <span class="text-xs text-[#F5F5F5] font-medium">Akun Aktif</span>
                         </label>
                         @if($user->id === auth()->id())
-                            <span class="text-[10px] text-[#A1A1AA] mt-1 block">Anda tidak dapat menonaktifkan akun sendiri.</span>
+                        <span class="text-[10px] text-[#A1A1AA] mt-1 block">Anda tidak dapat menonaktifkan akun sendiri.</span>
                         @endif
                     </div>
                 </div>

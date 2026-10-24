@@ -15,51 +15,55 @@
         </div>
         <div class="flex flex-wrap items-center gap-2">
             @if(in_array(Auth::user()->role, ['admin', 'manager']))
-                <a href="{{ route('products.export') }}"
-                    class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#F5C842] bg-[#F5C842]/15 hover:bg-[#F5C842] hover:text-[#101214] rounded-xl transition border border-[#F5C842]/30">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                    <span>Ekspor CSV</span>
-                </a>
-                <button type="button" data-modal-target="modal-import-products" data-modal-toggle="modal-import-products"
-                    class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#F5F5F5] bg-[#2A3036] hover:bg-[#343A40] rounded-xl transition border border-[#343A40]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
-                    <span>Impor CSV</span>
-                </button>
-                <a href="{{ route('products.create') }}"
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-semibold rounded-xl shadow-xs transition duration-150 cursor-pointer">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                    <span>Tambah Produk</span>
-                </a>
+            <a href="{{ route('products.export') }}"
+                class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#F5C842] bg-[#F5C842]/15 hover:bg-[#F5C842] hover:text-[#101214] rounded-xl transition border border-[#F5C842]/30">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Ekspor CSV</span>
+            </a>
+            <button type="button" data-modal-target="modal-import-products" data-modal-toggle="modal-import-products"
+                class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#F5F5F5] bg-[#2A3036] hover:bg-[#343A40] rounded-xl transition border border-[#343A40]">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
+                </svg>
+                <span>Impor CSV</span>
+            </button>
+            <a href="{{ route('products.create') }}"
+                class="inline-flex items-center gap-2 px-4 py-2 bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-semibold rounded-xl shadow-xs transition duration-150 cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span>Tambah Produk</span>
+            </a>
             @endif
         </div>
     </div>
 
     <!-- Alert Notifikasi -->
     @if(session('success'))
-        <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
-            <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span>{{ session('success') }}</span>
-            </div>
+    <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
+        <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ session('success') }}</span>
         </div>
+    </div>
     @endif
 
     @if(session('error'))
-        <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
-            <svg class="w-4 h-4 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-            </svg>
-            <span>{{ session('error') }}</span>
-        </div>
+    <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
+        <svg class="w-4 h-4 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+        <span>{{ session('error') }}</span>
+    </div>
     @endif
 
     <!-- Card Tabel & Filter Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
-        
+
         <!-- Filter Bar -->
         <div class="p-4 sm:p-5 border-b border-[#343A40] bg-[#181C20]">
             <form action="{{ route('products.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center">
@@ -75,9 +79,9 @@
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842]">
                         <option value="">Semua Kategori</option>
                         @foreach($categories as $c)
-                            <option value="{{ $c->id }}" {{ $categoryId == $c->id ? 'selected' : '' }}>
-                                {{ $c->name }}
-                            </option>
+                        <option value="{{ $c->id }}" {{ $categoryId == $c->id ? 'selected' : '' }}>
+                            {{ $c->name }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -88,9 +92,9 @@
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842]">
                         <option value="">Semua Supplier</option>
                         @foreach($suppliers as $s)
-                            <option value="{{ $s->id }}" {{ $supplierId == $s->id ? 'selected' : '' }}>
-                                {{ $s->name }}
-                            </option>
+                        <option value="{{ $s->id }}" {{ $supplierId == $s->id ? 'selected' : '' }}>
+                            {{ $s->name }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -103,9 +107,9 @@
                         <span class="{{ $lowStock ? 'font-bold text-[#F5C842]' : '' }}">Hanya Stok Tipis</span>
                     </label>
                     @if($search || $categoryId || $supplierId || $lowStock)
-                        <a href="{{ route('products.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] ml-auto underline">
-                            Reset
-                        </a>
+                    <a href="{{ route('products.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] ml-auto underline">
+                        Reset
+                    </a>
                     @endif
                 </div>
             </form>
@@ -126,106 +130,111 @@
                 </thead>
                 <tbody class="divide-y divide-[#343A40]">
                     @forelse($products as $p)
-                        <tr class="hover:bg-[#2A3036] transition">
-                            <!-- Info Produk + Thumbnail -->
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center gap-3.5">
-                                    <div class="w-10 h-10 rounded-lg bg-[#181C20] border border-[#343A40] flex-shrink-0 flex items-center justify-center overflow-hidden">
-                                        @if($p->image && file_exists(public_path('storage/' . $p->image)))
-                                            <img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->name }}" class="w-full h-full object-cover">
-                                        @else
-                                            <svg class="w-4 h-4 text-[#A1A1AA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                            </svg>
+                    <tr class="hover:bg-[#2A3036] transition">
+                        <!-- Info Produk + Thumbnail -->
+                        <td class="px-5 py-3.5">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-lg bg-[#181C20] border border-[#343A40] flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                    @if($p->image && file_exists(public_path('storage/' . $p->image)))
+                                    <img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->name }}" class="w-full h-full object-cover">
+                                    @else
+                                    <svg class="w-4 h-4 text-[#A1A1AA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    @endif
+                                </div>
+                                <div>
+                                    <div class="font-medium text-[#F5F5F5] text-xs hover:text-[#F5C842]">
+                                        <a href="{{ route('products.show', $p->id) }}">{{ $p->name }}</a>
+                                    </div>
+                                    <div class="text-[10px] font-mono tabular-nums text-[#A1A1AA] mt-0.5 flex flex-wrap items-center gap-2">
+                                        <span>SKU: <span class="text-[#F5C842] font-semibold">{{ $p->sku }}</span></span>
+                                        @if($p->rackLocation)
+                                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono font-medium bg-[#181C20] border border-[#343A40] text-[#F5C842]">
+                                            {{ $p->rackLocation->name }}
+                                        </span>
                                         @endif
                                     </div>
-                                    <div>
-                                        <div class="font-medium text-[#F5F5F5] text-xs hover:text-[#F5C842]">
-                                            <a href="{{ route('products.show', $p->id) }}">{{ $p->name }}</a>
-                                        </div>
-                                        <div class="text-[10px] font-mono tabular-nums text-[#A1A1AA] mt-0.5">
-                                            SKU: <span class="text-[#F5C842] font-semibold">{{ $p->sku }}</span>
-                                        </div>
-                                    </div>
                                 </div>
-                            </td>
+                            </div>
+                        </td>
 
-                            <!-- Kategori & Supplier -->
-                            <td class="px-5 py-3.5">
-                                <span class="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-[#181C20] text-[#F5F5F5] border border-[#343A40]">
-                                    {{ $p->category?->name ?? 'Tanpa Kategori' }}
+                        <!-- Kategori & Supplier -->
+                        <td class="px-5 py-3.5">
+                            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-[#181C20] text-[#F5F5F5] border border-[#343A40]">
+                                {{ $p->category?->name ?? 'Tanpa Kategori' }}
+                            </span>
+                            @if($p->supplier)
+                            <div class="text-[10px] text-[#A1A1AA] mt-0.5 truncate max-w-[150px]">
+                                {{ $p->supplier->name }}
+                            </div>
+                            @endif
+                        </td>
+
+                        <!-- Harga Beli -->
+                        <td class="px-5 py-3.5 text-right font-medium text-[#A1A1AA]">
+                            Rp {{ number_format($p->purchase_price, 0, ',', '.') }}
+                        </td>
+
+                        <!-- Harga Jual -->
+                        <td class="px-5 py-3.5 text-right font-bold text-[#F5F5F5]">
+                            Rp {{ number_format($p->selling_price, 0, ',', '.') }}
+                        </td>
+
+                        <!-- Status Stok -->
+                        <td class="px-5 py-3.5 text-center">
+                            @if($p->stock <= 0)
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
+                                Habis (0)
                                 </span>
-                                @if($p->supplier)
-                                    <div class="text-[10px] text-[#A1A1AA] mt-0.5 truncate max-w-[150px]">
-                                        {{ $p->supplier->name }}
-                                    </div>
-                                @endif
-                            </td>
-
-                            <!-- Harga Beli -->
-                            <td class="px-5 py-3.5 text-right font-medium text-[#A1A1AA]">
-                                Rp {{ number_format($p->purchase_price, 0, ',', '.') }}
-                            </td>
-
-                            <!-- Harga Jual -->
-                            <td class="px-5 py-3.5 text-right font-bold text-[#F5F5F5]">
-                                Rp {{ number_format($p->selling_price, 0, ',', '.') }}
-                            </td>
-
-                            <!-- Status Stok -->
-                            <td class="px-5 py-3.5 text-center">
-                                @if($p->stock <= 0)
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
-                                        Habis (0)
-                                    </span>
                                 @elseif($p->stock <= $p->min_stock)
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30" title="Batas minimum: {{ $p->min_stock }}">
                                         Menipis ({{ $p->stock }} Unit)
                                     </span>
-                                @else
+                                    @else
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                                         {{ $p->stock }} Unit
                                     </span>
-                                @endif
-                            </td>
+                                    @endif
+                        </td>
 
-                            <!-- Aksi -->
-                            <td class="px-5 py-3.5 text-right space-x-2 whitespace-nowrap">
-                                <a href="{{ route('products.show', $p->id) }}" class="text-[#A1A1AA] hover:text-[#F5C842] font-medium">
-                                    Detail
-                                </a>
-                                @if(in_array(Auth::user()->role, ['admin', 'manager']))
-                                    <a href="{{ route('products.edit', $p->id) }}" class="text-[#F5C842] hover:text-[#E8B92E] font-medium">
-                                        Edit
-                                    </a>
-                                @endif
-                                @if(Auth::user()->role === 'admin')
-                                    <form action="{{ route('products.destroy', $p->id) }}" method="POST" class="inline-block"
-                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk {{ addslashes($p->name) }}?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-rose-400 hover:text-rose-300 font-medium">
-                                            Hapus
-                                        </button>
-                                    </form>
-                                @endif
-                            </td>
-                        </tr>
+                        <!-- Aksi -->
+                        <td class="px-5 py-3.5 text-right space-x-2 whitespace-nowrap">
+                            <a href="{{ route('products.show', $p->id) }}" class="text-[#A1A1AA] hover:text-[#F5C842] font-medium">
+                                Detail
+                            </a>
+                            @if(in_array(Auth::user()->role, ['admin', 'manager']))
+                            <a href="{{ route('products.edit', $p->id) }}" class="text-[#F5C842] hover:text-[#E8B92E] font-medium">
+                                Edit
+                            </a>
+                            @endif
+                            @if(Auth::user()->role === 'admin')
+                            <form action="{{ route('products.destroy', $p->id) }}" method="POST" class="inline-block"
+                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk {{ addslashes($p->name) }}?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-rose-400 hover:text-rose-300 font-medium">
+                                    Hapus
+                                </button>
+                            </form>
+                            @endif
+                        </td>
+                    </tr>
                     @empty
-                        <tr>
-                            <td colspan="6" class="px-5 py-12 text-center text-[#A1A1AA]">
-                                Tidak ada produk yang sesuai dengan kriteria pencarian.
-                            </td>
-                        </tr>
+                    <tr>
+                        <td colspan="6" class="px-5 py-12 text-center text-[#A1A1AA]">
+                            Tidak ada produk yang sesuai dengan kriteria pencarian.
+                        </td>
+                    </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
 
         @if($products->hasPages())
-            <div class="p-4 border-t border-[#343A40] bg-[#181C20]">
-                {{ $products->links() }}
-            </div>
+        <div class="p-4 border-t border-[#343A40] bg-[#181C20]">
+            {{ $products->links() }}
+        </div>
         @endif
     </div>
 
@@ -252,7 +261,9 @@
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-semibold text-[#F5F5F5]">Panduan Format File:</span>
                             <a href="{{ route('products.template') }}" class="text-xs text-[#F5C842] hover:underline font-semibold flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
                                 Unduh Template CSV
                             </a>
                         </div>

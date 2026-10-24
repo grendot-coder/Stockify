@@ -11,6 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        
         $this->app->bind(
             \App\Repositories\StockOpname\StockOpnameRepository::class,
             \App\Repositories\StockOpname\StockOpnameRepositoryImplement::class
@@ -18,6 +19,15 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \App\Services\StockOpname\StockOpnameService::class,
             \App\Services\StockOpname\StockOpnameServiceImplement::class
+        );
+
+        $this->app->bind(
+            \App\Repositories\RackLocation\RackLocationRepository::class,
+            \App\Repositories\RackLocation\RackLocationRepositoryImplement::class
+        );
+        $this->app->bind(
+            \App\Services\RackLocation\RackLocationService::class,
+            \App\Services\RackLocation\RackLocationServiceImplement::class
         );
     }
 

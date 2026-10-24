@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\RackLocation;
 use App\Models\Supplier;
 use App\Services\Product\ProductService;
 use Illuminate\Http\Request;
@@ -42,9 +43,10 @@ class ProductController extends Controller
     {
         $categories = Category::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
+        $rackLocations = RackLocation::orderBy('name')->get();
         $suggestedSku = $this->productService->generateSku();
 
-        return view('pages.products.create', compact('categories', 'suppliers', 'suggestedSku'));
+        return view('pages.products.create', compact('categories', 'suppliers', 'suggestedSku', 'rackLocations'));
     }
 
     /**
@@ -55,6 +57,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => ['required', 'exists:categories,id'],
             'supplier_id' => ['nullable', 'exists:suppliers,id'],
+            'rack_location_id' => ['nullable', 'exists:rack_locations,id'],
             'sku' => ['required', 'string', 'max:50', 'unique:products,sku'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
@@ -90,7 +93,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['category', 'supplier', 'attributes', 'stockTransactions' => function ($q) {
+        $product = Product::with(['category', 'supplier', 'rackLocation', 'attributes', 'stockTransactions' => function ($q) {
             $q->latest()->take(10);
         }])->findOrFail($id);
 
@@ -102,11 +105,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('attributes')->findOrFail($id);
+        $product = Product::with(['attributes', 'rackLocation'])->findOrFail($id);
         $categories = Category::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
+        $rackLocations = RackLocation::orderBy('name')->get();
 
-        return view('pages.products.edit', compact('product', 'categories', 'suppliers'));
+        return view('pages.products.edit', compact('product', 'categories', 'suppliers', 'rackLocations'));
     }
 
     /**
@@ -117,6 +121,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => ['required', 'exists:categories,id'],
             'supplier_id' => ['nullable', 'exists:suppliers,id'],
+            'rack_location_id' => ['nullable', 'exists:rack_locations,id'],
             'sku' => ['required', 'string', 'max:50', "unique:products,sku,{$id}"],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
