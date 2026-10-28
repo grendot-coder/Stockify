@@ -3,7 +3,6 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Header & Tombol Tambah -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -40,7 +39,6 @@
         </div>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -61,22 +59,23 @@
     </div>
     @endif
 
-    <!-- Card Tabel & Filter Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
 
-        <!-- Filter Bar -->
         <div class="p-4 sm:p-5 border-b border-[#343A40] bg-[#181C20]">
             <form action="{{ route('products.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center">
-                <!-- Search -->
-                <div class="lg:col-span-2">
+                <div class="lg:col-span-2 relative">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#A1A1AA]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </span>
                     <input type="text" name="search" value="{{ $search }}" placeholder="Cari SKU, nama produk, atau deskripsi..."
-                        class="w-full px-3.5 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                        class="w-full pl-9 pr-3.5 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition">
                 </div>
 
-                <!-- Kategori Filter -->
                 <div>
                     <select name="category_id" onchange="this.form.submit()"
-                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842]">
+                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition cursor-pointer">
                         <option value="">Semua Kategori</option>
                         @foreach($categories as $c)
                         <option value="{{ $c->id }}" {{ $categoryId == $c->id ? 'selected' : '' }}>
@@ -86,10 +85,9 @@
                     </select>
                 </div>
 
-                <!-- Supplier Filter -->
                 <div>
                     <select name="supplier_id" onchange="this.form.submit()"
-                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842]">
+                        class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition cursor-pointer">
                         <option value="">Semua Supplier</option>
                         @foreach($suppliers as $s)
                         <option value="{{ $s->id }}" {{ $supplierId == $s->id ? 'selected' : '' }}>
@@ -99,15 +97,14 @@
                     </select>
                 </div>
 
-                <!-- Filter Stok Kritis & Reset -->
-                <div class="flex items-center gap-2">
-                    <label class="inline-flex items-center gap-1.5 cursor-pointer text-xs text-[#A1A1AA] select-none">
+                <div class="flex items-center justify-between gap-2">
+                    <label class="inline-flex items-center gap-2 cursor-pointer text-xs text-[#A1A1AA] select-none hover:text-[#F5F5F5] transition">
                         <input type="checkbox" name="low_stock" value="1" {{ $lowStock ? 'checked' : '' }} onchange="this.form.submit()"
-                            class="w-4 h-4 rounded border-[#343A40] bg-[#181C20] text-[#F5C842] focus:ring-[#F5C842]">
-                        <span class="{{ $lowStock ? 'font-bold text-[#F5C842]' : '' }}">Hanya Stok Tipis</span>
+                            class="w-4 h-4 rounded border-[#343A40] bg-[#181C20] text-[#F5C842] focus:ring-[#F5C842] focus:ring-offset-0">
+                        <span class="{{ $lowStock ? 'font-semibold text-[#F5C842]' : '' }}">Hanya Stok Tipis</span>
                     </label>
                     @if($search || $categoryId || $supplierId || $lowStock)
-                    <a href="{{ route('products.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] ml-auto underline">
+                    <a href="{{ route('products.index') }}" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] transition underline underline-offset-2">
                         Reset
                     </a>
                     @endif
@@ -115,28 +112,26 @@
             </form>
         </div>
 
-        <!-- Tabel Produk -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Katalog Inventaris Produk">
             <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
-                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
+                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40] sticky top-0 z-10">
                     <tr>
-                        <th class="px-5 py-3.5 font-heading font-semibold">Produk</th>
-                        <th class="px-5 py-3.5 font-heading font-semibold">Kategori</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Harga Beli</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Harga Jual</th>
-                        <th class="px-5 py-3.5 text-center font-heading font-semibold">Status Stok</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Aksi</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Produk</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Kategori</th>
+                        <th scope="col" class="px-5 py-3.5 text-right font-heading font-semibold">Harga Beli</th>
+                        <th scope="col" class="px-5 py-3.5 text-right font-heading font-semibold">Harga Jual</th>
+                        <th scope="col" class="px-5 py-3.5 text-center font-heading font-semibold">Status Stok</th>
+                        <th scope="col" class="px-5 py-3.5 text-center font-heading font-semibold">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#343A40]">
                     @forelse($products as $p)
-                    <tr class="hover:bg-[#2A3036] transition">
-                        <!-- Info Produk + Thumbnail -->
+                    <tr class="hover:bg-[#2A3036]/60 transition group">
                         <td class="px-5 py-3.5">
                             <div class="flex items-center gap-3.5">
-                                <div class="w-10 h-10 rounded-lg bg-[#181C20] border border-[#343A40] flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                <div class="w-11 h-11 rounded-xl bg-[#181C20] border border-[#343A40] flex-shrink-0 flex items-center justify-center overflow-hidden group-hover:border-[#F5C842]/40 transition">
                                     @if($p->image && file_exists(public_path('storage/' . $p->image)))
-                                    <img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->name }}" class="w-full h-full object-cover">
+                                    <img src="{{ asset('storage/' . $p->image) }}" alt="{{ $p->name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200">
                                     @else
                                     <svg class="w-4 h-4 text-[#A1A1AA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -144,14 +139,16 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <div class="font-medium text-[#F5F5F5] text-xs hover:text-[#F5C842]">
-                                        <a href="{{ route('products.show', $p->id) }}">{{ $p->name }}</a>
+                                    <div class="font-medium text-[#F5F5F5] text-xs group-hover:text-[#F5C842] transition">
+                                        <a href="{{ route('products.show', $p->id) }}" class="focus:outline-none focus:underline">{{ $p->name }}</a>
                                     </div>
-                                    <div class="text-[10px] font-mono tabular-nums text-[#A1A1AA] mt-0.5 flex flex-wrap items-center gap-2">
-                                        <span>SKU: <span class="text-[#F5C842] font-semibold">{{ $p->sku }}</span></span>
+                                    <div class="text-[10px] font-mono tabular-nums text-[#A1A1AA] mt-1 flex flex-wrap items-center gap-1.5">
+                                        <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-[#F5C842]/10 border border-[#F5C842]/20 text-[#F5C842] font-semibold">
+                                            {{ $p->sku }}
+                                        </span>
                                         @if($p->rackLocation)
-                                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono font-medium bg-[#181C20] border border-[#343A40] text-[#F5C842]">
-                                            {{ $p->rackLocation->name }}
+                                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono bg-[#181C20] border border-[#343A40] text-[#A1A1AA]">
+                                            📍 {{ $p->rackLocation->name }}
                                         </span>
                                         @endif
                                     </div>
@@ -159,65 +156,65 @@
                             </div>
                         </td>
 
-                        <!-- Kategori & Supplier -->
                         <td class="px-5 py-3.5">
-                            <span class="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-[#181C20] text-[#F5F5F5] border border-[#343A40]">
+                            <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-medium bg-[#181C20] text-[#F5F5F5] border border-[#343A40]">
                                 {{ $p->category?->name ?? 'Tanpa Kategori' }}
                             </span>
                             @if($p->supplier)
-                            <div class="text-[10px] text-[#A1A1AA] mt-0.5 truncate max-w-[150px]">
+                            <div class="text-[10px] text-[#A1A1AA] mt-1 truncate max-w-[150px]">
                                 {{ $p->supplier->name }}
                             </div>
                             @endif
                         </td>
 
-                        <!-- Harga Beli -->
-                        <td class="px-5 py-3.5 text-right font-medium text-[#A1A1AA]">
+                        <td class="px-5 py-3.5 text-right font-mono text-xs text-[#A1A1AA]">
                             Rp {{ number_format($p->purchase_price, 0, ',', '.') }}
                         </td>
 
-                        <!-- Harga Jual -->
-                        <td class="px-5 py-3.5 text-right font-bold text-[#F5F5F5]">
+                        <td class="px-5 py-3.5 text-right font-mono text-xs font-bold text-[#F5F5F5]">
                             Rp {{ number_format($p->selling_price, 0, ',', '.') }}
                         </td>
 
-                        <!-- Status Stok -->
-                        <td class="px-5 py-3.5 text-center">
+                        <td class="px-5 py-3.5 text-center whitespace-nowrap">
                             @if($p->stock <= 0)
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
+                                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold bg-rose-500/15 text-rose-400 border border-rose-500/30">
                                 Habis (0)
                                 </span>
                                 @elseif($p->stock <= $p->min_stock)
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30" title="Batas minimum: {{ $p->min_stock }}">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30" title="Batas minimum: {{ $p->min_stock }}">
                                         Menipis ({{ $p->stock }} Unit)
                                     </span>
                                     @else
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                                         {{ $p->stock }} Unit
                                     </span>
                                     @endif
                         </td>
 
-                        <!-- Aksi -->
-                        <td class="px-5 py-3.5 text-right space-x-2 whitespace-nowrap">
-                            <a href="{{ route('products.show', $p->id) }}" class="text-[#A1A1AA] hover:text-[#F5C842] font-medium">
-                                Detail
-                            </a>
-                            @if(in_array(Auth::user()->role, ['admin', 'manager']))
-                            <a href="{{ route('products.edit', $p->id) }}" class="text-[#F5C842] hover:text-[#E8B92E] font-medium">
-                                Edit
-                            </a>
-                            @endif
-                            @if(Auth::user()->role === 'admin')
-                            <form action="{{ route('products.destroy', $p->id) }}" method="POST" class="inline-block"
-                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk {{ addslashes($p->name) }}?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-rose-400 hover:text-rose-300 font-medium">
-                                    Hapus
-                                </button>
-                            </form>
-                            @endif
+                        <td class="px-5 py-3.5 text-right whitespace-nowrap">
+                            <div class="inline-flex items-center gap-1.5 justify-end">
+                                <a href="{{ route('products.show', $p->id) }}"
+                                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-[#A1A1AA] hover:text-[#F5F5F5] bg-[#181C20] hover:bg-[#2A3036] border border-[#343A40] transition">
+                                    Detail
+                                </a>
+                                @if(in_array(Auth::user()->role, ['admin', 'manager']))
+                                <a href="{{ route('products.edit', $p->id) }}"
+                                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-[#F5C842] bg-[#F5C842]/10 hover:bg-[#F5C842] hover:text-[#101214] border border-[#F5C842]/30 transition">
+                                    Edit
+                                </a>
+                                @endif
+                                @if(Auth::user()->role === 'admin')
+                                <form action="{{ route('products.destroy', $p->id) }}" method="POST" class="inline-block"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk {{ addslashes($p->name) }}?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-rose-400 bg-rose-500/10 hover:bg-rose-500 hover:text-white border border-rose-500/30 transition cursor-pointer">
+                                        Hapus
+                                    </button>
+                                </form>
+                                @endif
+                            </div>
                         </td>
                     </tr>
                     @empty
@@ -238,7 +235,6 @@
         @endif
     </div>
 
-    <!-- Modal Impor CSV Produk -->
     <div id="modal-import-products" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/60 backdrop-blur-xs flex items-center justify-center">
         <div class="relative w-full max-w-lg max-h-full">

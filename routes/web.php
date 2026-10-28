@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\AiAssistantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -49,6 +50,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+        // AI Assistant & Visual Analysis (Qwen-VL Local)
+        Route::get('/api/ai/health', [AiAssistantController::class, 'healthCheck'])->name('ai.health');
+        Route::post('/api/ai/analyze-product-image', [AiAssistantController::class, 'analyzeProductImage'])->name('ai.analyze-image');
 
         // Ekspor & Impor Data Produk (Fase 8)
         Route::get('/products/export', [ProductController::class, 'export'])->name('products.export');

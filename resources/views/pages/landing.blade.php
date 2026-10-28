@@ -42,10 +42,218 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             font-family: 'IBM Plex Mono', monospace;
             font-variant-numeric: tabular-nums;
         }
+
+        /* Native Scroll-driven progress indicator */
+        #scroll-progress {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #F5C842 0%, #FB923C 50%, #F5C842 100%);
+            box-shadow: 0 0 12px rgba(245, 200, 66, 0.6);
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @supports ((animation-timeline: scroll())) {
+                @keyframes grow-progress {
+                    from {
+                        transform: scaleX(0);
+                    }
+
+                    to {
+                        transform: scaleX(1);
+                    }
+                }
+
+                #scroll-progress {
+                    animation: grow-progress auto linear;
+                    animation-timeline: scroll();
+                }
+            }
+        }
+
+        /* Architectural blueprint grid with radial fade */
+        .blueprint-grid {
+            background-size: 48px 48px;
+            background-image:
+                linear-gradient(to right, rgba(52, 58, 64, 0.28) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(52, 58, 64, 0.28) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, #000 35%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, #000 35%, transparent 100%);
+        }
+
+        /* Ambient floating glow */
+        @keyframes ambient-glow {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: translate(24px, -24px) scale(1.18);
+                opacity: 0.32;
+            }
+        }
+
+        .animate-ambient-glow {
+            animation: ambient-glow 9s ease-in-out infinite;
+        }
+
+        /* CTA Shimmer sweep */
+        @keyframes shimmer-sweep {
+            0% {
+                transform: translateX(-150%) skewX(-20deg);
+            }
+
+            25%,
+            100% {
+                transform: translateX(250%) skewX(-20deg);
+            }
+        }
+
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.38), transparent);
+            animation: shimmer-sweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            pointer-events: none;
+        }
+
+        /* Interactive mouse spotlight for cards */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(450px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(245, 200, 66, 0.12), transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 200, 66, 0.45);
+            box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(245, 200, 66, 0.15);
+        }
+
+        /* Staggered scroll reveal */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delta pill floating animation */
+        @keyframes float-delta {
+            0% {
+                opacity: 0;
+                transform: translateY(6px) scale(0.85);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(0) scale(1.05);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(-16px) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-28px) scale(0.9);
+            }
+        }
+
+        .delta-pill {
+            position: absolute;
+            animation: float-delta 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            pointer-events: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            z-index: 20;
+        }
+
+        /* Stock number bounce */
+        @keyframes num-bounce {
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1.12);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-num-bounce {
+            animation: num-bounce 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            .animate-ambient-glow,
+            .shimmer-btn::after,
+            .animate-num-bounce,
+            #scroll-progress {
+                animation: none !important;
+            }
+
+            .spotlight-card:hover {
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-[#101214] text-[#F5F5F5] antialiased selection:bg-[#F5C842] selection:text-[#101214]">
+<body class="bg-[#101214] text-[#F5F5F5] antialiased selection:bg-[#F5C842] selection:text-[#101214] relative">
+    <!-- MANDATORY: Purely decorative visual scroll progress bar with aria-hidden="true" -->
+    <div id="scroll-progress" aria-hidden="true"></div>
 
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#181C20]/90 border-b border-[#343A40]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -96,8 +304,13 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
     <main class="space-y-24 sm:space-y-32 pb-24">
 
-        <section class="min-h-[calc(100dvh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-8 relative">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <section class="min-h-[calc(100dvh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-8 relative overflow-hidden">
+            <!-- Background blueprint grid and ambient lighting -->
+            <div class="absolute inset-0 blueprint-grid pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -top-16 left-1/4 w-96 h-96 bg-[#F5C842]/10 rounded-full blur-[120px] pointer-events-none animate-ambient-glow" aria-hidden="true"></div>
+            <div class="absolute top-1/2 -right-16 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none animate-ambient-glow" style="animation-delay: -4.5s;" aria-hidden="true"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
                 <div class="lg:col-span-7 space-y-6 text-left">
 
                     <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F5] leading-[1.15]">
@@ -135,8 +348,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
                     <div class="pt-2 flex flex-wrap items-center gap-3.5">
                         <a href="#akses-demo"
-                            class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#F5C842] text-[#101214] text-xs font-heading font-bold hover:bg-[#E8B92E] transition shadow-lg shadow-[#F5C842]/20 hover:scale-[1.02]">
-
+                            class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#F5C842] text-[#101214] text-xs font-heading font-bold hover:bg-[#E8B92E] transition shadow-lg shadow-[#F5C842]/20 hover:scale-[1.02] active:scale-[0.98]">
                             <span>Mulai Akses Demo 1-Klik</span>
                         </a>
                         <a href="#simulator"
@@ -152,16 +364,12 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
                 <div class="lg:col-span-5 relative">
 
-                    <div class="absolute -top-6 -right-6 w-48 h-48 bg-[#F5C842]/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
-                    <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xl relative overflow-hidden">
+                    <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xl relative overflow-hidden backdrop-blur-sm">
 
                         <div class="pb-3 border-b border-[#343A40]/80">
                             <div class="flex items-center justify-between">
-                                <span class="text-[10px] font-mono uppercase tracking-widest text-[#A1A1AA]">CHECK WHETHER YOUR ROW ARE FULL OR NOT</span>
-                                <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5" id="hero-stream-status">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                    LIVE TELEMETRI
-                                </span>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-[#A1A1AA]">Afraid of Full Rack? Check this out</span>
+                                <span id="hero-active-coord" class="text-[10px] font-mono text-[#F5C842] font-semibold tracking-wider">STANDBY</span>
                             </div>
                             <div class="flex items-baseline justify-between mt-2.5">
                                 <div>
@@ -210,7 +418,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         <span style="width: 8px; height: 8px; border-radius: 9999px; background-color: #FB923C;" class="inline-block"></span> Hampir Penuh
                     </span>
                     <span class="flex items-center gap-1.5 text-rose-400">
-                        <span style="width: 8px; height: 8px; border-radius: 9999px; background-color: #F43F5E;" class="inline-block shadow-[0_0_6px_rgba(244,63,94,0.6)]"></span> Penuh King
+                        <span style="width: 8px; height: 8px; border-radius: 9999px; background-color: #F43F5E;" class="inline-block shadow-[0_0_6px_rgba(244,63,94,0.6)]"></span> Kapasitas Maksimal (100%)
                     </span>
                 </div>
             </div>
@@ -219,25 +427,25 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
         <div class="max-w-7xl mx-auto px-6 pt-6 pb-12 border-t border-[#343A40]">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition">
-                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842]">
-                        {{ $productCount > 0 ? number_format($productCount) . ' SKU' : '15.000+' }}
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition">
+                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842] counter-stat" data-target="{{ $productCount > 0 ? $productCount : 15000 }}" data-suffix="{{ $productCount > 0 ? ' SKU' : '+' }}">
+                        0{{ $productCount > 0 ? ' SKU' : '+' }}
                     </div>
                     <div class="text-xs font-semibold text-[#F5F5F5] mt-1.5 font-heading">Kapasitas Multi-Atribut</div>
                     <div class="text-[11px] text-[#A1A1AA] mt-0.5">Varian ukuran, warna, nomor seri, dan ambang batas stok.</div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition">
-                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842]">
-                        {{ $transactionCount > 0 ? number_format($transactionCount) . ' Mutasi' : 'Real-time' }}
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition" style="transition-delay: 100ms;">
+                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842] counter-stat" data-target="{{ $transactionCount > 0 ? $transactionCount : 8420 }}" data-suffix="{{ $transactionCount > 0 ? ' Mutasi' : ' Mutasi Terverifikasi' }}">
+                        0{{ $transactionCount > 0 ? ' Mutasi' : ' Mutasi Terverifikasi' }}
                     </div>
                     <div class="text-xs font-semibold text-[#F5F5F5] mt-1.5 font-heading">Alur Mutasi Terotorisasi</div>
                     <div class="text-[11px] text-[#A1A1AA] mt-0.5">Pencatatan invoice digital Inbound & Outbound dengan verifikasi ganda.</div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition">
-                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842]">
-                        {{ $supplierCount > 0 ? number_format($supplierCount) . ' Rekanan' : '99.98%' }}
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition" style="transition-delay: 200ms;">
+                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842] counter-stat" data-target="{{ $supplierCount > 0 ? $supplierCount : 99.98 }}" data-suffix="{{ $supplierCount > 0 ? ' Rekanan' : '%' }}" data-is-decimal="{{ $supplierCount > 0 ? 'false' : 'true' }}">
+                        0{{ $supplierCount > 0 ? ' Rekanan' : '%' }}
                     </div>
                     <div class="text-xs font-semibold text-[#F5F5F5] mt-1.5 font-heading">Jaringan Supplier Aktif</div>
                     <div class="text-[11px] text-[#A1A1AA] mt-0.5">Kemitraan terintegrasi dengan alamat kontak & riwayat pasokan.</div>
@@ -280,10 +488,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="text-xs font-mono font-medium text-[#A1A1AA]">Simulator</span>
-                    </div>
+
                 </div>
 
                 <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -298,9 +503,6 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                                     </span>
                                     <span id="sim-category" class="text-xs text-[#A1A1AA]">Elektronik & Periferal</span>
                                 </div>
-                                <span id="sim-status-badge" class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                                    Stok Aman
-                                </span>
                             </div>
 
                             <h3 id="sim-name" class="font-heading text-2xl font-bold text-[#F5F5F5]">
@@ -393,8 +595,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                                 <div class="text-[#A1A1AA]">mencatat mutasi stok</div>
                             </div>
 
-                            <div class="pt-3 border-t border-[#343A40] flex items-center justify-between text-[10px] text-[#A1A1AA]">
-                                <span>Status: <span class="text-emerald-400">Tersinkronisasi</span></span>
+                            <div class="pt-3 border-t border-[#343A40] flex items-center justify-end text-[10px] text-[#A1A1AA]">
                                 <span>Double-Entry Ledger</span>
                             </div>
                         </div>
@@ -409,7 +610,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
         <section id="fitur" class="max-w-6xl mx-auto px-6">
 
-            <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal-on-scroll">
                 <span class="text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold">Kapabilitas Sistem</span>
                 <h2 class="font-heading text-3xl sm:text-4xl font-bold text-[#F5F5F5] mt-1">
                     Dirancang untuk Membantu UMKM, Unicorn, maupun Perusahaan Besar
@@ -421,9 +622,9 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between group" style="transition-delay: 0ms;">
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
+                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40] group-hover:border-[#F5C842]/40 group-hover:scale-105 transition-all duration-300">
                             01
                         </div>
                         <h3 class="font-heading text-lg font-bold text-[#F5F5F5] group-hover:text-[#F5C842] transition">
@@ -434,15 +635,15 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-[#343A40]">
-                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1">
+                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                             <span>Jelajahi Katalog</span> &rarr;
                         </a>
                     </div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between group" style="transition-delay: 100ms;">
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
+                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40] group-hover:border-[#F5C842]/40 group-hover:scale-105 transition-all duration-300">
                             02
                         </div>
                         <h3 class="font-heading text-lg font-bold text-[#F5F5F5] group-hover:text-[#F5C842] transition">
@@ -453,15 +654,15 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-[#343A40]">
-                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1">
+                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                             <span>Alur Transaksi</span> &rarr;
                         </a>
                     </div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between group" style="transition-delay: 200ms;">
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
+                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40] group-hover:border-[#F5C842]/40 group-hover:scale-105 transition-all duration-300">
                             03
                         </div>
                         <h3 class="font-heading text-lg font-bold text-[#F5F5F5] group-hover:text-[#F5C842] transition">
@@ -472,15 +673,15 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-[#343A40]">
-                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1">
+                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                             <span>Rekonsiliasi Fisik</span> &rarr;
                         </a>
                     </div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] hover:border-[#F5C842]/50 shadow-xs flex flex-col justify-between group transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between group" style="transition-delay: 300ms;">
                     <div>
-                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40]">
+                        <div class="w-10 h-10 rounded-xl bg-[#181C20] text-[#F5C842] flex items-center justify-center font-bold text-sm mb-4 border border-[#343A40] group-hover:border-[#F5C842]/40 group-hover:scale-105 transition-all duration-300">
                             04
                         </div>
                         <h3 class="font-heading text-lg font-bold text-[#F5F5F5] group-hover:text-[#F5C842] transition">
@@ -491,7 +692,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-[#343A40]">
-                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1">
+                        <a href="{{ route('login') }}" class="text-xs font-heading font-semibold text-[#F5C842] hover:underline inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                             <span>Modul Laporan</span> &rarr;
                         </a>
                     </div>
@@ -503,8 +704,10 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
         <section id="arsitektur" class="max-w-6xl mx-auto px-6">
 
-            <div class="p-8 sm:p-12 rounded-3xl bg-[#202429] border border-[#343A40] shadow-xs relative overflow-hidden">
-                <div class="max-w-2xl">
+            <div class="reveal-on-scroll p-8 sm:p-12 rounded-3xl bg-[#202429] border border-[#343A40] shadow-xs relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#F5C842]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="max-w-2xl relative z-10">
                     <span class="text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold">Standar Operasional</span>
                     <h2 class="font-heading text-3xl sm:text-4xl font-bold text-[#F5F5F5] mt-1">
                         Siklus Mutasi Stok Tanpa Ambang Human Error.
@@ -514,25 +717,25 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                     </p>
                 </div>
 
-                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-                    <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">1</div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs relative z-10">
+                    <div class="spotlight-card p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold shadow-xs">1</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Penerimaan Inbound</h4>
                         <p class="text-[#A1A1AA] leading-relaxed">
                             Pencatatan nomor surat jalan supplier, SKU barang, dan kuantitas masuk. Stok fisik langsung terbarui secara atomic dalam database.
                         </p>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">2</div>
+                    <div class="spotlight-card p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold shadow-xs">2</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Validasi Stok Outbound</h4>
                         <p class="text-[#A1A1AA] leading-relaxed">
                             Sistem secara proaktif menolak pengeluaran jika permintaan melebihi sisa fisik di gudang. Dilengkapi klasifikasi alasan mutasi.
                         </p>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
-                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold">3</div>
+                    <div class="spotlight-card p-6 rounded-2xl bg-[#181C20] border border-[#343A40] space-y-2.5">
+                        <div class="w-8 h-8 rounded-lg bg-[#F5C842] text-[#101214] flex items-center justify-center font-heading font-bold shadow-xs">3</div>
                         <h4 class="font-heading font-bold text-[#F5F5F5] text-sm">Otorisasi & Audit Trail</h4>
                         <p class="text-[#A1A1AA] leading-relaxed">
                             Transaksi pending ditinjau oleh Manajer Gudang. Setiap langkah tercatat dalam tabel log aktivitas dengan alamat IP dan timestamp.
@@ -545,7 +748,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
         <section id="akses-demo" class="max-w-5xl mx-auto px-6">
 
-            <div class="text-center mb-10">
+            <div class="text-center mb-10 reveal-on-scroll">
                 <span class="text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold">Sandbox & Demo Eksklusif</span>
                 <h2 class="font-heading text-3xl sm:text-4xl font-bold text-[#F5F5F5] mt-1">
                     Uji Coba Langsung Berdasarkan Peran Pengguna.
@@ -557,7 +760,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5" style="transition-delay: 0ms;">
                     <div>
                         <div class="flex items-center justify-between">
                             <span class="text-sm font-heading font-bold text-[#F5F5F5]">Administrator</span>
@@ -572,13 +775,13 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         <input type="hidden" name="email" value="admin@stockify.test">
                         <input type="hidden" name="password" value="password">
                         <button type="submit"
-                            class="w-full py-3 px-4 rounded-xl bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-heading font-semibold transition shadow-xs cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-3 px-4 rounded-xl bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-heading font-semibold transition shadow-xs cursor-pointer flex items-center justify-center gap-1.5 active:scale-95">
                             <span>Masuk sebagai Admin</span> &rarr;
                         </button>
                     </form>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5" style="transition-delay: 120ms;">
                     <div>
                         <div class="flex items-center justify-between">
                             <span class="text-sm font-heading font-bold text-[#F5F5F5]">Manajer Gudang</span>
@@ -593,13 +796,13 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                         <input type="hidden" name="email" value="manager@stockify.test">
                         <input type="hidden" name="password" value="password">
                         <button type="submit"
-                            class="w-full py-3 px-4 rounded-xl bg-[#181C20] border border-[#343A40] hover:border-[#F5C842] text-[#F5F5F5] text-xs font-heading font-semibold hover:bg-[#2A3036] hover:text-[#F5C842] transition cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-3 px-4 rounded-xl bg-[#181C20] border border-[#343A40] hover:border-[#F5C842] text-[#F5F5F5] text-xs font-heading font-semibold hover:bg-[#2A3036] hover:text-[#F5C842] transition cursor-pointer flex items-center justify-center gap-1.5 active:scale-95">
                             <span>Masuk sebagai Manajer</span> &rarr;
                         </button>
                     </form>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5 hover:border-[#F5C842]/50 transition">
+                <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs flex flex-col justify-between space-y-5" style="transition-delay: 240ms;">
                     <div>
                         <div class="flex items-center justify-between">
                             <span class="text-sm font-heading font-bold text-[#F5F5F5]">Staff Gudang</span>
@@ -740,13 +943,10 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
 
             <!-- Bagian Bawah: Copyright, Status Sistem, & Back to top -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#A1A1AA]">
-                <div class="flex items-center gap-2.5">
-                    <span class="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse"></span>
-                    <span class="text-xs text-[#A1A1AA]">Status Sistem: <strong class="text-[#F5F5F5]">Operasional Normal</strong> &bull; Laravel v10</span>
-                </div>
+
 
                 <div class="text-xs text-[#A1A1AA]">
-                    &copy; {{ date('Y') }} {{ $landingAppName }}. Seluruh hak cipta dilindungi.
+                    &copy; {{ date('Y') }} {{ $landingAppName }}.
                 </div>
 
                 <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-xs text-[#A1A1AA] hover:text-[#F5C842] transition flex items-center gap-1.5">
@@ -831,13 +1031,18 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             stockEl.textContent = p.stock;
 
             const badge = document.getElementById('sim-status-badge');
+            if (badge) {
+                if (p.stock <= p.minStock) {
+                    badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-[#FB923C]/15 text-[#FB923C] border border-[#FB923C]/30 animate-pulse';
+                    badge.textContent = '⚠️ Peringatan: Stok Menipis!';
+                } else {
+                    badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30';
+                    badge.textContent = '✓ Stok Aman (Normal)';
+                }
+            }
             if (p.stock <= p.minStock) {
-                badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-[#FB923C]/15 text-[#FB923C] border border-[#FB923C]/30 animate-pulse';
-                badge.textContent = '⚠️ Peringatan: Stok Menipis!';
                 stockEl.className = 'font-mono text-5xl font-bold text-[#FB923C] tabular-nums transition-all duration-200';
             } else {
-                badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30';
-                badge.textContent = '✓ Stok Aman (Normal)';
                 stockEl.className = 'font-mono text-5xl font-bold text-[#F5F5F5] tabular-nums transition-all duration-200';
             }
 
@@ -853,10 +1058,37 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             }
         }
 
+        function spawnDeltaBadge(text, color) {
+            const stockEl = document.getElementById('sim-stock');
+            if (!stockEl) return;
+            const parent = stockEl.parentElement;
+            if (!parent) return;
+
+            const badge = document.createElement('span');
+            badge.className = `delta-pill ${color === 'emerald' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-rose-500/20 text-rose-400 border border-rose-500/40'}`;
+            badge.textContent = text;
+            parent.style.position = 'relative';
+            badge.style.right = '0';
+            badge.style.top = '-12px';
+            parent.appendChild(badge);
+
+            setTimeout(() => badge.remove(), 900);
+        }
+
+        function triggerStockBounce() {
+            const stockEl = document.getElementById('sim-stock');
+            if (!stockEl) return;
+            stockEl.classList.remove('animate-num-bounce');
+            // Trigger reflow to restart animation
+            void stockEl.offsetWidth;
+            stockEl.classList.add('animate-num-bounce');
+        }
+
         function selectSimProduct(index) {
             currentProductIndex = index;
             const p = simProducts[currentProductIndex];
             updateSimUI();
+            triggerStockBounce();
             appendSimLog(`Beralih ke SKU ${p.sku} (${p.name}). Stok sekarang: ${p.stock} unit.`);
         }
 
@@ -866,14 +1098,19 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             if (direction === 'in') {
                 p.stock += qty;
                 updateSimUI();
+                triggerStockBounce();
+                spawnDeltaBadge(`+${qty}`, 'emerald');
                 appendSimLog(`+${qty} unit masuk untuk ${p.sku}. Stok baru: ${p.stock} unit. Invoice dicatat.`, 'inbound');
             } else {
                 if (p.stock < qty) {
                     appendSimLog(`Permintaan pengeluaran ${qty} unit melebihi sisa fisik ${p.stock} unit untuk ${p.sku}. Transaksi dibatalkan.`, 'error');
+                    triggerStockBounce();
                     return;
                 }
                 p.stock -= qty;
                 updateSimUI();
+                triggerStockBounce();
+                spawnDeltaBadge(`-${qty}`, 'rose');
                 appendSimLog(`-${qty} unit keluar untuk ${p.sku}. Sisa stok fisik: ${p.stock} unit.`, 'outbound');
 
                 if (p.stock <= p.minStock) {
@@ -886,6 +1123,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             const p = simProducts[currentProductIndex];
             p.stock = p.initialStock;
             updateSimUI();
+            triggerStockBounce();
             appendSimLog(`Stok ${p.sku} direset ke nilai awal: ${p.initialStock} unit.`);
         }
 
@@ -896,7 +1134,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             }
         }
 
-        // Animasi Storage Dot Matrix Gudang Hero (4 Baris, Mengisi dari kiri ke kanan)
+        // Storage Dot Matrix Gudang Hero Animation with technical HUD
         function initHeroBitAnimation() {
             const matrixContainer = document.getElementById('hero-dot-matrix');
             if (!matrixContainer) return;
@@ -905,7 +1143,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             const percentEl = document.getElementById('hero-bit-percent');
             const unitsEl = document.getElementById('hero-bit-units');
             const progressEl = document.getElementById('hero-bit-progressbar');
-            const streamStatus = document.getElementById('hero-stream-status');
+            const coordEl = document.getElementById('hero-active-coord');
 
             const totalCols = 10;
             const totalDots = dots.length; // 40
@@ -927,9 +1165,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                 if (percentEl) percentEl.textContent = '0%';
                 if (unitsEl) unitsEl.textContent = '0';
                 if (progressEl) progressEl.style.width = '0%';
-                if (streamStatus) {
-                    streamStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> LIVE TELEMETRI';
-                }
+                if (coordEl) coordEl.textContent = 'STANDBY';
             }
 
             function tickAnimation() {
@@ -942,17 +1178,17 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                     colDots.forEach((dot, idx) => {
                         setTimeout(() => {
                             let color = normalBg;
-                            let glow = '0 0 8px rgba(245, 200, 66, 0.75)';
+                            let glow = '0 0 10px rgba(245, 200, 66, 0.75)';
                             if (targetCol > 7) {
                                 color = fullBg;
-                                glow = '0 0 8px rgba(244, 63, 94, 0.75)';
+                                glow = '0 0 10px rgba(244, 63, 94, 0.75)';
                             } else if (targetCol > 4) {
                                 color = warningBg;
-                                glow = '0 0 8px rgba(251, 146, 60, 0.75)';
+                                glow = '0 0 10px rgba(251, 146, 60, 0.75)';
                             }
                             dot.style.backgroundColor = color;
                             dot.style.boxShadow = glow;
-                            dot.style.transform = 'scale(1.3)';
+                            dot.style.transform = 'scale(1.25)';
                             setTimeout(() => {
                                 dot.style.transform = 'scale(1)';
                             }, 180);
@@ -967,16 +1203,11 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                     if (percentEl) percentEl.textContent = pct + '%';
                     if (unitsEl) unitsEl.textContent = units.toLocaleString('id-ID');
                     if (progressEl) progressEl.style.width = pct + '%';
-
-                    if (streamStatus) {
-                        streamStatus.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#F5C842] animate-ping"></span> RACK-0${targetCol} SINKRON`;
-                    }
+                    if (coordEl) coordEl.textContent = `ROW 01-04 • COL 0${targetCol}`;
 
                     if (currentStep >= totalCols) {
                         isFilling = false;
-                        if (streamStatus) {
-                            streamStatus.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 4 BARIS TERISI (100%)';
-                        }
+                        if (coordEl) coordEl.textContent = 'MAX CAPACITY (40/40)';
                         // Jeda 3 detik sebelum mengulang siklus
                         setTimeout(() => {
                             resetDots();
@@ -991,11 +1222,122 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
             setInterval(tickAnimation, 450);
         }
 
+        // Spotlight card interactive mouse tracking
+        function initSpotlightCards() {
+            const cards = document.querySelectorAll('.spotlight-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Staggered scroll reveal using IntersectionObserver
+        function initScrollReveals() {
+            const elements = document.querySelectorAll('.reveal-on-scroll');
+            if (!elements.length) return;
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // Animated metric counters roll-up
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter-stat');
+            if (!counters.length) return;
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.getAttribute('data-target')) || 0;
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        const isDecimal = el.getAttribute('data-is-decimal') === 'true';
+                        const duration = 1600;
+                        const startTime = performance.now();
+
+                        function update(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            // easeOutExpo
+                            const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                            const currentVal = target * ease;
+
+                            if (isDecimal) {
+                                el.textContent = currentVal.toFixed(2) + suffix;
+                            } else {
+                                el.textContent = Math.floor(currentVal).toLocaleString('id-ID') + suffix;
+                            }
+
+                            if (progress < 1) {
+                                requestAnimationFrame(update);
+                            }
+                        }
+
+                        requestAnimationFrame(update);
+                        obs.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            counters.forEach(c => observer.observe(c));
+        }
+
+        // Scroll Progress Indicator Fallback for browsers lacking native CSS animation-timeline
+        function initScrollProgressFallback() {
+            if (!window.CSS || !CSS.supports('animation-timeline', 'scroll()')) {
+                const progress = document.getElementById('scroll-progress');
+                if (!progress) return;
+
+                window.addEventListener('scroll', () => {
+                    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+                    if (scrollable > 0) {
+                        const scrolled = window.scrollY;
+                        const pct = Math.min(Math.max(scrolled / scrollable, 0), 1);
+                        progress.style.transform = `scaleX(${pct})`;
+                    }
+                }, {
+                    passive: true
+                });
+            }
+        }
+
         // Jalankan inisialisasi awal UI
         document.addEventListener('DOMContentLoaded', () => {
             updateSimUI();
             appendSimLog('Simulator siap. Coba klik tombol Inbound atau Outbound untuk menguji!', 'normal');
             initHeroBitAnimation();
+            initSpotlightCards();
+            initScrollReveals();
+            initCounters();
+            initScrollProgressFallback();
+
+            // Auto-refresh jika tab ditinggalkan lama (>20 menit) agar CSRF token form demo tetap valid
+            let pageLoadTime = Date.now();
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    if (Date.now() - pageLoadTime > 20 * 60 * 1000) {
+                        window.location.reload();
+                    }
+                }
+            });
         });
     </script>
 </body>

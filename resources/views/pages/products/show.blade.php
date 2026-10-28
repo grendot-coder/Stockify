@@ -3,7 +3,6 @@
 @section('content')
 <div class="max-w-5xl mx-auto space-y-5">
 
-    <!-- Navigasi & Action Buttons -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <a href="{{ route('products.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -27,7 +26,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit"
-                            class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#202429] hover:bg-rose-500/10 text-rose-600 border border-[#343A40] hover:border-rose-200 text-xs font-semibold rounded-xl transition cursor-pointer">
+                            class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-rose-500/10 hover:bg-rose-500 hover:text-white text-rose-400 border border-rose-500/30 text-xs font-semibold rounded-xl transition cursor-pointer">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                             </svg>
@@ -39,12 +38,9 @@
         @endif
     </div>
 
-    <!-- Informasi Utama Produk -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        <!-- Kolom Kiri: Foto, SKU, dan Status Stok -->
         <div class="space-y-4">
-            <!-- Foto Produk -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs text-center">
                 <div class="w-full aspect-square rounded-xl bg-[#181C20] border border-[#343A40] flex items-center justify-center overflow-hidden mb-3">
                     @if($product->image && file_exists(public_path('storage/' . $product->image)))
@@ -76,7 +72,6 @@
                 </div>
             </div>
 
-            <!-- Card Status Stok -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs space-y-3">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA] font-semibold">Persediaan Gudang</span>
@@ -99,7 +94,6 @@
                 </div>
             </div>
 
-            <!-- Card Harga & Margin -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs space-y-2.5">
                 <span class="text-[11px] font-mono uppercase tracking-wider text-[#A1A1AA] font-semibold">Rincian Finansial</span>
                 
@@ -118,18 +112,16 @@
                     $marginPersen = $product->selling_price > 0 ? ($marginNominal / $product->selling_price) * 100 : 0;
                 @endphp
                 <div class="pt-2 border-t border-[#343A40] flex justify-between items-center text-xs">
-                    <span class="text-emerald-700 font-medium">Estimasi Margin:</span>
-                    <span class="font-mono font-bold text-emerald-700">
+                    <span class="text-emerald-400 font-medium">Estimasi Margin:</span>
+                    <span class="font-mono font-bold text-emerald-400">
                         Rp {{ number_format($marginNominal, 0, ',', '.') }} ({{ number_format($marginPersen, 1) }}%)
                     </span>
                 </div>
             </div>
         </div>
 
-        <!-- Kolom Kanan: Rincian Produk, Supplier, dan Atribut -->
         <div class="md:col-span-2 space-y-4">
             
-            <!-- Profil Barang -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
                 <div>
                     <div class="flex items-center gap-2 mb-1.5">
@@ -140,7 +132,6 @@
                     <h1 class="text-xl sm:text-2xl font-editorial font-medium text-[#F5F5F5]">{{ $product->name }}</h1>
                 </div>
 
-                <!-- Deskripsi -->
                 <div>
                     <h3 class="text-xs font-semibold text-[#F5F5F5] mb-1.5">Deskripsi & Catatan:</h3>
                     <p class="text-xs text-[#F5F5F5] leading-relaxed bg-[#181C20] p-3.5 rounded-xl border border-[#343A40]">
@@ -148,7 +139,6 @@
                     </p>
                 </div>
 
-                <!-- Info Supplier -->
                 <div class="pt-3 border-t border-[#343A40]">
                     <h3 class="text-xs font-semibold text-[#F5F5F5] mb-2.5">Informasi Rekanan Pemasok:</h3>
                     @if($product->supplier)
@@ -180,22 +170,21 @@
                 </div>
             </div>
 
-            <!-- Tabel Spesifikasi & Atribut Tambahan -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-3">
                 <h3 class="text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">Atribut & Spesifikasi Barang</h3>
                 
                 @if($product->attributes->count() > 0)
-                    <div class="overflow-x-auto">
+                    <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Atribut dan Spesifikasi Barang">
                         <table class="w-full text-xs text-left text-[#A1A1AA]">
-                            <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40]">
+                            <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40] sticky top-0 z-10">
                                 <tr>
-                                    <th class="px-4 py-2.5 w-1/3">Nama Atribut</th>
-                                    <th class="px-4 py-2.5">Nilai / Spesifikasi</th>
+                                    <th scope="col" class="px-4 py-2.5 w-1/3">Nama Atribut</th>
+                                    <th scope="col" class="px-4 py-2.5">Nilai / Spesifikasi</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-[#343A40]">
                                 @foreach($product->attributes as $attr)
-                                    <tr class="hover:bg-[#181C20] transition">
+                                    <tr class="hover:bg-[#2A3036]/60 transition">
                                         <td class="px-4 py-2.5 text-[#A1A1AA]">{{ $attr->attribute_name }}</td>
                                         <td class="px-4 py-2.5 text-[#F5F5F5] font-semibold">{{ $attr->attribute_value }}</td>
                                     </tr>
@@ -208,7 +197,6 @@
                 @endif
             </div>
 
-            <!-- Riwayat Transaksi Stok Terakhir -->
             <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-3">
                 <div class="flex items-center justify-between">
                     <h3 class="text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">10 Riwayat Mutasi Stok Terakhir</h3>
@@ -216,20 +204,20 @@
                 </div>
 
                 @if($product->stockTransactions->count() > 0)
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-xs text-left text-[#A1A1AA]">
-                            <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40]">
+                    <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel 10 Riwayat Mutasi Stok Terakhir">
+                        <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
+                            <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40] sticky top-0 z-10">
                                 <tr>
-                                    <th class="px-4 py-2.5">No. Transaksi</th>
-                                    <th class="px-4 py-2.5">Jenis</th>
-                                    <th class="px-4 py-2.5 text-right">Jumlah</th>
-                                    <th class="px-4 py-2.5">Tanggal</th>
-                                    <th class="px-4 py-2.5">Catatan</th>
+                                    <th scope="col" class="px-4 py-2.5">No. Transaksi</th>
+                                    <th scope="col" class="px-4 py-2.5">Jenis</th>
+                                    <th scope="col" class="px-4 py-2.5 text-right">Jumlah</th>
+                                    <th scope="col" class="px-4 py-2.5">Tanggal</th>
+                                    <th scope="col" class="px-4 py-2.5">Catatan</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-[#343A40]">
                                 @foreach($product->stockTransactions as $trx)
-                                    <tr class="hover:bg-[#181C20] transition">
+                                    <tr class="hover:bg-[#2A3036]/60 transition">
                                         <td class="px-4 py-2.5 font-mono font-medium text-[#F5F5F5]">{{ $trx->invoice_number }}</td>
                                         <td class="px-4 py-2.5">
                                             @if($trx->type === 'in' || $trx->type === 'inbound')
@@ -242,7 +230,7 @@
                                                 </span>
                                             @endif
                                         </td>
-                                        <td class="px-4 py-2.5 text-right font-mono font-bold {{ ($trx->type === 'in' || $trx->type === 'inbound') ? 'text-emerald-700' : 'text-[#F5C842]' }}">
+                                        <td class="px-4 py-2.5 text-right font-mono font-bold {{ ($trx->type === 'in' || $trx->type === 'inbound') ? 'text-emerald-400' : 'text-[#F5C842]' }}">
                                             {{ ($trx->type === 'in' || $trx->type === 'inbound') ? '+' : '-' }}{{ $trx->quantity }}
                                         </td>
                                         <td class="px-4 py-2.5 text-[#A1A1AA] font-mono">{{ $trx->created_at->format('d M Y H:i') }}</td>

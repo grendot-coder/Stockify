@@ -5,13 +5,12 @@
 
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-            <div class="flex items-center gap-2">
-                <span class="text-[11px] font-mono tracking-widest uppercase text-[#F5C842] font-semibold">Rak Available/Kosong</span>
-                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                </span>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="w-2 h-2 rounded-full bg-[#F5C842]"></span>
+                <span class="text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold">Pemetaan Penyimpanan</span>
             </div>
-            <h1 class="text-xl sm:text-2xl font-editorial font-medium text-[#F5F5F5] mt-1">Lokasi Rak Gudang</h1>
-            <p class="text-xs text-[#A1A1AA] mt-1">Cek secara langsung apakah suatu rak sudah penuh atau kosong"</p>
+            <h1 class="font-heading text-2xl sm:text-3xl font-semibold text-[#F5F5F5] tracking-tight">Lokasi Rak Gudang</h1>
+            <p class="text-xs text-[#A1A1AA] mt-1">Pemetaan fisik gudang, okupansi kapasitas per rak, dan visualisasi dot matrix penyimpanan</p>
         </div>
         <button type="button" data-modal-target="modal-create-location" data-modal-toggle="modal-create-location"
             class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] text-xs font-semibold rounded-xl shadow-xs transition duration-150 cursor-pointer">
@@ -47,7 +46,7 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#343A40]/80">
             <div>
                 <span class="text-[10px] font-mono uppercase tracking-widest text-[#A1A1AA]">STORAGE MATRIX · 1 DOT = 1 RAK GUDANG</span>
-                <div class="text-lg font-editorial font-medium text-[#F5F5F5] mt-0.5">
+                <div class="text-lg font-heading font-semibold text-[#F5F5F5] mt-0.5">
                     Kapasitas Terpakai: <span class="text-[#F5C842] font-mono font-bold">{{ $stats['overall_percentage'] }}%</span>
                     <span class="text-xs font-normal text-[#A1A1AA] ml-1.5 font-sans">({{ number_format($stats['total_stock']) }} / {{ number_format($stats['total_capacity']) }} Total Unit)</span>
                 </div>
@@ -157,17 +156,17 @@
         </div>
 
         <!-- Tabel Lokasi Rak -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Pemetaan Lokasi Rak Gudang">
             <table class="w-full text-xs text-left text-[#A1A1AA]">
-                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
+                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40] sticky top-0 z-10">
                     <tr>
-                        <th class="px-5 py-3.5 w-12 text-center">No</th>
-                        <th class="px-5 py-3.5">Nama Rak</th>
-                        <th class="px-5 py-3.5">Kapasitas & Okupansi</th>
-                        <th class="px-5 py-3.5">Status</th>
-                        <th class="px-5 py-3.5">Zona / Area</th>
-                        <th class="px-5 py-3.5">Deskripsi</th>
-                        <th class="px-5 py-3.5 text-right">Aksi</th>
+                        <th scope="col" class="px-5 py-3.5 w-12 text-center font-heading font-semibold">No</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Nama Rak</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Kapasitas & Okupansi</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Status</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Zona / Area</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Deskripsi</th>
+                        <th scope="col" class="px-5 py-3.5 text-center font-heading font-semibold">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#343A40]">
@@ -221,20 +220,22 @@
                         <td class="px-5 py-3.5 text-[#A1A1AA] max-w-xs truncate">
                             {{ $loc->description ?: '—' }}
                         </td>
-                        <td class="px-5 py-3.5 text-right space-x-3 whitespace-nowrap">
-                            <button type="button"
-                                onclick="openEditLocationModal({{ $loc->id }}, '{{ addslashes($loc->name) }}', {{ $loc->capacity }}, '{{ addslashes($loc->zone ?? '') }}', '{{ addslashes($loc->description ?? '') }}')"
-                                class="text-[#F5C842] hover:text-[#E8B92E] font-semibold transition cursor-pointer">
-                                Edit
-                            </button>
-                            <form action="{{ route('locations.destroy', $loc->id) }}" method="POST" class="inline-block"
-                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus rak {{ addslashes($loc->name) }}?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-rose-400 hover:text-rose-300 font-semibold transition cursor-pointer">
-                                    Hapus
+                        <td class="px-5 py-3.5 text-right whitespace-nowrap">
+                            <div class="inline-flex items-center gap-1.5 justify-end">
+                                <button type="button"
+                                    onclick="openEditLocationModal({{ $loc->id }}, '{{ addslashes($loc->name) }}', {{ $loc->capacity }}, '{{ addslashes($loc->zone ?? '') }}', '{{ addslashes($loc->description ?? '') }}')"
+                                    class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-[#F5C842] bg-[#F5C842]/10 hover:bg-[#F5C842] hover:text-[#101214] border border-[#F5C842]/30 transition cursor-pointer">
+                                    Edit
                                 </button>
-                            </form>
+                                <form action="{{ route('locations.destroy', $loc->id) }}" method="POST" class="inline-block"
+                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus rak {{ addslashes($loc->name) }}?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-rose-400 bg-rose-500/10 hover:bg-rose-500 hover:text-white border border-rose-500/30 transition cursor-pointer">
+                                        Hapus
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @empty
@@ -265,7 +266,7 @@
             <div class="flex items-center justify-between p-5 border-b border-[#343A40]">
                 <div>
                     <span class="text-[10px] font-mono uppercase tracking-widest text-[#F5C842] font-semibold">Entri Rak Baru</span>
-                    <h3 class="text-base font-editorial font-medium text-[#F5F5F5]">Tambah Rak Gudang</h3>
+                    <h3 class="text-base font-heading font-semibold text-[#F5F5F5]">Tambah Rak Gudang</h3>
                 </div>
                 <button type="button" data-modal-hide="modal-create-location" class="text-[#A1A1AA] hover:text-[#F5F5F5] p-1 rounded-lg">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -314,7 +315,7 @@
             <div class="flex items-center justify-between p-5 border-b border-[#343A40]">
                 <div>
                     <span class="text-[10px] font-mono uppercase tracking-widest text-[#F5C842] font-semibold">Pembaruan</span>
-                    <h3 class="text-base font-editorial font-medium text-[#F5F5F5]">Edit Rak Gudang</h3>
+                    <h3 class="text-base font-heading font-semibold text-[#F5F5F5]">Edit Rak Gudang</h3>
                 </div>
                 <button type="button" onclick="closeEditLocationModal()" class="text-[#A1A1AA] hover:text-[#F5F5F5] p-1 rounded-lg">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

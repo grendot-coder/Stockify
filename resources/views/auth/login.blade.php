@@ -382,6 +382,16 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             resetTimer();
+
+            // Otomatis segarkan halaman jika tab telah ditinggalkan lebih dari 20 menit agar CSRF token selalu valid
+            let pageLoadTime = Date.now();
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') {
+                    if (Date.now() - pageLoadTime > 20 * 60 * 1000) {
+                        window.location.reload();
+                    }
+                }
+            });
         });
     </script>
 </body>

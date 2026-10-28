@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,6 +44,11 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        // Tangani sesi/CSRF token yang kedaluwarsa secara elegan (mencegah error 419 Page Expired)
+        $this->renderable(function (TokenMismatchException $e, $request) {
+            return redirect()->route('login')->with('info', 'Sesi Anda telah kedaluwarsa karena tidak ada aktivitas. Halaman telah diperbarui otomatis, silakan coba masuk kembali.');
         });
     }
 }

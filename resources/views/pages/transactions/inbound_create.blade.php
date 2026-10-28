@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
@@ -20,7 +20,7 @@
                 Inbound Transaction
             </span>
         </div>
-        <h1 class="font-editorial text-2xl sm:text-3xl font-medium text-[#F5F5F5]">Penerimaan Barang Masuk</h1>
+        <h1 class="font-heading text-2xl sm:text-3xl font-semibold text-[#F5F5F5]">Penerimaan Barang Masuk</h1>
         <p class="text-xs text-[#A1A1AA] mt-1">Pencatatan pasokan inventaris baru dari supplier rekanan atau transfer masuk gudang</p>
     </div>
 
@@ -28,12 +28,12 @@
     @if($errors->any())
     <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
         <div class="flex items-center gap-2 font-semibold mb-1">
-            <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
             </svg>
             <span>Mohon periksa kembali formulir berikut:</span>
         </div>
-        <ul class="list-disc pl-5 space-y-0.5 text-[11px] text-rose-700">
+        <ul class="list-disc pl-5 space-y-0.5 text-[11px] text-rose-300">
             @foreach($errors->all() as $err)
             <li>{{ $err }}</li>
             @endforeach
@@ -132,7 +132,7 @@
         <!-- Tombol Aksi Simpan Soft Terracotta -->
         <div class="flex items-center justify-end gap-3 pt-2">
             <a href="{{ route('transactions.index') }}"
-                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#181C20] rounded-xl transition">
+                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#2A3036] rounded-xl transition">
                 Batal
             </a>
             <button type="submit"
