@@ -25,7 +25,7 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository
     public function getPaginated(?string $search = null, ?int $categoryId = null, ?int $supplierId = null, bool $lowStockOnly = false, int $perPage = 10)
     {
         return $this->model->newQuery()
-            ->with(['category', 'supplier', 'attributes'])
+            ->with(['category', 'supplier', 'attributes', 'rackLocation'])
             ->when($search, function ($query, $search) {
                 $query->where(function ($q) use ($search) {
                     $q->where('name', 'like', "%{$search}%")
@@ -53,17 +53,38 @@ class ProductRepositoryImplement extends Eloquent implements ProductRepository
         if ($categoryId) {
             $category = Category::find($categoryId);
             if ($category) {
-                $prefix .= '-'.strtoupper(substr(preg_replace('/[^A-Za-z0-9]/', '', $category->name), 0, 3));
+                $cleanCat = strtoupper(substr(preg_replace('/[^A-Za-z0-9]/', '', $category->name), 0, 3));
+                if (! empty($cleanCat)) {
+                    $prefix .= '-'.$cleanCat;
+                }
             }
         }
 
-        $latestProduct = $this->model->where('sku', 'like', "{$prefix}-%")->latest('id')->first();
-        $nextNumber = 1;
-        if ($latestProduct && preg_match('/-(\d+)$/', $latestProduct->sku, $matches)) {
-            $nextNumber = intval($matches[1]) + 1;
+        // Ambil semua SKU yang memiliki prefix yang sama untuk mencari angka tertinggi
+        $existingSkus = $this->model->where('sku', 'like', "{$prefix}-%")->pluck('sku');
+
+        $maxNumber = 0;
+        foreach ($existingSkus as $sku) {
+            if (preg_match('/-(\d+)$/', $sku, $matches)) {
+                $num = intval($matches[1]);
+                if ($num > $maxNumber) {
+                    $maxNumber = $num;
+                }
+            }
         }
 
-        return sprintf('%s-%03d', $prefix, $nextNumber);
+        $nextNumber = $maxNumber + 1;
+
+        // Loop verifikasi anti-duplikasi (collision-proof)
+        do {
+            $candidateSku = sprintf('%s-%03d', $prefix, $nextNumber);
+            $exists = $this->model->where('sku', $candidateSku)->exists();
+            if ($exists) {
+                $nextNumber++;
+            }
+        } while ($exists);
+
+        return $candidateSku;
     }
 
     public function createProduct(array $data, array $attributes = [])

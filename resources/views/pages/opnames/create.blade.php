@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
@@ -24,7 +24,7 @@
     <!-- Alert Notifikasi Error -->
     @if(session('error') || $errors->any())
         <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
-            <svg class="w-4 h-4 text-rose-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 text-rose-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
             </svg>
             <span>{{ session('error') ?? $errors->first() }}</span>
@@ -63,7 +63,7 @@
                     <span class="w-2 h-2 rounded-full bg-[#F5C842]"></span>
                     <h3 class="font-heading font-semibold text-xs text-[#F5F5F5] uppercase tracking-wider">Komparasi Fisik vs Sistem</h3>
                 </div>
-                <span id="diff-status-pill" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 text-gray-700">
+                <span id="diff-status-pill" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#181C20] text-[#A1A1AA] border border-[#343A40]">
                     Menunggu Pilihan Produk
                 </span>
             </div>
@@ -137,8 +137,8 @@
             </label>
         </div>
         @else
-        <div class="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-500 text-xs flex items-center gap-2">
-            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div class="p-3.5 rounded-xl bg-[#181C20] border border-[#343A40] text-[#A1A1AA] text-xs flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#F5C842] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             <span>Sebagai Staff Gudang, hasil opname akan direkam sebagai laporan audit. Rekonsiliasi penyesuaian stok sistem diotorisasi oleh Manajer Gudang.</span>
         </div>
         @endif
@@ -146,7 +146,7 @@
         <!-- Action Buttons -->
         <div class="flex items-center justify-end gap-3 pt-4 border-t border-[#343A40]">
             <a href="{{ route('opnames.index') }}"
-                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#181C20] rounded-xl transition">
+                class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#2A3036] rounded-xl transition">
                 Batal
             </a>
             <button type="submit"
@@ -179,7 +179,7 @@
                 skuDisplay.textContent = 'SKU: -';
                 diffDisplay.textContent = '0';
                 diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-gray-400 mt-1';
-                diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 text-gray-700';
+                diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-[#181C20] text-[#A1A1AA] border border-[#343A40]';
                 diffStatusPill.textContent = 'Menunggu Pilihan Produk';
                 diffLabel.textContent = 'Perbedaan (Fisik - Sistem)';
                 return;
@@ -205,20 +205,20 @@
 
             if (difference === 0) {
                 diffDisplay.textContent = '0 Unit';
-                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-emerald-700 mt-1';
+                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-emerald-400 mt-1';
                 diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
                 diffStatusPill.textContent = 'Cocok / Sesuai Sempurna';
                 diffLabel.textContent = 'Tidak ada selisih stok';
             } else if (difference > 0) {
                 diffDisplay.textContent = '+' + difference.toLocaleString('id-ID') + ' Unit';
-                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-amber-700 mt-1';
+                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-amber-400 mt-1';
                 diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30';
                 diffStatusPill.textContent = 'Surplus (Lebih Banyak)';
                 diffLabel.textContent = 'Stok fisik lebih banyak dari sistem';
             } else {
                 diffDisplay.textContent = difference.toLocaleString('id-ID') + ' Unit';
-                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-rose-700 mt-1';
-                diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-50 text-rose-800 border border-rose-200';
+                diffDisplay.className = 'font-heading text-2xl font-bold tabular-nums text-rose-400 mt-1';
+                diffStatusPill.className = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30';
                 diffStatusPill.textContent = 'Defisit (Kurang)';
                 diffLabel.textContent = 'Stok fisik lebih sedikit dari sistem';
             }

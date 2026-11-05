@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
@@ -38,11 +38,9 @@
         </div>
     @endif
 
-    <!-- Formulir Pengaturan -->
     <form action="{{ route('settings.update') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
-        <!-- Seksi 1: Identitas Merek & Logo -->
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-5">
             <div class="pb-3 border-b border-[#343A40]">
                 <h2 class="font-heading text-base font-semibold text-[#F5F5F5]">Identitas Aplikasi & Logo</h2>
@@ -50,27 +48,26 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-                <!-- Kolom Preview Logo -->
                 <div class="space-y-3">
-                    <label class="block text-xs font-semibold text-[#F5F5F5]">Logo Aplikasi Saat Ini</label>
-                    <div class="w-full h-32 rounded-xl border border-dashed border-[#F5C842]/40 bg-[#181C20] flex flex-col items-center justify-center p-3 text-center overflow-hidden">
-                        @if($settings['app_logo'])
-                            <img src="{{ asset('storage/' . $settings['app_logo']) }}" alt="Logo" class="max-h-20 max-w-full object-contain">
+                    <label class="block text-xs font-semibold text-[#F5F5F5]">Logo Aplikasi</label>
+                    <div id="logo-preview-container" class="w-full h-32 rounded-xl border border-dashed border-[#F5C842]/40 bg-[#181C20] flex flex-col items-center justify-center p-3 text-center overflow-hidden">
+                        @if($settings['app_logo'] && file_exists(public_path('storage/' . $settings['app_logo'])))
+                            <img id="current-logo-img" src="{{ asset('storage/' . $settings['app_logo']) }}" alt="Logo" class="max-h-20 max-w-full object-contain">
                         @else
-                            <div class="w-12 h-12 rounded-xl bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xl mb-1">
+                            <div id="default-logo-placeholder" class="w-12 h-12 rounded-xl bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xl mb-1">
                                 {{ strtoupper(substr($settings['app_name'], 0, 1)) }}
                             </div>
-                            <span class="text-[10px] text-[#A1A1AA]">Logo Default Sistem</span>
+                            <span id="default-logo-text" class="text-[10px] text-[#A1A1AA]">Logo Default Sistem</span>
                         @endif
+                        <img id="logo-preview" src="#" alt="Preview Logo Baru" class="hidden max-h-20 max-w-full object-contain">
                     </div>
                     <div>
                         <label for="logo" class="block text-[11px] font-medium text-[#A1A1AA] mb-1">Ganti Logo (PNG, JPG, SVG, WebP, Maks 2MB)</label>
-                        <input type="file" name="logo" id="logo" accept="image/*"
+                        <input type="file" name="logo" id="logo" accept="image/png, image/jpeg, image/jpg, image/svg+xml, image/webp"
                             class="w-full text-xs text-[#A1A1AA] file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[#F5C842]/15 file:text-[#F5C842] hover:file:bg-[#F5C842] hover:file:text-white file:transition cursor-pointer">
                     </div>
                 </div>
 
-                <!-- Input Nama & Slogan -->
                 <div class="md:col-span-2 space-y-4">
                     <div>
                         <label for="app_name" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
@@ -105,7 +102,6 @@
             </div>
         </div>
 
-        <!-- Seksi 2: Operasional & Kontak Gudang -->
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-4">
             <div class="pb-3 border-b border-[#343A40]">
                 <h2 class="font-heading text-base font-semibold text-[#F5F5F5]">Informasi Operasional & Kontak Gudang</h2>
@@ -141,10 +137,9 @@
             </div>
         </div>
 
-        <!-- Tombol Simpan -->
         <div class="flex items-center justify-end gap-3 pt-2">
             <button type="submit"
-                class="px-6 py-2.5 text-xs font-semibold bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] rounded-xl shadow-xs transition duration-150 flex items-center gap-2">
+                class="px-6 py-2.5 text-xs font-semibold bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] rounded-xl shadow-xs transition duration-150 flex items-center gap-2 cursor-pointer">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 <span>Simpan Pengaturan Aplikasi</span>
             </button>
@@ -153,4 +148,30 @@
     </form>
 
 </div>
+
+<script>
+    const logoInput = document.getElementById('logo');
+    const logoPreview = document.getElementById('logo-preview');
+    const currentLogoImg = document.getElementById('current-logo-img');
+    const defaultLogoPlaceholder = document.getElementById('default-logo-placeholder');
+    const defaultLogoText = document.getElementById('default-logo-text');
+
+    if (logoInput) {
+        logoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    if (currentLogoImg) currentLogoImg.classList.add('hidden');
+                    if (defaultLogoPlaceholder) defaultLogoPlaceholder.classList.add('hidden');
+                    if (defaultLogoText) defaultLogoText.classList.add('hidden');
+
+                    logoPreview.src = evt.target.result;
+                    logoPreview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+</script>
 @endsection

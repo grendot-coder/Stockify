@@ -58,13 +58,31 @@ class StockTransactionRepositoryImplement extends Eloquent implements StockTrans
         $dateStr = Carbon::now()->format('Ymd');
         $prefix = "TF-{$typePrefix}-{$dateStr}";
 
-        $latestTrx = $this->model->where('invoice_number', 'like', "{$prefix}-%")->latest('id')->first();
-        $nextNumber = 1;
-        if ($latestTrx && preg_match('/-(\d+)$/', $latestTrx->invoice_number, $matches)) {
-            $nextNumber = intval($matches[1]) + 1;
+        // Ambil semua invoice pada hari ini dengan prefix yang sama untuk mendapatkan nomor tertinggi
+        $existingInvoices = $this->model->where('invoice_number', 'like', "{$prefix}-%")->pluck('invoice_number');
+
+        $maxNumber = 0;
+        foreach ($existingInvoices as $inv) {
+            if (preg_match('/-(\d+)$/', $inv, $matches)) {
+                $num = intval($matches[1]);
+                if ($num > $maxNumber) {
+                    $maxNumber = $num;
+                }
+            }
         }
 
-        return sprintf('%s-%04d', $prefix, $nextNumber);
+        $nextNumber = $maxNumber + 1;
+
+        // Loop verifikasi anti-duplikasi (collision-proof)
+        do {
+            $candidateInvoice = sprintf('%s-%04d', $prefix, $nextNumber);
+            $exists = $this->model->where('invoice_number', $candidateInvoice)->exists();
+            if ($exists) {
+                $nextNumber++;
+            }
+        } while ($exists);
+
+        return $candidateInvoice;
     }
 
     public function createTransaction(array $data)

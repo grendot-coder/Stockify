@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\RackLocation;
 use App\Models\Supplier;
 use App\Services\Product\ProductService;
 use Illuminate\Http\Request;
@@ -41,10 +42,11 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get();
-        $suppliers = Supplier::orderBy('name')->get();
+        $suppliers = Supplier::with('category')->orderBy('name')->get();
+        $rackLocations = RackLocation::orderBy('name')->get();
         $suggestedSku = $this->productService->generateSku();
 
-        return view('pages.products.create', compact('categories', 'suppliers', 'suggestedSku'));
+        return view('pages.products.create', compact('categories', 'suppliers', 'suggestedSku', 'rackLocations'));
     }
 
     /**
@@ -55,7 +57,8 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => ['required', 'exists:categories,id'],
             'supplier_id' => ['nullable', 'exists:suppliers,id'],
-            'sku' => ['required', 'string', 'max:50', 'unique:products,sku'],
+            'rack_location_id' => ['nullable', 'exists:rack_locations,id'],
+            'sku' => ['nullable', 'string', 'max:50', 'unique:products,sku'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
             'purchase_price' => ['required', 'numeric', 'min:0'],
@@ -77,6 +80,15 @@ class ProductController extends Controller
             'image.max' => 'Ukuran foto maksimal adalah 2MB.',
         ]);
 
+        if (! empty($validated['supplier_id']) && ! empty($validated['category_id'])) {
+            $selectedSupplier = Supplier::with('category')->find($validated['supplier_id']);
+            if ($selectedSupplier && $selectedSupplier->category_id && $selectedSupplier->category_id != $validated['category_id']) {
+                return back()->withInput()->withErrors([
+                    'supplier_id' => "Supplier '{$selectedSupplier->name}' hanya melayani kategori '{$selectedSupplier->category?->name}' dan tidak sesuai dengan kategori produk yang dipilih.",
+                ]);
+            }
+        }
+
         $attributes = $request->input('attributes', []);
         $imageFile = $request->file('image');
 
@@ -90,7 +102,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::with(['category', 'supplier', 'attributes', 'stockTransactions' => function ($q) {
+        $product = Product::with(['category', 'supplier', 'rackLocation', 'attributes', 'stockTransactions' => function ($q) {
             $q->latest()->take(10);
         }])->findOrFail($id);
 
@@ -102,11 +114,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::with('attributes')->findOrFail($id);
+        $product = Product::with(['attributes', 'rackLocation'])->findOrFail($id);
         $categories = Category::orderBy('name')->get();
-        $suppliers = Supplier::orderBy('name')->get();
+        $suppliers = Supplier::with('category')->orderBy('name')->get();
+        $rackLocations = RackLocation::orderBy('name')->get();
 
-        return view('pages.products.edit', compact('product', 'categories', 'suppliers'));
+        return view('pages.products.edit', compact('product', 'categories', 'suppliers', 'rackLocations'));
     }
 
     /**
@@ -117,6 +130,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'category_id' => ['required', 'exists:categories,id'],
             'supplier_id' => ['nullable', 'exists:suppliers,id'],
+            'rack_location_id' => ['nullable', 'exists:rack_locations,id'],
             'sku' => ['required', 'string', 'max:50', "unique:products,sku,{$id}"],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:2000'],
@@ -129,6 +143,15 @@ class ProductController extends Controller
             'attributes.*.name' => ['nullable', 'string', 'max:100'],
             'attributes.*.value' => ['nullable', 'string', 'max:255'],
         ]);
+
+        if (! empty($validated['supplier_id']) && ! empty($validated['category_id'])) {
+            $selectedSupplier = Supplier::with('category')->find($validated['supplier_id']);
+            if ($selectedSupplier && $selectedSupplier->category_id && $selectedSupplier->category_id != $validated['category_id']) {
+                return back()->withInput()->withErrors([
+                    'supplier_id' => "Supplier '{$selectedSupplier->name}' hanya melayani kategori '{$selectedSupplier->category?->name}' dan tidak sesuai dengan kategori produk yang dipilih.",
+                ]);
+            }
+        }
 
         $attributes = $request->input('attributes', []);
         $imageFile = $request->file('image');

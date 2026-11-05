@@ -62,11 +62,10 @@ class StockTransactionController extends Controller
      */
     public function createInbound()
     {
-        $products = Product::with('category')->orderBy('name')->get();
-        $suppliers = Supplier::orderBy('name')->get();
+        $products = Product::with(['category', 'supplier'])->orderBy('name')->get();
         $suggestedInvoice = $this->transactionService->generateInvoiceNumber('in');
 
-        return view('pages.transactions.inbound_create', compact('products', 'suppliers', 'suggestedInvoice'));
+        return view('pages.transactions.inbound_create', compact('products', 'suggestedInvoice'));
     }
 
     /**

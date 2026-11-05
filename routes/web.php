@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\AiAssistantController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RackLocationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StockOpnameController;
@@ -39,12 +41,19 @@ Route::middleware('auth')->group(function () {
         // Master Supplier (Modal CRUD)
         Route::resource('suppliers', SupplierController::class)->except(['create', 'show', 'edit']);
 
+        // Master Lokasi Rak (Modal CRUD)
+        Route::resource('locations', RackLocationController::class)->except(['create', 'show', 'edit']);
+
         // Kelola Produk (Tambah, Ubah, Hapus)
         Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
         Route::post('/products', [ProductController::class, 'store'])->name('products.store');
         Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
         Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+        // AI Assistant & Visual Analysis (Qwen-VL Local)
+        Route::get('/api/ai/health', [AiAssistantController::class, 'healthCheck'])->name('ai.health');
+        Route::post('/api/ai/analyze-product-image', [AiAssistantController::class, 'analyzeProductImage'])->name('ai.analyze-image');
 
         // Ekspor & Impor Data Produk (Fase 8)
         Route::get('/products/export', [ProductController::class, 'export'])->name('products.export');

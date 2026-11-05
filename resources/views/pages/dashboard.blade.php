@@ -141,10 +141,10 @@
     <!-- WIDGET KHUSUS ROLE: MANAGER & STAFF -->
     @if($user->isManager())
         <!-- Bagian Khusus Manajer: Transaksi Pending Butuh Otorisasi -->
-        <div class="bg-[#202429] rounded-2xl border border-amber-200/80 p-5 shadow-xs">
+        <div class="bg-[#202429] rounded-2xl border border-amber-500/30 p-5 shadow-xs">
             <div class="flex items-center justify-between pb-3 border-b border-[#343A40]">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-xs">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center font-bold text-xs font-mono">
                         {{ $pendingTransactions->count() }}
                     </div>
                     <div>
@@ -152,14 +152,17 @@
                         <p class="text-xs text-[#A1A1AA]">Tinjau dan setujui atau tolak transaksi yang diajukan oleh staff gudang</p>
                     </div>
                 </div>
-                <a href="{{ route('transactions.index', ['status' => 'pending']) }}" class="text-xs text-[#F5C842] hover:underline font-semibold">
-                    Kelola Semua Pending &rarr;
+                <a href="{{ route('transactions.index', ['status' => 'pending']) }}" class="text-xs text-[#F5C842] hover:underline font-semibold flex items-center gap-1">
+                    <span>Kelola Semua Pending</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
 
             @if($pendingTransactions->isEmpty())
-                <div class="py-6 text-center text-xs text-[#A1A1AA]">
-                    <svg class="w-8 h-8 text-emerald-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="py-8 text-center text-xs text-[#A1A1AA]">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
                     Semua transaksi telah disetujui. Tidak ada transaksi yang menunggu otorisasi saat ini.
                 </div>
             @else
@@ -179,12 +182,12 @@
                             @foreach($pendingTransactions as $pt)
                             <tr class="hover:bg-[#181C20] transition">
                                 <td class="px-4 py-3 font-mono font-medium text-[#F5F5F5]">
-                                    <a href="{{ route('transactions.show', $pt->id) }}" class="hover:text-[#F5C842]">
+                                    <a href="{{ route('transactions.show', $pt->id) }}" class="hover:text-[#F5C842] transition">
                                         {{ $pt->invoice_number }}
                                     </a>
                                 </td>
                                 <td class="px-4 py-3 text-[#F5F5F5]">
-                                    {{ $pt->user?->name ?? 'Staff' }}
+                                    <div class="font-medium text-[#F5F5F5]">{{ $pt->user?->name ?? 'Staff' }}</div>
                                     <div class="text-[10px] text-[#A1A1AA]">{{ $pt->created_at->diffForHumans() }}</div>
                                 </td>
                                 <td class="px-4 py-3">
@@ -202,16 +205,16 @@
                                     {{ number_format($pt->quantity) }} Unit
                                 </td>
                                 <td class="px-4 py-3 text-center">
-                                    <div class="flex items-center justify-center gap-1.5">
+                                    <div class="flex items-center justify-center gap-2">
                                         <form action="{{ route('transactions.confirm', $pt->id) }}" method="POST" onsubmit="return confirm('Setujui transaksi ini?')">
                                             @csrf
-                                            <button type="submit" class="px-2.5 py-1 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition shadow-xs">
+                                            <button type="submit" class="px-2.5 py-1 text-[11px] font-semibold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-[#101214] border border-emerald-500/30 rounded-lg transition shadow-xs">
                                                 Setujui
                                             </button>
                                         </form>
                                         <form action="{{ route('transactions.reject', $pt->id) }}" method="POST" onsubmit="return confirm('Tolak transaksi ini?')">
                                             @csrf
-                                            <button type="submit" class="px-2.5 py-1 text-[11px] font-semibold bg-red-600 hover:bg-red-700 text-white rounded-lg transition shadow-xs">
+                                            <button type="submit" class="px-2.5 py-1 text-[11px] font-semibold bg-rose-500/15 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/30 rounded-lg transition shadow-xs">
                                                 Tolak
                                             </button>
                                         </form>
@@ -252,10 +255,10 @@
                 <div class="mt-6 space-y-6">
 
                     <!-- Tugas 1: Barang Masuk yang Perlu Diperiksa -->
-                    <div class="rounded-xl border border-emerald-200/80 bg-emerald-50/20 p-4">
-                        <div class="flex items-center justify-between mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">
+                    <div class="rounded-xl border border-emerald-500/30 bg-[#181C20] p-4.5">
+                        <div class="flex items-center justify-between mb-3.5">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs font-mono">
                                     {{ $pendingInbounds->count() }}
                                 </span>
                                 <h3 class="font-heading text-base font-semibold text-[#F5F5F5]">1. Barang Masuk yang Perlu Diperiksa Fisik</h3>
@@ -264,8 +267,10 @@
                         </div>
 
                         @if($pendingInbounds->isEmpty())
-                            <div class="py-5 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-lg border border-[#343A40]">
-                                <svg class="w-6 h-6 text-emerald-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div class="py-6 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-xl border border-[#343A40]">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                </div>
                                 Seluruh kiriman barang masuk telah selesai diperiksa. Tidak ada tugas penerimaan pending.
                             </div>
                         @else
@@ -285,7 +290,7 @@
                                         @foreach($pendingInbounds as $inTask)
                                         <tr class="hover:bg-[#181C20] transition">
                                             <td class="px-4 py-3 font-mono font-medium text-[#F5F5F5]">
-                                                <a href="{{ route('transactions.show', $inTask->id) }}" class="hover:text-[#F5C842] font-semibold">
+                                                <a href="{{ route('transactions.show', $inTask->id) }}" class="hover:text-[#F5C842] font-semibold transition">
                                                     {{ $inTask->invoice_number }}
                                                 </a>
                                                 <div class="text-[10px] text-[#A1A1AA] font-sans">{{ $inTask->created_at->diffForHumans() }}</div>
@@ -307,17 +312,17 @@
                                                 {{ $inTask->notes ?: '-' }}
                                             </td>
                                             <td class="px-4 py-3 text-center">
-                                                <div class="flex items-center justify-center gap-1.5">
+                                                <div class="flex items-center justify-center gap-2">
                                                     <form action="{{ route('transactions.confirm', $inTask->id) }}" method="POST" onsubmit="return confirm('Konfirmasi penerimaan fisik {{ $inTask->quantity }} unit barang ini ke gudang?')">
                                                         @csrf
-                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition shadow-xs flex items-center gap-1">
+                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-[#101214] border border-emerald-500/30 rounded-lg transition shadow-xs flex items-center gap-1.5">
                                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                                             Konfirmasi Diterima
                                                         </button>
                                                     </form>
                                                     <form action="{{ route('transactions.reject', $inTask->id) }}" method="POST" onsubmit="return confirm('Tolak barang masuk ini karena ada kerusakan / ketidaksesuaian?')">
                                                         @csrf
-                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition">
+                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-rose-500/15 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/30 rounded-lg transition shadow-xs">
                                                             Tolak
                                                         </button>
                                                     </form>
@@ -332,10 +337,10 @@
                     </div>
 
                     <!-- Tugas 2: Barang Keluar yang Perlu Disiapkan -->
-                    <div class="rounded-xl border border-[#F5C842]/30 bg-[#F5C842]/10 p-4">
-                        <div class="flex items-center justify-between mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="w-6 h-6 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xs border border-[#F5C842]/30">
+                    <div class="rounded-xl border border-[#F5C842]/30 bg-[#181C20] p-4.5">
+                        <div class="flex items-center justify-between mb-3.5">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-6 h-6 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xs font-mono border border-[#F5C842]/30">
                                     {{ $pendingOutbounds->count() }}
                                 </span>
                                 <h3 class="font-heading text-base font-semibold text-[#F5F5F5]">2. Barang Keluar yang Perlu Disiapkan & Packing</h3>
@@ -344,8 +349,10 @@
                         </div>
 
                         @if($pendingOutbounds->isEmpty())
-                            <div class="py-5 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-lg border border-[#343A40]">
-                                <svg class="w-6 h-6 text-emerald-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <div class="py-6 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-xl border border-[#343A40]">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                </div>
                                 Seluruh barang keluar telah selesai disiapkan. Tidak ada antrean packing pending.
                             </div>
                         @else
@@ -365,7 +372,7 @@
                                         @foreach($pendingOutbounds as $outTask)
                                         <tr class="hover:bg-[#181C20] transition">
                                             <td class="px-4 py-3 font-mono font-medium text-[#F5F5F5]">
-                                                <a href="{{ route('transactions.show', $outTask->id) }}" class="hover:text-[#F5C842] font-semibold">
+                                                <a href="{{ route('transactions.show', $outTask->id) }}" class="hover:text-[#F5C842] font-semibold transition">
                                                     {{ $outTask->invoice_number }}
                                                 </a>
                                                 <div class="text-[10px] text-[#A1A1AA] font-sans">{{ $outTask->created_at->diffForHumans() }}</div>
@@ -387,17 +394,17 @@
                                                 {{ $outTask->notes ?: 'Distribusi / Penjualan' }}
                                             </td>
                                             <td class="px-4 py-3 text-center">
-                                                <div class="flex items-center justify-center gap-1.5">
+                                                <div class="flex items-center justify-center gap-2">
                                                     <form action="{{ route('transactions.confirm', $outTask->id) }}" method="POST" onsubmit="return confirm('Konfirmasi bahwa barang sebanyak {{ $outTask->quantity }} unit telah diambil dan selesai disiapkan?')">
                                                         @csrf
-                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] rounded-lg transition shadow-xs flex items-center gap-1">
+                                                        <button type="submit" class="px-3 py-1.5 text-[11px] font-semibold bg-[#F5C842] hover:bg-[#E8B92E] text-[#101214] rounded-lg transition shadow-xs flex items-center gap-1.5">
                                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                                             Konfirmasi Pengeluaran
                                                         </button>
                                                     </form>
                                                     <form action="{{ route('transactions.reject', $outTask->id) }}" method="POST" onsubmit="return confirm('Tolak atau batalkan pengeluaran barang ini?')">
                                                         @csrf
-                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-red-100 hover:bg-red-200 text-red-700 rounded-lg transition">
+                                                        <button type="submit" class="px-2.5 py-1.5 text-[11px] font-semibold bg-rose-500/15 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/30 rounded-lg transition shadow-xs">
                                                             Batalkan
                                                         </button>
                                                     </form>
@@ -417,13 +424,13 @@
                 <div class="mt-6 pt-4 border-t border-[#343A40] flex flex-wrap items-center justify-between gap-3">
                     <span class="text-xs text-[#A1A1AA]">Tindakan Tambahan:</span>
                     <div class="flex items-center gap-2">
-                        <a href="{{ route('transactions.inbound') }}" class="px-3 py-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-xl transition border border-emerald-200">
+                        <a href="{{ route('transactions.inbound') }}" class="px-3 py-1.5 text-xs font-semibold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-xl transition border border-emerald-500/30">
                             + Catat Barang Masuk Baru
                         </a>
-                        <a href="{{ route('transactions.outbound') }}" class="px-3 py-1.5 text-xs font-semibold text-[#F5C842] bg-[#F5C842]/15 hover:bg-[#F5C842]/25 rounded-xl transition border border-[#F5C842]/30">
+                        <a href="{{ route('transactions.outbound') }}" class="px-3 py-1.5 text-xs font-semibold text-[#F5C842] bg-[#F5C842]/10 hover:bg-[#F5C842]/20 rounded-xl transition border border-[#F5C842]/30">
                             - Catat Permintaan Barang Keluar
                         </a>
-                        <a href="{{ route('opnames.create') }}" class="px-3 py-1.5 text-xs font-semibold text-blue-800 bg-blue-50 hover:bg-blue-100 rounded-xl transition border border-blue-200">
+                        <a href="{{ route('opnames.create') }}" class="px-3 py-1.5 text-xs font-semibold text-sky-400 bg-sky-500/10 hover:bg-sky-500/20 rounded-xl transition border border-sky-500/30">
                             📋 Input Stock Opname
                         </a>
                     </div>
@@ -444,8 +451,8 @@
                     <p class="text-xs text-[#A1A1AA] mt-0.5">Perbandingan kuantitas unit Barang Masuk (Inbound) vs Barang Keluar (Outbound)</p>
                 </div>
                 <div class="flex items-center gap-3 text-xs font-mono">
-                    <span class="inline-flex items-center gap-1.5 text-emerald-700">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> Inbound
+                    <span class="inline-flex items-center gap-1.5 text-emerald-400">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Inbound
                     </span>
                     <span class="inline-flex items-center gap-1.5 text-[#F5C842]">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#F5C842]"></span> Outbound
@@ -550,7 +557,7 @@
                                     Menunggu
                                 </span>
                                 @else
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-50 text-red-700 border border-red-200">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
                                     Ditolak
                                 </span>
                                 @endif

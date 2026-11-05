@@ -39,7 +39,7 @@ class SettingTest extends TestCase
     public function test_admin_can_update_settings(): void
     {
         $response = $this->actingAs($this->adminUser)->post('/settings', [
-            'app_name' => 'Stockify Warehouse Pro',
+            'app_name' => 'Stockify',
             'app_tagline' => 'Next-Gen Supply Chain',
             'warehouse_address' => 'Jl. Logistik Industri No. 99, Surabaya',
             'warehouse_phone' => '0812-9999-8888',
@@ -50,7 +50,7 @@ class SettingTest extends TestCase
         $response->assertRedirect('/settings');
         $response->assertSessionHas('success');
 
-        $this->assertEquals('Stockify Warehouse Pro', Setting::get('app_name'));
+        $this->assertEquals('Stockify', Setting::get('app_name'));
         $this->assertEquals('10', Setting::get('default_min_stock'));
     }
 }

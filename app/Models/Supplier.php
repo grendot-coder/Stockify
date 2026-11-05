@@ -11,10 +11,16 @@ class Supplier extends Model
 
     protected $fillable = [
         'name',
+        'category_id',
         'email',
         'phone',
         'address',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function products()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Services\Supplier\SupplierService;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,9 @@ class SupplierController extends Controller
     {
         $search = $request->query('search');
         $suppliers = $this->supplierService->getPaginated($search, 10);
+        $categories = Category::orderBy('name')->get();
 
-        return view('pages.suppliers.index', compact('suppliers', 'search'));
+        return view('pages.suppliers.index', compact('suppliers', 'search', 'categories'));
     }
 
     /**
@@ -32,6 +34,7 @@ class SupplierController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'category_id' => ['nullable', 'exists:categories,id'],
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'],
             'address' => ['nullable', 'string', 'max:500'],
@@ -53,6 +56,7 @@ class SupplierController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'category_id' => ['nullable', 'exists:categories,id'],
             'email' => ['nullable', 'email', 'max:255'],
             'phone' => ['required', 'string', 'max:50'],
             'address' => ['nullable', 'string', 'max:500'],

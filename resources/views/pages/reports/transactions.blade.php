@@ -45,7 +45,7 @@
 
         <div class="p-5 bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs">
             <span class="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">Total Barang Masuk (Confirmed)</span>
-            <div class="font-heading text-3xl font-semibold tabular-nums text-emerald-700 mt-2">
+            <div class="font-heading text-3xl font-semibold tabular-nums text-emerald-400 mt-2">
                 +{{ number_format($inboundQty) }} <span class="font-sans text-xs font-normal text-[#A1A1AA]">Unit</span>
             </div>
             <p class="text-[11px] text-[#A1A1AA] mt-1">Akumulasi penerimaan terverifikasi</p>
@@ -192,7 +192,7 @@
                             <td class="px-5 py-3.5">
                                 <div class="text-[#F5F5F5] font-medium">{{ $tx->user?->name ?? 'Staff' }}</div>
                                 @if($tx->confirmedByUser)
-                                    <div class="text-[10px] text-emerald-700">Verifikator: {{ $tx->confirmedByUser->name }}</div>
+                                    <div class="text-[10px] text-emerald-400">Verifikator: {{ $tx->confirmedByUser->name }}</div>
                                 @endif
                             </td>
                             <td class="px-5 py-3.5 text-center">

@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
@@ -35,7 +35,7 @@
     @if(session('success'))
         <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
             <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 <span>{{ session('success') }}</span>
@@ -69,7 +69,7 @@
                             Surplus (+{{ $opname->difference }} Unit)
                         </span>
                     @else
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-800 border border-rose-200">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
                             Defisit ({{ $opname->difference }} Unit)
                         </span>
                     @endif
@@ -115,7 +115,7 @@
                 </div>
                 <div class="flex justify-between py-1">
                     <span class="text-[#A1A1AA]">Kondisi Rekonsiliasi:</span>
-                    <span class="font-semibold {{ $opname->difference === 0 ? 'text-emerald-700' : 'text-[#F5C842]' }}">
+                    <span class="font-semibold {{ $opname->difference === 0 ? 'text-emerald-400' : 'text-[#F5C842]' }}">
                         {{ $opname->difference === 0 ? 'Akurat & Sesuai' : 'Terdapat Selisih Fisik' }}
                     </span>
                 </div>
@@ -123,9 +123,9 @@
         </div>
 
         <!-- Tabel Perbandingan Persediaan -->
-        <div class="overflow-x-auto border border-[#343A40] rounded-xl">
+        <div class="overflow-x-auto border border-[#343A40] rounded-xl" tabindex="0" role="region" aria-label="Tabel Perbandingan Persediaan Stock Opname">
             <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
-                <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40]">
+                <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40] sticky top-0 z-10">
                     <tr>
                         <th class="px-5 py-3.5 font-heading font-semibold">Komponen Pemeriksaan</th>
                         <th class="px-5 py-3.5 text-right font-heading font-semibold">Stok Sistem (Awal)</th>
@@ -148,18 +148,18 @@
                         </td>
                         <td class="px-5 py-3.5 text-right">
                             @if($opname->difference === 0)
-                                <span class="font-bold text-sm text-emerald-700">0 Unit</span>
+                                <span class="font-bold text-sm text-emerald-400">0 Unit</span>
                             @elseif($opname->difference > 0)
-                                <span class="font-bold text-sm text-amber-700">+{{ number_format($opname->difference) }} Unit</span>
+                                <span class="font-bold text-sm text-amber-400">+{{ number_format($opname->difference) }} Unit</span>
                             @else
-                                <span class="font-bold text-sm text-rose-700">{{ number_format($opname->difference) }} Unit</span>
+                                <span class="font-bold text-sm text-rose-400">{{ number_format($opname->difference) }} Unit</span>
                             @endif
                         </td>
                         <td class="px-5 py-3.5 text-right font-bold text-[#F5F5F5]">
                             @php
                                 $impact = ($opname->product?->purchase_price ?? 0) * $opname->difference;
                             @endphp
-                            <span class="{{ $impact < 0 ? 'text-rose-700' : ($impact > 0 ? 'text-amber-700' : 'text-emerald-700') }}">
+                            <span class="{{ $impact < 0 ? 'text-rose-400' : ($impact > 0 ? 'text-amber-400' : 'text-emerald-400') }}">
                                 {{ $impact < 0 ? '-' : ($impact > 0 ? '+' : '') }}Rp {{ number_format(abs($impact), 0, ',', '.') }}
                             </span>
                         </td>

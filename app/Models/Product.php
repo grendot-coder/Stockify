@@ -12,6 +12,7 @@ class Product extends Model
     protected $fillable = [
         'category_id',
         'supplier_id',
+        'rack_location_id',
         'sku',
         'name',
         'description',
@@ -49,6 +50,11 @@ class Product extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function rackLocation()
+    {
+        return $this->belongsTo(RackLocation::class, 'rack_location_id');
     }
 
     public function attributes()

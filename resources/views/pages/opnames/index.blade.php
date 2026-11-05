@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="space-y-6">
@@ -28,7 +28,7 @@
     @if(session('success'))
         <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
             <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 <span>{{ session('success') }}</span>
@@ -38,7 +38,7 @@
 
     @if(session('error') || $errors->any())
         <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
-            <svg class="w-4 h-4 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
             </svg>
             <span>{{ session('error') ?? $errors->first() }}</span>
@@ -53,18 +53,18 @@
             <div class="text-[10px] text-[#A1A1AA] mt-0.5">Seluruh rekaman audit</div>
         </div>
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-4 shadow-xs">
-            <div class="text-[10px] font-semibold text-emerald-700 uppercase tracking-wider">Stok Sesuai (0 Selisih)</div>
-            <div class="font-heading text-2xl font-semibold tabular-nums text-emerald-700 mt-1">{{ number_format($stats['matched']) }}</div>
+            <div class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Stok Sesuai (0 Selisih)</div>
+            <div class="font-heading text-2xl font-semibold tabular-nums text-emerald-400 mt-1">{{ number_format($stats['matched']) }}</div>
             <div class="text-[10px] text-[#A1A1AA] mt-0.5">Fisik cocok dengan sistem</div>
         </div>
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-4 shadow-xs">
-            <div class="text-[10px] font-semibold text-rose-700 uppercase tracking-wider">Selisih Defisit (Kurang)</div>
-            <div class="font-heading text-2xl font-semibold tabular-nums text-rose-700 mt-1">{{ number_format($stats['deficit']) }}</div>
+            <div class="text-[10px] font-semibold text-rose-400 uppercase tracking-wider">Selisih Defisit (Kurang)</div>
+            <div class="font-heading text-2xl font-semibold tabular-nums text-rose-400 mt-1">{{ number_format($stats['deficit']) }}</div>
             <div class="text-[10px] text-[#A1A1AA] mt-0.5">Potensi hilang / rusak</div>
         </div>
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-4 shadow-xs">
-            <div class="text-[10px] font-semibold text-amber-700 uppercase tracking-wider">Selisih Surplus (Lebih)</div>
-            <div class="font-heading text-2xl font-semibold tabular-nums text-amber-700 mt-1">{{ number_format($stats['surplus']) }}</div>
+            <div class="text-[10px] font-semibold text-amber-400 uppercase tracking-wider">Selisih Surplus (Lebih)</div>
+            <div class="font-heading text-2xl font-semibold tabular-nums text-amber-400 mt-1">{{ number_format($stats['surplus']) }}</div>
             <div class="text-[10px] text-[#A1A1AA] mt-0.5">Belum tercatat masuk</div>
         </div>
     </div>
@@ -114,22 +114,22 @@
         </div>
 
         <!-- Tabel Riwayat Stock Opname -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Riwayat Stock Opname">
             <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
-                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
+                <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40] sticky top-0 z-10">
                     <tr>
-                        <th class="px-5 py-3.5 font-heading font-semibold">Tanggal & ID</th>
-                        <th class="px-5 py-3.5 font-heading font-semibold">Produk / SKU</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Stok Sistem</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Stok Fisik</th>
-                        <th class="px-5 py-3.5 text-center font-heading font-semibold">Selisih</th>
-                        <th class="px-5 py-3.5 font-heading font-semibold">Petugas Audit</th>
-                        <th class="px-5 py-3.5 text-right font-heading font-semibold">Aksi</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Tanggal & ID</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Produk / SKU</th>
+                        <th scope="col" class="px-5 py-3.5 text-right font-heading font-semibold">Stok Sistem</th>
+                        <th scope="col" class="px-5 py-3.5 text-right font-heading font-semibold">Stok Fisik</th>
+                        <th scope="col" class="px-5 py-3.5 text-center font-heading font-semibold">Selisih</th>
+                        <th scope="col" class="px-5 py-3.5 font-heading font-semibold">Petugas Audit</th>
+                        <th scope="col" class="px-5 py-3.5 text-right font-heading font-semibold">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-[#343A40]">
                     @forelse($opnames as $op)
-                        <tr class="hover:bg-[#181C20] transition">
+                        <tr class="hover:bg-[#2A3036]/60 transition">
                             <!-- Tanggal & ID -->
                             <td class="px-5 py-3.5">
                                 <div class="font-bold text-[#F5F5F5]">
@@ -143,7 +143,7 @@
                             <!-- Info Produk -->
                             <td class="px-5 py-3.5">
                                 <div class="font-medium text-[#F5F5F5] text-xs">
-                                    <a href="{{ route('products.show', $op->product_id) }}" class="hover:text-[#F5C842]">
+                                    <a href="{{ route('products.show', $op->product_id) }}" class="hover:text-[#F5C842] transition">
                                         {{ $op->product?->name ?? 'Produk Dihapus' }}
                                     </a>
                                 </div>
@@ -163,7 +163,7 @@
                             </td>
 
                             <!-- Selisih -->
-                            <td class="px-5 py-3.5 text-center">
+                            <td class="px-5 py-3.5 text-center whitespace-nowrap">
                                 @if($op->difference === 0)
                                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                                         Cocok (0)
@@ -173,7 +173,7 @@
                                         +{{ number_format($op->difference) }} (Surplus)
                                     </span>
                                 @else
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-50 text-rose-800 border border-rose-200">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30">
                                         {{ number_format($op->difference) }} (Defisit)
                                     </span>
                                 @endif
@@ -186,9 +186,9 @@
                             </td>
 
                             <!-- Aksi -->
-                            <td class="px-5 py-3.5 text-right">
+                            <td class="px-5 py-3.5 text-right whitespace-nowrap">
                                 <a href="{{ route('opnames.show', $op->id) }}"
-                                    class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-[#F5F5F5] bg-[#181C20] hover:bg-[#F5C842]/15 hover:text-[#F5C842] border border-[#343A40] rounded-lg transition shadow-2xs">
+                                    class="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-[#F5F5F5] bg-[#181C20] hover:bg-[#2A3036] hover:text-[#F5C842] border border-[#343A40] hover:border-[#F5C842]/40 rounded-lg transition">
                                     <svg class="w-3.5 h-3.5 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
