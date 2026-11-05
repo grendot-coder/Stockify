@@ -59,13 +59,14 @@
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
                         <label class="block text-xs font-medium text-[#F5F5F5]">
-                            SKU / Kode Barang <span class="text-[#F5C842]">*</span>
+                            SKU / Kode Barang <span class="text-xs text-[#A1A1AA] font-normal">(Otomatis/Manual)</span>
                         </label>
-                        <button type="button" id="btn-generate-sku" class="text-[11px] text-[#F5C842] hover:text-[#E8B92E] font-medium transition cursor-pointer">
-                            Generate Otomatis
+                        <button type="button" id="btn-generate-sku" class="text-[11px] text-[#F5C842] hover:text-[#E8B92E] font-medium transition cursor-pointer flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            Generate Ulang
                         </button>
                     </div>
-                    <input type="text" name="sku" id="sku" required value="{{ old('sku', $suggestedSku) }}"
+                    <input type="text" name="sku" id="sku" value="{{ old('sku', $suggestedSku) }}" placeholder="Otomatis dibuat jika dikosongkan"
                         class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
             </div>
@@ -80,15 +81,21 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-medium text-[#F5F5F5] mb-1.5">
-                        Rekanan Supplier (Pemasok)
-                    </label>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-xs font-medium text-[#F5F5F5]">
+                            Rekanan Supplier (Pemasok)
+                        </label>
+                        <span id="supplier-filter-badge" class="text-[10px] text-[#A1A1AA] font-mono"></span>
+                    </div>
                     <select name="supplier_id" id="supplier_id"
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                         <option value="">-- Tanpa Supplier Terikat --</option>
                         @foreach($suppliers as $sup)
-                        <option value="{{ $sup->id }}" {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
-                            {{ $sup->name }} ({{ $sup->phone }})
+                        <option value="{{ $sup->id }}"
+                            data-category-id="{{ $sup->category_id ?? '' }}"
+                            data-category-name="{{ $sup->category?->name ?? 'Umum' }}"
+                            {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
+                            {{ $sup->name }} — Spesialis: {{ $sup->category?->name ?? 'Umum' }}
                         </option>
                         @endforeach
                     </select>
@@ -354,8 +361,62 @@
     }
 
     const categorySelect = document.getElementById('category_id');
+    const supplierSelect = document.getElementById('supplier_id');
+    const supplierFilterBadge = document.getElementById('supplier-filter-badge');
     const skuInput = document.getElementById('sku');
     const btnGenerateSku = document.getElementById('btn-generate-sku');
+
+    function filterSuppliersByCategory(categoryId) {
+        if (!supplierSelect) return;
+        const options = supplierSelect.querySelectorAll('option');
+        let currentStillValid = false;
+        let matchCount = 0;
+
+        options.forEach(opt => {
+            if (!opt.value) {
+                // Option "-- Tanpa Supplier Terikat --"
+                opt.hidden = false;
+                opt.disabled = false;
+                return;
+            }
+
+            const supCatId = opt.getAttribute('data-category-id');
+
+            if (!categoryId) {
+                // Jika belum pilih kategori, tampilkan semua
+                opt.hidden = false;
+                opt.disabled = false;
+                matchCount++;
+            } else if (supCatId === categoryId.toString()) {
+                // Sesuai spesialisasi kategori
+                opt.hidden = false;
+                opt.disabled = false;
+                matchCount++;
+                if (opt.value === supplierSelect.value) {
+                    currentStillValid = true;
+                }
+            } else {
+                // Bukan spesialisasi kategori ini
+                opt.hidden = true;
+                opt.disabled = true;
+            }
+        });
+
+        // Update badge indikator filter supplier
+        if (supplierFilterBadge) {
+            if (categoryId) {
+                supplierFilterBadge.textContent = `(${matchCount} supplier spesialis)`;
+                supplierFilterBadge.className = 'text-[10px] text-emerald-400 font-mono';
+            } else {
+                supplierFilterBadge.textContent = '';
+            }
+        }
+
+        // Jika supplier yang terpilih tidak sesuai dengan kategori yang baru dipilih, kosongkan
+        if (categoryId && supplierSelect.value && !currentStillValid) {
+            supplierSelect.value = '';
+        }
+    }
 
     function fetchSku(categoryId) {
         let url = '{{ route("products.generate-sku") }}';
@@ -374,7 +435,12 @@
 
     categorySelect.addEventListener('change', function() {
         fetchSku(this.value);
+        filterSuppliersByCategory(this.value);
     });
+
+    if (categorySelect && categorySelect.value) {
+        filterSuppliersByCategory(categorySelect.value);
+    }
 
     btnGenerateSku.addEventListener('click', function() {
         fetchSku(categorySelect.value);
@@ -393,7 +459,6 @@
     const btnDismissAi = document.getElementById('btn-dismiss-ai');
 
     const descriptionTextarea = document.getElementById('description');
-    const supplierSelect = document.getElementById('supplier_id');
     const aiResCategory = document.getElementById('ai-res-category');
     const aiResSupplier = document.getElementById('ai-res-supplier');
 
@@ -494,6 +559,7 @@
                 if (aiData.category_id && categorySelect) {
                     categorySelect.value = aiData.category_id;
                     fetchSku(aiData.category_id);
+                    filterSuppliersByCategory(aiData.category_id);
                     if (aiResCategory) {
                         aiResCategory.textContent = aiData.category_name || `Kategori #${aiData.category_id}`;
                     }

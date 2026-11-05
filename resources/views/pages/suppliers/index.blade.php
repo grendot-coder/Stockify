@@ -66,6 +66,7 @@
                     <tr>
                         <th class="px-5 py-3.5 w-12 text-center">No</th>
                         <th class="px-5 py-3.5">Nama Supplier</th>
+                        <th class="px-5 py-3.5">Spesialisasi Kategori</th>
                         <th class="px-5 py-3.5">Kontak</th>
                         <th class="px-5 py-3.5">Alamat</th>
                         <th class="px-5 py-3.5 text-center">Produk Disuplai</th>
@@ -80,6 +81,17 @@
                         </td>
                         <td class="px-5 py-3.5 font-semibold text-[#F5F5F5]">
                             {{ $sup->name }}
+                        </td>
+                        <td class="px-5 py-3.5">
+                            @if($sup->category)
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                                {{ $sup->category->name }}
+                            </span>
+                            @else
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] text-[#A1A1AA] bg-[#181C20] border border-[#343A40]">
+                                Umum (Semua Kategori)
+                            </span>
+                            @endif
                         </td>
                         <td class="px-5 py-3.5 space-y-0.5">
                             <div class="font-mono text-[#F5F5F5] font-medium">{{ $sup->phone }}</div>
@@ -97,7 +109,7 @@
                         </td>
                         <td class="px-5 py-3.5 text-right space-x-3 whitespace-nowrap">
                             <button type="button"
-                                onclick="openEditSupplierModal({{ $sup->id }}, '{{ addslashes($sup->name) }}', '{{ addslashes($sup->email ?? '') }}', '{{ addslashes($sup->phone) }}', '{{ addslashes($sup->address ?? '') }}')"
+                                onclick="openEditSupplierModal({{ $sup->id }}, '{{ addslashes($sup->name) }}', '{{ $sup->category_id ?? '' }}', '{{ addslashes($sup->email ?? '') }}', '{{ addslashes($sup->phone) }}', '{{ addslashes($sup->address ?? '') }}')"
                                 class="text-[#F5C842] hover:text-[#E8B92E] font-semibold transition cursor-pointer">
                                 Edit
                             </button>
@@ -113,7 +125,7 @@
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6" class="px-5 py-10 text-center text-[#A1A1AA]">
+                        <td colspan="7" class="px-5 py-10 text-center text-[#A1A1AA]">
                             Tidak ada data supplier yang ditemukan.
                         </td>
                     </tr>
@@ -153,6 +165,16 @@
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">Nama Perusahaan / Supplier <span class="text-[#F5C842]">*</span></label>
                     <input type="text" name="name" required placeholder="PT / CV / Nama Supplier"
                         class="w-full px-3.5 py-2 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">Spesialisasi Kategori Produk</label>
+                    <select name="category_id"
+                        class="w-full px-3.5 py-2 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
+                        <option value="">-- Tanpa Spesialisasi (Umum/Semua) --</option>
+                        @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">Nomor Telepon / WhatsApp <span class="text-[#F5C842]">*</span></label>
@@ -203,6 +225,16 @@
                         class="w-full px-3.5 py-2 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
                 </div>
                 <div>
+                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">Spesialisasi Kategori Produk</label>
+                    <select name="category_id" id="edit-supplier-category_id"
+                        class="w-full px-3.5 py-2 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
+                        <option value="">-- Tanpa Spesialisasi (Umum/Semua) --</option>
+                        @foreach($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">Nomor Telepon / WhatsApp <span class="text-[#F5C842]">*</span></label>
                     <input type="text" name="phone" id="edit-supplier-phone" required
                         class="w-full px-3.5 py-2 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] font-mono placeholder-[#A1A1AA]/60 focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] focus:outline-none">
@@ -227,11 +259,12 @@
 </div>
 
 <script>
-    function openEditSupplierModal(id, name, email, phone, address) {
+    function openEditSupplierModal(id, name, categoryId, email, phone, address) {
         const modal = document.getElementById('modal-edit-supplier');
         const form = document.getElementById('form-edit-supplier');
         form.action = `/suppliers/${id}`;
         document.getElementById('edit-supplier-name').value = name;
+        document.getElementById('edit-supplier-category_id').value = categoryId || '';
         document.getElementById('edit-supplier-email').value = email || '';
         document.getElementById('edit-supplier-phone').value = phone;
         document.getElementById('edit-supplier-address').value = address || '';

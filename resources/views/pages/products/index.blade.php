@@ -148,7 +148,7 @@
                                         </span>
                                         @if($p->rackLocation)
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono bg-[#181C20] border border-[#343A40] text-[#A1A1AA]">
-                                            📍 {{ $p->rackLocation->name }}
+                                            {{ $p->rackLocation->name }}
                                         </span>
                                         @endif
                                     </div>

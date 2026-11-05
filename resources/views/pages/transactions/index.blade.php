@@ -189,7 +189,7 @@
                         <!-- Kuantitas -->
                         <td class="px-5 py-3.5 text-right">
                             <span class="font-bold text-sm {{ $trx->type === 'in' ? 'text-emerald-400' : 'text-[#F5C842]' }}">
-                                {{ $trx->type === 'in' ? '+' : '-' }}{{ number_format($trx->quantity) }}
+                                {{ $trx->type === 'in' ? '' : '' }}{{ number_format($trx->quantity) }}
                             </span>
                             <span class="text-[10px] text-[#A1A1AA] block">Unit</span>
                         </td>

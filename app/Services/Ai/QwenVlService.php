@@ -11,15 +11,22 @@ class QwenVlService
 
     // Groq Cloud Configuration
     protected string $groqApiKey;
+
     protected string $groqModel;
+
     protected string $groqEndpoint;
+
     protected int $groqTimeout;
+
     protected float $groqTemperature;
 
     // Local Ollama Configuration (Fallback)
     protected string $ollamaUrl;
+
     protected string $ollamaModel;
+
     protected int $ollamaTimeout;
+
     protected float $ollamaTemperature;
 
     public function __construct()
@@ -76,7 +83,7 @@ class QwenVlService
                     'online' => false,
                     'provider' => 'groq',
                     'model' => $this->groqModel,
-                    'message' => 'Groq API merespons dengan kesalahan (Status: '.$response->status().')',
+                    'message' => 'Groq API merespons dengan kesalahan (Status: ' . $response->status() . ')',
                 ];
             }
 
@@ -97,7 +104,7 @@ class QwenVlService
                 'online' => false,
                 'provider' => 'groq',
                 'model' => $this->groqModel,
-                'message' => 'Gagal menghubungi Groq Cloud API: '.$e->getMessage(),
+                'message' => 'Gagal menghubungi Groq Cloud API: ' . $e->getMessage(),
             ];
         }
     }
@@ -114,7 +121,7 @@ class QwenVlService
                 return [
                     'online' => false,
                     'provider' => 'ollama',
-                    'message' => 'Ollama server tidak merespons (Status: '.$response->status().')',
+                    'message' => 'Ollama server tidak merespons (Status: ' . $response->status() . ')',
                     'models' => [],
                 ];
             }
@@ -136,7 +143,7 @@ class QwenVlService
             return [
                 'online' => false,
                 'provider' => 'ollama',
-                'message' => 'Gagal terhubung ke Ollama di '.$this->ollamaUrl.': '.$e->getMessage(),
+                'message' => 'Gagal terhubung ke Ollama di ' . $this->ollamaUrl . ': ' . $e->getMessage(),
                 'models' => [],
             ];
         }
@@ -165,21 +172,31 @@ class QwenVlService
         $supplierLines = $supplierCollection->map(function ($sup) {
             $id = is_object($sup) ? $sup->id : ($sup['id'] ?? null);
             $name = is_object($sup) ? $sup->name : ($sup['name'] ?? null);
+            $catId = is_object($sup) ? $sup->category_id : ($sup['category_id'] ?? null);
+            $catName = (is_object($sup) && isset($sup->category)) ? $sup->category->name : ($sup['category']['name'] ?? null);
 
-            return "- ID: {$id} | Nama: {$name}";
+            $specText = $catId ? "Spesialisasi Kategori: {$catName} (ID: {$catId})" : "Spesialisasi: Umum";
+
+            return "- ID: {$id} | Nama: {$name} | {$specText}";
         })->implode("\n");
 
         $catText = ! empty($categoryLines) ? $categoryLines : '(Belum ada kategori terdaftar)';
         $supText = ! empty($supplierLines) ? $supplierLines : '(Belum ada supplier terdaftar)';
 
         $prompt = <<<EOT
-Analisis foto produk ini untuk kebutuhan inventaris katalog gudang toko.
+Analisis foto produk ini untuk kebutuhan inventaris katalog gudang toko. Deskripsikan ala petugas inventaris profesional. Jika terdapat merek maka letakkan didepan nama barang. 
 Tugas Anda:
 1. Pilih SATU ID Kategori yang paling sesuai dari daftar berikut (atau null jika tidak ada yang cocok):
 {$catText}
 
 2. Pilih SATU ID Supplier yang paling relevan dari daftar berikut (atau null jika tidak ada yang cocok):
 {$supText}
+
+ATURAN KETAT PEMILIHAN SUPPLIER:
+- Tiap supplier memiliki spesialisasi kategorinya masing-masing.
+- Anda HANYA boleh memilih Supplier yang memiliki spesialisasi Kategori yang SAMA dengan ID Kategori yang Anda pilih di langkah 1!
+- Sebagai contoh: Jika Anda memilih Kategori 'Fresh Goods', Anda HANYA boleh memilih Supplier dengan spesialisasi 'Fresh Goods'.
+- Jika tidak ada supplier yang cocok dengan kategori tersebut, berikan null pada supplier_id.
 
 3. Tuliskan deskripsi ringkas produk (1-2 kalimat dalam Bahasa Indonesia) yang menyebutkan jenis/nama barang dan cirinya.
 
@@ -191,7 +208,7 @@ Jawab HANYA dalam format JSON valid tanpa teks pengantar:
 }
 EOT;
 
-        // 1. Eksekusi menggunakan Groq API jika menjadi provider utama
+        // 1. Eksek Groq API (Utama)
         if ($this->provider === 'groq' && ! empty($this->groqApiKey)) {
             $result = $this->callGroqVision($prompt, $rawBase64);
 
@@ -204,7 +221,7 @@ EOT;
             ]);
         }
 
-        // 2. Fallback / Eksekusi Ollama Lokal
+        // 2. Fallback ke model lokal VL
         $ollamaResult = $this->callOllamaVision($prompt, $rawBase64);
         if ($ollamaResult['success']) {
             return $this->formatRecommendationResult($ollamaResult['raw_json'], $categoryCollection, $supplierCollection, 'ollama');
@@ -217,7 +234,7 @@ EOT;
     }
 
     /**
-     * Memanggil Groq Cloud Chat Completion API dengan multimodal input (Vision).
+     * Memanggil Groq Cloud Chat Completion API(Vision).
      */
     protected function callGroqVision(string $prompt, string $rawBase64): array
     {
@@ -235,7 +252,7 @@ EOT;
                             [
                                 'type' => 'image_url',
                                 'image_url' => [
-                                    'url' => 'data:image/jpeg;base64,'.$rawBase64,
+                                    'url' => 'data:image/jpeg;base64,' . $rawBase64,
                                 ],
                             ],
                         ],
@@ -258,7 +275,7 @@ EOT;
 
                 return [
                     'success' => false,
-                    'message' => 'Groq API error (Kode: '.$response->status().'): '.($response->json('error.message') ?? 'Unknown error'),
+                    'message' => 'Groq API error (Kode: ' . $response->status() . '): ' . ($response->json('error.message') ?? 'Unknown error'),
                 ];
             }
 
@@ -269,11 +286,11 @@ EOT;
                 'raw_json' => $content,
             ];
         } catch (\Throwable $e) {
-            Log::error('QwenVlService: Groq Vision Exception: '.$e->getMessage());
+            Log::error('QwenVlService: Groq Vision Exception: ' . $e->getMessage());
 
             return [
                 'success' => false,
-                'message' => 'Groq Cloud Exception: '.$e->getMessage(),
+                'message' => 'Groq Cloud Exception: ' . $e->getMessage(),
             ];
         }
     }
@@ -307,7 +324,7 @@ EOT;
             if (! $response->successful()) {
                 return [
                     'success' => false,
-                    'message' => 'Ollama API error: '.$response->status(),
+                    'message' => 'Ollama API error: ' . $response->status(),
                 ];
             }
 
@@ -320,7 +337,7 @@ EOT;
         } catch (\Throwable $e) {
             return [
                 'success' => false,
-                'message' => 'Ollama error: '.$e->getMessage(),
+                'message' => 'Ollama error: ' . $e->getMessage(),
             ];
         }
     }
@@ -354,14 +371,36 @@ EOT;
         }
 
         // Validasi anti-halusinasi: Pastikan ID benar-benar terdaftar di database
-        $categoryMap = $categoryCollection->keyBy(fn ($item) => is_object($item) ? $item->id : $item['id']);
-        $supplierMap = $supplierCollection->keyBy(fn ($item) => is_object($item) ? $item->id : $item['id']);
+        $categoryMap = $categoryCollection->keyBy(fn($item) => is_object($item) ? $item->id : $item['id']);
+        $supplierMap = $supplierCollection->keyBy(fn($item) => is_object($item) ? $item->id : $item['id']);
 
         $matchedCategory = ($categoryId && $categoryMap->has($categoryId)) ? $categoryMap->get($categoryId) : null;
         $matchedSupplier = ($supplierId && $supplierMap->has($supplierId)) ? $supplierMap->get($supplierId) : null;
 
         $matchedCategoryId = $matchedCategory ? (is_object($matchedCategory) ? $matchedCategory->id : $matchedCategory['id']) : null;
         $matchedCategoryName = $matchedCategory ? (is_object($matchedCategory) ? $matchedCategory->name : $matchedCategory['name']) : null;
+
+        // Validasi ketat spesialisasi: Pastikan Supplier sesuai dengan Kategori yang terpilih
+        if ($matchedCategoryId) {
+            $isSupplierValid = false;
+            if ($matchedSupplier) {
+                $supCatId = is_object($matchedSupplier) ? $matchedSupplier->category_id : ($matchedSupplier['category_id'] ?? null);
+                if ($supCatId == $matchedCategoryId) {
+                    $isSupplierValid = true;
+                }
+            }
+
+            // Jika supplier tidak valid atau berbeda kategori, cari supplier yang benar-benar spesialis di kategori ini
+            if (! $isSupplierValid) {
+                $matchingSupplier = $supplierCollection->first(function ($s) use ($matchedCategoryId) {
+                    $sCatId = is_object($s) ? $s->category_id : ($s['category_id'] ?? null);
+
+                    return $sCatId == $matchedCategoryId;
+                });
+
+                $matchedSupplier = $matchingSupplier ?: null;
+            }
+        }
 
         $matchedSupplierId = $matchedSupplier ? (is_object($matchedSupplier) ? $matchedSupplier->id : $matchedSupplier['id']) : null;
         $matchedSupplierName = $matchedSupplier ? (is_object($matchedSupplier) ? $matchedSupplier->name : $matchedSupplier['name']) : null;
@@ -466,7 +505,7 @@ EOT;
                     ];
                 }
             } catch (\Throwable $e) {
-                Log::warning('Groq Chat failed, falling back to Ollama: '.$e->getMessage());
+                Log::warning('Groq Chat failed, falling back to Ollama: ' . $e->getMessage());
             }
         }
 
@@ -489,7 +528,7 @@ EOT;
 
             return [
                 'success' => false,
-                'message' => 'Ollama API error: '.$response->status(),
+                'message' => 'Ollama API error: ' . $response->status(),
             ];
         } catch (\Throwable $e) {
             return [

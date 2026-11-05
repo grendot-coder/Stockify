@@ -23,6 +23,7 @@ class SupplierRepositoryImplement extends Eloquent implements SupplierRepository
     public function getPaginated(?string $search = null, int $perPage = 10)
     {
         return $this->model->newQuery()
+            ->with(['category'])
             ->withCount('products')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%")

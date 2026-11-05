@@ -2,9 +2,9 @@
 $landingAppName = \App\Models\Setting::get('app_name', 'Stockify');
 $landingAppTagline = \App\Models\Setting::get('app_tagline', 'Warehouse Management System');
 $landingAppLogo = \App\Models\Setting::get('app_logo');
-$landingCompanyPhone = \App\Models\Setting::get('company_phone');
-$landingCompanyEmail = \App\Models\Setting::get('company_email');
-$landingCompanyAddress = \App\Models\Setting::get('company_address');
+$landingCompanyPhone = \App\Models\Setting::get('warehouse_phone') ?: \App\Models\Setting::get('company_phone');
+$landingCompanyEmail = \App\Models\Setting::get('warehouse_email') ?: \App\Models\Setting::get('company_email');
+$landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\Models\Setting::get('company_address');
 @endphp
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
@@ -258,7 +258,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#181C20]/90 border-b border-[#343A40]">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-            <a href="/" class="flex items-center gap-3 group">
+            <a href="/" class="flex items-center gap-3 group"
                 @if($landingAppLogo && file_exists(public_path('storage/' . $landingAppLogo)))
                 <img src="{{ asset('storage/' . $landingAppLogo) }}" alt="{{ $landingAppName }}" class="w-10 h-10 rounded-xl object-contain bg-[#202429] border border-[#343A40] p-1">
                 @else
@@ -314,10 +314,10 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                 <div class="lg:col-span-7 space-y-6 text-left">
 
                     <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F5] leading-[1.15]">
-                        Kelola Persediaan Gudang dengan <span class="text-[#F5C842]">Presisi Tinggi.</span>
+                        Kelola Persediaan Gudang dengan <span class="text-[#F5C842]">Hampir Dimana Saja.</span>
                     </h1>
                     <p class="text-sm sm:text-base text-[#A1A1AA] leading-relaxed max-w-xl">
-                        Platform pergudangan terpadu untuk brand ritel dan pusat distribusi modern. Mengeliminasi selisih stok melalui telemetri rak berstandar dot-matrix, mutasi ganda, dan audit log tanpa kompromi.
+                        Platform pergudangan untuk segala jenis usaha dan pusat distribusi modern.
                     </p>
                     <div class="space-y-3 pt-1">
                         <div class="flex items-center gap-3 text-xs sm:text-sm text-[#F5F5F5]">
@@ -326,7 +326,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                             </span>
-                            <span>Telemetri Keterisian Rak & Matriks Gudang Real-Time</span>
+                            <span>Penunjuk Keterisian Rak & Matriks Gudang Real-Time</span>
                         </div>
                         <div class="flex items-center gap-3 text-xs sm:text-sm text-[#F5F5F5]">
                             <span class="w-5 h-5 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 flex items-center justify-center shrink-0 text-[#F5C842]">
@@ -334,7 +334,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                             </span>
-                            <span>Pencatatan Mutasi Ganda (Inbound & Outbound) Terotorisasi</span>
+                            <span>Pencatatan Mutasi Dua Arah(Inbound & Outbound) Terotorisasi</span>
                         </div>
                         <div class="flex items-center gap-3 text-xs sm:text-sm text-[#F5F5F5]">
                             <span class="w-5 h-5 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 flex items-center justify-center shrink-0 text-[#F5C842]">
@@ -349,14 +349,14 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                     <div class="pt-2 flex flex-wrap items-center gap-3.5">
                         <a href="#akses-demo"
                             class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#F5C842] text-[#101214] text-xs font-heading font-bold hover:bg-[#E8B92E] transition shadow-lg shadow-[#F5C842]/20 hover:scale-[1.02] active:scale-[0.98]">
-                            <span>Mulai Akses Demo 1-Klik</span>
+                            <span>Mulai Akses Demo dengan 1-Klik</span>
                         </a>
                         <a href="#simulator"
                             class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#181C20] border border-[#343A40] text-[#F5F5F5] text-xs font-heading font-semibold hover:border-[#F5C842] hover:text-[#F5C842] transition">
                             <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                             </svg>
-                            <span>Uji Simulator Mutasi</span>
+                            <span>Uji Test Mutasi</span>
                         </a>
                     </div>
 
@@ -574,7 +574,7 @@ $landingCompanyAddress = \App\Models\Setting::get('company_address');
                                 <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
-                                Buku Mutasi (Live Ledger)
+                                Buku Mutasi
                             </span>
                             <button type="button" onclick="clearSimLogs()" class="text-[11px] text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer">
                                 Bersihkan Log

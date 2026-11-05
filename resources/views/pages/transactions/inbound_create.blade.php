@@ -50,28 +50,27 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- No. Invoice / Referensi -->
                 <div>
-                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
-                        No. Invoice / Surat Jalan <span class="text-[#F5C842]">*</span>
-                    </label>
-                    <input type="text" name="invoice_number" required value="{{ old('invoice_number', $suggestedInvoice) }}"
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">
+                            No. Invoice / Surat Jalan
+                        </label>
+                        <span class="text-[10px] text-[#A1A1AA] font-mono">Otomatis / Manual</span>
+                    </div>
+                    <input type="text" name="invoice_number" value="{{ old('invoice_number', $suggestedInvoice) }}" placeholder="Otomatis dibuat jika dikosongkan"
                         class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
-                    <p class="text-[10px] text-[#A1A1AA] mt-1">Nomor invoice supplier atau kode acuan otomatis.</p>
+                    <p class="text-[10px] text-[#A1A1AA] mt-1">Otomatis terisi oleh sistem, dapat diubah sesuai nomor surat jalan fisik supplier.</p>
                 </div>
 
-                <!-- Supplier -->
+                <!-- Supplier (Otomatis Terikat) -->
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                         Rekanan Supplier
                     </label>
-                    <select name="supplier_id"
-                        class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
-                        <option value="">-- Tanpa Supplier Terikat --</option>
-                        @foreach($suppliers as $sup)
-                        <option value="{{ $sup->id }}" {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
-                            {{ $sup->name }}
-                        </option>
-                        @endforeach
-                    </select>
+                    <div class="w-full px-3.5 py-2.5 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#A1A1AA] flex items-center justify-between">
+                        <span id="supplier-display-name">Pilih barang untuk melihat supplier</span>
+                        <span class="text-[10px] text-[#A1A1AA]/60 font-mono">Otomatis</span>
+                    </div>
+                    <p class="text-[10px] text-[#A1A1AA] mt-1">Mengikuti supplier yang terdaftar pada produk terpilih.</p>
                 </div>
             </div>
 
@@ -84,7 +83,11 @@
                     class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                     <option value="">-- Pilih Barang yang Diterima --</option>
                     @foreach($products as $p)
-                    <option value="{{ $p->id }}" data-stock="{{ $p->stock }}" data-sku="{{ $p->sku }}" {{ old('product_id') == $p->id ? 'selected' : '' }}>
+                    <option value="{{ $p->id }}" 
+                        data-stock="{{ $p->stock }}" 
+                        data-sku="{{ $p->sku }}"
+                        data-supplier="{{ $p->supplier?->name ?? 'Tanpa Supplier Terikat' }}"
+                        {{ old('product_id') == $p->id ? 'selected' : '' }}>
                         {{ $p->name }} (SKU: {{ $p->sku }}) — Stok Fisik: {{ $p->stock }} Unit
                     </option>
                     @endforeach
@@ -146,4 +149,27 @@
     </form>
 
 </div>
+
+<script>
+    const productSelect = document.getElementById('product_id');
+    const supplierDisplay = document.getElementById('supplier-display-name');
+
+    function updateSupplierDisplay() {
+        if (!productSelect || !supplierDisplay) return;
+        const selectedOption = productSelect.options[productSelect.selectedIndex];
+        if (selectedOption && selectedOption.value) {
+            const supplierName = selectedOption.getAttribute('data-supplier');
+            supplierDisplay.textContent = supplierName || 'Tanpa Supplier Terikat';
+            supplierDisplay.className = 'text-[#F5F5F5] font-medium';
+        } else {
+            supplierDisplay.textContent = 'Pilih barang untuk melihat supplier';
+            supplierDisplay.className = 'text-[#A1A1AA]';
+        }
+    }
+
+    if (productSelect) {
+        productSelect.addEventListener('change', updateSupplierDisplay);
+        updateSupplierDisplay();
+    }
+</script>
 @endsection

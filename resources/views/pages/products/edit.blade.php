@@ -78,15 +78,21 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
-                        Rekanan Supplier (Pemasok)
-                    </label>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-xs font-semibold text-[#F5F5F5]">
+                            Rekanan Supplier (Pemasok)
+                        </label>
+                        <span id="supplier-filter-badge" class="text-[10px] text-[#A1A1AA] font-mono"></span>
+                    </div>
                     <select name="supplier_id" id="supplier_id"
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                         <option value="">-- Tanpa Supplier Terikat --</option>
                         @foreach($suppliers as $sup)
-                        <option value="{{ $sup->id }}" {{ old('supplier_id', $product->supplier_id) == $sup->id ? 'selected' : '' }}>
-                            {{ $sup->name }} ({{ $sup->phone }})
+                        <option value="{{ $sup->id }}"
+                            data-category-id="{{ $sup->category_id ?? '' }}"
+                            data-category-name="{{ $sup->category?->name ?? 'Umum' }}"
+                            {{ old('supplier_id', $product->supplier_id) == $sup->id ? 'selected' : '' }}>
+                            {{ $sup->name }} — Spesialis: {{ $sup->category?->name ?? 'Umum' }}
                         </option>
                         @endforeach
                     </select>
@@ -388,8 +394,65 @@
     const descriptionTextarea = document.getElementById('description');
     const categorySelect = document.getElementById('category_id');
     const supplierSelect = document.getElementById('supplier_id');
+    const supplierFilterBadge = document.getElementById('supplier-filter-badge');
     const aiResCategory = document.getElementById('ai-res-category');
     const aiResSupplier = document.getElementById('ai-res-supplier');
+
+    function filterSuppliersByCategory(categoryId) {
+        if (!supplierSelect) return;
+        const options = supplierSelect.querySelectorAll('option');
+        let currentStillValid = false;
+        let matchCount = 0;
+
+        options.forEach(opt => {
+            if (!opt.value) {
+                opt.hidden = false;
+                opt.disabled = false;
+                return;
+            }
+
+            const supCatId = opt.getAttribute('data-category-id');
+
+            if (!categoryId) {
+                opt.hidden = false;
+                opt.disabled = false;
+                matchCount++;
+            } else if (supCatId === categoryId.toString()) {
+                opt.hidden = false;
+                opt.disabled = false;
+                matchCount++;
+                if (opt.value === supplierSelect.value) {
+                    currentStillValid = true;
+                }
+            } else {
+                opt.hidden = true;
+                opt.disabled = true;
+            }
+        });
+
+        if (supplierFilterBadge) {
+            if (categoryId) {
+                supplierFilterBadge.textContent = `(${matchCount} supplier spesialis)`;
+                supplierFilterBadge.className = 'text-[10px] text-emerald-400 font-mono';
+            } else {
+                supplierFilterBadge.textContent = '';
+            }
+        }
+
+        if (categoryId && supplierSelect.value && !currentStillValid) {
+            supplierSelect.value = '';
+        }
+    }
+
+    if (categorySelect) {
+        categorySelect.addEventListener('change', function() {
+            filterSuppliersByCategory(this.value);
+        });
+
+        if (categorySelect.value) {
+            filterSuppliersByCategory(categorySelect.value);
+        }
+    }
 
     let currentAiDesc = '';
 
@@ -487,6 +550,7 @@
 
                 if (aiData.category_id && categorySelect) {
                     categorySelect.value = aiData.category_id;
+                    filterSuppliersByCategory(aiData.category_id);
                     if (aiResCategory) {
                         aiResCategory.textContent = aiData.category_name || `Kategori #${aiData.category_id}`;
                     }

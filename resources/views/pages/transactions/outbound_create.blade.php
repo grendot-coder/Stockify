@@ -49,11 +49,15 @@
             
             <!-- No. Invoice / Referensi -->
             <div>
-                <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
-                    No. Transaksi / Surat Pengeluaran <span class="text-[#F5C842]">*</span>
-                </label>
-                <input type="text" name="invoice_number" required value="{{ old('invoice_number', $suggestedInvoice) }}"
+                <div class="flex items-center justify-between mb-1.5">
+                    <label class="block text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">
+                        No. Transaksi / Surat Pengeluaran
+                    </label>
+                    <span class="text-[10px] text-[#A1A1AA] font-mono">Otomatis / Manual</span>
+                </div>
+                <input type="text" name="invoice_number" value="{{ old('invoice_number', $suggestedInvoice) }}" placeholder="Otomatis dibuat jika dikosongkan"
                     class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                <p class="text-[10px] text-[#A1A1AA] mt-1">Otomatis terisi oleh sistem, dapat diubah sesuai nomor referensi pengeluaran internal.</p>
             </div>
 
             <!-- Pilih Produk & Real-time Stock Helper -->

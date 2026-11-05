@@ -62,7 +62,7 @@ class AiAssistantController extends Controller
 
             // Ambil daftar kategori dan supplier dari database untuk pencocokan AI
             $categories = Category::select('id', 'name')->get();
-            $suppliers = Supplier::select('id', 'name')->get();
+            $suppliers = Supplier::with('category:id,name')->select('id', 'name', 'category_id')->get();
 
             $result = $this->qwenService->analyzeProductImage($rawBase64, $categories, $suppliers);
 
