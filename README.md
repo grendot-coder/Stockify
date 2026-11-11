@@ -78,7 +78,7 @@ Before deployment or local setup, verify that your environment meets the followi
 
 ## Maintainer
 
-Authored and maintained by **Grendy Agusti**  
+Authored and maintained by **Grendot**  
 - GitHub: [grendot-coder](https://github.com/grendot-coder)
 
 ## License

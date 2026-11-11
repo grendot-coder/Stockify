@@ -20,7 +20,6 @@ class UserSeeder extends Seeder
                 'name' => 'Administrator Stockify',
                 'password' => Hash::make('password'),
                 'role' => 'admin',
-                'phone' => '081234567890',
                 'is_active' => true,
             ]
         );
@@ -32,7 +31,6 @@ class UserSeeder extends Seeder
                 'name' => 'Budi Santoso (Manajer)',
                 'password' => Hash::make('password'),
                 'role' => 'manager',
-                'phone' => '081234567891',
                 'is_active' => true,
             ]
         );
@@ -44,7 +42,6 @@ class UserSeeder extends Seeder
                 'name' => 'Siti Rahma (Staff)',
                 'password' => Hash::make('password'),
                 'role' => 'staff',
-                'phone' => '081234567892',
                 'is_active' => true,
             ]
         );

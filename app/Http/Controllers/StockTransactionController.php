@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\StockTransaction;
-use App\Models\Supplier;
 use App\Services\StockTransaction\StockTransactionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,6 +69,7 @@ class StockTransactionController extends Controller
 
     /**
      * Simpan transaksi barang masuk.
+     * Otomatis disetujui (confirmed) dan stok langsung bertambah tanpa perlu konfirmasi manual lanjutan.
      */
     public function storeInbound(Request $request)
     {
@@ -78,21 +78,26 @@ class StockTransactionController extends Controller
             'supplier_id' => ['nullable', 'exists:suppliers,id'],
             'invoice_number' => ['nullable', 'string', 'max:50', 'unique:stock_transactions,invoice_number'],
             'quantity' => ['required', 'integer', 'min:1'],
-            'status' => ['required', 'in:pending,confirmed'],
+            'status' => ['nullable', 'in:pending,confirmed'],
             'notes' => ['nullable', 'string', 'max:1000'],
         ], [
             'product_id.required' => 'Pilih barang yang masuk ke gudang.',
             'quantity.required' => 'Kuantitas barang masuk wajib diisi.',
             'quantity.min' => 'Jumlah kuantitas minimal 1 unit.',
+            'invoice_number.unique' => 'Nomor invoice ini sudah pernah digunakan. Mohon gunakan invoice yang unik.',
         ]);
+
+        // Inbound otomatis confirmed agar langsung masuk stok tanpa butuh tombol konfirmasi
+        $validated['status'] = $validated['status'] ?? 'confirmed';
+
+        // Auto-generate invoice jika dikosongkan (anti-duplikasi otomatis)
+        if (empty($validated['invoice_number'])) {
+            $validated['invoice_number'] = $this->transactionService->generateInvoiceNumber('in');
+        }
 
         $this->transactionService->createInbound($validated, Auth::id());
 
-        $message = $validated['status'] === 'confirmed'
-            ? 'Transaksi Barang Masuk berhasil dicatat dan stok gudang otomatis ditambahkan!'
-            : 'Pengajuan Barang Masuk berhasil disimpan (menunggu persetujuan/verifikasi)!';
-
-        return redirect()->route('transactions.index')->with('success', $message);
+        return redirect()->route('transactions.index')->with('success', 'Transaksi Barang Masuk berhasil dicatat dan stok gudang otomatis langsung ditambahkan.');
     }
 
     /**
@@ -115,22 +120,25 @@ class StockTransactionController extends Controller
             'product_id' => ['required', 'exists:products,id'],
             'invoice_number' => ['nullable', 'string', 'max:50', 'unique:stock_transactions,invoice_number'],
             'quantity' => ['required', 'integer', 'min:1'],
-            'status' => ['required', 'in:pending,confirmed'],
+            'status' => ['nullable', 'in:pending,confirmed'],
             'notes' => ['required', 'string', 'max:1000'],
         ], [
             'product_id.required' => 'Pilih barang yang akan dikeluarkan dari gudang.',
             'quantity.required' => 'Kuantitas barang keluar wajib diisi.',
             'quantity.min' => 'Jumlah kuantitas minimal 1 unit.',
             'notes.required' => 'Wajib mengisi alasan atau tujuan pengeluaran barang (cth: Penjualan, Retur Rusak, Distribusi).',
+            'invoice_number.unique' => 'Nomor invoice ini sudah pernah digunakan. Mohon gunakan invoice yang unik.',
         ]);
+
+        $validated['status'] = $validated['status'] ?? 'confirmed';
+
+        if (empty($validated['invoice_number'])) {
+            $validated['invoice_number'] = $this->transactionService->generateInvoiceNumber('out');
+        }
 
         $this->transactionService->createOutbound($validated, Auth::id());
 
-        $message = $validated['status'] === 'confirmed'
-            ? 'Transaksi Barang Keluar berhasil dicatat dan stok gudang otomatis dikurangi!'
-            : 'Pengajuan Barang Keluar berhasil disimpan (menunggu persetujuan)!';
-
-        return redirect()->route('transactions.index')->with('success', $message);
+        return redirect()->route('transactions.index')->with('success', 'Transaksi Barang Keluar berhasil dicatat dan stok gudang otomatis dikurangi.');
     }
 
     /**
@@ -146,11 +154,11 @@ class StockTransactionController extends Controller
 
     /**
      * Konfirmasi / Setujui transaksi pending.
+     * Hanya Admin dan Manager yang berhak menyetujui transaksi fisik.
      */
     public function confirm($id)
     {
-        // Admin, Manager, dan Staff Gudang berhak mengonfirmasi transaksi
-        if (! in_array(Auth::user()->role, ['admin', 'manager', 'staff'])) {
+        if (! in_array(Auth::user()->role, ['admin', 'manager'])) {
             abort(403, 'Anda tidak memiliki hak akses untuk menyetujui transaksi.');
         }
 
@@ -165,11 +173,11 @@ class StockTransactionController extends Controller
 
     /**
      * Tolak transaksi pending.
+     * Hanya Admin dan Manager yang berhak menolak transaksi fisik.
      */
     public function reject(Request $request, $id)
     {
-        // Admin, Manager, dan Staff Gudang berhak menolak transaksi
-        if (! in_array(Auth::user()->role, ['admin', 'manager', 'staff'])) {
+        if (! in_array(Auth::user()->role, ['admin', 'manager'])) {
             abort(403, 'Anda tidak memiliki hak akses untuk menolak transaksi.');
         }
 
@@ -177,5 +185,52 @@ class StockTransactionController extends Controller
         $this->transactionService->rejectTransaction($id, Auth::id(), $reason);
 
         return redirect()->back()->with('success', 'Transaksi telah ditolak.');
+    }
+
+    /**
+     * Endpoint API internal untuk generate nomor invoice baru anti-duplikasi.
+     */
+    public function generateInvoice(Request $request)
+    {
+        $type = $request->query('type', 'in');
+        $invoice = $this->transactionService->generateInvoiceNumber($type === 'out' ? 'out' : 'in');
+
+        return response()->json([
+            'invoice' => $invoice,
+            'message' => 'Nomor invoice baru berhasil digenerate dan dijamin unik.',
+        ]);
+    }
+
+    /**
+     * Endpoint API internal untuk verifikasi nomor invoice secara realtime (Anti-Duplikasi).
+     */
+    public function checkInvoice(Request $request)
+    {
+        $invoice = trim($request->query('invoice', ''));
+        $type = $request->query('type', 'in');
+
+        if ($invoice === '') {
+            return response()->json([
+                'available' => true,
+                'is_empty' => true,
+                'message' => 'Nomor invoice kosong akan digenerate otomatis oleh sistem.',
+            ]);
+        }
+
+        $exists = StockTransaction::where('invoice_number', $invoice)->exists();
+
+        if ($exists) {
+            $suggested = $this->transactionService->generateInvoiceNumber($type === 'out' ? 'out' : 'in');
+            return response()->json([
+                'available' => false,
+                'message' => "Nomor invoice '{$invoice}' sudah pernah digunakan dalam transaksi lain.",
+                'suggested_invoice' => $suggested,
+            ]);
+        }
+
+        return response()->json([
+            'available' => true,
+            'message' => "Nomor invoice '{$invoice}' unik dan siap digunakan.",
+        ]);
     }
 }

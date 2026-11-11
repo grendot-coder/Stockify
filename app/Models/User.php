@@ -21,7 +21,6 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'phone',
         'avatar',
         'is_active',
     ];
@@ -61,6 +60,23 @@ class User extends Authenticatable
     public function isStaff(): bool
     {
         return $this->role === 'staff';
+    }
+
+    /**
+     * Dapatkan URL foto profil pengguna, atau fallback ke monogram UI Avatars.
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($this->avatar) {
+            if (file_exists(public_path('storage/' . $this->avatar))) {
+                return asset('storage/' . $this->avatar);
+            }
+            if (file_exists(public_path($this->avatar))) {
+                return asset($this->avatar);
+            }
+        }
+
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&background=F5C842&color=101214&bold=true';
     }
 
     // Relations

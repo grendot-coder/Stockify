@@ -45,10 +45,30 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
 
-        // Tangani sesi/CSRF token yang kedaluwarsa secara elegan (mencegah error 419 Page Expired)
-        $this->renderable(function (TokenMismatchException $e, $request) {
-            return redirect()->route('login')->with('info', 'Sesi Anda telah kedaluwarsa karena tidak ada aktivitas. Halaman telah diperbarui otomatis, silakan coba masuk kembali.');
-        });
+    /**
+     * Render an exception into an HTTP response.
+     * Mencegah halaman mentah 419 Page Expired saat demonstrasi atau saat berganti-ganti akun.
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof TokenMismatchException) {
+            // Regenerasi token CSRF baru di sesi pengguna
+            $request->session()->regenerateToken();
+
+            if ($request->expectsJson() || $request->isXmlHttpRequest()) {
+                return response()->json([
+                    'message' => 'Sesi formulir telah kedaluwarsa. Token CSRF baru telah dibuat.',
+                    'csrf_token' => csrf_token(),
+                ], 419);
+            }
+
+            $targetRoute = $request->is('customer*') ? 'customer.login' : 'login';
+
+            return redirect()->route($targetRoute)->with('info', 'Sesi Anda telah diperbarui otomatis demi keamanan. Silakan coba masuk kembali.');
+        }
+
+        return parent::render($request, $e);
     }
 }

@@ -60,11 +60,27 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
-                        SKU / Kode Barang <span class="text-[#F5C842]">*</span>
-                    </label>
-                    <input type="text" name="sku" id="sku" required value="{{ old('sku', $product->sku) }}"
-                        class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="block text-xs font-semibold text-[#F5F5F5]">
+                            SKU / Kode Barang <span class="text-[#F5C842]">*</span>
+                        </label>
+                        <button type="button" id="btn-generate-sku" class="text-[11px] text-[#F5C842] hover:text-[#E8B92E] font-medium transition cursor-pointer flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            Auto Generate SKU
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <input type="text" name="sku" id="sku" required value="{{ old('sku', $product->sku) }}"
+                            class="w-full px-3 py-2 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition">
+                        <div id="sku-spinner" class="hidden absolute right-3 top-2.5">
+                            <svg class="animate-spin h-3.5 w-3.5 text-[#F5C842]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Alert SKU Duplikat Realtime -->
+                    <div id="sku-alert-container" class="mt-2 hidden"></div>
                 </div>
             </div>
 
@@ -453,6 +469,122 @@
             filterSuppliersByCategory(categorySelect.value);
         }
     }
+
+    // Auto-Generate & Anti-Dupe Realtime SKU (Edit Mode)
+    const skuInput = document.getElementById('sku');
+    const btnGenerateSku = document.getElementById('btn-generate-sku');
+    const skuAlertContainer = document.getElementById('sku-alert-container');
+    const skuSpinner = document.getElementById('sku-spinner');
+    const formSubmitBtn = document.querySelector('button[type="submit"]');
+    const productId = {{ $product->id }};
+
+    let skuCheckTimer = null;
+
+    function checkSkuRealtime(skuVal) {
+        clearTimeout(skuCheckTimer);
+        const trimmed = (skuVal || '').trim();
+
+        if (!trimmed) {
+            skuAlertContainer.className = "mt-2 p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] flex items-center gap-1.5";
+            skuAlertContainer.innerHTML = '<span>SKU wajib diisi. Silakan ketik atau gunakan tombol Auto Generate.</span>';
+            skuAlertContainer.classList.remove('hidden');
+            skuInput?.classList.add('border-rose-500', 'focus:border-rose-500');
+            if (formSubmitBtn) {
+                formSubmitBtn.disabled = true;
+                formSubmitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+            return;
+        }
+
+        skuSpinner?.classList.remove('hidden');
+
+        skuCheckTimer = setTimeout(() => {
+            const catId = categorySelect?.value || '';
+            let url = `{{ route('products.check-sku') }}?sku=${encodeURIComponent(trimmed)}&ignore_id=${productId}`;
+            if (catId) url += `&category_id=${catId}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    skuSpinner?.classList.add('hidden');
+                    skuAlertContainer.classList.remove('hidden');
+
+                    if (!data.available) {
+                        skuInput?.classList.add('border-rose-500', 'focus:border-rose-500');
+                        skuInput?.classList.remove('border-emerald-500');
+                        skuAlertContainer.className = "mt-2 p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs space-y-2 shadow-xs";
+                        skuAlertContainer.innerHTML = `
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-rose-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                                <div>
+                                    <strong class="text-rose-200 block font-semibold">Peringatan Realtime: SKU Duplikat!</strong>
+                                    <span class="text-[11px] text-rose-300/90">${data.message}</span>
+                                </div>
+                            </div>
+                            ${data.suggested_sku ? `
+                            <div class="flex items-center gap-2 pt-1.5 border-t border-rose-500/20">
+                                <span class="text-[10px] text-rose-300/80">Saran Anti-Bentrok:</span>
+                                <button type="button" onclick="applySuggestedSku('${data.suggested_sku}')" class="px-2.5 py-1 rounded-lg bg-[#F5C842] text-[#101214] font-bold text-[10px] hover:bg-[#E8B92E] transition cursor-pointer flex items-center gap-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    Pakai Rekomendasi (${data.suggested_sku})
+                                </button>
+                            </div>` : ''}
+                        `;
+                        if (formSubmitBtn) {
+                            formSubmitBtn.disabled = true;
+                            formSubmitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                        }
+                    } else {
+                        skuInput?.classList.remove('border-rose-500', 'focus:border-rose-500');
+                        skuInput?.classList.add('border-emerald-500/60');
+                        skuAlertContainer.className = "mt-2 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] flex items-center gap-1.5";
+                        skuAlertContainer.innerHTML = `
+                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>${data.message || 'SKU unik dan siap digunakan.'}</span>
+                        `;
+                        if (formSubmitBtn) {
+                            formSubmitBtn.disabled = false;
+                            formSubmitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        }
+                    }
+                })
+                .catch(err => {
+                    skuSpinner?.classList.add('hidden');
+                    console.error('Error saat verifikasi SKU:', err);
+                });
+        }, 300);
+    }
+
+    window.applySuggestedSku = function(sku) {
+        if (skuInput) {
+            skuInput.value = sku;
+            checkSkuRealtime(sku);
+        }
+    };
+
+    skuInput?.addEventListener('input', function() {
+        checkSkuRealtime(this.value);
+    });
+
+    btnGenerateSku?.addEventListener('click', function() {
+        skuSpinner?.classList.remove('hidden');
+        const catId = categorySelect?.value || '';
+        let url = '{{ route("products.generate-sku") }}';
+        if (catId) url += `?category_id=${catId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                skuSpinner?.classList.add('hidden');
+                if (data.sku && skuInput) {
+                    skuInput.value = data.sku;
+                    checkSkuRealtime(data.sku);
+                }
+            })
+            .catch(err => {
+                skuSpinner?.classList.add('hidden');
+                console.error(err);
+            });
+    });
 
     let currentAiDesc = '';
 

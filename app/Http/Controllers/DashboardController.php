@@ -10,19 +10,21 @@ use App\Models\StockTransaction;
 use App\Models\Supplier;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     /**
-     * Tampilkan halaman dashboard utama terpadu berdasarkan role.
+     * Tampilkan halaman dasbor analitik pergudangan berbasis role.
+     * Sesuai hierarki 60-30-10 & RBAC: Admin, Manager, dan Staff.
      */
     public function index()
     {
         $user = Auth::user();
 
-        // 1. Metrik Umum
+        // 1. Metrik Utama Ringkasan Inventaris
         $totalProducts = Product::count();
         $totalCategories = Category::count();
         $totalSuppliers = Supplier::count();
@@ -48,17 +50,17 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        // Antrean Tugas Khusus Staff: Barang Masuk & Barang Keluar Pending
+        // Pemantauan Tugas Khusus Staff: Barang Masuk & Barang Keluar (Read-Only)
         $pendingInbounds = StockTransaction::where('type', 'in')
-            ->where('status', 'pending')
-            ->with(['product.category', 'supplier', 'user'])
+            ->with(['product.category', 'product.rackLocation', 'supplier', 'user'])
             ->latest()
+            ->take(10)
             ->get();
 
         $pendingOutbounds = StockTransaction::where('type', 'out')
-            ->where('status', 'pending')
-            ->with(['product.category', 'user'])
+            ->with(['product.category', 'product.rackLocation', 'user'])
             ->latest()
+            ->take(10)
             ->get();
 
         // Log Aktivitas terbaru
@@ -67,7 +69,7 @@ class DashboardController extends Controller
         // Transaksi terbaru
         $recentTransactions = StockTransaction::with(['product', 'user', 'supplier'])->latest()->take(5)->get();
 
-        // 2. Data Grafik Analitik (Fase 7)
+        // 2. Data Grafik Analitik
         // A. Tren Mutasi 7 Hari Terakhir (Inbound vs Outbound)
         $chartDates = [];
         $chartInbound = [];

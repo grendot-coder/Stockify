@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         industrial: {
-          bg: '#101214',          // Main 
+          bg: '#FFFFFF',          // Main 
           surface: '#181C20',     // Sidebar 
           card: '#202429',        // Cards 
           hover: '#2A3036',       // Hover 

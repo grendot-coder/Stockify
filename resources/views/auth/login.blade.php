@@ -327,6 +327,7 @@
                             <span class="block text-[10px] text-[#A1A1AA] mt-0.5">Operasional</span>
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -390,6 +391,13 @@
                     if (Date.now() - pageLoadTime > 20 * 60 * 1000) {
                         window.location.reload();
                     }
+                }
+            });
+
+            // Refresh token otomatis jika halaman dimuat dari browser cache (bfcache) saat beralih akun
+            window.addEventListener('pageshow', function (event) {
+                if (event.persisted) {
+                    window.location.reload();
                 }
             });
         });
