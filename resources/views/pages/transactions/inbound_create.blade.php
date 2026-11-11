@@ -48,17 +48,29 @@
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-5">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- No. Invoice / Referensi -->
+                <!-- No. Invoice / Referensi (Auto Generate & Anti-Dupe Realtime) -->
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
                         <label class="block text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">
                             No. Invoice / Surat Jalan
                         </label>
-                        <span class="text-[10px] text-[#A1A1AA] font-mono">Otomatis / Manual</span>
+                        <button type="button" id="btn-generate-invoice" class="text-[11px] text-[#F5C842] hover:text-[#E8B92E] font-medium transition cursor-pointer flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            Auto Generate
+                        </button>
                     </div>
-                    <input type="text" name="invoice_number" value="{{ old('invoice_number', $suggestedInvoice) }}" placeholder="Otomatis dibuat jika dikosongkan"
-                        class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
-                    <p class="text-[10px] text-[#A1A1AA] mt-1">Otomatis terisi oleh sistem, dapat diubah sesuai nomor surat jalan fisik supplier.</p>
+                    <div class="relative">
+                        <input type="text" name="invoice_number" id="invoice_number" value="{{ old('invoice_number', $suggestedInvoice) }}" placeholder="Otomatis dibuat jika dikosongkan"
+                            class="w-full px-3.5 py-2.5 text-xs font-mono bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition">
+                        <div id="invoice-spinner" class="hidden absolute right-3 top-3">
+                            <svg class="animate-spin h-3.5 w-3.5 text-[#F5C842]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="invoice-alert-container" class="mt-2 hidden"></div>
+                    <p class="text-[10px] text-[#A1A1AA] mt-1">Otomatis terisi oleh sistem dan anti-duplikat. Dapat diganti nomor surat jalan fisik supplier.</p>
                 </div>
 
                 <!-- Supplier (Otomatis Terikat) -->
@@ -88,7 +100,7 @@
                         data-sku="{{ $p->sku }}"
                         data-supplier="{{ $p->supplier?->name ?? 'Tanpa Supplier Terikat' }}"
                         {{ old('product_id') == $p->id ? 'selected' : '' }}>
-                        {{ $p->name }} (SKU: {{ $p->sku }}) — Stok Fisik: {{ $p->stock }} Unit
+                        {{ $p->name }} (SKU: {{ $p->sku }}) — Stok Fisik Saat Ini: {{ $p->stock }} Unit
                     </option>
                     @endforeach
                 </select>
@@ -104,20 +116,20 @@
                         class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
 
-                <!-- Status Alur Transaksi -->
+                <!-- Status Alur Transaksi Inbound (Langsung Disetujui Tanpa Butuh Konfirmasi) -->
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
-                        Status Verifikasi Transaksi <span class="text-[#F5C842]">*</span>
+                        Alur Verifikasi Transaksi Inbound
                     </label>
-                    <select name="status" required
-                        class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
-                        <option value="confirmed" {{ old('status', 'confirmed') === 'confirmed' ? 'selected' : '' }}>
-                            Langsung Dikonfirmasi (Stok Bertambah)
-                        </option>
-                        <option value="pending" {{ old('status') === 'pending' ? 'selected' : '' }}>
-                            Menunggu Persetujuan Manajer (Pending)
-                        </option>
-                    </select>
+                    <input type="hidden" name="status" value="confirmed">
+                    <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span class="text-xs font-medium text-emerald-400">Otomatis Disetujui & Stok Langsung Bertambah</span>
+                        </div>
+                        <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300">TANPA KONFIRMASI MANUAL</span>
+                    </div>
+                    <p class="text-[10px] text-[#A1A1AA] mt-1">Stok fisik produk di rak gudang otomatis terupdate seketika.</p>
                 </div>
             </div>
 
@@ -171,5 +183,105 @@
         productSelect.addEventListener('change', updateSupplierDisplay);
         updateSupplierDisplay();
     }
+
+    // Auto-Generate & Anti-Dupe Realtime Invoice
+    const invoiceInput = document.getElementById('invoice_number');
+    const btnGenerateInvoice = document.getElementById('btn-generate-invoice');
+    const invoiceAlertContainer = document.getElementById('invoice-alert-container');
+    const invoiceSpinner = document.getElementById('invoice-spinner');
+    const submitBtn = document.querySelector('button[type="submit"]');
+
+    let invoiceCheckTimer = null;
+
+    function checkInvoiceRealtime(val) {
+        clearTimeout(invoiceCheckTimer);
+        const trimmed = (val || '').trim();
+        if (!trimmed) {
+            invoiceAlertContainer.className = "mt-2 p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] flex items-center gap-1.5";
+            invoiceAlertContainer.innerHTML = '<span>Nomor invoice dikosongkan. Sistem akan membuatkan nomor invoice otomatis yang unik saat disimpan.</span>';
+            invoiceAlertContainer.classList.remove('hidden');
+            invoiceInput?.classList.remove('border-rose-500', 'focus:border-rose-500', 'border-emerald-500');
+            if (submitBtn) submitBtn.disabled = false;
+            return;
+        }
+
+        invoiceSpinner?.classList.remove('hidden');
+
+        invoiceCheckTimer = setTimeout(() => {
+            fetch(`{{ route('transactions.check-invoice') }}?invoice=${encodeURIComponent(trimmed)}&type=in`)
+                .then(res => res.json())
+                .then(data => {
+                    invoiceSpinner?.classList.add('hidden');
+                    invoiceAlertContainer.classList.remove('hidden');
+
+                    if (!data.available) {
+                        invoiceInput?.classList.add('border-rose-500', 'focus:border-rose-500');
+                        invoiceInput?.classList.remove('border-emerald-500');
+                        invoiceAlertContainer.className = "mt-2 p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs space-y-1.5";
+                        invoiceAlertContainer.innerHTML = `
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-rose-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                                <span>${data.message}</span>
+                            </div>
+                            ${data.suggested_invoice ? `
+                            <div class="flex items-center gap-2 pt-1 border-t border-rose-500/20">
+                                <span class="text-[10px] text-rose-300/80">Saran Anti-Bentrok:</span>
+                                <button type="button" onclick="applySuggestedInvoice('${data.suggested_invoice}')" class="px-2 py-0.5 rounded-md bg-[#F5C842] text-[#101214] font-bold text-[10px] hover:bg-[#E8B92E] transition cursor-pointer">
+                                    Pakai ${data.suggested_invoice}
+                                </button>
+                            </div>` : ''}
+                        `;
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                        }
+                    } else {
+                        invoiceInput?.classList.remove('border-rose-500', 'focus:border-rose-500');
+                        invoiceInput?.classList.add('border-emerald-500/60');
+                        invoiceAlertContainer.className = "mt-2 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] flex items-center gap-1.5";
+                        invoiceAlertContainer.innerHTML = `
+                            <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <span>${data.message || 'Nomor invoice tersedia dan unik.'}</span>
+                        `;
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        }
+                    }
+                })
+                .catch(err => {
+                    invoiceSpinner?.classList.add('hidden');
+                    console.error('Gagal verifikasi invoice:', err);
+                });
+        }, 300);
+    }
+
+    window.applySuggestedInvoice = function(inv) {
+        if (invoiceInput) {
+            invoiceInput.value = inv;
+            checkInvoiceRealtime(inv);
+        }
+    };
+
+    invoiceInput?.addEventListener('input', function() {
+        checkInvoiceRealtime(this.value);
+    });
+
+    btnGenerateInvoice?.addEventListener('click', function() {
+        invoiceSpinner?.classList.remove('hidden');
+        fetch(`{{ route('transactions.generate-invoice') }}?type=in`)
+            .then(res => res.json())
+            .then(data => {
+                invoiceSpinner?.classList.add('hidden');
+                if (data.invoice && invoiceInput) {
+                    invoiceInput.value = data.invoice;
+                    checkInvoiceRealtime(data.invoice);
+                }
+            })
+            .catch(err => {
+                invoiceSpinner?.classList.add('hidden');
+                console.error(err);
+            });
+    });
 </script>
 @endsection

@@ -126,7 +126,7 @@
                     <span class="font-semibold text-[#F5F5F5] font-mono">{{ $transaction->created_at->format('d F Y, H:i:s') }}</span>
                 </div>
                 <div class="flex justify-between py-1">
-                    <span class="text-[#A1A1AA]">Rekanan Pemasok (Supplier):</span>
+                    <span class="text-[#A1A1AA]">Mitra Pemasok (Supplier):</span>
                     <span class="font-semibold text-[#F5F5F5]">{{ $transaction->supplier?->name ?? 'Tidak Ditentukan' }}</span>
                 </div>
             </div>

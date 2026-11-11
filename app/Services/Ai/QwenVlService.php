@@ -83,7 +83,7 @@ class QwenVlService
                     'online' => false,
                     'provider' => 'groq',
                     'model' => $this->groqModel,
-                    'message' => 'Groq API merespons dengan kesalahan (Status: ' . $response->status() . ')',
+                    'message' => 'Groq API merespons dengan kesalahan (Status: '.$response->status().')',
                 ];
             }
 
@@ -104,7 +104,7 @@ class QwenVlService
                 'online' => false,
                 'provider' => 'groq',
                 'model' => $this->groqModel,
-                'message' => 'Gagal menghubungi Groq Cloud API: ' . $e->getMessage(),
+                'message' => 'Gagal menghubungi Groq Cloud API: '.$e->getMessage(),
             ];
         }
     }
@@ -121,7 +121,7 @@ class QwenVlService
                 return [
                     'online' => false,
                     'provider' => 'ollama',
-                    'message' => 'Ollama server tidak merespons (Status: ' . $response->status() . ')',
+                    'message' => 'Ollama server tidak merespons (Status: '.$response->status().')',
                     'models' => [],
                 ];
             }
@@ -143,7 +143,7 @@ class QwenVlService
             return [
                 'online' => false,
                 'provider' => 'ollama',
-                'message' => 'Gagal terhubung ke Ollama di ' . $this->ollamaUrl . ': ' . $e->getMessage(),
+                'message' => 'Gagal terhubung ke Ollama di '.$this->ollamaUrl.': '.$e->getMessage(),
                 'models' => [],
             ];
         }
@@ -175,7 +175,7 @@ class QwenVlService
             $catId = is_object($sup) ? $sup->category_id : ($sup['category_id'] ?? null);
             $catName = (is_object($sup) && isset($sup->category)) ? $sup->category->name : ($sup['category']['name'] ?? null);
 
-            $specText = $catId ? "Spesialisasi Kategori: {$catName} (ID: {$catId})" : "Spesialisasi: Umum";
+            $specText = $catId ? "Spesialisasi Kategori: {$catName} (ID: {$catId})" : 'Spesialisasi: Umum';
 
             return "- ID: {$id} | Nama: {$name} | {$specText}";
         })->implode("\n");
@@ -252,7 +252,7 @@ EOT;
                             [
                                 'type' => 'image_url',
                                 'image_url' => [
-                                    'url' => 'data:image/jpeg;base64,' . $rawBase64,
+                                    'url' => 'data:image/jpeg;base64,'.$rawBase64,
                                 ],
                             ],
                         ],
@@ -275,7 +275,7 @@ EOT;
 
                 return [
                     'success' => false,
-                    'message' => 'Groq API error (Kode: ' . $response->status() . '): ' . ($response->json('error.message') ?? 'Unknown error'),
+                    'message' => 'Groq API error (Kode: '.$response->status().'): '.($response->json('error.message') ?? 'Unknown error'),
                 ];
             }
 
@@ -286,11 +286,11 @@ EOT;
                 'raw_json' => $content,
             ];
         } catch (\Throwable $e) {
-            Log::error('QwenVlService: Groq Vision Exception: ' . $e->getMessage());
+            Log::error('QwenVlService: Groq Vision Exception: '.$e->getMessage());
 
             return [
                 'success' => false,
-                'message' => 'Groq Cloud Exception: ' . $e->getMessage(),
+                'message' => 'Groq Cloud Exception: '.$e->getMessage(),
             ];
         }
     }
@@ -324,7 +324,7 @@ EOT;
             if (! $response->successful()) {
                 return [
                     'success' => false,
-                    'message' => 'Ollama API error: ' . $response->status(),
+                    'message' => 'Ollama API error: '.$response->status(),
                 ];
             }
 
@@ -337,7 +337,7 @@ EOT;
         } catch (\Throwable $e) {
             return [
                 'success' => false,
-                'message' => 'Ollama error: ' . $e->getMessage(),
+                'message' => 'Ollama error: '.$e->getMessage(),
             ];
         }
     }
@@ -371,8 +371,8 @@ EOT;
         }
 
         // Validasi anti-halusinasi: Pastikan ID benar-benar terdaftar di database
-        $categoryMap = $categoryCollection->keyBy(fn($item) => is_object($item) ? $item->id : $item['id']);
-        $supplierMap = $supplierCollection->keyBy(fn($item) => is_object($item) ? $item->id : $item['id']);
+        $categoryMap = $categoryCollection->keyBy(fn ($item) => is_object($item) ? $item->id : $item['id']);
+        $supplierMap = $supplierCollection->keyBy(fn ($item) => is_object($item) ? $item->id : $item['id']);
 
         $matchedCategory = ($categoryId && $categoryMap->has($categoryId)) ? $categoryMap->get($categoryId) : null;
         $matchedSupplier = ($supplierId && $supplierMap->has($supplierId)) ? $supplierMap->get($supplierId) : null;
@@ -505,7 +505,7 @@ EOT;
                     ];
                 }
             } catch (\Throwable $e) {
-                Log::warning('Groq Chat failed, falling back to Ollama: ' . $e->getMessage());
+                Log::warning('Groq Chat failed, falling back to Ollama: '.$e->getMessage());
             }
         }
 
@@ -528,7 +528,7 @@ EOT;
 
             return [
                 'success' => false,
-                'message' => 'Ollama API error: ' . $response->status(),
+                'message' => 'Ollama API error: '.$response->status(),
             ];
         } catch (\Throwable $e) {
             return [

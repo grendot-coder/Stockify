@@ -18,23 +18,20 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
         if (! Auth::check()) {
-            return redirect()->route('login');
+            return redirect()->route('login')->with('info', 'Silakan masuk ke sistem terlebih dahulu.');
         }
 
         $user = Auth::user();
 
-        // Cek jika akun dinonaktifkan
         if (! $user->is_active) {
             Auth::logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
 
             return redirect()->route('login')->withErrors([
                 'email' => 'Akun Anda dinonaktifkan oleh administrator.',
             ]);
         }
 
-        // Cek apakah role user ada dalam daftar role yang diizinkan
+        // Cek apakah role user diizinkan
         if (! in_array($user->role, $roles)) {
             abort(403, 'Akses Ditolak: Anda tidak memiliki hak akses untuk membuka halaman ini.');
         }

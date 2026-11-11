@@ -177,7 +177,7 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
             }
 
             if (! empty($reason)) {
-                $notes = trim(($transaction->notes ?? '') . " [Ditolak: {$reason}]");
+                $notes = trim(($transaction->notes ?? '')." [Ditolak: {$reason}]");
                 $transaction->notes = $notes;
                 $transaction->save();
             }
@@ -187,7 +187,7 @@ class StockTransactionServiceImplement extends Service implements StockTransacti
             ActivityLog::create([
                 'user_id' => $confirmedBy,
                 'action' => 'REJECT_TRANSACTION',
-                'description' => "Menolak transaksi {$transaction->invoice_number} ({$transaction->type}) produk '{$transaction->product->name}'. Alasan: " . ($reason ?: 'Tanpa keterangan'),
+                'description' => "Menolak transaksi {$transaction->invoice_number} ({$transaction->type}) produk '{$transaction->product->name}'. Alasan: ".($reason ?: 'Tanpa keterangan'),
                 'ip_address' => request()->ip(),
             ]);
 

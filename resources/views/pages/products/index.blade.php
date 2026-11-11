@@ -39,6 +39,18 @@
         </div>
     </div>
 
+    @if(Auth::user()->role === 'staff')
+    <div class="p-4 rounded-2xl bg-[#181C20] border border-[#343A40] text-xs text-[#A1A1AA] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+        <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div>
+                <strong class="text-[#F5F5F5]">Katalog Barang Terverifikasi:</strong> Menampilkan daftar barang yang telah disetujui oleh admin dan manajer gudang, termasuk kuantitas barang masuk dari transaksi inbound (otomatis siap kelola tanpa perlu tombol konfirmasi).
+            </div>
+        </div>
+        <span class="text-[10px] font-mono text-[#F5C842] shrink-0 px-2.5 py-1 bg-[#202429] rounded-lg border border-[#343A40]">Hak Akses Staff (View Only)</span>
+    </div>
+    @endif
+
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -149,6 +161,11 @@
                                         @if($p->rackLocation)
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono bg-[#181C20] border border-[#343A40] text-[#A1A1AA]">
                                             {{ $p->rackLocation->name }}
+                                        </span>
+                                        @endif
+                                        @if(Auth::user()->role === 'staff')
+                                        <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                            Disetujui Admin/Manajer
                                         </span>
                                         @endif
                                     </div>

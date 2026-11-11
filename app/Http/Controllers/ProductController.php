@@ -183,7 +183,56 @@ class ProductController extends Controller
         $categoryId = $request->query('category_id');
         $sku = $this->productService->generateSku($categoryId ? intval($categoryId) : null);
 
-        return response()->json(['sku' => $sku]);
+        return response()->json([
+            'sku' => $sku,
+            'message' => 'SKU baru berhasil dibuat otomatis dan terjamin unik.',
+        ]);
+    }
+
+    /**
+     * Endpoint API internal untuk verifikasi SKU secara realtime (Anti-Duplikasi Instan).
+     */
+    public function checkSku(Request $request)
+    {
+        $sku = trim($request->query('sku', ''));
+        $ignoreId = $request->query('ignore_id');
+        $categoryId = $request->query('category_id');
+
+        if ($sku === '') {
+            return response()->json([
+                'available' => true,
+                'is_empty' => true,
+                'message' => 'SKU dapat dikosongkan untuk digenerate otomatis oleh sistem.',
+            ]);
+        }
+
+        $query = Product::where('sku', $sku);
+        if (! empty($ignoreId)) {
+            $query->where('id', '!=', intval($ignoreId));
+        }
+
+        $existingProduct = $query->first();
+
+        if ($existingProduct) {
+            $catId = $categoryId ? intval($categoryId) : $existingProduct->category_id;
+            $suggestedSku = $this->productService->generateSku($catId);
+
+            return response()->json([
+                'available' => false,
+                'message' => "SKU '{$sku}' sudah digunakan oleh produk '{$existingProduct->name}' (ID: #{$existingProduct->id}).",
+                'suggested_sku' => $suggestedSku,
+                'existing_product' => [
+                    'id' => $existingProduct->id,
+                    'name' => $existingProduct->name,
+                    'sku' => $existingProduct->sku,
+                ],
+            ]);
+        }
+
+        return response()->json([
+            'available' => true,
+            'message' => "SKU '{$sku}' unik dan siap digunakan.",
+        ]);
     }
 
     /**

@@ -176,60 +176,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             transform: translateY(0);
         }
 
-        /* Delta pill floating animation */
-        @keyframes float-delta {
-            0% {
-                opacity: 0;
-                transform: translateY(6px) scale(0.85);
-            }
-
-            20% {
-                opacity: 1;
-                transform: translateY(0) scale(1.05);
-            }
-
-            80% {
-                opacity: 1;
-                transform: translateY(-16px) scale(1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateY(-28px) scale(0.9);
-            }
-        }
-
-        .delta-pill {
-            position: absolute;
-            animation: float-delta 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            pointer-events: none;
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 2px 8px;
-            border-radius: 9999px;
-            z-index: 20;
-        }
-
-        /* Stock number bounce */
-        @keyframes num-bounce {
-            0% {
-                transform: scale(1);
-            }
-
-            40% {
-                transform: scale(1.12);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .animate-num-bounce {
-            animation: num-bounce 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
         @media (prefers-reduced-motion: reduce) {
             .reveal-on-scroll {
                 opacity: 1 !important;
@@ -239,7 +185,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 
             .animate-ambient-glow,
             .shimmer-btn::after,
-            .animate-num-bounce,
             #scroll-progress {
                 animation: none !important;
             }
@@ -273,17 +218,16 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             </a>
 
             <nav class="hidden md:flex items-center gap-7 text-xs font-semibold text-[#A1A1AA]">
-                <a href="#simulator" class="hover:text-[#F5C842] transition">Simulator Stok</a>
                 <a href="#fitur" class="hover:text-[#F5C842] transition">Fitur Inti</a>
                 <a href="#arsitektur" class="hover:text-[#F5C842] transition">Alur Logistik</a>
                 <a href="#akses-demo" class="hover:text-[#F5C842] transition">Akses Demo</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                @auth
+                @if(Auth::check())
                 <a href="{{ route('dashboard') }}"
                     class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#F5C842] text-[#101214] text-xs font-heading font-semibold hover:bg-[#E8B92E] transition shadow-xs">
-                    <span>Buka Dashboard</span>
+                    <span>Dasbor Gudang</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -296,7 +240,7 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
                 </a>
-                @endauth
+                @endif
             </div>
 
         </div>
@@ -347,16 +291,16 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     </div>
 
                     <div class="pt-2 flex flex-wrap items-center gap-3.5">
-                        <a href="#akses-demo"
+                        <a href="{{ route('login') }}"
                             class="shimmer-btn inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#F5C842] text-[#101214] text-xs font-heading font-bold hover:bg-[#E8B92E] transition shadow-lg shadow-[#F5C842]/20 hover:scale-[1.02] active:scale-[0.98]">
-                            <span>Mulai Akses Demo dengan 1-Klik</span>
-                        </a>
-                        <a href="#simulator"
-                            class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#181C20] border border-[#343A40] text-[#F5F5F5] text-xs font-heading font-semibold hover:border-[#F5C842] hover:text-[#F5C842] transition">
-                            <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            <span>Buka Portal Pergudangan</span>
+                            <svg class="w-4 h-4 text-[#101214]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
-                            <span>Uji Test Mutasi</span>
+                        </a>
+                        <a href="#akses-demo"
+                            class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#181C20] border border-[#343A40] text-[#F5F5F5] text-xs font-heading font-semibold hover:border-[#F5C842] hover:text-[#F5C842] transition">
+                            <span>Akses Akun Demo &rarr;</span>
                         </a>
                     </div>
 
@@ -444,8 +388,8 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                 </div>
 
                 <div class="spotlight-card reveal-on-scroll p-6 rounded-2xl bg-[#202429] border border-[#343A40] shadow-xs hover:border-[#F5C842]/40 transition" style="transition-delay: 200ms;">
-                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842] counter-stat" data-target="{{ $supplierCount > 0 ? $supplierCount : 99.98 }}" data-suffix="{{ $supplierCount > 0 ? ' Rekanan' : '%' }}" data-is-decimal="{{ $supplierCount > 0 ? 'false' : 'true' }}">
-                        0{{ $supplierCount > 0 ? ' Rekanan' : '%' }}
+                    <div class="text-3xl font-bold font-heading tabular-nums text-[#F5C842] counter-stat" data-target="{{ $supplierCount > 0 ? $supplierCount : 99.98 }}" data-suffix="{{ $supplierCount > 0 ? ' Supplier' : '%' }}" data-is-decimal="{{ $supplierCount > 0 ? 'false' : 'true' }}">
+                        0{{ $supplierCount > 0 ? ' Mitra Supplier' : '%' }}
                     </div>
                     <div class="text-xs font-semibold text-[#F5F5F5] mt-1.5 font-heading">Jaringan Supplier Aktif</div>
                     <div class="text-[11px] text-[#A1A1AA] mt-0.5">Kemitraan terintegrasi dengan alamat kontak & riwayat pasokan.</div>
@@ -455,157 +399,7 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 
 
 
-        <section id="simulator" class="max-w-6xl mx-auto px-6">
 
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-[11px] uppercase tracking-[0.2em] text-[#F5C842] font-semibold">Simulator Gudang Interaktif</span>
-                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-[#F5F5F5] mt-1">
-                    Uji Kalkulasi Mutasi Stok Real-Time.
-                </h2>
-                <p class="mt-2 text-xs text-[#A1A1AA]">
-                    Pilih produk di bawah untuk mencoba simulasi barang masuk (Inbound) dan pengeluaran barang (Outbound) dengan deteksi ambang batas stok otomatis.
-                </p>
-            </div>
-
-            <div class="rounded-3xl bg-[#202429] border border-[#343A40] shadow-md overflow-hidden">
-
-                <div class="p-6 bg-[#181C20] border-b border-[#343A40] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <div>
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] font-semibold">Pilih SKU Produk untuk Diuji:</span>
-                        <div class="mt-2 flex flex-wrap gap-2" id="sim-product-tabs">
-                            <button type="button" onclick="selectSimProduct(0)" id="sim-tab-0"
-                                class="sim-tab px-3.5 py-1.5 rounded-lg text-xs font-heading font-semibold transition cursor-pointer bg-[#F5C842] text-[#101214] shadow-xs">
-                                Logitech K98M Mechanical
-                            </button>
-                            <button type="button" onclick="selectSimProduct(1)" id="sim-tab-1"
-                                class="sim-tab px-3.5 py-1.5 rounded-lg text-xs font-heading font-semibold transition cursor-pointer bg-[#202429] border border-[#343A40] text-[#F5F5F5] hover:border-[#F5C842]">
-                                Herman Miller Aeron Mesh Chair
-                            </button>
-                            <button type="button" onclick="selectSimProduct(2)" id="sim-tab-2"
-                                class="sim-tab px-3.5 py-1.5 rounded-lg text-xs font-heading font-semibold transition cursor-pointer bg-[#202429] border border-[#343A40] text-[#F5F5F5] hover:border-[#F5C842]">
-                                Termos Maspion 750ml
-                            </button>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-                    <div class="lg:col-span-7 space-y-6">
-
-                        <div class="p-6 rounded-2xl bg-[#181C20] border border-[#343A40]">
-                            <div class="flex items-center justify-between gap-2 mb-3">
-                                <div class="flex items-center gap-2">
-                                    <span id="sim-sku" class="px-2.5 py-0.5 rounded font-mono text-xs font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
-                                        PRD-ELC-001
-                                    </span>
-                                    <span id="sim-category" class="text-xs text-[#A1A1AA]">Elektronik & Periferal</span>
-                                </div>
-                            </div>
-
-                            <h3 id="sim-name" class="font-heading text-2xl font-bold text-[#F5F5F5]">
-                                Logitech Alto K98M Mechanical Keyboard
-                            </h3>
-                            <p id="sim-desc" class="text-xs text-[#A1A1AA] mt-1 leading-relaxed">
-                                Wireless Mechanical Keyboard with UniGasket to absorb vibration.
-                            </p>
-
-                            <div class="mt-6 pt-6 border-t border-[#343A40] flex items-end justify-between">
-                                <div>
-                                    <span class="text-[11px] text-[#A1A1AA] uppercase tracking-wider block font-medium">Sisa Stok di Gudang</span>
-                                    <div class="flex items-baseline gap-2 mt-1">
-                                        <span id="sim-stock" class="font-mono text-5xl font-bold text-[#F5F5F5] tabular-nums transition-all duration-200">
-                                            35
-                                        </span>
-                                        <span class="text-xs text-[#A1A1AA]">Unit Tersedia</span>
-                                    </div>
-                                </div>
-
-                                <div class="text-right">
-                                    <span class="text-[10px] text-[#A1A1AA] block uppercase tracking-wider font-medium">Batas Minimum (Alert)</span>
-                                    <span id="sim-min-stock" class="font-mono text-base font-semibold text-[#A1A1AA] tabular-nums">
-                                        10 Unit
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="text-[11px] font-semibold text-[#A1A1AA] uppercase tracking-wider block mb-3">
-                                Eksekusi Mutasi Cepat:
-                            </span>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                                <button type="button" onclick="adjustSimStock(5, 'in')"
-                                    class="py-3 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 text-xs font-heading font-semibold transition cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-95">
-                                    <span class="text-sm"> +5 Unit</span>
-                                    <span class="text-[10px] opacity-80">Inbound Masuk</span>
-                                </button>
-                                <button type="button" onclick="adjustSimStock(20, 'in')"
-                                    class="py-3 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/30 text-xs font-heading font-semibold transition cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-95">
-                                    <span class="text-sm"> +20 Unit</span>
-                                    <span class="text-[10px] opacity-80">Pasokan Besar</span>
-                                </button>
-                                <button type="button" onclick="adjustSimStock(5, 'out')"
-                                    class="py-3 px-3 rounded-xl bg-[#F87171]/15 hover:bg-[#F87171]/25 text-[#F87171] border border-[#F87171]/30 text-xs font-heading font-semibold transition cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-95">
-                                    <span class="text-sm"> -5 Unit</span>
-                                    <span class="text-[10px] opacity-80">Kirim Outbound</span>
-                                </button>
-                                <button type="button" onclick="adjustSimStock(20, 'out')"
-                                    class="py-3 px-3 rounded-xl bg-[#F87171]/15 hover:bg-[#F87171]/25 text-[#F87171] border border-[#F87171]/30 text-xs font-heading font-semibold transition cursor-pointer flex flex-col items-center justify-center gap-1 active:scale-95">
-                                    <span class="text-sm"> -20 Unit</span>
-                                    <span class="text-[10px] opacity-80">Order Massal</span>
-                                </button>
-                            </div>
-                            <div class="mt-3 flex items-center justify-between">
-                                <span class="text-[10px] text-[#A1A1AA] italic">*Sistem otomatis menolak pengeluaran jika stok tidak mencukupi.</span>
-                                <button type="button" onclick="resetSimProduct()" class="text-xs font-medium text-[#A1A1AA] hover:text-[#F5C842] underline cursor-pointer">
-                                    Reset Nilai
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="lg:col-span-5 flex flex-col h-full space-y-3">
-                        <div class="flex items-center justify-between text-xs">
-                            <span class="font-heading font-bold text-[#F5F5F5] flex items-center gap-2">
-                                <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                Buku Mutasi
-                            </span>
-                            <button type="button" onclick="clearSimLogs()" class="text-[11px] text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer">
-                                Bersihkan Log
-                            </button>
-                        </div>
-
-                        <div class="rounded-2xl bg-[#101214] border border-[#343A40] p-4 text-xs font-mono text-[#F5F5F5] flex-1 flex flex-col justify-between shadow-inner min-h-[320px]">
-                            <div class="flex items-center justify-between pb-3 border-b border-[#343A40] text-[10px] text-[#A1A1AA]">
-                                <div class="flex items-center gap-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                                </div>
-                                <span>STOCKIFY-AUDIT-STREAM</span>
-                            </div>
-
-                            <div id="sim-log-entries" class="py-3 space-y-2 overflow-y-auto max-h-[260px] text-[11px] flex-1">
-                                <div class="text-[#A1A1AA]">mencatat mutasi stok</div>
-                            </div>
-
-                            <div class="pt-3 border-t border-[#343A40] flex items-center justify-end text-[10px] text-[#A1A1AA]">
-                                <span>Double-Entry Ledger</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
 
 
         <section id="fitur" class="max-w-6xl mx-auto px-6">
@@ -889,7 +683,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                 <div class="lg:col-span-2 sm:col-span-1 space-y-4">
                     <span class="text-xs font-mono tracking-widest uppercase text-[#F5C842] font-semibold block">Fitur Sistem</span>
                     <ul class="space-y-3 text-xs sm:text-[13px]">
-                        <li><a href="#simulator" class="text-[#A1A1AA] hover:text-[#F5C842] transition">Simulator Stok</a></li>
                         <li><a href="#fitur" class="text-[#A1A1AA] hover:text-[#F5C842] transition">Katalog SKU</a></li>
                         <li><a href="#fitur" class="text-[#A1A1AA] hover:text-[#F5C842] transition">Mutasi Inbound & Outbound</a></li>
                         <li><a href="#fitur" class="text-[#A1A1AA] hover:text-[#F5C842] transition">Stock Opname Fisik</a></li>
@@ -958,182 +751,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
     </footer>
 
     <script>
-        const simProducts = [{
-                name: "Keyboard Mekanikal Pro Wireless",
-                sku: "PRD-ELC-001",
-                category: "Elektronik & Periferal",
-                desc: "Dilengkapi switch hot-swappable dengan varian atribut warna Onyx Black dan Grey.",
-                initialStock: 35,
-                stock: 35,
-                minStock: 10
-            },
-            {
-                name: "Kursi Ergonomis Mesh Lumbar",
-                sku: "PRD-FRN-002",
-                category: "Furniture Gudang & Kantor",
-                desc: "Rangka baja ringan dengan sandaran jaring fleksibel dan gaslift hidrolik kelas 4.",
-                initialStock: 8,
-                stock: 8,
-                minStock: 10
-            },
-            {
-                name: "Termos Insulasi Stainless 750ml",
-                sku: "PRD-HMD-003",
-                category: "Perlengkapan & Logistik",
-                desc: "Dinding vakum ganda menjaga suhu hingga 24 jam dengan tutup seal anti-bocor.",
-                initialStock: 60,
-                stock: 60,
-                minStock: 15
-            }
-        ];
-
-        let currentProductIndex = 0;
-
-        function getTimestamp() {
-            const now = new Date();
-            return now.toTimeString().split(' ')[0];
-        }
-
-        function appendSimLog(message, type = 'normal') {
-            const container = document.getElementById('sim-log-entries');
-            if (!container) return;
-
-            const div = document.createElement('div');
-            div.className = 'leading-relaxed break-words';
-
-            let prefix = `<span class="text-[#A1A1AA]">[${getTimestamp()}]</span> `;
-            if (type === 'inbound') {
-                div.innerHTML = `${prefix}<span class="text-emerald-400 font-semibold">📥 INBOUND:</span> ${message}`;
-            } else if (type === 'outbound') {
-                div.innerHTML = `${prefix}<span class="text-[#F87171] font-semibold">📤 OUTBOUND:</span> ${message}`;
-            } else if (type === 'warning') {
-                div.innerHTML = `${prefix}<span class="text-amber-400 font-semibold">⚠️ PERINGATAN:</span> ${message}`;
-            } else if (type === 'error') {
-                div.innerHTML = `${prefix}<span class="text-red-400 font-semibold">❌ DITOLAK:</span> ${message}`;
-            } else {
-                div.innerHTML = `${prefix}${message}`;
-            }
-
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function updateSimUI() {
-            const p = simProducts[currentProductIndex];
-
-            document.getElementById('sim-name').textContent = p.name;
-            document.getElementById('sim-sku').textContent = p.sku;
-            document.getElementById('sim-category').textContent = p.category;
-            document.getElementById('sim-desc').textContent = p.desc;
-            document.getElementById('sim-min-stock').textContent = p.minStock + ' Unit';
-
-            const stockEl = document.getElementById('sim-stock');
-            stockEl.textContent = p.stock;
-
-            const badge = document.getElementById('sim-status-badge');
-            if (badge) {
-                if (p.stock <= p.minStock) {
-                    badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-[#FB923C]/15 text-[#FB923C] border border-[#FB923C]/30 animate-pulse';
-                    badge.textContent = '⚠️ Peringatan: Stok Menipis!';
-                } else {
-                    badge.className = 'px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30';
-                    badge.textContent = '✓ Stok Aman (Normal)';
-                }
-            }
-            if (p.stock <= p.minStock) {
-                stockEl.className = 'font-mono text-5xl font-bold text-[#FB923C] tabular-nums transition-all duration-200';
-            } else {
-                stockEl.className = 'font-mono text-5xl font-bold text-[#F5F5F5] tabular-nums transition-all duration-200';
-            }
-
-            // Update tab styling
-            for (let i = 0; i < simProducts.length; i++) {
-                const tab = document.getElementById(`sim-tab-${i}`);
-                if (!tab) continue;
-                if (i === currentProductIndex) {
-                    tab.className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs font-heading font-semibold transition cursor-pointer bg-[#F5C842] text-[#101214] shadow-xs';
-                } else {
-                    tab.className = 'sim-tab px-3.5 py-1.5 rounded-lg text-xs font-heading font-semibold transition cursor-pointer bg-[#202429] border border-[#343A40] text-[#F5F5F5] hover:border-[#F5C842]';
-                }
-            }
-        }
-
-        function spawnDeltaBadge(text, color) {
-            const stockEl = document.getElementById('sim-stock');
-            if (!stockEl) return;
-            const parent = stockEl.parentElement;
-            if (!parent) return;
-
-            const badge = document.createElement('span');
-            badge.className = `delta-pill ${color === 'emerald' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-rose-500/20 text-rose-400 border border-rose-500/40'}`;
-            badge.textContent = text;
-            parent.style.position = 'relative';
-            badge.style.right = '0';
-            badge.style.top = '-12px';
-            parent.appendChild(badge);
-
-            setTimeout(() => badge.remove(), 900);
-        }
-
-        function triggerStockBounce() {
-            const stockEl = document.getElementById('sim-stock');
-            if (!stockEl) return;
-            stockEl.classList.remove('animate-num-bounce');
-            // Trigger reflow to restart animation
-            void stockEl.offsetWidth;
-            stockEl.classList.add('animate-num-bounce');
-        }
-
-        function selectSimProduct(index) {
-            currentProductIndex = index;
-            const p = simProducts[currentProductIndex];
-            updateSimUI();
-            triggerStockBounce();
-            appendSimLog(`Beralih ke SKU ${p.sku} (${p.name}). Stok sekarang: ${p.stock} unit.`);
-        }
-
-        function adjustSimStock(qty, direction) {
-            const p = simProducts[currentProductIndex];
-
-            if (direction === 'in') {
-                p.stock += qty;
-                updateSimUI();
-                triggerStockBounce();
-                spawnDeltaBadge(`+${qty}`, 'emerald');
-                appendSimLog(`+${qty} unit masuk untuk ${p.sku}. Stok baru: ${p.stock} unit. Invoice dicatat.`, 'inbound');
-            } else {
-                if (p.stock < qty) {
-                    appendSimLog(`Permintaan pengeluaran ${qty} unit melebihi sisa fisik ${p.stock} unit untuk ${p.sku}. Transaksi dibatalkan.`, 'error');
-                    triggerStockBounce();
-                    return;
-                }
-                p.stock -= qty;
-                updateSimUI();
-                triggerStockBounce();
-                spawnDeltaBadge(`-${qty}`, 'rose');
-                appendSimLog(`-${qty} unit keluar untuk ${p.sku}. Sisa stok fisik: ${p.stock} unit.`, 'outbound');
-
-                if (p.stock <= p.minStock) {
-                    appendSimLog(`Stok ${p.sku} menyentuh batas minimum (${p.stock} <= ${p.minStock}). Notifikasi purchase order terpicu!`, 'warning');
-                }
-            }
-        }
-
-        function resetSimProduct() {
-            const p = simProducts[currentProductIndex];
-            p.stock = p.initialStock;
-            updateSimUI();
-            triggerStockBounce();
-            appendSimLog(`Stok ${p.sku} direset ke nilai awal: ${p.initialStock} unit.`);
-        }
-
-        function clearSimLogs() {
-            const container = document.getElementById('sim-log-entries');
-            if (container) {
-                container.innerHTML = '<div class="text-[#A1A1AA]">[BERSIH] Riwayat log simulasi telah dikosongkan.</div>';
-            }
-        }
-
         // Storage Dot Matrix Gudang Hero Animation with technical HUD
         function initHeroBitAnimation() {
             const matrixContainer = document.getElementById('hero-dot-matrix');
@@ -1321,8 +938,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 
         // Jalankan inisialisasi awal UI
         document.addEventListener('DOMContentLoaded', () => {
-            updateSimUI();
-            appendSimLog('Simulator siap. Coba klik tombol Inbound atau Outbound untuk menguji!', 'normal');
             initHeroBitAnimation();
             initSpotlightCards();
             initScrollReveals();

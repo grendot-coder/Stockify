@@ -40,10 +40,8 @@
     </div>
     @endif
 
-    <!-- Card Tabel & Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
 
-        <!-- Filter Pencarian -->
         <div class="p-4 border-b border-[#343A40] bg-[#181C20] flex flex-col sm:flex-row items-center justify-between gap-3">
             <form action="{{ route('suppliers.index') }}" method="GET" class="w-full sm:w-80">
                 <div class="relative">
@@ -59,7 +57,6 @@
             <span class="text-xs text-[#A1A1AA]">Total: <strong class="text-[#F5F5F5] font-mono">{{ $suppliers->total() }}</strong> Rekanan</span>
         </div>
 
-        <!-- Tabel Supplier -->
         <div class="overflow-x-auto">
             <table class="w-full text-xs text-left text-[#A1A1AA]">
                 <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">

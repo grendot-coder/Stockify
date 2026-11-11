@@ -23,9 +23,13 @@
                 {{ $exception->getMessage() ?: 'Akun Anda tidak memiliki kewenangan otorisasi untuk mengakses berkas ini. Hubungi administrator sistem jika Anda membutuhkan akses tambahan.' }}
             </p>
         </div>
-        <div class="pt-2">
+        <div class="pt-2 flex items-center justify-center gap-2">
+            <a href="{{ route('landing') }}"
+                class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] border border-[#343A40] rounded-lg transition duration-150">
+                Beranda Utama
+            </a>
             <a href="{{ route('dashboard') }}"
-                class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-[#101214] bg-[#F5C842] hover:bg-[#E8B92E] rounded-lg transition duration-150 shadow-sm">
+                class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-[#101214] bg-[#F5C842] hover:bg-[#E8B92E] rounded-lg transition duration-150 shadow-sm">
                 Kembali ke Dashboard
             </a>
         </div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
-     * Tampilkan form login.
+     * Tampilkan form login (Portal Pergudangan: Admin, Manager, Staff).
      */
     public function showLoginForm()
     {
@@ -42,15 +42,11 @@ class AuthController extends Controller
             // Cek apakah akun aktif
             if (! $user->is_active) {
                 Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
 
                 return back()->withErrors([
                     'email' => 'Akun Anda dinonaktifkan. Silakan hubungi Administrator.',
                 ])->onlyInput('email');
             }
-
-            $request->session()->regenerate();
 
             // Catat log aktivitas masuk
             ActivityLog::create([
@@ -69,7 +65,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Proses keluar (logout).
+     * Proses keluar (logout) dari sistem.
      */
     public function logout(Request $request)
     {
@@ -85,10 +81,9 @@ class AuthController extends Controller
         }
 
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('info', 'Anda telah berhasil keluar.');
+        return redirect()->route('login')->with('info', 'Anda telah berhasil keluar dari sistem.');
     }
 }
