@@ -1,4 +1,4 @@
-@php
+﻿@php
 $landingAppName = \App\Models\Setting::get('app_name', 'Stockify');
 $landingAppTagline = \App\Models\Setting::get('app_tagline', 'Warehouse Management System');
 $landingAppLogo = \App\Models\Setting::get('app_logo');
@@ -12,7 +12,7 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $landingAppName }} — {{ $landingAppTagline }}</title>
+    <title>{{ $landingAppName }} â€” {{ $landingAppTagline }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -43,7 +43,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             font-variant-numeric: tabular-nums;
         }
 
-        /* Native Scroll-driven progress indicator */
         #scroll-progress {
             position: fixed;
             left: 0;
@@ -77,7 +76,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             }
         }
 
-        /* Architectural blueprint grid with radial fade */
         .blueprint-grid {
             background-size: 48px 48px;
             background-image:
@@ -87,7 +85,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, #000 35%, transparent 100%);
         }
 
-        /* Ambient floating glow */
         @keyframes ambient-glow {
 
             0%,
@@ -106,7 +103,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             animation: ambient-glow 9s ease-in-out infinite;
         }
 
-        /* CTA Shimmer sweep */
         @keyframes shimmer-sweep {
             0% {
                 transform: translateX(-150%) skewX(-20deg);
@@ -135,7 +131,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             pointer-events: none;
         }
 
-        /* Interactive mouse spotlight for cards */
         .spotlight-card {
             position: relative;
             overflow: hidden;
@@ -163,7 +158,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(245, 200, 66, 0.15);
         }
 
-        /* Staggered scroll reveal */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(24px);
@@ -197,7 +191,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 </head>
 
 <body class="bg-[#101214] text-[#F5F5F5] antialiased selection:bg-[#F5C842] selection:text-[#101214] relative">
-    <!-- MANDATORY: Purely decorative visual scroll progress bar with aria-hidden="true" -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#181C20]/90 border-b border-[#343A40]">
@@ -249,7 +242,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
     <main class="space-y-24 sm:space-y-32 pb-24">
 
         <section class="min-h-[calc(100dvh-5rem)] flex items-center max-w-7xl mx-auto px-6 py-8 relative overflow-hidden">
-            <!-- Background blueprint grid and ambient lighting -->
             <div class="absolute inset-0 blueprint-grid pointer-events-none" aria-hidden="true"></div>
             <div class="absolute -top-16 left-1/4 w-96 h-96 bg-[#F5C842]/10 rounded-full blur-[120px] pointer-events-none animate-ambient-glow" aria-hidden="true"></div>
             <div class="absolute top-1/2 -right-16 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none animate-ambient-glow" style="animation-delay: -4.5s;" aria-hidden="true"></div>
@@ -628,7 +620,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 border-b border-[#343A40]">
 
-                <!-- Kolom 1: Brand & Identitas Perusahaan -->
                 <div class="lg:col-span-5 space-y-5">
                     <a href="/" class="flex items-center gap-3 group inline-flex">
                         @if($landingAppLogo && file_exists(public_path('storage/' . $landingAppLogo)))
@@ -679,7 +670,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     @endif
                 </div>
 
-                <!-- Kolom 2: Fitur Utama Web -->
                 <div class="lg:col-span-2 sm:col-span-1 space-y-4">
                     <span class="text-xs font-mono tracking-widest uppercase text-[#F5C842] font-semibold block">Fitur Sistem</span>
                     <ul class="space-y-3 text-xs sm:text-[13px]">
@@ -690,7 +680,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     </ul>
                 </div>
 
-                <!-- Kolom 3: Akses Demo Cepat -->
                 <div class="lg:col-span-2 sm:col-span-1 space-y-4">
                     <span class="text-xs font-mono tracking-widest uppercase text-[#F5C842] font-semibold block">Akses Demo</span>
                     <ul class="space-y-3 text-xs sm:text-[13px]">
@@ -720,7 +709,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     </ul>
                 </div>
 
-                <!-- Kolom 4: Modul Operasional -->
                 <div class="lg:col-span-3 sm:col-span-1 space-y-4">
                     <span class="text-xs font-mono tracking-widest uppercase text-[#F5C842] font-semibold block">Modul Operasional</span>
                     <ul class="space-y-3 text-xs sm:text-[13px]">
@@ -734,7 +722,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
 
             </div>
 
-            <!-- Bagian Bawah: Copyright, Status Sistem, & Back to top -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#A1A1AA]">
 
 
@@ -751,7 +738,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
     </footer>
 
     <script>
-        // Storage Dot Matrix Gudang Hero Animation with technical HUD
         function initHeroBitAnimation() {
             const matrixContainer = document.getElementById('hero-dot-matrix');
             if (!matrixContainer) return;
@@ -763,7 +749,7 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             const coordEl = document.getElementById('hero-active-coord');
 
             const totalCols = 10;
-            const totalDots = dots.length; // 40
+            const totalDots = dots.length;
             const maxUnits = 1000;
             let currentStep = 0;
             let isFilling = true;
@@ -790,7 +776,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     currentStep++;
                     const targetCol = currentStep;
 
-                    // Nyalakan kolom ke-targetCol pada 4 baris
                     const colDots = dots.filter(d => parseInt(d.dataset.col) === targetCol);
                     colDots.forEach((dot, idx) => {
                         setTimeout(() => {
@@ -812,7 +797,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                         }, idx * 40);
                     });
 
-                    // Update persentase dan unit
                     const filledCount = currentStep * 4;
                     const pct = Math.min(100, Math.round((filledCount / totalDots) * 100));
                     const units = Math.min(maxUnits, Math.round((pct / 100) * maxUnits));
@@ -820,12 +804,11 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                     if (percentEl) percentEl.textContent = pct + '%';
                     if (unitsEl) unitsEl.textContent = units.toLocaleString('id-ID');
                     if (progressEl) progressEl.style.width = pct + '%';
-                    if (coordEl) coordEl.textContent = `ROW 01-04 • COL 0${targetCol}`;
+                    if (coordEl) coordEl.textContent = `ROW 01-04 \u2022 COL 0${targetCol}`;
 
                     if (currentStep >= totalCols) {
                         isFilling = false;
                         if (coordEl) coordEl.textContent = 'MAX CAPACITY (40/40)';
-                        // Jeda 3 detik sebelum mengulang siklus
                         setTimeout(() => {
                             resetDots();
                             currentStep = 0;
@@ -839,7 +822,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             setInterval(tickAnimation, 450);
         }
 
-        // Spotlight card interactive mouse tracking
         function initSpotlightCards() {
             const cards = document.querySelectorAll('.spotlight-card');
             cards.forEach(card => {
@@ -853,7 +835,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             });
         }
 
-        // Staggered scroll reveal using IntersectionObserver
         function initScrollReveals() {
             const elements = document.querySelectorAll('.reveal-on-scroll');
             if (!elements.length) return;
@@ -873,7 +854,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             elements.forEach(el => observer.observe(el));
         }
 
-        // Animated metric counters roll-up
         function initCounters() {
             const counters = document.querySelectorAll('.counter-stat');
             if (!counters.length) return;
@@ -891,7 +871,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
                         function update(currentTime) {
                             const elapsed = currentTime - startTime;
                             const progress = Math.min(elapsed / duration, 1);
-                            // easeOutExpo
                             const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
                             const currentVal = target * ease;
 
@@ -917,7 +896,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             counters.forEach(c => observer.observe(c));
         }
 
-        // Scroll Progress Indicator Fallback for browsers lacking native CSS animation-timeline
         function initScrollProgressFallback() {
             if (!window.CSS || !CSS.supports('animation-timeline', 'scroll()')) {
                 const progress = document.getElementById('scroll-progress');
@@ -936,7 +914,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             }
         }
 
-        // Jalankan inisialisasi awal UI
         document.addEventListener('DOMContentLoaded', () => {
             initHeroBitAnimation();
             initSpotlightCards();
@@ -944,7 +921,6 @@ $landingCompanyAddress = \App\Models\Setting::get('warehouse_address') ?: \App\M
             initCounters();
             initScrollProgressFallback();
 
-            // Auto-refresh jika tab ditinggalkan lama (>20 menit) agar CSRF token form demo tetap valid
             let pageLoadTime = Date.now();
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'visible') {

@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="space-y-6">
 
-    <!-- Header Sambutan Berdasarkan Role -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -46,7 +45,6 @@
         </div>
     </div>
 
-    <!-- Peringatan Stok Tipis (Warm Callout) -->
     @if($lowStockCount > 0)
     <div class="p-5 rounded-2xl bg-[#202429] border border-[#F5C842]/40 text-[#F5F5F5] shadow-xs relative overflow-hidden">
         <div class="flex items-start gap-3.5">
@@ -69,7 +67,7 @@
                     @foreach($lowStockProducts->take(6) as $lp)
                     <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs bg-[#181C20] border border-[#343A40] text-[#F5F5F5]">
                         <span class="font-medium text-[#F5F5F5]">{{ $lp->name }}</span>
-                        <span class="mx-2 text-[#343A40]">•</span>
+                        <span class="mx-2 text-[#343A40]">â€¢</span>
                         <span class="text-[#F5C842] font-mono tabular-nums font-bold">{{ $lp->stock }} Unit</span>
                         <span class="text-[10px] text-[#A1A1AA] ml-1">(Min: {{ $lp->min_stock }})</span>
                     </span>
@@ -80,10 +78,8 @@
     </div>
     @endif
 
-    <!-- 4 Kotak Ringkasan Utama (60-30-10 Rule) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-        <!-- 1. Total Jenis Barang -->
         <div class="p-5 bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs flex flex-col justify-between hover:border-[#F5C842]/50 transition group">
             <span class="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">Katalog Produk</span>
             <div class="font-heading text-3xl font-semibold tabular-nums text-[#F5F5F5] mt-2 group-hover:text-[#F5C842] transition">
@@ -92,7 +88,6 @@
             <p class="text-[11px] text-[#A1A1AA] mt-2">{{ $totalCategories }} Kelompok kategori aktif</p>
         </div>
 
-        <!-- 2. Total Stok Fisik -->
         <div class="p-5 bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs flex flex-col justify-between hover:border-[#F5C842]/50 transition group">
             <span class="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">Total Fisik di Gudang</span>
             <div class="font-heading text-3xl font-semibold tabular-nums text-[#F5C842] mt-2">
@@ -101,7 +96,6 @@
             <p class="text-[11px] text-[#A1A1AA] mt-2">Disuplai oleh {{ $totalSuppliers }} Mitra</p>
         </div>
 
-        <!-- 3. Nilai Modal Barang / Valuasi -->
         <div class="p-5 bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs flex flex-col justify-between hover:border-[#F5C842]/50 transition group">
             <span class="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">Total Nilai Persediaan</span>
             <div class="font-heading text-2xl font-semibold tabular-nums text-[#F5F5F5] mt-2 truncate">
@@ -110,7 +104,6 @@
             <p class="text-[11px] text-[#A1A1AA] mt-2">Estimasi nilai modal persediaan</p>
         </div>
 
-        <!-- 4. Opname & Akurasi / Status Stok -->
         <div class="p-5 bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs flex flex-col justify-between hover:border-[#F5C842]/50 transition group">
             <span class="text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider">
                 @if($user->isStaff())
@@ -142,9 +135,7 @@
 
     </div>
 
-    <!-- WIDGET KHUSUS ROLE: MANAGER & STAFF -->
     @if($user->isManager())
-    <!-- Bagian Khusus Manajer: Transaksi Pending Butuh Otorisasi -->
     <div class="bg-[#202429] rounded-2xl border border-amber-500/30 p-5 shadow-xs">
         <div class="flex items-center justify-between pb-3 border-b border-[#343A40]">
             <div class="flex items-center gap-2.5">
@@ -236,10 +227,8 @@
         @endif
     </div>
     @elseif($user->isStaff())
-    <!-- Bagian Khusus Staff: Daftar Tugas Operasional Gudang -->
     <div class="space-y-6">
 
-        <!-- Card Utama: Daftar Tugas Operasional -->
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#343A40] gap-3">
                 <div>
@@ -262,7 +251,6 @@
 
             <div class="mt-6 space-y-6">
 
-                <!-- 1. Barang Masuk yang Tiba di Gudang -->
                 <div class="rounded-xl border border-emerald-500/30 bg-[#181C20] p-4.5">
                     <div class="flex items-center justify-between mb-3.5">
                         <div class="flex items-center gap-2.5">
@@ -340,7 +328,6 @@
                     @endif
                 </div>
 
-                <!-- 2. Barang Keluar yang Perlu Disiapkan -->
                 <div class="rounded-xl border border-[#F5C842]/30 bg-[#181C20] p-4.5">
                     <div class="flex items-center justify-between mb-3.5">
                         <div class="flex items-center gap-2.5">
@@ -421,10 +408,8 @@
     </div>
     @endif
 
-    <!-- SEKSI GRAFIK VISUAL (Fase 7: ApexCharts) -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <!-- 1. Tren Mutasi 7 Hari Terakhir (Area Chart - 2 Kolom) -->
         <div class="lg:col-span-2 bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs flex flex-col justify-between">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#343A40]">
                 <div>
@@ -449,7 +434,6 @@
             </div>
         </div>
 
-        <!-- 2. Komposisi Persediaan per Kategori (Donut Chart - 1 Kolom) -->
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs flex flex-col justify-between">
             <div class="pb-3 border-b border-[#343A40]">
                 <h2 class="font-heading text-lg font-semibold text-[#F5F5F5]">Persediaan per Kategori</h2>
@@ -471,10 +455,8 @@
 
     </div>
 
-    <!-- Dua Kolom: Tabel Mutasi & Jejak Audit Aktivitas -->
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
-        <!-- Tabel Transaksi Terkini (2 Kolom) -->
         <div class="xl:col-span-2 bg-[#202429] rounded-2xl border border-[#343A40] overflow-hidden shadow-xs">
             <div class="p-5 border-b border-[#343A40] flex items-center justify-between">
                 <div>
@@ -551,7 +533,6 @@
             @endif
         </div>
 
-        <!-- Kolom Kanan: Catatan Aktivitas Terakhir (1 Kolom) -->
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 shadow-xs flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between pb-3 border-b border-[#343A40]">

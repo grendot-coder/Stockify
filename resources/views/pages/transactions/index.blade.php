@@ -3,7 +3,6 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Header & Tombol Aksi Transaksi -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -52,7 +50,6 @@
     </div>
     @endif
 
-    <!-- Mini Ringkasan Metrik Transaksi -->
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-4 shadow-xs">
             <div class="text-[10px] font-semibold text-[#A1A1AA] uppercase tracking-wider">Total Mutasi</div>
@@ -76,13 +73,10 @@
         </div>
     </div>
 
-    <!-- Card Tabel & Filter Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
 
-        <!-- Filter Bar -->
         <div class="p-4 sm:p-5 border-b border-[#343A40] bg-[#181C20]">
             <form action="{{ route('transactions.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-center">
-                <!-- Search -->
                 <div class="lg:col-span-2 relative">
                     <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#A1A1AA]">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +87,6 @@
                         class="w-full pl-9 pr-3.5 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition">
                 </div>
 
-                <!-- Filter Tipe -->
                 <div>
                     <select name="type" onchange="this.form.submit()"
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition cursor-pointer">
@@ -103,7 +96,6 @@
                     </select>
                 </div>
 
-                <!-- Filter Status -->
                 <div>
                     <select name="status" onchange="this.form.submit()"
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition cursor-pointer">
@@ -114,7 +106,6 @@
                     </select>
                 </div>
 
-                <!-- Filter Produk & Reset -->
                 <div class="flex items-center gap-2">
                     <select name="product_id" onchange="this.form.submit()"
                         class="w-full px-3 py-2 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition cursor-pointer">
@@ -134,7 +125,6 @@
             </form>
         </div>
 
-        <!-- Tabel Transaksi -->
         <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Riwayat Transaksi Stok">
             <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
                 <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40] sticky top-0 z-10">
@@ -151,7 +141,6 @@
                 <tbody class="divide-y divide-[#343A40]">
                     @forelse($transactions as $trx)
                     <tr class="hover:bg-[#2A3036]/60 transition">
-                        <!-- Invoice & Waktu -->
                         <td class="px-5 py-3.5">
                             <a href="{{ route('transactions.show', $trx->id) }}" class="font-mono font-medium text-[#F5F5F5] hover:text-[#F5C842] transition">
                                 {{ $trx->invoice_number }}
@@ -161,7 +150,6 @@
                             </div>
                         </td>
 
-                        <!-- Tipe -->
                         <td class="px-5 py-3.5">
                             @if($trx->type === 'in')
                             <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
@@ -174,7 +162,6 @@
                             @endif
                         </td>
 
-                        <!-- Produk -->
                         <td class="px-5 py-3.5">
                             <div class="font-medium text-[#F5F5F5]">
                                 <a href="{{ route('products.show', $trx->product_id) }}" class="hover:text-[#F5C842] transition">
@@ -186,7 +173,6 @@
                             </div>
                         </td>
 
-                        <!-- Kuantitas -->
                         <td class="px-5 py-3.5 text-right">
                             <span class="font-bold text-sm {{ $trx->type === 'in' ? 'text-emerald-400' : 'text-[#F5C842]' }}">
                                 {{ $trx->type === 'in' ? '' : '' }}{{ number_format($trx->quantity) }}
@@ -194,7 +180,6 @@
                             <span class="text-[10px] text-[#A1A1AA] block">Unit</span>
                         </td>
 
-                        <!-- Supplier / Keterangan -->
                         <td class="px-5 py-3.5 max-w-xs">
                             @if($trx->supplier)
                             <div class="font-medium text-[#F5F5F5]">{{ $trx->supplier->name }}</div>
@@ -207,7 +192,6 @@
                             </div>
                         </td>
 
-                        <!-- Status -->
                         <td class="px-5 py-3.5 text-center whitespace-nowrap">
                             @if($trx->status === 'confirmed')
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
@@ -224,7 +208,6 @@
                             @endif
                         </td>
 
-                        <!-- Aksi -->
                         <td class="px-5 py-3.5 text-right whitespace-nowrap">
                             <div class="inline-flex items-center gap-1.5 justify-end">
                                 <a href="{{ route('transactions.show', $trx->id) }}"

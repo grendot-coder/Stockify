@@ -1,10 +1,9 @@
-@php
+﻿@php
 $user = Auth::user();
 $role = $user->role ?? 'staff';
 @endphp
 
 <x-sidebar-dashboard>
-    <!-- Dashboard -->
     <x-sidebar-menu-dashboard routeName="dashboard" title="Dashboard">
         <x-slot name="icon">
             <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -14,7 +13,6 @@ $role = $user->role ?? 'staff';
         </x-slot>
     </x-sidebar-menu-dashboard>
 
-    <!-- Master Data (Admin, Manager, Staff) -->
     <x-sidebar-menu-dropdown-dashboard routeName="products.*,categories.*,suppliers.*,locations.*" title="Master Data">
         <x-slot name="icon">
             <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -29,7 +27,6 @@ $role = $user->role ?? 'staff';
         @endif
     </x-sidebar-menu-dropdown-dashboard>
 
-    <!-- Manajemen Stok & Transaksi (Khusus Admin & Manager) -->
     @if(in_array($role, ['admin', 'manager']))
     <x-sidebar-menu-dropdown-dashboard routeName="transactions.*,opnames.*" title="Manajemen Stok">
         <x-slot name="icon">
@@ -46,7 +43,6 @@ $role = $user->role ?? 'staff';
     @endif
 
 
-    <!-- Laporan & Ekspor (Admin & Manager) -->
     @if(in_array($role, ['admin', 'manager']))
     <x-sidebar-menu-dropdown-dashboard routeName="reports.*" title="Laporan & Ekspor">
         <x-slot name="icon">
@@ -59,7 +55,6 @@ $role = $user->role ?? 'staff';
     </x-sidebar-menu-dropdown-dashboard>
     @endif
 
-    <!-- Menu Khusus Admin -->
     @if($role === 'admin')
     <x-sidebar-menu-dropdown-dashboard routeName="users.*,logs.*" title="Pengguna & Sistem">
         <x-slot name="icon">

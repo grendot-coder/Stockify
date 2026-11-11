@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-5">
@@ -76,7 +76,6 @@
                             </svg>
                         </div>
                     </div>
-                    <!-- Alert SKU Duplikat Realtime (Tanpa Perlu Submit / Konfirmasi) -->
                     <div id="sku-alert-container" class="mt-2 hidden"></div>
                 </div>
             </div>
@@ -105,7 +104,7 @@
                             data-category-id="{{ $sup->category_id ?? '' }}"
                             data-category-name="{{ $sup->category?->name ?? 'Umum' }}"
                             {{ old('supplier_id') == $sup->id ? 'selected' : '' }}>
-                            {{ $sup->name }} — Spesialis: {{ $sup->category?->name ?? 'Umum' }}
+                            {{ $sup->name }} â€” Spesialis: {{ $sup->category?->name ?? 'Umum' }}
                         </option>
                         @endforeach
                     </select>
@@ -229,7 +228,7 @@
                         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                         <h4 class="text-xs font-semibold text-emerald-400 font-mono">Rekomendasi AI Otomatis Diterapkan ke Formulir</h4>
                     </div>
-                    <button type="button" id="btn-dismiss-ai" class="text-[11px] text-[#A1A1AA] hover:text-[#F5F5F5] transition cursor-pointer">Tutup ✕</button>
+                    <button type="button" id="btn-dismiss-ai" class="text-[11px] text-[#A1A1AA] hover:text-[#F5F5F5] transition cursor-pointer">Tutup âœ•</button>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">

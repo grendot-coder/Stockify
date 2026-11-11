@@ -1,8 +1,7 @@
-<nav class="fixed z-50 w-full bg-[#181C20] border-b border-[#343A40] shadow-[0_1px_2px_0_rgba(0,0,0,0.3)]">
+﻿<nav class="fixed z-50 w-full bg-[#181C20] border-b border-[#343A40] shadow-[0_1px_2px_0_rgba(0,0,0,0.3)]">
     <div class="px-5 py-3">
         <div class="flex items-center justify-between">
             
-            <!-- Sisi Kiri: Menu Hamburger (Mobile) & Logo -->
             <div class="flex items-center gap-3">
                 <button id="toggleSidebarMobile" type="button" aria-expanded="false" aria-controls="sidebar" 
                     class="p-2 text-[#A1A1AA] rounded-lg lg:hidden hover:text-[#F5F5F5] hover:bg-[#2A3036] focus:outline-none focus:ring-1 focus:ring-[#F5C842]"
@@ -35,7 +34,6 @@
                     </div>
                 </a>
 
-                <!-- Quick Link to Landing Page -->
                 <a href="{{ route('landing') }}" target="_blank"
                     class="hidden md:inline-flex items-center gap-1.5 ml-4 px-2.5 py-1 rounded-md text-[11px] font-medium text-[#A1A1AA] hover:text-[#F5C842] hover:bg-[#2A3036] border border-transparent hover:border-[#343A40] transition">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>

@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="space-y-6">
@@ -21,7 +21,6 @@
         </button>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -45,14 +44,13 @@
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#343A40]/80">
             <div>
-                <span class="text-[10px] font-mono uppercase tracking-widest text-[#A1A1AA]">STORAGE MATRIX · 1 DOT = 1 RAK GUDANG</span>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#A1A1AA]">STORAGE MATRIX Â· 1 DOT = 1 RAK GUDANG</span>
                 <div class="text-lg font-heading font-semibold text-[#F5F5F5] mt-0.5">
                     Kapasitas Terpakai: <span class="text-[#F5C842] font-mono font-bold">{{ $stats['overall_percentage'] }}%</span>
                     <span class="text-xs font-normal text-[#A1A1AA] ml-1.5 font-sans">({{ number_format($stats['total_stock']) }} / {{ number_format($stats['total_capacity']) }} Total Unit)</span>
                 </div>
             </div>
 
-            <!-- Quick Counter Pills -->
             <div class="flex flex-wrap items-center gap-2 text-[11px] font-mono">
                 <span class="px-2.5 py-1 rounded-lg bg-[#181C20] border border-[#343A40] text-[#F5F5F5]">
                     Total: <strong class="text-[#F5C842]">{{ $stats['total_racks'] }}</strong> Rak
@@ -72,7 +70,6 @@
             </div>
         </div>
 
-        <!-- Dot Matrix Canvas -->
         <div class="mt-5 p-5 bg-[#101214] border border-[#272B30] rounded-xl">
             @if($allRacks->isEmpty())
             <div class="py-8 text-center">
@@ -82,10 +79,8 @@
             <div class="flex flex-wrap gap-2.5 items-center">
                 @foreach($allRacks as $rack)
                 <div class="relative group cursor-pointer" onclick="filterByRack('{{ $rack->name }}')">
-                    <!-- Dot Indicator -->
                     <div class="w-3.5 h-3.5 rounded-full transition-transform duration-150 transform group-hover:scale-150 {{ $rack->status_color }}"></div>
 
-                    <!-- Industrial Floating Tooltip -->
                     <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2.5 hidden group-hover:flex flex-col items-center z-50 pointer-events-none whitespace-nowrap">
                         <div class="bg-[#181C20] border border-[#495057] text-[#F5F5F5] rounded-xl shadow-2xl p-3 text-[11px] font-mono leading-tight">
                             <div class="flex items-center justify-between gap-3">
@@ -112,7 +107,6 @@
             @endif
         </div>
 
-        <!-- Legend (Meniru visualisasi referensi SD Card / Block Map) -->
         <div class="mt-4 pt-3 flex flex-wrap items-center gap-5 text-[11px] font-mono text-[#A1A1AA]">
             <span class="flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#343A40] border border-[#495057]/50 inline-block"></span>
@@ -128,15 +122,13 @@
             </span>
             <span class="flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#F43F5E] shadow-[0_0_6px_rgba(244,63,94,0.6)] inline-block"></span>
-                <span>PENUH (≥95%)</span>
+                <span>PENUH (â‰¥95%)</span>
             </span>
         </div>
     </div>
 
-    <!-- Card Tabel & Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
 
-        <!-- Filter Pencarian -->
         <div class="p-4 border-b border-[#343A40] bg-[#181C20] flex flex-col sm:flex-row items-center justify-between gap-3">
             <form action="{{ route('locations.index') }}" method="GET" class="w-full sm:w-80" id="search-form">
                 <div class="relative">
@@ -155,7 +147,6 @@
             <span class="text-xs text-[#A1A1AA]">Menampilkan: <strong class="text-[#F5F5F5] font-mono">{{ $locations->total() }}</strong> Rak</span>
         </div>
 
-        <!-- Tabel Lokasi Rak -->
         <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Tabel Pemetaan Lokasi Rak Gudang">
             <table class="w-full text-xs text-left text-[#A1A1AA]">
                 <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40] sticky top-0 z-10">
@@ -183,7 +174,6 @@
                                 <span class="text-[#F5F5F5] font-semibold">{{ $loc->current_stock }} / {{ $loc->capacity }} Unit</span>
                                 <span class="text-[#A1A1AA]">{{ $loc->occupancy_percentage }}%</span>
                             </div>
-                            <!-- Mini Progress Bar -->
                             <div class="w-full bg-[#181C20] rounded-full h-1.5 border border-[#343A40] overflow-hidden">
                                 <div class="h-full rounded-full transition-all duration-300 {{ $loc->status === 'full' ? 'bg-[#F43F5E]' : ($loc->status === 'almost_full' ? 'bg-[#FB923C]' : ($loc->status === 'normal' ? 'bg-[#F5C842]' : 'bg-transparent')) }}"
                                     style="width: {{ $loc->occupancy_percentage }}%"></div>
@@ -214,11 +204,11 @@
                                 {{ $loc->zone }}
                             </span>
                             @else
-                            <span class="text-[#A1A1AA]/50">—</span>
+                            <span class="text-[#A1A1AA]/50">â€”</span>
                             @endif
                         </td>
                         <td class="px-5 py-3.5 text-[#A1A1AA] max-w-xs truncate">
-                            {{ $loc->description ?: '—' }}
+                            {{ $loc->description ?: 'â€”' }}
                         </td>
                         <td class="px-5 py-3.5 text-right whitespace-nowrap">
                             <div class="inline-flex items-center gap-1.5 justify-end">
@@ -258,7 +248,6 @@
 
 </div>
 
-<!-- Modal Tambah Lokasi Rak -->
 <div id="modal-create-location" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center bg-black/60 backdrop-blur-xs">
     <div class="relative w-full max-w-md max-h-full">
@@ -307,7 +296,6 @@
     </div>
 </div>
 
-<!-- Modal Edit Lokasi Rak -->
 <div id="modal-edit-location" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center bg-black/60 backdrop-blur-xs">
     <div class="relative w-full max-w-md max-h-full">

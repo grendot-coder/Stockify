@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
@@ -17,7 +17,6 @@
         </div>
     </div>
 
-    <!-- Error Alert -->
     @if($errors->any())
     <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
         <div class="font-bold mb-1">Terdapat kesalahan pengisian formulir:</div>
@@ -29,12 +28,10 @@
     </div>
     @endif
 
-    <!-- Form Container -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
         <form action="{{ route('users.store') }}" method="POST" class="space-y-5">
             @csrf
 
-            <!-- Nama Lengkap -->
             <div>
                 <label for="name" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
                     Nama Lengkap <span class="text-rose-500">*</span>
@@ -44,7 +41,6 @@
                     class="w-full px-3.5 py-2.5 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:bg-[#202429] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842] transition">
             </div>
 
-            <!-- Email & Telepon Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="email" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
@@ -64,7 +60,6 @@
                 </div>
             </div>
 
-            <!-- Role & Status Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="role" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
@@ -93,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- Password & Konfirmasi Password Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[#343A40]">
                 <div>
                     <label for="password" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5">
@@ -113,7 +107,6 @@
                 </div>
             </div>
 
-            <!-- Tombol Aksi Simpan -->
             <div class="pt-4 flex items-center justify-end gap-3 border-t border-[#343A40]">
                 <a href="{{ route('users.index') }}"
                     class="px-4 py-2.5 text-xs font-medium text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#181C20] rounded-xl transition">

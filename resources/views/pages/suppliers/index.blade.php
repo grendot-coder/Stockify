@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="space-y-5">
 
-    <!-- Header & Tombol Tambah -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <span class="text-[11px] font-mono tracking-widest uppercase text-[#F5C842] font-semibold">Rekanan Rantai Pasok</span>
@@ -19,7 +18,6 @@
         </button>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -97,7 +95,7 @@
                             @endif
                         </td>
                         <td class="px-5 py-3.5 text-[#A1A1AA] max-w-xs truncate">
-                            {{ $sup->address ?: '—' }}
+                            {{ $sup->address ?: 'â€”' }}
                         </td>
                         <td class="px-5 py-3.5 text-center">
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-mono font-medium bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
@@ -140,7 +138,6 @@
 
 </div>
 
-<!-- Modal Tambah Supplier -->
 <div id="modal-create-supplier" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center bg-black/60 backdrop-blur-xs">
     <div class="relative w-full max-w-md max-h-full">
@@ -197,7 +194,6 @@
     </div>
 </div>
 
-<!-- Modal Edit Supplier -->
 <div id="modal-edit-supplier" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center bg-black/60 backdrop-blur-xs">
     <div class="relative w-full max-w-md max-h-full">

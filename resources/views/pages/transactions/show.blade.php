@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
 
-    <!-- Navigasi & Action Bar -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <a href="{{ route('transactions.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -13,7 +12,6 @@
         </a>
 
         <div class="flex items-center gap-2.5">
-            <!-- Tombol Cetak Dokumen -->
             <button type="button" onclick="window.print()"
                 class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#202429] hover:bg-[#181C20] border border-[#343A40] hover:border-[#F5C842] text-[#F5F5F5] text-xs font-semibold rounded-xl shadow-xs transition cursor-pointer">
                 <svg class="w-4 h-4 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -22,7 +20,6 @@
                 <span>Cetak Bukti</span>
             </button>
 
-            <!-- Aksi Konfirmasi / Tolak jika status masih Pending -->
             @if($transaction->status === 'pending' && in_array(Auth::user()->role, ['admin', 'manager']))
             <form action="{{ route('transactions.confirm', $transaction->id) }}" method="POST" class="inline-block"
                 onsubmit="return confirm('Apakah Anda yakin ingin menyetujui transaksi ini? Stok produk akan diperbarui otomatis.');">
@@ -47,7 +44,6 @@
         </div>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -68,7 +64,6 @@
     </div>
     @endif
 
-    <!-- Lembar Bukti Transaksi (Printable Card) -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 sm:p-8 shadow-xs space-y-6">
 
         @php
@@ -76,7 +71,6 @@
         $trxAppTagline = \App\Models\Setting::get('app_tagline', 'Sistem Manajemen Persediaan & Mutasi Barang Gudang');
         $trxAppLogo = \App\Models\Setting::get('app_logo');
         @endphp
-        <!-- Header Bukti Transaksi -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 border-b border-[#343A40] gap-4">
             <div>
                 <div class="flex items-center gap-2.5">
@@ -111,7 +105,6 @@
             </div>
         </div>
 
-        <!-- Rincian Informasi Dokumen -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs">
             <div class="space-y-3 bg-[#181C20] p-5 rounded-xl border border-[#343A40]">
                 <h3 class="font-heading font-semibold text-[#F5C842] uppercase tracking-wider text-[11px]">Informasi Mutasi</h3>
@@ -148,7 +141,6 @@
             </div>
         </div>
 
-        <!-- Tabel Item Barang -->
         <div class="overflow-x-auto border border-[#343A40] rounded-xl" tabindex="0" role="region" aria-label="Tabel Rincian Item Transaksi">
             <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
                 <thead class="bg-[#181C20] text-[11px] text-[#F5F5F5] uppercase tracking-wider border-b border-[#343A40] sticky top-0 z-10">
@@ -192,7 +184,6 @@
             </table>
         </div>
 
-        <!-- Catatan & Tanda Tangan -->
         <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs">
             <div>
                 <h4 class="font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider text-[11px]">Catatan / Alasan Mutasi:</h4>
@@ -221,7 +212,6 @@
 
 </div>
 
-<!-- Modal Tolak Transaksi -->
 <div id="modal-reject-transaction" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center bg-black/60 backdrop-blur-xs">
     <div class="relative w-full max-w-md max-h-full">

@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
 
-    <!-- Breadcrumb & Navigasi Kembali -->
     <div class="flex items-center justify-between">
         <a href="{{ route('transactions.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -13,7 +12,6 @@
         </a>
     </div>
 
-    <!-- Header Judul -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
         <div class="flex items-center gap-2 mb-1">
             <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
@@ -24,7 +22,6 @@
         <p class="text-xs text-[#A1A1AA] mt-1">Pencatatan pasokan inventaris baru dari supplier rekanan atau transfer masuk gudang</p>
     </div>
 
-    <!-- Alert Kesalahan Validasi -->
     @if($errors->any())
     <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs shadow-xs">
         <div class="flex items-center gap-2 font-semibold mb-1">
@@ -41,14 +38,12 @@
     </div>
     @endif
 
-    <!-- Formulir Barang Masuk -->
     <form action="{{ route('transactions.inbound.store') }}" method="POST" class="space-y-6">
         @csrf
 
         <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs space-y-5">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- No. Invoice / Referensi (Auto Generate & Anti-Dupe Realtime) -->
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
                         <label class="block text-xs font-semibold text-[#F5F5F5] uppercase tracking-wider">
@@ -73,7 +68,6 @@
                     <p class="text-[10px] text-[#A1A1AA] mt-1">Otomatis terisi oleh sistem dan anti-duplikat. Dapat diganti nomor surat jalan fisik supplier.</p>
                 </div>
 
-                <!-- Supplier (Otomatis Terikat) -->
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                         Rekanan Supplier
@@ -86,7 +80,6 @@
                 </div>
             </div>
 
-            <!-- Pilih Produk -->
             <div>
                 <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                     Pilih Produk / Barang <span class="text-[#F5C842]">*</span>
@@ -100,14 +93,13 @@
                         data-sku="{{ $p->sku }}"
                         data-supplier="{{ $p->supplier?->name ?? 'Tanpa Supplier Terikat' }}"
                         {{ old('product_id') == $p->id ? 'selected' : '' }}>
-                        {{ $p->name }} (SKU: {{ $p->sku }}) — Stok Fisik Saat Ini: {{ $p->stock }} Unit
+                        {{ $p->name }} (SKU: {{ $p->sku }}) â€” Stok Fisik Saat Ini: {{ $p->stock }} Unit
                     </option>
                     @endforeach
                 </select>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Kuantitas Masuk -->
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                         Jumlah Kuantitas Masuk <span class="text-[#F5C842]">*</span>
@@ -116,7 +108,6 @@
                         class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">
                 </div>
 
-                <!-- Status Alur Transaksi Inbound (Langsung Disetujui Tanpa Butuh Konfirmasi) -->
                 <div>
                     <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                         Alur Verifikasi Transaksi Inbound
@@ -133,7 +124,6 @@
                 </div>
             </div>
 
-            <!-- Catatan / Keterangan -->
             <div>
                 <label class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                     Catatan / Nomor DO / Keterangan Masuk
@@ -144,7 +134,6 @@
 
         </div>
 
-        <!-- Tombol Aksi Simpan Soft Terracotta -->
         <div class="flex items-center justify-end gap-3 pt-2">
             <a href="{{ route('transactions.index') }}"
                 class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#2A3036] rounded-xl transition">

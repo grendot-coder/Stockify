@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="utf-8">
-    <title>Laporan Mutasi Transaksi — Stockify Warehouse</title>
+    <title>Laporan Mutasi Transaksi â€” Stockify Warehouse</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -80,7 +80,7 @@
 
     <div class="no-print">
         <div>
-            <strong>Mode Pratinjau Cetak / PDF</strong> — Pastikan ukuran kertas diatur ke A4 (Landscape direkomendasikan).
+            <strong>Mode Pratinjau Cetak / PDF</strong> â€” Pastikan ukuran kertas diatur ke A4 (Landscape direkomendasikan).
         </div>
         <button onclick="window.print()" class="btn-print">Cetak Sekarang (Print / PDF)</button>
     </div>
@@ -92,7 +92,6 @@
         $printWhPhone = \App\Models\Setting::get('warehouse_phone');
         $printWhEmail = \App\Models\Setting::get('warehouse_email');
     @endphp
-    <!-- Kop Dokumen Resmi -->
     <div style="border-bottom: 2px solid #292524; padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F5C842; letter-spacing: -0.02em;">
@@ -111,7 +110,6 @@
         </div>
     </div>
 
-    <!-- Ringkasan Filter & Metrik -->
     <div style="display: flex; gap: 16px; margin-bottom: 16px;">
         <div style="flex: 1; border: 1px solid #E7E0DA; padding: 10px; border-radius: 6px; background: #FAF7F4;">
             <div style="font-size: 9px; text-transform: uppercase; color: #78716C; font-weight: 600;">Total Mutasi Terdata</div>
@@ -133,7 +131,6 @@
         </div>
     </div>
 
-    <!-- Tabel Data Mutasi -->
     <table>
         <thead>
             <tr>
@@ -187,7 +184,6 @@
         </tbody>
     </table>
 
-    <!-- Tanda Tangan Pengesahan -->
     <div style="margin-top: 40px; display: flex; justify-content: space-between; page-break-inside: avoid;">
         <div style="width: 200px; text-align: center;">
             <div style="color: #78716C; margin-bottom: 50px;">Disiapkan Oleh (Staff / Petugas):</div>

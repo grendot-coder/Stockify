@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-3xl mx-auto space-y-6">
 
-    <!-- Header & Navigasi Kembali -->
     <div class="flex items-center justify-between">
         <a href="{{ route('opnames.index') }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -21,7 +20,6 @@
         <p class="text-xs text-[#A1A1AA] mt-1">Lakukan penghitungan fisik langsung di rak gudang untuk memvalidasi akurasi persediaan sistem.</p>
     </div>
 
-    <!-- Alert Notifikasi Error -->
     @if(session('error') || $errors->any())
         <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2 shadow-xs">
             <svg class="w-4 h-4 text-rose-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -31,11 +29,9 @@
         </div>
     @endif
 
-    <!-- Formulir Utama -->
     <form action="{{ route('opnames.store') }}" method="POST" class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 sm:p-8 shadow-xs space-y-6">
         @csrf
 
-        <!-- 1. Pemilihan Produk -->
         <div>
             <label for="product_id" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
                 Pilih Produk / Barang <span class="text-[#F5C842]">*</span>
@@ -49,14 +45,13 @@
                         data-sku="{{ $p->sku }}"
                         data-category="{{ $p->category?->name ?? '-' }}"
                         {{ old('product_id', request('product_id')) == $p->id ? 'selected' : '' }}>
-                        {{ $p->sku }} — {{ $p->name }} (Tersedia: {{ $p->stock }} Unit)
+                        {{ $p->sku }} â€” {{ $p->name }} (Tersedia: {{ $p->stock }} Unit)
                     </option>
                 @endforeach
             </select>
             <p class="text-[11px] text-[#A1A1AA] mt-1.5">Pilih item barang yang baru saja dihitung fisiknya di lokasi rak gudang.</p>
         </div>
 
-        <!-- 2. Kotak Komparasi & Kalkulasi Selisih Realtime -->
         <div id="comparison-card" class="bg-[#181C20] border border-[#343A40] rounded-xl p-5 space-y-4">
             <div class="flex items-center justify-between pb-3 border-b border-[#343A40]">
                 <div class="flex items-center gap-2">
@@ -69,14 +64,12 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <!-- Stok Sistem -->
                 <div class="bg-[#202429] p-3.5 rounded-xl border border-[#343A40] text-center">
                     <span class="text-[10px] font-semibold text-[#A1A1AA] uppercase tracking-wider">Stok Sistem Saat Ini</span>
                     <div id="display-system-stock" class="font-heading text-2xl font-bold tabular-nums text-[#F5F5F5] mt-1">-</div>
                     <span id="display-sku" class="text-[10px] font-mono text-[#A1A1AA]">SKU: -</span>
                 </div>
 
-                <!-- Input Stok Fisik -->
                 <div class="bg-[#202429] p-3.5 rounded-xl border-2 border-[#F5C842]/40 text-center relative">
                     <label for="physical_stock" class="block text-[10px] font-bold text-[#F5C842] uppercase tracking-wider">
                         Hasil Hitung Fisik <span class="text-rose-500">*</span>
@@ -87,7 +80,6 @@
                     <span class="text-[10px] text-[#A1A1AA]">Unit Fisik di Rak</span>
                 </div>
 
-                <!-- Hasil Selisih -->
                 <div class="bg-[#202429] p-3.5 rounded-xl border border-[#343A40] text-center">
                     <span class="text-[10px] font-semibold text-[#A1A1AA] uppercase tracking-wider">Selisih Persediaan</span>
                     <div id="display-difference" class="font-heading text-2xl font-bold tabular-nums text-gray-400 mt-1">0</div>
@@ -96,7 +88,6 @@
             </div>
         </div>
 
-        <!-- 3. Tanggal Opname & Catatan -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
                 <label for="opname_date" class="block text-xs font-semibold text-[#F5F5F5] mb-1.5 uppercase tracking-wider">
@@ -124,7 +115,6 @@
                 class="w-full px-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]">{{ old('notes') }}</textarea>
         </div>
 
-        <!-- 4. Checkbox Opsi Penyesuaian Stok Sistem (Khusus Admin / Manager) -->
         @if(in_array(Auth::user()->role, ['admin', 'manager']))
         <div class="p-4 rounded-xl bg-[#181C20] border border-[#343A40] flex items-start gap-3">
             <input type="checkbox" name="adjust_stock" id="adjust_stock" value="1" {{ old('adjust_stock') ? 'checked' : '' }}
@@ -143,7 +133,6 @@
         </div>
         @endif
 
-        <!-- Action Buttons -->
         <div class="flex items-center justify-end gap-3 pt-4 border-t border-[#343A40]">
             <a href="{{ route('opnames.index') }}"
                 class="px-4 py-2.5 text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] hover:bg-[#2A3036] rounded-xl transition">

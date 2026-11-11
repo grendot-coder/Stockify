@@ -1,9 +1,8 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
 
-    <!-- Header Pengaturan -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -15,7 +14,6 @@
         </div>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
         <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
             <div class="flex items-center gap-2">

@@ -3,7 +3,6 @@
 @section('content')
 <div class="space-y-5">
 
-    <!-- Header & Tombol Tambah Pengguna -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
             <div class="flex items-center gap-2 mb-1">
@@ -22,7 +21,6 @@
         </a>
     </div>
 
-    <!-- Alert Notifikasi -->
     @if(session('success'))
     <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-between shadow-xs">
         <div class="flex items-center gap-2">
@@ -43,10 +41,8 @@
     </div>
     @endif
 
-    <!-- Card Tabel & Pencarian -->
     <div class="bg-[#202429] rounded-2xl border border-[#343A40] shadow-xs overflow-hidden">
 
-        <!-- Filter Bar -->
         <div class="p-4 border-b border-[#343A40] bg-[#181C20] flex flex-col md:flex-row items-center justify-between gap-3">
             <form action="{{ route('users.index') }}" method="GET" class="w-full md:w-auto flex flex-col sm:flex-row items-center gap-2 flex-1 max-w-xl">
                 <div class="relative w-full sm:w-72">
@@ -76,7 +72,6 @@
             <span class="text-xs text-[#A1A1AA]">Total: <strong class="text-[#F5F5F5] font-mono">{{ $users->total() }}</strong> Akun</span>
         </div>
 
-        <!-- Tabel Pengguna -->
         <div class="overflow-x-auto">
             <table class="w-full text-xs text-left text-[#A1A1AA]">
                 <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
