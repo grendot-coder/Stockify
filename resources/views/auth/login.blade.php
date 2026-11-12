@@ -50,7 +50,7 @@
                     <div id="slide-1" class="carousel-slide transition-opacity duration-300">
                         <div class="text-[#F5C842] text-5xl font-editorial font-bold leading-none mb-4 select-none">&ldquo;</div>
                         <h2 class="font-heading text-2xl xl:text-3xl font-semibold text-[#F5F5F5] leading-snug tracking-tight">
-                            Dengan Stockify, arrange your shelf like a chad.
+                            Kelola tata letak inventaris dan alur mutasi barang gudang secara terstruktur dan efisien.
                         </h2>
 
                         <div class="mt-8 pt-6 border-t border-[#343A40]">
@@ -109,8 +109,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="font-heading font-semibold text-sm text-[#F5F5F5]">Efisiensi dan Efektif</div>
-                                    <div class="text-xs text-[#A1A1AA]">Membantu Business Owner Mengelola Stoknya dengan Efektif</div>
+                                    <div class="font-heading font-semibold text-sm text-[#F5F5F5]">Akurasi Stok Terjamin</div>
+                                    <div class="text-xs text-[#A1A1AA]">Mencegah selisih pencatatan fisik dan digital dengan kontrol otorisasi berjenjang</div>
                                 </div>
                             </div>
 
@@ -216,10 +216,10 @@
 
                 <div class="mb-6">
                     <h1 class="font-heading text-3xl font-bold tracking-tight text-[#F5F5F5]">
-                        Let's get started
+                        Masuk ke Sistem
                     </h1>
                     <p class="text-xs text-[#A1A1AA] mt-1.5">
-                        Masuk ke portal kendali inventaris & logistik pergudangan terpadu.
+                        Masuk ke portal kendali inventaris dan logistik pergudangan terpadu.
                     </p>
                 </div>
 
@@ -254,7 +254,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
                                 </svg>
                             </div>
-                            <input type="email" name="email" id="email" value="{{ old('email', 'admin@stockify.test') }}" required
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" required
                                 class="w-full pl-10 pr-3.5 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-2 focus:ring-[#F5C842]/20 transition"
                                 placeholder="nama@perusahaan.com">
                         </div>
@@ -273,7 +273,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
                             </div>
-                            <input type="password" name="password" id="password" value="password" required
+                            <input type="password" name="password" id="password" required
                                 class="w-full pl-10 pr-10 py-2.5 text-xs bg-[#202429] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] focus:ring-2 focus:ring-[#F5C842]/20 transition"
                                 placeholder="••••••••">
                             <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#A1A1AA] hover:text-[#F5C842] transition cursor-pointer" title="Tampilkan/Sembunyikan sandi">
@@ -384,7 +384,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             resetTimer();
 
-            // Otomatis segarkan halaman jika tab telah ditinggalkan lebih dari 20 menit agar CSRF token selalu valid
             let pageLoadTime = Date.now();
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'visible') {
@@ -394,7 +393,6 @@
                 }
             });
 
-            // Refresh token otomatis jika halaman dimuat dari browser cache (bfcache) saat beralih akun
             window.addEventListener('pageshow', function (event) {
                 if (event.persisted) {
                     window.location.reload();

@@ -1,4 +1,4 @@
-﻿@extends('layouts.dashboard')
+@extends('layouts.dashboard')
 
 @section('content')
 <div class="space-y-6">
@@ -229,180 +229,253 @@
     @elseif($user->isStaff())
     <div class="space-y-6">
 
-        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-6 shadow-xs">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#343A40] gap-3">
+        <div class="bg-[#202429] rounded-2xl border border-[#343A40] p-5 sm:p-6 shadow-xs">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between pb-5 border-b border-[#343A40] gap-4">
                 <div>
                     <div class="flex items-center gap-2 mb-1">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#F5C842] animate-pulse"></span>
-                        <span class="text-[11px] uppercase tracking-wider text-[#F5C842] font-bold">Stasiun Pemantauan Fisik Gudang</span>
+                        <span class="text-[11px] uppercase tracking-wider text-[#F5C842] font-bold">Stasiun Operasional Fisik Gudang</span>
                     </div>
-                    <h2 class="font-heading text-xl font-semibold text-[#F5F5F5]">Daftar Tugas & Pemantauan Barang Staff</h2>
-                    <p class="text-xs text-[#A1A1AA] mt-0.5">Pantau fisik barang masuk dari supplier dan persiapan fisik pengeluaran barang gudang</p>
+                    <h2 class="font-heading text-xl font-semibold text-[#F5F5F5]">Pusat Antrean Tugas & Pemantauan Rak</h2>
+                    <p class="text-xs text-[#A1A1AA] mt-0.5">Panduan alur pemeriksaan fisik barang masuk dan penyiapan packing barang keluar</p>
                 </div>
-                <div class="flex items-center gap-2">
-                    <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                        {{ $pendingInbounds->count() }} Barang Masuk
-                    </span>
-                    <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
-                        {{ $pendingOutbounds->count() }} Barang Keluar
-                    </span>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="inline-flex p-1 bg-[#181C20] rounded-xl border border-[#343A40]">
+                        <button type="button" onclick="switchStaffStation('inbound')" id="btn-station-inbound"
+                            class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#202429] text-emerald-400 border border-emerald-500/30 shadow-xs transition cursor-pointer">
+                            <span>1. Barang Masuk</span>
+                            <span class="px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-[10px] font-mono font-bold">{{ $pendingInbounds->count() }}</span>
+                        </button>
+                        <button type="button" onclick="switchStaffStation('outbound')" id="btn-station-outbound"
+                            class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] border border-transparent transition cursor-pointer">
+                            <span>2. Barang Keluar</span>
+                            <span class="px-1.5 py-0.5 rounded-md bg-[#343A40] text-[10px] font-mono font-bold text-[#F5F5F5]">{{ $pendingOutbounds->count() }}</span>
+                        </button>
+                    </div>
+
+                    <div class="relative">
+                        <input type="text" id="staffStationSearch" onkeyup="filterStaffStationTasks()" placeholder="Cari rak, SKU, produk..."
+                            class="w-48 sm:w-56 pl-8 pr-3 py-1.5 text-xs bg-[#181C20] border border-[#343A40] rounded-xl text-[#F5F5F5] placeholder-[#A1A1AA]/60 focus:outline-none focus:border-[#F5C842] transition">
+                        <svg class="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-[#A1A1AA] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-6 space-y-6">
-
-                <div class="rounded-xl border border-emerald-500/30 bg-[#181C20] p-4.5">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs font-mono">
-                                {{ $pendingInbounds->count() }}
-                            </span>
-                            <h3 class="font-heading text-base font-semibold text-[#F5F5F5]">1. Barang Masuk yang Tiba di Gudang</h3>
-                        </div>
-                        <span class="text-[11px] text-[#A1A1AA]">Daftar kiriman barang tiba dari supplier untuk penataan fisik ke rak inventaris</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-5">
+                <div class="p-3.5 rounded-xl bg-[#181C20] border border-[#343A40] flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-[#A1A1AA] font-medium block">Total Antrean Sesi</span>
+                        <span id="staffStatTasks" class="text-lg font-heading font-bold text-[#F5F5F5] tabular-nums mt-0.5 block">{{ $pendingInbounds->count() }} Tugas</span>
                     </div>
-
-                    @if($pendingInbounds->isEmpty())
-                    <div class="py-6 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-xl border border-[#343A40]">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-1.5">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        Tidak ada catatan barang masuk yang sedang berlangsung.
+                    <div class="w-8 h-8 rounded-lg bg-[#202429] border border-[#343A40] flex items-center justify-center text-[#F5C842]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
                     </div>
-                    @else
-                    <div class="overflow-x-auto bg-[#202429] rounded-xl border border-[#343A40]">
-                        <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
-                            <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
-                                <tr>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">No. Invoice</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Supplier & Penginput</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Barang & Kategori</th>
-                                    <th class="px-4 py-2.5 text-right font-heading font-semibold">Jumlah Tiba</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Lokasi Rak Simpan</th>
-                                    <th class="px-4 py-2.5 text-center font-heading font-semibold">Status Transaksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-[#343A40]">
-                                @foreach($pendingInbounds as $inTask)
-                                <tr class="hover:bg-[#181C20] transition">
-                                    <td class="px-4 py-3 font-mono font-medium text-[#F5F5F5]">
-                                        <span class="font-semibold text-[#F5F5F5]">
-                                            {{ $inTask->invoice_number }}
-                                        </span>
-                                        <div class="text-[10px] text-[#A1A1AA] font-sans">{{ $inTask->created_at->diffForHumans() }}</div>
-                                    </td>
-                                    <td class="px-4 py-3 text-[#F5F5F5]">
-                                        <div class="font-medium text-[#F5F5F5]">{{ $inTask->supplier?->name ?? 'Supplier Umum' }}</div>
-                                        <div class="text-[10px] text-[#A1A1AA]">Input: {{ $inTask->user?->name ?? 'Staff Gudang' }}</div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <div class="font-medium text-[#F5F5F5]">{{ $inTask->product?->name }}</div>
-                                        <div class="text-[10px] font-mono text-[#A1A1AA]">SKU: {{ $inTask->product?->sku }} &bull; Kategori: {{ $inTask->product?->category?->name ?? '-' }}</div>
-                                    </td>
-                                    <td class="px-4 py-3 text-right">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                                            +{{ number_format($inTask->quantity) }} Unit
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <div class="font-mono text-[11px] text-[#F5C842] font-semibold flex items-center gap-1.5">
-                                            <svg class="w-3.5 h-3.5 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-[#181C20] border border-[#343A40] flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-[#A1A1AA] font-medium block">Volume Fisik Barang</span>
+                        <span id="staffStatVolume" class="text-lg font-heading font-bold text-emerald-400 tabular-nums mt-0.5 block">{{ number_format($pendingInbounds->sum('quantity')) }} Unit</span>
+                    </div>
+                    <div class="w-8 h-8 rounded-lg bg-[#202429] border border-[#343A40] flex items-center justify-center text-emerald-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-[#181C20] border border-[#343A40] flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-[#A1A1AA] font-medium block">Titik Rak Terdistribusi</span>
+                        <span id="staffStatRacks" class="text-lg font-heading font-bold text-[#F5C842] tabular-nums mt-0.5 block">{{ $pendingInbounds->pluck('product.rack_location_id')->filter()->unique()->count() ?: 1 }} Lokasi Rak</span>
+                    </div>
+                    <div class="w-8 h-8 rounded-lg bg-[#202429] border border-[#343A40] flex items-center justify-center text-[#F5C842]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div id="station-panel-inbound" class="space-y-4">
+                <div class="flex items-center justify-between pb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <h3 class="font-heading text-sm font-semibold text-[#F5F5F5]">Antrean Penerimaan Barang Tiba (Putaway)</h3>
+                    </div>
+                    <span class="text-[11px] text-[#A1A1AA]">Susun barang ke rak penyimpanan sesuai petunjuk kolom rak</span>
+                </div>
+
+                @if($pendingInbounds->isEmpty())
+                <div class="py-10 text-center text-xs text-[#A1A1AA] bg-[#181C20] rounded-xl border border-[#343A40]">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    Tidak ada antrean kiriman barang masuk saat ini.
+                </div>
+                @else
+                <div class="overflow-x-auto bg-[#181C20] rounded-xl border border-[#343A40]">
+                    <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums" id="table-inbound">
+                        <thead class="text-[10px] text-[#F5F5F5] uppercase tracking-wider bg-[#101214] border-b border-[#343A40]">
+                            <tr>
+                                <th class="px-4 py-3 font-heading font-semibold">Lokasi Rak Simpan</th>
+                                <th class="px-4 py-3 font-heading font-semibold">Barang & SKU</th>
+                                <th class="px-4 py-3 text-right font-heading font-semibold">Jumlah Tiba</th>
+                                <th class="px-4 py-3 font-heading font-semibold">No. Invoice & Waktu</th>
+                                <th class="px-4 py-3 font-heading font-semibold">Supplier / Asal</th>
+                                <th class="px-4 py-3 text-center font-heading font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#343A40]">
+                            @foreach($pendingInbounds as $inTask)
+                            <tr class="hover:bg-[#202429] transition task-row" data-search="{{ strtolower(($inTask->product?->rackLocation?->name ?? 'rak utama') . ' ' . $inTask->product?->name . ' ' . $inTask->product?->sku . ' ' . $inTask->invoice_number . ' ' . ($inTask->supplier?->name ?? '')) }}">
+                                <td class="px-4 py-3.5">
+                                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#202429] border border-[#F5C842]/40 text-[#F5C842] font-mono text-[11px] font-bold shadow-xs">
+                                        <svg class="w-3.5 h-3.5 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                        </svg>
+                                        <span>{{ $inTask->product?->rackLocation?->name ?? 'Rak Utama' }}</span>
+                                    </div>
+                                    <div class="text-[10px] text-[#A1A1AA] mt-1">{{ $inTask->notes ?: 'Kiriman Masuk' }}</div>
+                                </td>
+                                <td class="px-4 py-3.5">
+                                    <div class="font-heading font-semibold text-sm text-[#F5F5F5]">{{ $inTask->product?->name }}</div>
+                                    <div class="text-[10px] font-mono text-[#A1A1AA] mt-0.5">
+                                        SKU: <span class="text-[#F5F5F5] font-semibold">{{ $inTask->product?->sku }}</span> &bull; {{ $inTask->product?->category?->name ?? 'Kategori Umum' }}
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3.5 text-right">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                                        +{{ number_format($inTask->quantity) }} Unit
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3.5 font-mono">
+                                    <span class="text-xs font-semibold text-[#F5F5F5] block">{{ $inTask->invoice_number }}</span>
+                                    <span class="text-[10px] text-[#A1A1AA] font-sans block mt-0.5">{{ $inTask->created_at->diffForHumans() }}</span>
+                                </td>
+                                <td class="px-4 py-3.5 text-[#F5F5F5]">
+                                    <div class="font-medium">{{ $inTask->supplier?->name ?? 'Supplier Umum' }}</div>
+                                    <div class="text-[10px] text-[#A1A1AA]">Pencatat: {{ $inTask->user?->name ?? 'Petugas Logistik' }}</div>
+                                </td>
+                                <td class="px-4 py-3.5 text-center">
+                                    <div class="relative inline-block w-44 text-left">
+                                        <select onchange="updateStaffTaskStatus(this, 'in_{{ $inTask->id }}', '{{ $inTask->invoice_number }}')" 
+                                            data-task-id="in_{{ $inTask->id }}"
+                                            class="staff-status-select w-full py-1.5 pl-2.5 pr-7 text-[11px] font-semibold rounded-lg bg-[#202429] border border-[#343A40] text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]/30 transition appearance-none cursor-pointer">
+                                            <option value="menunggu_bongkar" class="bg-[#181C20] text-[#A1A1AA]">Menunggu Bongkar</option>
+                                            <option value="pemeriksaan_fisik" class="bg-[#181C20] text-sky-400">Pemeriksaan Fisik (QC)</option>
+                                            <option value="sedang_masuk_rak" class="bg-[#181C20] text-[#F5C842]">Sedang Ditata ke Rak</option>
+                                            <option value="selesai_masuk_rak" class="bg-[#181C20] text-emerald-400">Selesai Masuk Rak</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-[#A1A1AA]">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                             </svg>
-                                            <span>{{ $inTask->product?->rackLocation?->name ?? 'Rak Utama Gudang' }}</span>
                                         </div>
-                                        <div class="text-[10px] text-[#A1A1AA]">{{ $inTask->notes ?: 'Penerimaan supplier' }}</div>
-                                    </td>
-                                    <td class="px-4 py-3 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                                            Disetujui Admin
-                                        </span>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    @endif
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-
-                <div class="rounded-xl border border-[#F5C842]/30 bg-[#181C20] p-4.5">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="flex items-center gap-2.5">
-                            <span class="w-6 h-6 rounded-lg bg-[#F5C842]/15 text-[#F5C842] flex items-center justify-center font-bold text-xs font-mono border border-[#F5C842]/30">
-                                {{ $pendingOutbounds->count() }}
-                            </span>
-                            <h3 class="font-heading text-base font-semibold text-[#F5F5F5]">2. Barang Keluar yang Perlu Disiapkan</h3>
-                        </div>
-                        <span class="text-[11px] text-[#A1A1AA]">Ambil barang dari rak gudang untuk disiapkan sesuai dokumen pengeluaran barang</span>
-                    </div>
-
-                    @if($pendingOutbounds->isEmpty())
-                    <div class="py-6 text-center text-xs text-[#A1A1AA] bg-[#202429] rounded-xl border border-[#343A40]">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-1.5">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        Seluruh barang keluar telah selesai disiapkan. Tidak ada antrean pengeluaran pending.
-                    </div>
-                    @else
-                    <div class="overflow-x-auto bg-[#202429] rounded-xl border border-[#343A40]">
-                        <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums">
-                            <thead class="text-[11px] text-[#F5F5F5] uppercase tracking-wider bg-[#181C20] border-b border-[#343A40]">
-                                <tr>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">No. Invoice / Transaksi</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Operator / Pemohon</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Barang & Lokasi Rak</th>
-                                    <th class="px-4 py-2.5 text-right font-heading font-semibold">Jumlah Keluar</th>
-                                    <th class="px-4 py-2.5 font-heading font-semibold">Catatan / Keperluan</th>
-                                    <th class="px-4 py-2.5 text-center font-heading font-semibold">Status Transaksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-[#343A40]">
-
-                                @foreach($pendingOutbounds as $outTask)
-                                <tr class="hover:bg-[#181C20] transition">
-                                    <td class="px-4 py-3 font-mono font-medium text-[#F5F5F5]">
-                                        <span class="font-semibold text-[#F5F5F5]">
-                                            {{ $outTask->invoice_number }}
-                                        </span>
-                                        <div class="text-[10px] text-[#A1A1AA] font-sans">{{ $outTask->created_at->diffForHumans() }}</div>
-                                    </td>
-                                    <td class="px-4 py-3 text-[#F5F5F5]">
-                                        <div class="font-medium text-[#F5F5F5]">{{ $outTask->user?->name ?? 'Staff Gudang' }}</div>
-                                        <div class="text-[10px] text-[#A1A1AA]">Distribusi / Pesanan</div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <div class="font-medium text-[#F5F5F5]">{{ $outTask->product?->name }}</div>
-                                        <div class="text-[10px] font-mono text-[#F5C842]">
-                                            Rak: {{ $outTask->product?->rackLocation?->name ?? 'Rak Utama' }} &bull; SKU: {{ $outTask->product?->sku }}
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3 text-right">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
-                                            -{{ number_format($outTask->quantity) }} Unit
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-3 text-[#A1A1AA] max-w-[200px] truncate">
-                                        {{ $outTask->notes ?: 'Distribusi / Pengeluaran Toko' }}
-                                    </td>
-                                    <td class="px-4 py-3 text-center">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
-                                            Disetujui Admin &bull; Siap Packing
-                                        </span>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    @endif
-                </div>
-
+                @endif
             </div>
+
+            <div id="station-panel-outbound" class="hidden space-y-4">
+                <div class="flex items-center justify-between pb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-[#F5C842]"></span>
+                        <h3 class="font-heading text-sm font-semibold text-[#F5F5F5]">Antrean Pengambilan Barang Keluar (Picking & Packing)</h3>
+                    </div>
+                    <span class="text-[11px] text-[#A1A1AA]">Ambil barang dari rak fisik sesuai kuantitas sebelum proses packing</span>
+                </div>
+
+                @if($pendingOutbounds->isEmpty())
+                <div class="py-10 text-center text-xs text-[#A1A1AA] bg-[#181C20] rounded-xl border border-[#343A40]">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    Tidak ada antrean pengeluaran barang saat ini. Seluruh pesanan telah diproses.
+                </div>
+                @else
+                <div class="overflow-x-auto bg-[#181C20] rounded-xl border border-[#343A40]">
+                    <table class="w-full text-xs text-left text-[#A1A1AA] tabular-nums" id="table-outbound">
+                        <thead class="text-[10px] text-[#F5F5F5] uppercase tracking-wider bg-[#101214] border-b border-[#343A40]">
+                            <tr>
+                                <th class="px-4 py-3 font-heading font-semibold">Ambil Dari Rak</th>
+                                <th class="px-4 py-3 font-heading font-semibold">Barang & SKU</th>
+                                <th class="px-4 py-3 text-right font-heading font-semibold">Jumlah Ambil</th>
+                                <th class="px-4 py-3 font-heading font-semibold">No. Invoice & Waktu</th>
+                                <th class="px-4 py-3 font-heading font-semibold">Keperluan / Catatan</th>
+                                <th class="px-4 py-3 text-center font-heading font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#343A40]">
+                            @foreach($pendingOutbounds as $outTask)
+                            <tr class="hover:bg-[#202429] transition task-row" data-search="{{ strtolower(($outTask->product?->rackLocation?->name ?? 'rak utama') . ' ' . $outTask->product?->name . ' ' . $outTask->product?->sku . ' ' . $outTask->invoice_number . ' ' . ($outTask->notes ?? '')) }}">
+                                <td class="px-4 py-3.5">
+                                    <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#202429] border border-[#F5C842]/40 text-[#F5C842] font-mono text-[11px] font-bold shadow-xs">
+                                        <svg class="w-3.5 h-3.5 text-[#F5C842]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                        </svg>
+                                        <span>{{ $outTask->product?->rackLocation?->name ?? 'Rak Utama' }}</span>
+                                    </div>
+                                    <div class="text-[10px] text-[#A1A1AA] mt-1">Stok Tersedia: {{ $outTask->product?->stock ?? 0 }} Unit</div>
+                                </td>
+                                <td class="px-4 py-3.5">
+                                    <div class="font-heading font-semibold text-sm text-[#F5F5F5]">{{ $outTask->product?->name }}</div>
+                                    <div class="text-[10px] font-mono text-[#A1A1AA] mt-0.5">
+                                        SKU: <span class="text-[#F5F5F5] font-semibold">{{ $outTask->product?->sku }}</span> &bull; {{ $outTask->product?->category?->name ?? 'Kategori Umum' }}
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3.5 text-right">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold bg-[#F5C842]/15 text-[#F5C842] border border-[#F5C842]/30">
+                                        -{{ number_format($outTask->quantity) }} Unit
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3.5 font-mono">
+                                    <span class="text-xs font-semibold text-[#F5F5F5] block">{{ $outTask->invoice_number }}</span>
+                                    <span class="text-[10px] text-[#A1A1AA] font-sans block mt-0.5">{{ $outTask->created_at->diffForHumans() }}</span>
+                                </td>
+                                <td class="px-4 py-3.5 text-[#A1A1AA] max-w-[220px]">
+                                    <div class="truncate text-[#F5F5F5] text-xs font-medium">{{ $outTask->notes ?: 'Distribusi / Pengeluaran Toko' }}</div>
+                                    <div class="text-[10px] text-[#A1A1AA] mt-0.5">Pemohon: {{ $outTask->user?->name ?? 'Petugas Logistik' }}</div>
+                                </td>
+                                <td class="px-4 py-3.5 text-center">
+                                    <div class="relative inline-block w-44 text-left">
+                                        <select onchange="updateStaffTaskStatus(this, 'out_{{ $outTask->id }}', '{{ $outTask->invoice_number }}')" 
+                                            data-task-id="out_{{ $outTask->id }}"
+                                            class="staff-status-select w-full py-1.5 pl-2.5 pr-7 text-[11px] font-semibold rounded-lg bg-[#202429] border border-[#343A40] text-[#F5F5F5] focus:outline-none focus:border-[#F5C842] focus:ring-1 focus:ring-[#F5C842]/30 transition appearance-none cursor-pointer">
+                                            <option value="menunggu_ambil" class="bg-[#181C20] text-[#A1A1AA]">Menunggu Ambil</option>
+                                            <option value="sedang_ambil" class="bg-[#181C20] text-sky-400">Sedang Diambil dari Rak</option>
+                                            <option value="sedang_packing" class="bg-[#181C20] text-[#F5C842]">Sedang Pengepakan (Packing)</option>
+                                            <option value="selesai_siap_kirim" class="bg-[#181C20] text-emerald-400">Selesai Siap Kirim</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-[#A1A1AA]">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @endif
+            </div>
+
         </div>
 
     </div>
@@ -588,7 +661,6 @@
                 return;
             }
 
-            // 1. Chart Tren Mutasi 7 Hari Terakhir
             const mutationEl = document.querySelector("#mutation-trend-chart");
             if (mutationEl) {
                 const dates = JSON.parse(mutationEl.dataset.dates || '[]');
@@ -678,7 +750,6 @@
                 new ApexCharts(mutationEl, mutationTrendOptions).render();
             }
 
-            // 2. Chart Komposisi Kategori
             const catEl = document.querySelector("#category-distribution-chart");
             if (catEl) {
                 const catLabels = JSON.parse(catEl.dataset.labels || '[]');
@@ -725,6 +796,115 @@
         };
 
         initCharts();
+    });
+
+    window.currentStaffStation = 'inbound';
+    window.switchStaffStation = function(station) {
+        window.currentStaffStation = station;
+        const panelIn = document.getElementById('station-panel-inbound');
+        const panelOut = document.getElementById('station-panel-outbound');
+        const btnIn = document.getElementById('btn-station-inbound');
+        const btnOut = document.getElementById('btn-station-outbound');
+        const statTasks = document.getElementById('staffStatTasks');
+        const statVol = document.getElementById('staffStatVolume');
+        const statRacks = document.getElementById('staffStatRacks');
+
+        if (!panelIn || !panelOut) return;
+
+        if (station === 'inbound') {
+            panelIn.classList.remove('hidden');
+            panelOut.classList.add('hidden');
+            if (btnIn) btnIn.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#202429] text-emerald-400 border border-emerald-500/30 shadow-xs transition cursor-pointer';
+            if (btnOut) btnOut.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] border border-transparent transition cursor-pointer';
+            if (statTasks) statTasks.textContent = '{{ $pendingInbounds->count() }} Tugas';
+            if (statVol) {
+                statVol.textContent = '{{ number_format($pendingInbounds->sum("quantity")) }} Unit';
+                statVol.className = 'text-lg font-heading font-bold text-emerald-400 tabular-nums mt-0.5 block';
+            }
+            if (statRacks) statRacks.textContent = '{{ $pendingInbounds->pluck("product.rack_location_id")->filter()->unique()->count() ?: 1 }} Lokasi Rak';
+        } else {
+            panelIn.classList.add('hidden');
+            panelOut.classList.remove('hidden');
+            if (btnIn) btnIn.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#A1A1AA] hover:text-[#F5F5F5] border border-transparent transition cursor-pointer';
+            if (btnOut) btnOut.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-[#202429] text-[#F5C842] border border-[#F5C842]/30 shadow-xs transition cursor-pointer';
+            if (statTasks) statTasks.textContent = '{{ $pendingOutbounds->count() }} Tugas';
+            if (statVol) {
+                statVol.textContent = '{{ number_format($pendingOutbounds->sum("quantity")) }} Unit';
+                statVol.className = 'text-lg font-heading font-bold text-[#F5C842] tabular-nums mt-0.5 block';
+            }
+            if (statRacks) statRacks.textContent = '{{ $pendingOutbounds->pluck("product.rack_location_id")->filter()->unique()->count() ?: 1 }} Lokasi Rak';
+        }
+        window.filterStaffStationTasks();
+    };
+
+    window.filterStaffStationTasks = function() {
+        const searchInput = document.getElementById('staffStationSearch');
+        const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+        const activeTableId = (window.currentStaffStation === 'inbound') ? 'table-inbound' : 'table-outbound';
+        const table = document.getElementById(activeTableId);
+        if (!table) return;
+
+        const rows = table.querySelectorAll('tbody tr.task-row');
+        rows.forEach(row => {
+            const searchData = row.getAttribute('data-search') || '';
+            if (!query || searchData.includes(query)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    };
+
+    function applyStaffSelectStyle(select) {
+        if (!select) return;
+        const val = select.value;
+        select.classList.remove('text-[#A1A1AA]', 'text-sky-400', 'text-[#F5C842]', 'text-emerald-400', 'border-[#343A40]', 'border-sky-500/40', 'border-[#F5C842]/40', 'border-emerald-500/40', 'bg-sky-500/10', 'bg-[#F5C842]/10', 'bg-emerald-500/10', 'bg-[#202429]');
+
+        if (val === 'menunggu_bongkar' || val === 'menunggu_ambil') {
+            select.classList.add('bg-[#202429]', 'border-[#343A40]', 'text-[#A1A1AA]');
+        } else if (val === 'pemeriksaan_fisik' || val === 'sedang_ambil') {
+            select.classList.add('bg-sky-500/10', 'border-sky-500/40', 'text-sky-400');
+        } else if (val === 'sedang_masuk_rak' || val === 'sedang_packing') {
+            select.classList.add('bg-[#F5C842]/10', 'border-[#F5C842]/40', 'text-[#F5C842]');
+        } else if (val === 'selesai_masuk_rak' || val === 'selesai_siap_kirim') {
+            select.classList.add('bg-emerald-500/10', 'border-emerald-500/40', 'text-emerald-400');
+        } else {
+            select.classList.add('bg-[#202429]', 'border-[#343A40]', 'text-[#F5F5F5]');
+        }
+    }
+
+    function showStaffStatusToast(message) {
+        let toast = document.getElementById('staffStatusToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'staffStatusToast';
+            toast.className = 'fixed bottom-5 right-5 z-50 transform transition-all duration-300 translate-y-20 opacity-0 pointer-events-none bg-[#181C20] border border-[#343A40] text-[#F5F5F5] px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2.5 text-xs';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = '<span class="w-2 h-2 rounded-full bg-[#F5C842]"></span><span>' + message + '</span>';
+        toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+        clearTimeout(window.staffToastTimeout);
+        window.staffToastTimeout = setTimeout(() => {
+            toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        }, 2500);
+    }
+
+    window.updateStaffTaskStatus = function(selectEl, taskId, invoiceNumber) {
+        localStorage.setItem('staff_status_' + taskId, selectEl.value);
+        applyStaffSelectStyle(selectEl);
+        const selectedText = selectEl.options[selectEl.selectedIndex].text;
+        showStaffStatusToast(invoiceNumber + ': status ditetapkan ke "' + selectedText + '"');
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.staff-status-select').forEach(select => {
+            const taskId = select.getAttribute('data-task-id');
+            const saved = localStorage.getItem('staff_status_' + taskId);
+            if (saved) {
+                select.value = saved;
+            }
+            applyStaffSelectStyle(select);
+        });
     });
 </script>
 @endpush

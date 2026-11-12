@@ -1,8 +1,6 @@
-﻿<nav class="fixed z-50 w-full bg-[#181C20] border-b border-[#343A40] shadow-[0_1px_2px_0_rgba(0,0,0,0.3)]">
-    <div class="px-5 py-3">
-        <div class="flex items-center justify-between">
-            
-            <div class="flex items-center gap-3">
+<nav class="fixed top-0 left-0 z-50 w-full h-16 bg-[#181C20] border-b border-[#343A40] shadow-[0_1px_2px_0_rgba(0,0,0,0.3)]">
+    <div class="px-5 h-full flex items-center justify-between">
+        <div class="flex items-center gap-3">
                 <button id="toggleSidebarMobile" type="button" aria-expanded="false" aria-controls="sidebar" 
                     class="p-2 text-[#A1A1AA] rounded-lg lg:hidden hover:text-[#F5F5F5] hover:bg-[#2A3036] focus:outline-none focus:ring-1 focus:ring-[#F5C842]"
                     title="Buka Menu Navigasi">
@@ -133,8 +131,6 @@
                     </div>
                 @endauth
             </div>
-
-        </div>
     </div>
 </nav>
 

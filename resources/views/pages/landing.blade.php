@@ -1,4 +1,4 @@
-﻿@php
+@php
 $landingAppName = \App\Models\Setting::get('app_name', 'Stockify');
 $landingAppTagline = \App\Models\Setting::get('app_tagline', 'Warehouse Management System');
 $landingAppLogo = \App\Models\Setting::get('app_logo');
